@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who could sign | Vurell</title>
+<meta name="description" content="Paste your last 20 recipients. Get the number who could sign without asking anybody, and a verdict per line. Runs in your browser, sends nothing anywhere.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Who could sign | Vurell">
+<meta property="og:description" content="Paste your last 20 recipients. Get the number who could sign without asking anybody, and a verdict per line.">
+<style>
+:root {
+  --ink: #16181d;
+  --bg: #ffffff;
+  --link: #1a4fb4;
+  --rule: #d7dae0;
+  --soft: #f4f5f7;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e9eaee;
+    --bg: #16181d;
+    --link: #8ab0ff;
+    --rule: #33363d;
+    --soft: #1e2128;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+main {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 2rem;
+}
+section { margin: 0 0 2.75rem; }
+.lede { font-size: 1.05rem; margin: 0.9rem 0 0; }
+h1 {
+  font-size: 1.65rem;
+  line-height: 1.3;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+h2 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin: 0 0 0.75rem;
+}
+p { margin: 0 0 1rem; }
+p:last-child { margin-bottom: 0; }
+a { color: var(--link); }
+a:hover { text-decoration: none; }
+.cta {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.7rem 1.15rem;
+  border: 1px solid var(--link);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--link);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.cta:hover { background: var(--link); color: var(--bg); }
+label { display: block; font-size: 0.86rem; margin: 0 0 0.4rem; }
+textarea {
+  width: 100%;
+  min-height: 19rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--soft);
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.83rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+ol { margin: 0; padding-left: 1.2rem; }
+ol li { margin: 0 0 0.55rem; }
+.rules { font-size: 0.93rem; }
+.count { font-size: 1.2rem; font-weight: 600; margin: 0 0 0.35rem; }
+.tally { font-size: 0.86rem; margin: 0 0 1.2rem; }
+.rows { list-style: none; margin: 0; padding: 0; font-size: 0.93rem; }
+.rows li {
+  margin: 0 0 0.7rem;
+  padding: 0 0 0.7rem 0.75rem;
+  border-left: 3px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.rows li:last-child { border-bottom: 0; }
+.rows li.sign { border-left-color: var(--link); }
+.v { font-weight: 600; }
+.src {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.82rem;
+  display: block;
+  opacity: 0.75;
+}
+.why { display: block; margin-top: 0.15rem; }
+.note { font-size: 0.86rem; }
+footer {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem 3rem;
+  border-top: 1px solid var(--ink);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+footer p { margin: 0 0 0.7rem; }
+footer p:last-child { margin-bottom: 0; }
+@media (max-width: 420px) {
+  body { font-size: 16px; }
+  main { padding: 2rem 1rem 1.5rem; }
+  h1 { font-size: 1.4rem; }
+  textarea { font-size: 0.8rem; min-height: 16rem; }
+  footer { padding: 1.5rem 1rem 2.5rem; }
+}
+@media (min-width: 1100px) {
+  main { padding-top: 4.5rem; }
+}
+</style>
+<!--
+  Cloudflare Web Analytics (cookieless, no banner). Paste the real token and
+  uncomment ONLY after the operator's Cloudflare account exists and the Pages
+  project is created; until then this page makes zero external requests.
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "REPLACE_WITH_TOKEN"}'></script>
+-->
+</head>
+<body>
+<main>
+
+<section id="back">
+  <p><a href="../">Back to vurell.com</a></p>
+</section>
+
+<section id="intro">
+  <h1>Who could sign</h1>
+  <p class="lede">Paste your last 20 recipients, one per line: title, company, and a note if you have one. You get the number who could sign without asking anybody, and a verdict on every line.</p>
+  <p class="note">It runs inside this page. Nothing you paste leaves your browser &mdash; no server, no request, nothing stored.</p>
+</section>
+
+<section id="paste">
+  <h2>Your last 20</h2>
+  <label for="lines"><strong>Example rows, invented</strong> &mdash; these are not real people. Delete them and paste your own: <code>title, company, optional note</code>.</label>
+  <textarea id="lines" spellcheck="false" aria-describedby="rules-h">Founder, Northbeam Instruments
+Co-Founder &amp; CTO, Kelpline Systems
+CEO, Harrow &amp; Pike (18 people)
+Head of Growth, Northbeam Instruments
+VP Marketing, Continental Fabrics (4,000 employees)
+Geschäftsführer, Brennweite GmbH
+Oprichter, Stroomlijn BV
+Managing Director, Quillon Partners (12 people)
+Head of Engineering, Sable Freight (900 employees)
+Director, Pale Fox Studio
+Marketing Manager, Ashgrove Dairy
+Community Coordinator, Riverbend Collective
+Data Analyst, Halberd Logistics
+Product Design Intern, Kelpline Systems
+Owner, Two Kettles Consultancy
+Principal, Vantage Rock Advisors
+Head of Product, Sable Freight (900 employees)
+Head of Operations, Kestrel Tooling (22 people)
+VP Business Development, Harrow &amp; Pike (18 people)
+linkedin.com/in/someone-i-met-at-a-meetup</textarea>
+  <p><button type="button" class="cta" id="go">Count</button></p>
+</section>
+
+<section id="result" hidden aria-live="polite">
+  <h2>Result</h2>
+  <p class="count" id="count"></p>
+  <p class="tally" id="tally"></p>
+  <ul class="rows" id="rows"></ul>
+</section>
+
+<section id="rules">
+  <h2 id="rules-h">The rules, in the order they run</h2>
+  <ol class="rules">
+    <li>A line with nothing on it that reads as a title is <strong>cannot tell, needs a read</strong>. Nothing is guessed.</li>
+    <li>If any line in your list carries a <strong>sales or business-development title at the same company</strong>, every line at that company is <strong>cannot sign alone</strong> &mdash; including the sales line itself. Somebody there already owns the sale.</li>
+    <li>An owner title signs: <strong>Founder, Co-Founder, CEO, Owner, Managing Director, Managing Partner, Geschäftsführer, Gründer, Oprichter, President, Partner, Principal</strong>. If the company reads as an agency, consultancy or studio, the verdict is <strong>studio</strong> &mdash; they can still sign, they just sell services to other people too.</li>
+    <li><strong>Cannot sign alone</strong>: marketing, growth, content, community, design and engineering titles, and Manager, Coordinator, Specialist, Analyst, Intern, Student, Assistant, Associate, Trainee.</li>
+    <li><strong>VP or Head at a company over about 200 people</strong>, when the line gives a headcount: cannot sign alone. The signature is upstairs.</li>
+    <li><strong>Head of a firm under about 50 people</strong>, when the line gives a headcount: can sign &mdash; at that size the head is the company. <strong>Director at an agency, consultancy or studio</strong>: studio.</li>
+    <li>Anything left over is <strong>cannot tell, needs a read</strong>.</li>
+  </ol>
+</section>
+
+<section id="honest">
+  <h2>What this is not</h2>
+  <p>This is a <strong>title read, not a person read.</strong> It reads the words you pasted and nothing else. It does not open a profile, it does not know who holds the budget, and a title is wrong often enough that the number here is a floor, not a fact.</p>
+  <p>The paid rung reads the person: the profile, the company page and the last things they wrote, under written gates, with the quoted line that decided it.</p>
+</section>
+
+<section id="next">
+  <p><strong>Who has it now</strong> &mdash; twenty named people who can sign and have the problem today, each with the quoted evidence, delivered as a private git repository you own. <a href="../#ladder">See the ladder</a>.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>Vurell. Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France. miro@vurell.com. One person and a set of AI agents. Every message read by a person before it goes.</p>
+  <p>If I wrote to you and you want it to stop, reply stop and I delete the record.</p>
+</footer>
+
+<script>
+/* ===== count-rules:begin =====================================================
+   The whole rulebook. departments/commercial/tools/selftest_ladder_tools.py
+   slices this exact block out of this file and runs it under node, so what is
+   tested is what ships. Nothing in the block touches the DOM or the network.
+   ========================================================================== */
+
+function fold(s) {
+  return String(s == null ? '' : s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+}
+
+function hit(text, words) {
+  var t = fold(text);
+  for (var i = 0; i < words.length; i++) {
+    if (new RegExp('(?:^|[^a-z0-9])(?:' + words[i] + ')(?:[^a-z0-9]|$)').test(t)) return words[i];
+  }
+  return null;
+}
+
+var OWNER = ['founders?', 'co-?founders?', 'mede-?oprichters?', 'ceo', 'chief executive( officer)?',
+  'owner', 'proprietor', 'inhaber', 'managing director', 'managing partner', 'geschaftsfuhrer(in)?',
+  'geschaeftsfuehrer(in)?', 'grunder(in)?', 'gruender(in)?', 'oprichter', 'president',
+  'zaakvoerder', 'partner', 'principal', 'sole trader'];
+
+var BLOCKED = ['marketing', 'growth', 'content', 'community', 'design', 'designer', 'engineering',
+  'engineer', 'manager', 'managers', 'coordinator', 'specialist', 'analyst', 'intern', 'interns',
+  'internship', 'student', 'assistant', 'associate', 'trainee', 'apprentice', 'recruiter'];
+
+var SALES = ['sales', 'account executive', 'business development', 'bizdev', 'biz dev', 'bd',
+  'ae', 'sdr', 'bdr', 'cro', 'chief revenue officer', 'revenue', 'partnerships',
+  'commercial director', 'go-?to-?market', 'gtm'];
+
+var STUDIO = ['agency', 'agencies', 'agentur', 'consultancy', 'consultancies', 'consulting',
+  'studio', 'studios', 'atelier', 'bureau', 'design shop', 'dev shop', 'creative partner'];
+
+var HEADISH = ['head', 'head of', 'vp', 'v\\.p\\.', 'vice president', 'svp', 'evp'];
+
+var BIG = 200;
+var SMALL = 50;
+
+function splitLine(raw) {
+  var line = String(raw == null ? '' : raw).replace(/\s+/g, ' ').trim();
+  var title = line, rest = '';
+  var m = line.match(/^([^,]+),\s*(.*)$/);
+  if (m) { title = m[1]; rest = m[2]; }
+  else {
+    var a = line.match(/^(.*?)\s+(?:at|@|bij|bei|chez|presso)\s+(.*)$/i);
+    if (a) { title = a[1]; rest = a[2]; }
+  }
+  var company = rest.replace(/\(.*$/, '').replace(/[.;]+$/, '').trim();
+  return { line: line, title: title.trim(), company: company, rest: rest.trim() };
+}
+
+function num(s) { return parseInt(String(s).replace(/[.,\s]/g, ''), 10); }
+
+function sizeOf(line) {
+  var t = fold(line);
+  var unit = '(?:\\+\\s*)?(?:people|persons?|employees?|staff|heads?|headcount|ftes?|pax|seats?)';
+  var r = t.match(new RegExp('(\\d[\\d.,]*)\\s*(?:-|to|–)\\s*(\\d[\\d.,]*)\\s*' + unit));
+  if (r) return Math.max(num(r[1]), num(r[2]));
+  var one = t.match(new RegExp('(\\d[\\d.,]*)\\s*' + unit));
+  if (one) return num(one[1]);
+  var team = t.match(/\bteam of\s*(\d[\d.,]*)/);
+  if (team) return num(team[1]);
+  var dash = t.match(/\b(\d[\d.,]*)\s*-\s*(?:person|people)\b/);
+  if (dash) return num(dash[1]);
+  return null;
+}
+
+function companyKey(c) {
+  return fold(c)
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/(?:^|\s)(?:ltd|limited|inc|llc|gmbh|bv|sa|ag|oy|ab|as|nv|plc|co|company|the)(?=\s|$)/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/* Takes an array of raw lines, returns one verdict object per non-empty line.
+   verdict is one of: 'can sign', 'studio', 'cannot sign alone',
+   'cannot tell, needs a read'. */
+function countWhoCouldSign(rawLines) {
+  var parsed = [];
+  for (var i = 0; i < rawLines.length; i++) {
+    var p = splitLine(rawLines[i]);
+    if (!p.line) continue;
+    p.n = parsed.length + 1;
+    p.size = sizeOf(p.line);
+    p.key = companyKey(p.company);
+    p.studio = !!hit(p.company + ' ' + p.rest + ' ' + p.title, STUDIO);
+    p.salesTitle = !!hit(p.title, SALES);
+    parsed.push(p);
+  }
+
+  var salesAt = {};
+  for (var j = 0; j < parsed.length; j++) {
+    if (parsed[j].salesTitle && parsed[j].key) {
+      if (!salesAt[parsed[j].key]) salesAt[parsed[j].key] = [];
+      salesAt[parsed[j].key].push(parsed[j].n);
+    }
+  }
+
+  var out = [];
+  for (var k = 0; k < parsed.length; k++) out.push(verdictFor(parsed[k], salesAt));
+  return out;
+}
+
+function verdictFor(p, salesAt) {
+  var res = { n: p.n, line: p.line, title: p.title, company: p.company, size: p.size };
+  var t = fold(p.title);
+  var isDirector = /(?:^|[^a-z])director(?:[^a-z]|$)/.test(t);
+
+  /* 1. nothing on the line that reads as a title */
+  if (!/[a-z]{2}/.test(t) ||
+      (!p.company && !hit(p.title, OWNER) && !hit(p.title, BLOCKED) &&
+       !hit(p.title, HEADISH) && !hit(p.title, SALES) && !isDirector)) {
+    res.rule = 1;
+    res.verdict = 'cannot tell, needs a read';
+    res.why = 'Nothing on this line reads as a title at a company.';
+    return res;
+  }
+
+  /* 2. a sales or BD title at the same company, anywhere in the list */
+  var s = p.key ? salesAt[p.key] : null;
+  if (s && s.length) {
+    var others = s.filter(function (x) { return x !== p.n; });
+    res.rule = 2;
+    res.verdict = 'cannot sign alone';
+    res.why = others.length
+      ? (p.company || 'That company') + ' also appears on line ' + others.join(' and ') +
+        ' with a sales title. Somebody there already owns the sale.'
+      : 'A sales or business-development seat at ' + (p.company || 'that company') +
+        '. It carries the quota; it does not own the signature.';
+    return res;
+  }
+
+  /* 3. an owner title */
+  if (hit(p.title, OWNER)) {
+    res.rule = 3;
+    if (p.studio) {
+      res.verdict = 'studio';
+      res.why = 'Owns the shop. A services firm can sign for itself, and it sells to other people too.';
+    } else {
+      res.verdict = 'can sign';
+      res.why = 'An owner title. It signs without asking anybody.';
+    }
+    return res;
+  }
+
+  /* 4. a seat that spends somebody else's budget */
+  var blocked = hit(p.title, BLOCKED);
+  if (blocked) {
+    res.rule = 4;
+    res.verdict = 'cannot sign alone';
+    res.why = (/^[aeiou]/.test(blocked) ? 'An ' : 'A ') + blocked +
+      ' seat spends a budget somebody above it owns.';
+    return res;
+  }
+
+  var headish = hit(p.title, HEADISH);
+
+  /* 5. VP or Head at a company over about 200, when the line gives a count */
+  if ((headish || isDirector) && p.size !== null && p.size > BIG) {
+    res.rule = 5;
+    res.verdict = 'cannot sign alone';
+    res.why = 'VP or Head at about ' + p.size + ' people. Over ' + BIG + ', the signature is upstairs.';
+    return res;
+  }
+
+  /* 6. Head of a small firm, or Director at a studio */
+  if (headish && p.size !== null && p.size <= SMALL) {
+    res.rule = 6;
+    res.verdict = 'can sign';
+    res.why = 'Head of a firm of about ' + p.size + '. Under ' + SMALL + ', the head is the company.';
+    return res;
+  }
+  if (isDirector && p.studio) {
+    res.rule = 6;
+    res.verdict = 'studio';
+    res.why = 'Director at a services firm. Runs the shop, and sells services to other people.';
+    return res;
+  }
+
+  /* 7. everything left over */
+  res.rule = 7;
+  res.verdict = 'cannot tell, needs a read';
+  res.why = (headish || isDirector)
+    ? 'A Head or Director title with no company size on the line. Add the headcount, or read the person.'
+    : 'Not a title this page can score. Needs a read.';
+  return res;
+}
+
+function tallyOf(results) {
+  var t = { 'can sign': 0, 'studio': 0, 'cannot sign alone': 0, 'cannot tell, needs a read': 0 };
+  for (var i = 0; i < results.length; i++) t[results[i].verdict]++;
+  t.couldSign = t['can sign'] + t['studio'];
+  t.total = results.length;
+  return t;
+}
+/* ===== count-rules:end ==================================================== */
+
+(function () {
+  var box = document.getElementById('lines');
+  var btn = document.getElementById('go');
+  if (!box || !btn) return;
+
+  btn.addEventListener('click', function () {
+    var results = countWhoCouldSign(box.value.split(/\r?\n/));
+    var t = tallyOf(results);
+
+    document.getElementById('count').textContent =
+      t.couldSign + ' of ' + t.total + ' could sign without asking anybody.';
+    document.getElementById('tally').textContent =
+      t['can sign'] + ' can sign · ' + t['studio'] + ' studio · ' +
+      t['cannot sign alone'] + ' cannot sign alone · ' +
+      t['cannot tell, needs a read'] + ' cannot tell';
+
+    var ul = document.getElementById('rows');
+    while (ul.firstChild) ul.removeChild(ul.firstChild);
+
+    results.forEach(function (r) {
+      var li = document.createElement('li');
+      if (r.verdict === 'can sign' || r.verdict === 'studio') li.className = 'sign';
+
+      var src = document.createElement('span');
+      src.className = 'src';
+      src.textContent = r.n + '. ' + r.line;
+      li.appendChild(src);
+
+      var v = document.createElement('span');
+      v.className = 'v';
+      v.textContent = r.verdict;
+      li.appendChild(v);
+
+      var why = document.createElement('span');
+      why.className = 'why';
+      why.textContent = r.why + ' (rule ' + r.rule + ')';
+      li.appendChild(why);
+
+      ul.appendChild(li);
+    });
+
+    document.getElementById('result').hidden = false;
+  });
+})();
+</script>
+</body>
+</html>
