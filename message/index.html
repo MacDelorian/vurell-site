@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Would it get read · Vurell</title>
+<meta name="description" content="Paste a cold message. Get a verdict per rule, the words that triggered it, and what to change first. Runs in your browser, sends nothing anywhere.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Would it get read · Vurell">
+<meta property="og:description" content="Paste a cold message. Get a verdict per rule, the words that triggered it, and what to change first.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<style>
+@font-face{font-family:"Geist";src:url("../fonts/geist-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("../fonts/geist-mono-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+:root{--ground:#FAFAF9;--ink:#0B0C0E;--muted:#6B7280;--accent:#2F5BFF;--on-accent:#FFFFFF;--card:#FFFFFF;--rule:#E3E3DF;--soft:#F2F2EF;--dot:#CFCFCA;--sign:#0E7A4F;--studio:#8A5A00;--alone:#9B2C2C;--read:#4B5563;--sans:"Geist",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:"Geist Mono","SF Mono","Cascadia Code",Consolas,"Liberation Mono",monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--on-accent:#0B0C0E;--card:#121418;--rule:#262930;--soft:#16181D;--dot:#2A2D33;--sign:#6FCF9C;--studio:#D9B56A;--alone:#E39C9C;--read:#AEB5BF}}
+:root[data-theme="dark"]{--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--on-accent:#0B0C0E;--card:#121418;--rule:#262930;--soft:#16181D;--dot:#2A2D33;--sign:#6FCF9C;--studio:#D9B56A;--alone:#E39C9C;--read:#AEB5BF}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+.wrap{max-width:74rem;margin:0 auto;padding-inline:1rem}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:.16em}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+[id]{scroll-margin-top:4.5rem}
+h1,h2,h3{margin:0;font-weight:600;line-height:1.1;letter-spacing:-.02em}
+h1{font-size:clamp(2.4rem,6vw,4.5rem);line-height:1.02;letter-spacing:-.035em;max-width:17ch}
+h2{font-size:1.6rem;max-width:22ch;letter-spacing:-.025em}
+p{margin:0 0 1rem}
+p:last-child{margin-bottom:0}
+code{font-family:var(--mono);font-size:.9em}
+.eyebrow{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 .9rem}
+.muted{color:var(--muted)}
+.small{font-size:.875rem}
+.mono{font-family:var(--mono)}
+.skip{position:absolute;left:-999px;top:.5rem;background:var(--card);color:var(--ink);padding:.5rem .8rem;border:1px solid var(--rule);border-radius:6px;z-index:50}
+.skip:focus{left:.5rem}
+.top{position:sticky;top:0;z-index:20;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;height:3.6rem;padding:0 1rem;background:color-mix(in srgb,var(--ground) 84%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--rule)}
+.brand{justify-self:start;font-weight:600;font-size:1.05rem;letter-spacing:-.02em;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.brand svg{display:block;height:1.55rem;width:auto}
+.links{display:flex;gap:1.4rem;justify-self:center}
+.links a{color:var(--muted);font-size:.9rem;font-weight:500;white-space:nowrap}
+.links a:hover{color:var(--ink);text-decoration:none}
+.top-cta{display:flex;gap:.5rem;justify-self:end}
+.menu{display:none;justify-self:end}
+.menu summary{list-style:none;cursor:pointer;font-size:.9rem;font-weight:600;padding:.45rem .8rem;border:1px solid var(--rule);border-radius:7px;background:var(--card)}
+.menu summary::-webkit-details-marker{display:none}
+.menu nav{position:absolute;left:0;right:0;top:3.6rem;display:flex;flex-direction:column;padding:.5rem 1rem 1rem;background:var(--card);border-bottom:1px solid var(--rule)}
+.menu nav a{padding:.65rem 0;color:var(--ink);font-weight:500;border-bottom:1px solid var(--rule)}
+.menu nav a.go{color:var(--accent);font-weight:600;border-bottom:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.72rem 1.15rem;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:var(--on-accent);font:inherit;font-size:.95rem;font-weight:600;line-height:1.2;cursor:pointer;white-space:nowrap;text-decoration:none}
+.btn:hover{filter:brightness(1.08);text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.btn.ghost:hover{filter:none;border-color:var(--ink)}
+.btn.sm{padding:.5rem .85rem;font-size:.85rem;border-radius:7px}
+.hero{position:relative;overflow:hidden;padding-block:3.5rem 2.5rem}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--dot) 1px,transparent 1.4px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 85% 95% at 50% 0%,#000 25%,transparent 78%);mask-image:radial-gradient(ellipse 85% 95% at 50% 0%,#000 25%,transparent 78%);pointer-events:none}
+.hero .wrap{position:relative}
+.lede{font-size:1.25rem;line-height:1.4;color:var(--muted);max-width:40ch;margin:1.4rem 0 0}
+.hero-note{font-size:.9rem;line-height:1.5;color:var(--muted);max-width:46ch;margin:1.2rem 0 0}
+.tool{padding-block:1rem 3rem}
+.panel{background:var(--card);border:1px solid var(--rule);border-radius:12px;overflow:hidden;min-width:0}
+.panel+.panel{margin-top:1.25rem}
+.panel-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.5rem 1.5rem;padding:1rem 1.25rem;border-bottom:1px solid var(--rule)}
+.panel-head .eyebrow{margin:0}
+.panel-head .small{margin:0;max-width:60ch}
+.panel-body{padding:1.25rem}
+.define{display:grid;gap:.25rem 2rem;margin:0 0 1.25rem;padding:1rem 1.25rem;border:1px dashed var(--rule);border-radius:12px}
+.define .eyebrow{margin:0 0 .3rem}
+.define p{margin:0}
+.define .small{max-width:70ch}
+label,legend{display:block;font-size:.9rem;color:var(--muted);margin:0 0 .6rem;padding:0}
+label strong{color:var(--ink)}
+.seg{display:flex;flex-wrap:wrap;gap:.4rem;border:0;padding:0;margin:0 0 1.2rem;min-width:0}
+.seg legend{float:left;width:100%}
+.seg label{position:relative;margin:0;cursor:pointer}
+.seg input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.seg span{display:inline-flex;padding:.5rem .85rem;border:1px solid var(--rule);border-radius:7px;background:var(--soft);color:var(--ink);font-size:.85rem;font-weight:600;line-height:1.2}
+.seg input:checked+span{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.seg input:focus-visible+span{outline:2px solid var(--accent);outline-offset:3px}
+.field{margin:0 0 1.2rem}
+input[type=text],textarea{display:block;width:100%;padding:.85rem .95rem;border:1px solid var(--rule);border-radius:8px;background:var(--soft);color:var(--ink);font-family:var(--mono);font-size:.84rem;line-height:1.6}
+textarea{min-height:19rem;resize:vertical}
+input[type=text]:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-color:var(--accent)}
+.actions{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:1rem 0 0}
+.count{font-size:2.2rem;font-weight:600;line-height:1.1;letter-spacing:-.03em;margin:0 0 .4rem}
+.count b{color:var(--accent);font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:.25rem 1.1rem;font-family:var(--mono);font-size:.76rem;margin:0 0 1.25rem}
+.legend span::before{content:"";display:inline-block;width:.5rem;height:.5rem;border-radius:2px;background:currentColor;margin-right:.4rem}
+.v-sign{color:var(--sign)}.v-alone{color:var(--alone)}.v-read{color:var(--read)}
+.first{border:1px solid var(--rule);border-left:3px solid var(--alone);border-radius:8px;background:var(--soft);padding:.9rem 1rem;margin:0 0 1.5rem;max-width:70ch}
+.first.ok{border-left-color:var(--sign)}
+.first .eyebrow{margin:0 0 .35rem}
+.first p{margin:0}
+.chip{display:inline-flex;align-items:center;font-family:var(--mono);font-size:.7rem;line-height:1;padding:.32rem .5rem;border:1px solid color-mix(in srgb,currentColor 35%,transparent);border-radius:999px;white-space:nowrap;background:color-mix(in srgb,currentColor 10%,transparent)}
+mark{background:color-mix(in srgb,var(--alone) 14%,transparent);color:var(--ink);border-bottom:2px solid var(--alone);border-radius:3px 3px 0 0;padding:.05em .12em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.marked{margin:0 0 1.5rem;padding:.85rem .95rem;border:1px solid var(--rule);border-radius:8px;background:var(--soft);font-family:var(--mono);font-size:.8rem;line-height:1.75;white-space:pre-wrap;overflow-wrap:anywhere}
+.marked mark[data-r]::after{content:attr(data-r);font-size:.62rem;font-weight:600;vertical-align:super;line-height:0;margin-left:.25em;color:var(--alone)}
+.marked .subj{display:block;padding:0 0 .5rem;margin:0 0 .6rem;border-bottom:1px dashed var(--rule)}
+.marked .over{color:var(--muted)}
+.marked .cut{display:inline-block;font-size:.66rem;font-weight:600;line-height:1;padding:.22rem .4rem;margin:0 .35em;border-radius:4px;background:var(--alone);color:var(--card);white-space:nowrap;vertical-align:middle}
+ol.checks{list-style:none;margin:0;padding:0}
+ol.checks>li{display:grid;grid-template-columns:3.6rem minmax(0,1fr);gap:.25rem .9rem;padding:1rem 0;border-top:1px solid var(--rule)}
+.ck-s{display:flex;flex-direction:column;align-items:flex-start;gap:.45rem;padding-top:.1rem}
+.ck-s a{font-family:var(--mono);font-size:.78rem;font-weight:600}
+.ck-name{font-weight:600;margin:0 0 .2rem}
+.ck-v{margin:0 0 .55rem;font-size:.95rem;max-width:68ch}
+.ck-m{display:grid;gap:.3rem;margin:0 0 .65rem;padding:0;list-style:none;font-family:var(--mono);font-size:.78rem;line-height:1.7;color:var(--muted);overflow-wrap:anywhere}
+.ck-w{margin:0;font-size:.85rem;color:var(--muted);max-width:68ch}
+.ck-w b{font-weight:600;color:var(--ink)}
+.ck-d summary{display:inline-block;cursor:pointer;font-size:.8rem;font-weight:600;color:var(--muted);list-style:none;border-bottom:1px dashed var(--dot)}
+.ck-d summary::-webkit-details-marker{display:none}
+.ck-d summary:hover,.ck-d[open] summary{color:var(--ink)}
+.ck-d .ck-w{margin-top:.45rem}
+li.pass .ck-name,li.na .ck-name{font-weight:500}
+li.na .ck-name,li.na .ck-v{color:var(--muted)}
+.sec{padding-block:3.5rem;border-top:1px solid var(--rule)}
+.two{display:grid;gap:1.25rem;align-items:stretch}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:1.5rem;min-width:0}
+.card h2{margin-bottom:1rem}
+.prose{max-width:62ch}
+.prose p{font-size:1.02rem}
+.rules-head{max-width:44rem;margin-bottom:1.5rem}
+.rules-head p{margin:.8rem 0 0}
+ol.rules{margin:0;padding:0;list-style:none;counter-reset:rule}
+ol.rules li{position:relative;display:grid;gap:.75rem 2rem;padding:1.1rem 0 1.1rem 3.2rem;border-top:1px solid var(--rule);counter-increment:rule}
+ol.rules li:last-child{border-bottom:1px solid var(--rule)}
+ol.rules li::before{content:"R" counter(rule);position:absolute;left:0;top:1.35rem;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+ol.rules .rt{max-width:62ch}
+ol.rules .rt p{margin:.5rem 0 0}
+ol.rules .ex{background:var(--soft);border:1px solid var(--rule);border-radius:8px;padding:.7rem .85rem;font-family:var(--mono);font-size:.76rem;line-height:1.55;color:var(--muted);overflow-wrap:anywhere;align-self:start}
+ol.rules .ex b{display:block;font-weight:600;color:var(--ink);margin:0 0 .3rem}
+.cta{background:var(--ink);color:var(--ground);border-radius:16px;padding:3rem 1.25rem;text-align:center}
+.cta .eyebrow{color:color-mix(in srgb,var(--ground) 65%,transparent)}
+.cta h2{margin:0 auto;max-width:24ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem;justify-content:center}
+.cta .btn{background:var(--ground);color:var(--ink);border-color:var(--ground)}
+.cta .btn.ghost{background:transparent;color:var(--ground);border-color:color-mix(in srgb,var(--ground) 35%,transparent)}
+.cta .btn.ghost:hover{border-color:var(--ground)}
+footer{border-top:1px solid var(--rule);margin-top:0}
+footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var(--muted)}
+.foot-nav{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin:0 0 1.4rem;font-weight:500}
+.foot-nav a{color:var(--ink)}
+@media (min-width:760px){body{font-size:18px}.wrap{padding-inline:2rem}.hero{padding-block:5rem 3rem}.lede{font-size:1.4rem}.tool{padding-block:1.5rem 4rem}.panel-body{padding:1.5rem}.define{grid-template-columns:auto minmax(0,1fr);align-items:baseline}.sec{padding-block:5rem}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.count{font-size:2.8rem}h2{font-size:2rem}ol.rules li{grid-template-columns:minmax(0,1fr) minmax(0,22rem)}ol.checks>li{grid-template-columns:4.2rem minmax(0,1fr)}.cta{padding:4rem 2rem}}
+@media (min-width:1180px){.bench{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:1.25rem;align-items:start}.bench .panel+.panel{margin-top:0}.bench .panel:first-child{position:sticky;top:4.6rem;max-height:calc(100vh - 5.6rem);overflow:auto}.bench textarea{min-height:12rem;height:13rem}}
+@media (max-width:1179px){.links,.top-cta{display:none}.menu{display:block}.top{grid-template-columns:1fr auto}}
+@media (max-width:759px){textarea{min-height:17rem;font-size:.8rem}input[type=text]{font-size:.8rem}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="../" aria-label="Vurell"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-372.7 -852.0 2977.2 937.2" aria-hidden="true" focusable="false"><path d="M-226.9 -459.2 L0.0 -66.2" stroke="currentColor" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M0.0 -66.2 L431.7 -706.2" stroke="var(--accent, #2F5BFF)" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M728.56 12.0Q647.16 12.0 600.06 -41.5Q552.96 -95.0 552.96 -190.20V-534.00H680.96V-221.60Q680.96 -154.60 703.06 -123.30Q725.16 -92.00 771.36 -92.00Q823.16 -92.00 851.96 -126.50Q880.76 -161.00 880.76 -226.80V-534.00H1008.76V0.0H891.16L888.36 -146.60L904.96 -141.60Q892.16 -66.20 847.16 -27.10Q802.16 12.0 728.56 12.0Z M1114.96 0.0V-534.00H1234.56L1239.36 -385.59L1228.96 -388.19Q1240.96 -464.99 1274.26 -499.50Q1307.56 -534.00 1365.16 -534.00H1414.76V-424.39H1364.96Q1323.76 -424.39 1296.86 -412.29Q1269.96 -400.19 1256.46 -374.69Q1242.96 -349.19 1242.96 -307.59V0.0Z M1719.16 12.0Q1639.36 12.0 1580.66 -22.40Q1521.96 -56.80 1489.86 -119.70Q1457.76 -182.60 1457.76 -267.00Q1457.76 -351.40 1489.86 -413.80Q1521.96 -476.20 1580.06 -511.10Q1638.16 -546.00 1716.76 -546.00Q1792.96 -546.00 1850.16 -511.90Q1907.36 -477.80 1938.66 -413.79Q1969.96 -349.79 1969.96 -259.99V-231.39H1590.56Q1594.36 -160.80 1628.86 -125.60Q1663.36 -90.40 1720.76 -90.40Q1763.56 -90.40 1791.86 -109.50Q1820.16 -128.60 1831.56 -163.80L1962.36 -155.60Q1940.96 -78.19 1876.26 -33.09Q1811.56 12.0 1719.16 12.0ZM1590.56 -317.40H1837.16Q1833.16 -382.39 1800.46 -413.79Q1767.76 -445.19 1716.76 -445.19Q1665.36 -445.19 1631.86 -412.29Q1598.36 -379.39 1590.56 -317.40Z M2172.96 0.0Q2114.16 0.0 2079.56 -30.00Q2044.96 -60.00 2044.96 -126.40V-710.0H2172.96V-139.40Q2172.96 -118.60 2183.26 -108.90Q2193.56 -99.20 2212.76 -99.20H2251.96V0.0Z M2434.96 0.0Q2376.16 0.0 2341.56 -30.00Q2306.96 -60.00 2306.96 -126.40V-710.0H2434.96V-139.40Q2434.96 -118.60 2445.26 -108.90Q2455.56 -99.20 2474.76 -99.20H2513.96V0.0Z" fill="currentColor"/></svg></a>
+  <nav class="links" aria-label="Site"><a href="../#about">About</a><a href="../services/">Services</a><a href="../#how">How we work</a><a href="../count/">The count</a><a href="../#pricing">Pricing</a><a href="../reads/">Reads</a></nav>
+  <div class="top-cta"><a class="btn sm" href="../count/">Count your last twenty</a><a class="btn sm ghost" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></div>
+  <details class="menu"><summary>Menu</summary><nav aria-label="Site"><a href="../#about">About</a><a href="../services/">Services</a><a href="../#how">How we work</a><a href="../count/">The count</a><a href="../#pricing">Pricing</a><a href="../reads/">Reads</a><a class="go" href="../count/">Count your last twenty</a><a class="go" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></nav></details>
+</header>
+<main id="main">
+
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">The free message check</p>
+  <h1>Would it get read?</h1>
+  <p class="lede">Paste a cold message. You get a verdict per rule, the words that triggered it, and what to change first.</p>
+  <p class="hero-note">It runs inside this page. Nothing you paste leaves your browser: no server, no request, nothing stored, no email asked. English-language messages only.</p>
+</div></section>
+
+<section class="tool" id="check"><div class="wrap">
+  <div class="define">
+    <p class="eyebrow">How to read it</p>
+    <div>
+      <p>Each rule says pass, fail or not applicable, shows the words that decided it, and gives its reason.</p>
+      <p class="small muted"><strong>Looks like</strong> in a verdict means the rule is guessing: the words are shown so you can judge. Every rule has a weight, and the heaviest one that fails is what to change first.</p>
+    </div>
+  </div>
+  <div class="bench">
+  <div class="panel">
+    <div class="panel-head">
+      <p class="eyebrow">Your message</p>
+      <p class="small muted">A first message to someone who does not know you.</p>
+    </div>
+    <div class="panel-body">
+      <fieldset class="seg" id="channel">
+        <legend>Where it is going</legend>
+        <label><input type="radio" name="channel" value="note"><span>LinkedIn invitation note</span></label>
+        <label><input type="radio" name="channel" value="dm"><span>LinkedIn message</span></label>
+        <label><input type="radio" name="channel" value="email" checked><span>Cold email</span></label>
+      </fieldset>
+      <div class="field" id="subject-field">
+        <label for="subject">Subject line, optional</label>
+        <input type="text" id="subject" spellcheck="false" autocomplete="off">
+      </div>
+      <label for="msg" id="msg-label"><strong>This message is invented.</strong> An invented founder, an invented product, an invented reader. Delete it and paste your own.</label>
+      <textarea id="msg" spellcheck="false" aria-describedby="rules-h"></textarea>
+      <div class="actions">
+        <button type="button" class="btn" id="go">Check the message</button>
+        <button type="button" class="btn ghost" id="swap">Load a better version</button>
+        <button type="button" class="btn ghost" id="clear">Paste your own</button>
+      </div>
+      <noscript><p class="small muted" style="margin:1rem 0 0">The check is a script inside this page. With scripts off nothing is checked, and nothing is sent either.</p></noscript>
+    </div>
+  </div>
+
+  <div class="panel" id="result">
+    <div class="panel-head"><p class="eyebrow">Result</p><p class="small muted" id="meta"></p></div>
+    <div class="panel-body">
+      <div aria-live="polite" aria-atomic="true">
+        <p class="count" id="score"></p>
+        <p class="legend" id="legend"></p>
+        <p class="muted" id="hint" hidden></p>
+        <div class="first" id="first" hidden><p class="eyebrow" id="first-head">What to change first</p><p id="first-text"></p></div>
+      </div>
+      <div id="detail" hidden>
+        <p class="small muted" style="margin:0 0 .5rem">Your message as it was read. Words that fail a rule are marked, and the small label is the rule.</p>
+        <div class="marked" id="marked"></div>
+        <ol class="checks" id="checks"></ol>
+      </div>
+    </div>
+  </div>
+  </div>
+</div></section>
+
+<section id="honest" class="sec"><div class="wrap two">
+  <div class="card">
+    <h2>What this checks</h2>
+    <div class="prose">
+      <p>Form, and the habits that get a message ignored: how long it is, who the first sentence is about, how many things it asks for and how big they are, links, claims with nothing behind them, template fields that did not fill, the subject line.</p>
+      <p>Every verdict shows the words that triggered it. The rules are written to miss a fault sooner than accuse you of one that is not there.</p>
+      <p>It reads English only. A message in another language will pass rules it should fail.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h2>What it cannot</h2>
+    <div class="prose">
+      <p>It cannot know whether the person has the problem, or whether they can sign. A message can pass every rule here and still go to someone who will never buy. That is decided by the list, before the first word is written.</p>
+      <p>It cannot tell whether what you say about the reader is true either. It only sees that something is there.</p>
+      <p><a href="../count/">Who could sign</a> counts the signers among your last twenty recipients. <a href="../services/">Services</a> covers the rest: who to sell to, what to say to them, and the sending.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="rules" class="sec"><div class="wrap">
+  <div class="rules-head">
+    <h2 id="rules-h">The rules, and why each one is a rule</h2>
+    <p class="muted">Every rule runs on every message. The weight decides only which failing rule is named first. None of this is about timing or tricks: it is what a stranger sees in the first look.</p>
+  </div>
+  <ol class="rules" id="rule-list"></ol>
+</div></section>
+
+<section id="next" class="sec"><div class="wrap"><div class="cta">
+  <p class="eyebrow">Before the message</p>
+  <h2>Who reads it is decided before the first word is written.</h2>
+  <div class="cta-row"><a class="btn" href="mailto:miro@vurell.com?subject=Message%20check">Write to miro@vurell.com</a><a class="btn ghost" href="../count/">Count your last twenty</a></div>
+</div></div></section>
+
+</main>
+
+<footer><div class="wrap">
+  <nav class="foot-nav" aria-label="Footer"><a href="../#about">About</a><a href="../services/">Services</a><a href="../#how">How we work</a><a href="../count/">The count</a><a href="#check">Message check</a><a href="../#pricing">Pricing</a><a href="../reads/">Reads</a><a href="../engagement/">An engagement</a><a href="../one-pager/">One-pager</a></nav>
+  <p>Vurell. Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France. <a href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">miro@vurell.com</a>. Every message read by a person before it goes.</p>
+  <p>If I wrote to you and you want it to stop, reply stop and I delete the record.</p>
+</div></footer>
+
+<script>
+/* ===== message-rules:begin ===== sliced out and run under node by
+   selftest_message_check.mjs, so what is tested is what ships. No DOM, no network. */
+
+var CHANNELS = { note: 'LinkedIn invitation note', dm: 'LinkedIn message', email: 'cold email' };
+var LIMITS = { note: { chars: 200, words: 40 }, dm: { words: 80 }, email: { words: 120 } };
+var LINKS_ALLOWED = { note: 0, dm: 0, email: 1 };
+var SUBJECT_WORDS = 6, AVG_SENTENCE = 22, MAX_SENTENCE = 35, MIN_WORDS = 5;
+
+/* Word lists. Each entry is a regular-expression source, matched whole-word
+   and case-insensitively by find(). Non-capturing groups only. */
+var FILLER = [
+  "(?:i )?hope (?:this|that|my)(?: e-?mail| message| note)? finds you(?: (?:doing )?well| in good (?:health|spirits))?",
+  "(?:i )?hope (?:you're|you are|all is|everything is|your \\w+ is)(?: \\w+){0,2}? (?:well|good|great)",
+  "(?:just )?(?:a )?quick question",
+  "just (?:checking in|following up|circling back|touching base|reaching out|wanted to|a quick note)",
+  "(?:i'm|i am|quickly) checking in", "checking in (?:to see|again|with you|on (?:this|my|the))",
+  "circling back", "circle back", "touching base", "touch base",
+  "(?:i'm|i am|we're|we are) (?:reaching out|writing to you|contacting you|getting in touch)",
+  "(?:i|we)(?: just)? wanted to", "thought i(?:'d| would) (?:reach out|drop|introduce|share)",
+  "i know (?:you're|you are|how) (?:busy|swamped|slammed)", "i know your time is",
+  "sorry (?:to bother|for bothering|for the)", "pardon the (?:interruption|intrusion)",
+  "apologi[sz]e for the (?:cold|unsolicited|interruption)",
+  "i(?:'ll| will) (?:keep (?:this|it)|be) (?:short|brief|quick)",
+  "let me introduce myself", "allow me to introduce", "i(?:'d| would) like to introduce",
+  "here(?:'s| is) the thing", "in today's \\w+", "to whom it may concern",
+  "(?:would love|'d love|want|wanted|like|looking) to (?:connect|add you|network|expand my network|join your network)"];
+
+var GENERIC = [
+  "(?:love|loved|loving|admire|like) what (?:you|your team|you guys|you all)(?:'re| are|'ve| have been)? ?(?:doing|building|built|done|working on)",
+  "impressed (?:by|with)",
+  "(?:impressive|amazing|incredible|awesome|great|fantastic|inspiring) (?:work|background|profile|journey|career|stuff|content|posts?|article)",
+  "(?:came|come|stumbled|ran) (?:across|upon) your (?:profile|company|website|site|page|work|linkedin)",
+  "(?:saw|found|noticed|viewed|visited|was looking at|checked out) your (?:linkedin )?profile",
+  "your (?:profile|background|experience) (?:caught my (?:eye|attention)|stood out|is impressive|looks impressive)",
+  "big fan of", "keep up the (?:great|good|amazing) work", "been following (?:you|your (?:work|journey|company|content))",
+  "congrat(?:s|ulations) on (?:all )?(?:your|the) (?:success|growth|journey|achievements|accomplishments)"];
+
+var CTA = ["let me know", "book (?:a|an|some|your|time)", "schedule (?:a|an|some|your|time)",
+  "grab (?:a|some) (?:time|slot|spot)", "pick a (?:time|slot)", "click (?:here|the|below|on|this)",
+  "check out", "check it out", "visit (?:our|my|the|us)", "sign up", "download", "register",
+  "watch (?:the|our|my|this|a)", "feel free to", "hop on", "jump on", "reply (?:with|to|yes)",
+  "forward (?:this|me)", "point me", "connect me", "take a look", "have a look", "get in touch",
+  "give me a (?:call|ring|shout)", "call me", "shoot me", "drop me", "learn more",
+  "see (?:the|our|my) (?:demo|video|deck|site|website|case)"];
+
+var MEETING = [
+  "(?:book|schedule|set up|arrange|have|do|get|grab|jump on|hop on|get on|join|offer you|give you|show you)(?: (?:a|an|some|the|your))?(?: (?:quick|short|brief|free|live|intro|introductory|discovery|zoom|video|phone|virtual|personal|personali[sz]ed|\\d{1,2}[- ]?min(?:ute)?s?))* (?:call|demo|meeting|chat|coffee|walkthrough|walk-through|consultation|sync)",
+  "(?:quick|short|brief|intro|introductory|discovery|exploratory|zoom|video|phone|virtual|\\d{1,2}[- ]?min(?:ute)?s?) (?:call|chat|demo|meeting|conversation|sync|catch-?up)",
+  "(?:call|chat|demo|meeting|talk|speak|connect|meet)(?: \\w+){0,3} (?:this|next) week",
+  "(?:are|would) you(?: be)? (?:free|available)",
+  "(?:find|grab|book|pick|set|schedule) (?:a |some )?time",
+  "have (?:some |any |a few )?(?:time|minutes)(?: \\w+){0,2} (?:to|for|this|next|tomorrow|today)",
+  "times? (?:that )?works? (?:for you|best)", "what time works", "when works",
+  "calendly", "my calendar", "calendar link", "my availability", "booking link",
+  "(?:\\d{1,2}|ten|fifteen|twenty|thirty)[- ]?min(?:ute)?s?(?= (?:of your time|call|chat|to (?:chat|talk|show|walk)|this|next|tomorrow|sometime|on (?:mon|tue|wed|thu|fri|a call|zoom|the phone)|for a))",
+  "(?:spare|free up|carve out|set aside) (?:\\d{1,2}|ten|fifteen|twenty|thirty|a few|a couple of) min(?:ute)?s?"];
+
+var CLAIMS = ["\\d+(?:\\.\\d+)?x(?:'d|ed)?(?= (?:faster|quicker|more|better|cheaper|higher|lower|less|growth|return|roi|increase|improvement|your|their|the|revenue|pipeline|results|productivity|output))",
+  "(?:double|triple|quadruple|skyrocket)(?:s|d|ed|ing)? (?:your|their|the|our|my|revenue|sales|pipeline|replies|conversions|leads|growth)",
+  "guarantee(?:s|d)?", "world[- ]class", "best[- ]in[- ]class", "revolutionary", "revolutioni[sz](?:e|es|ed|ing)",
+  "(?:the|a|an|industry|market|world|world's)[- ]leading", "#1", "unmatched", "unrivall?ed",
+  "unparalleled", "unbeatable", "award[- ]winning", "top[- ]rated", "dramatically", "massively",
+  "proven (?:results|track record|roi|system|method|framework|process|to)",
+  "the (?:best|most (?:advanced|powerful|trusted|comprehensive|innovative))(?= [a-z])(?! (?:way|person|time|place|contact|one|thing|email|address|number|fit|of|for|to|regards|wishes))",
+  "\\d{1,3}(?:\\.\\d+)?\\s?(?:%|percent)\\s+(?:more|less|fewer|faster|higher|lower|increase|reduction|improvement|growth|boost|lift|uplift|savings?|cheaper|better)",
+  "(?:increas|boost|reduc|cut|sav|grow|grew|improv|lift|rais|slash)\\w*\\b[^.!?\\n]{0,60}?\\d{1,3}(?:\\.\\d+)?\\s?(?:%|percent\\b)"];
+var SOURCE = /(?:^|[^a-z])(?:according to|source|study|survey|report)(?![a-z])/i;
+
+/* Plain words. find() also takes them with s, d, ed, es, ing or ly on the
+   end, and with a space where the hyphen is. This list is what the page shows. */
+var BUZZ = ['synergy', 'synergies', 'leverage', 'leveraging', 'cutting-edge', 'game-changing', 'game-changer',
+  'seamless', 'unlock', 'supercharge', 'AI-powered', 'next-generation', 'next-gen', 'robust', 'innovative',
+  'disruptive', 'best-of-breed', 'turnkey', 'holistic', 'streamline', 'streamlining', 'empower',
+  'state-of-the-art', 'paradigm', 'value-add', 'value proposition', 'low-hanging fruit', 'move the needle',
+  'mission-critical', 'thought leader', 'frictionless', 'pain point', 'one-stop shop', 'to the next level'];
+var SOLUTION = /(^|[^a-z])((?:our|my)(?: [a-z-]+){0,2}? |(?:all-in-one|one-stop|end-to-end|turnkey|complete|total|integrated|tailored|custom|bespoke|innovative|software|platform) )(solutions?)(?![a-z])/gi;
+
+var TOKEN_WORD = "(?:(?:first|last|full|company|your|my|sender|recipient|contact|job)[ _-]?)?(?:name|company|title|role|position|industry|city|location|product|topic|date|link|pain ?point|firstname|lastname|fname|lname)";
+var TOKENS = ["\\{\\{[^{}\\n]{1,40}\\}\\}", "\\{[A-Za-z][A-Za-z0-9_ .|:-]{1,30}\\}", "\\[\\[[^\\]\\n]{1,40}\\]\\]",
+  "\\[" + TOKEN_WORD + "\\]", "<" + TOKEN_WORD + ">", "%[A-Z][A-Z_]{2,20}%", "\\*\\|[A-Z_]{2,20}\\|\\*"];
+
+var FEATURE = /(?:^|[^A-Za-z])(?:features?|includes?|including|offers?|offering|provides?|providing|comes with|capabilities|such as|built-in|equipped with|you get|we do|handles?|covers?)(?![A-Za-z])/i;
+var SHOUT = ['FREE', 'NOW', 'NEW', 'HUGE', 'SALE', 'BEST', 'SAVE', 'FAST', 'MUST', 'WOW', 'HOT', 'DEAL', 'ONLY',
+  'TODAY', 'LIMITED', 'OFFER', 'URGENT', 'IMPORTANT', 'GUARANTEED', 'EXCLUSIVE', 'AMAZING', 'ATTENTION', 'HURRY',
+  'BONUS', 'INSTANT', 'NEVER', 'ALWAYS'];
+var ACRONYMS = ['HIPAA', 'NASDAQ', 'ASCII', 'OAUTH', 'HTTPS', 'FINRA', 'LIDAR', 'SCADA', 'SOC2', 'ISO27001', 'UNESCO'];
+var SHORTENER = /(?:^|[/.])(?:bit\.ly|tinyurl\.com|t\.co|goo\.gl|ow\.ly|buff\.ly|rebrand\.ly|lnkd\.in|cutt\.ly|is\.gd|shorturl\.at|tiny\.cc)(?:\/|$)/i;
+var CALENDAR = /calendly\.com|cal\.com\/|savvycal\.com|meetings\.hubspot\.com|calendar\.app\.google|calendar\.google\.com|zcal\.co|tidycal\.com|chilipiper\.com|youcanbook\.me|acuityscheduling\.com|\/(?:book|booking|schedule|meet|meeting|meetings|calendar|\d{1,2}-?min)(?:[/?#-]|$)/i;
+var OPTOUT = /(?:^|[^a-z])(?:unsubscribe|opt[- ]?out|reply (?:with )?["']?stop|say ["']?stop|tell me (?:to stop|no)|(?:won't|will not|wont) (?:write|email|message|contact|bother)(?: you)? again|stop (?:writing|emailing|hearing from me)|remove you(?:rself)? from|take you off|not (?:interested|relevant|for you|a fit)[^.!?\n]{0,60}(?:say so|tell me|let me know|reply|ignore))(?![a-z])/i;
+
+var SELF = /^(?:my name is|my name's|myself|i am|i'm|im|i've|i have|i'd|i would|i|we are|we're|we've|we have|we|my|our)(?![A-Za-z0-9])/i;
+var INTRO = /^this is [A-Z][a-z]+(?: [A-Z][a-z]+)? (?:from|at|with|here)(?![a-z])/;
+var SAW = /^(?:i(?: just| recently)? (?:read|saw|see|noticed|notice|watched|listened|looked|went through|used|use|tried|tested|installed|bought|heard|hear|caught|followed|follow|visited|checked|ran|opened|counted|think|suspect|bet|guess|wonder|imagine|assume|gather|understand)|my (?:guess|bet|read) is|our mutual)(?![A-Za-z0-9])/i;
+var YOU = /(?:^|[^A-Za-z0-9])(?:you|your|yours|you're|you've|you'd|you'll|yourself)(?![A-Za-z0-9])/i;
+var WE = /(?:^|[^A-Za-z0-9])(?:we|our|i|my|us|we're|we've|i'm|i've)(?![A-Za-z0-9])/i;
+var HELLO = /^\s*(?:hi|hey|hello|dear|greetings|good (?:morning|afternoon|evening|day))(?![a-z])([^\n,.!?:;]{0,30}?)(?:\s[-\u2013\u2014]\s|[,.!:;]+|\n|$)\s*/i;
+var NAME_COMMA = /^\s*([A-Z][A-Za-z'.-]*(?: [A-Z][A-Za-z'.-]*)?)\s*,\s*/;
+var NOT_A_NAME = /^(?:there|all|team|everyone|folks|sir|madam|mr|mrs|ms|dr|thanks|thank|honestly|sorry|congrats|first|also|well|okay|look|quick)$/i;
+var SMALL = /^(?:a|an|the|at|for|to|of|in|on|with|your|and|or|you|is|are|from|by|about|how|why|what|this|that|it|we|our|my)$/i;
+var ABBR = /(?:^|[\s(])(?:e\.g|i\.e|mr|mrs|ms|dr|prof|inc|ltd|corp|vs|approx|jr|sr)\.$|^\s*\d{1,2}\.$/i;
+var EMOJI;
+try { EMOJI = new RegExp('\\p{Extended_Pictographic}(?:\\uFE0F|\\u200D\\p{Extended_Pictographic})*', 'gu'); }
+catch (e) { EMOJI = /[\u2600-\u27BF]|[\uD83C-\uD83E][\uDC00-\uDFFF]/g; }
+
+/* Straightens quotes without changing the length, so offsets still point into the text as typed. */
+function flat(s) { return String(s).replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"').replace(/\u00A0/g, ' '); }
+
+function plain(list) {
+  return list.map(function (w) { return w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/[- ]/g, '[- ]') + '(?:s|d|ed|es|ing|ly)?'; });
+}
+
+/* Sorts matches, subject first, and drops any match that overlaps an earlier one. */
+function tidy(list) {
+  var out = [], last = null;
+  list.sort(function (a, b) {
+    var wa = a.where === 'subject' ? 0 : 1, wb = b.where === 'subject' ? 0 : 1;
+    return (wa - wb) || (a.start - b.start) || (b.end - a.end);
+  });
+  list.forEach(function (x) {
+    if (last && (last.where || 'body') === (x.where || 'body') && x.start < last.end) return;
+    out.push(x); last = x;
+  });
+  return out;
+}
+
+/* Every whole-word hit of every source in the text, as { start, end, where }. */
+function find(text, sources, where) {
+  var out = [], i, re, m, at;
+  for (i = 0; i < sources.length; i++) {
+    re = new RegExp('(^|[^A-Za-z0-9])(' + sources[i] + ')(?![A-Za-z0-9])', 'gi');
+    while ((m = re.exec(text))) {
+      at = m.index + m[1].length;
+      out.push({ start: at, end: at + m[2].length, where: where || 'body' });
+      re.lastIndex = at + Math.max(m[2].length, 1);
+    }
+  }
+  return tidy(out);
+}
+
+function wordSpans(text) {
+  var out = [], re = /\S+/g, m;
+  while ((m = re.exec(text))) if (/[A-Za-z0-9]/.test(m[0])) out.push({ start: m.index, end: m.index + m[0].length });
+  return out;
+}
+
+/* Sentences from offset `from`. A new line ends a sentence; with semi, so does a semicolon. */
+function sentencesOf(text, from, semi) {
+  var out = [], start = from || 0, m;
+  var re = semi ? /[.!?]+["')\]]*(?=\s|$)|;(?=\s|$)|\n+/g : /[.!?]+["')\]]*(?=\s|$)|\n+/g;
+  function push(a, b) {
+    var s = text.slice(a, b), lead = s.match(/^\s*/)[0].length, body = s.replace(/\s+$/, '');
+    if (/[A-Za-z0-9]/.test(body)) out.push({ start: a + lead, end: a + body.length, text: body.slice(lead) });
+  }
+  re.lastIndex = start;
+  while ((m = re.exec(text))) {
+    if (m[0].charAt(0) === '.' && ABBR.test(text.slice(start, m.index + 1))) continue;
+    push(start, m.index + m[0].length);
+    start = m.index + m[0].length;
+  }
+  push(start, text.length);
+  return out;
+}
+
+/* The greeting, so that "Hi Marit," is not read as the first sentence. */
+function greetingOf(nb) {
+  var m = HELLO.exec(nb), end = 0, name = '', n;
+  if (m) {
+    end = m[0].length;
+    name = (m[1].match(/[A-Za-z][A-Za-z'-]+/) || [''])[0];
+    n = NAME_COMMA.exec(nb.slice(end));
+    if (n && !name) { end += n[0].length; }
+  } else if ((m = NAME_COMMA.exec(nb))) {
+    end = m[0].length;
+    name = m[1].split(' ')[0];
+  }
+  if (NOT_A_NAME.test(name) || name.length < 3) name = '';
+  return { end: end, name: name };
+}
+
+function quotedSpans(nb) {
+  var out = [], re = /"[^"\n]{1,160}"|(?:^|[\s(])'[^'\n]{2,160}'(?![A-Za-z])/g, m;
+  while ((m = re.exec(nb))) out.push({ start: m.index, end: m.index + m[0].length });
+  return out;
+}
+
+/* Words inside quotation marks are the reader's words, or somebody else's. They are not held against the writer. */
+function unquoted(c, list) {
+  return list.filter(function (x) {
+    return !c.quoted.some(function (q) { return x.start >= q.start && x.end <= q.end; });
+  });
+}
+
+function linksOf(nb) {
+  var out = [], m, url, line;
+  var re = /(?:https?:\/\/|www\.)[^\s<>()"']+|[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)*\.[a-z]{2,}\/[^\s<>()"']*/gi;
+  while ((m = re.exec(nb))) {
+    url = m[0].replace(/[.,;:!?]+$/, '');
+    line = nb.slice(nb.lastIndexOf('\n', m.index) + 1, (nb.indexOf('\n', m.index) + 1 || nb.length + 1) - 1);
+    out.push({ start: m.index, end: m.index + url.length, where: 'body',
+      kind: CALENDAR.test(url) ? 'calendar' : SHORTENER.test(url.replace(/^https?:\/\//i, '')) ? 'shortener' : 'link',
+      optout: OPTOUT.test(line) });
+  }
+  return out;
+}
+
+function capsOf(text, where) {
+  var re = /(^|[^A-Za-z0-9])([A-Z][A-Z'-]*[A-Z])(?![A-Za-z0-9])/g, m, loud = [], long = [], at, w;
+  while ((m = re.exec(text))) {
+    at = m.index + m[1].length; w = m[2];
+    re.lastIndex = at + w.length;
+    if (SHOUT.indexOf(w) >= 0) loud.push({ start: at, end: at + w.length, where: where });
+    else if (w.length >= 5 && ACRONYMS.indexOf(w) < 0) long.push({ start: at, end: at + w.length, where: where });
+  }
+  return long.length >= 2 ? loud.concat(long) : loud;
+}
+
+function emojiOf(text, where) {
+  var out = [], m;
+  EMOJI.lastIndex = 0;
+  while ((m = EMOJI.exec(text))) if (m[0].codePointAt(0) >= 0x2300) out.push({ start: m.index, end: m.index + m[0].length, where: where });
+  return out;
+}
+
+/* True when the match sits in a statement about somebody's page ("your pricing page sends everyone to
+   book a demo"): a page word comes before it, no I or we does, and the sentence is not a question. */
+var PAGEISH = /(?:^|[^a-z])(?:page|site|website|homepage|form|button|footer|header|menu|advert|ad|posting|post|profile|banner|pop-?up|widget|checkout|sign-?up|auto-?reply|docs|readme)(?![a-z])/i;
+function theirs(c, m) {
+  var s = sentenceAt(c, m.start), pre;
+  if (!s || /\?["')\]]*$/.test(s.text)) return false;
+  pre = s.text.slice(0, m.start - s.start);
+  return PAGEISH.test(pre) && !WE.test(pre);
+}
+
+function sentenceAt(c, pos) {
+  for (var i = 0; i < c.all.length; i++) if (pos >= c.all[i].start && pos < c.all[i].end) return c.all[i];
+  return null;
+}
+
+function headOf(s, n) {
+  var w = wordSpans(s.text).slice(0, n);
+  return { start: s.start, end: w.length ? s.start + w[w.length - 1].end : s.end };
+}
+
+/* A sentence that introduces the writer, or a bare call to action, with no word about the reader in it. */
+function aboutSender(s) {
+  if (INTRO.test(s.text)) return true;
+  if (YOU.test(s.text) || SAW.test(s.text)) return false;
+  return SELF.test(s.text) || find(s.text, CTA).length > 0;
+}
+
+/* The longest run of short comma-separated items in one sentence. */
+function seriesIn(s) {
+  var t = s.text, segs = [], re = /[,;]/g, a = 0, m, i, best = null;
+  while ((m = re.exec(t))) { segs.push([a, m.index]); a = m.index + 1; }
+  segs.push([a, t.length]);
+  function wc(g) { return wordSpans(t.slice(g[0], g[1])).length; }
+  for (i = 1; i < segs.length; i++) {
+    var run = 0, extra = 0, tail, tt, tw, n;
+    while (i + run < segs.length - 1 && (n = wc(segs[i + run])) >= 1 && n <= 4) run++;
+    tail = segs[i + run]; tt = t.slice(tail[0], tail[1]); tw = wc(tail);
+    if (tw >= 1 && (/^\s*(?:and|or|plus|&)\s/i.test(tt) || tw <= 4)) extra = 1;
+    else if (tw <= 8 && /\s(?:and|or|plus|&)\s/i.test(tt)) extra = 2;
+    if (!best || 1 + run + extra > best.items) {
+      best = { items: 1 + run + extra, head: t.slice(segs[i - 1][0], segs[i - 1][1]), headAt: segs[i - 1][0],
+        end: extra ? tail[1] : segs[i + run - 1][1] };
+    }
+  }
+  return best;
+}
+
+function contextOf(input) {
+  var c = {};
+  c.channel = input && CHANNELS[input.channel] ? input.channel : 'email';
+  c.body = String((input && input.body) || '').replace(/\r\n?/g, '\n');
+  c.subject = c.channel === 'email' ? String((input && input.subject) || '').replace(/\s+/g, ' ').trim() : '';
+  c.nb = flat(c.body); c.ns = flat(c.subject);
+  c.words = wordSpans(c.nb);
+  c.greet = greetingOf(c.nb);
+  c.all = sentencesOf(c.nb, 0, false);
+  c.sents = sentencesOf(c.nb, c.greet.end, false);
+  c.quoted = quotedSpans(c.nb);
+  c.links = linksOf(c.nb);
+  /* The first two sentences that say anything: warm-up lines are rule 4's business, not rule 2's. */
+  c.opening = c.sents.filter(function (s) {
+    var n = wordSpans(s.text).length;
+    return n > 2 && !(n <= 12 && find(s.text, FILLER).length);
+  }).slice(0, 2);
+  return c;
+}
+
+/* ---- the rules. weight decides only which failing rule is named first.
+   run(c) returns { status: pass | fail | na, verdict, matches, first }.
+   %q in verdict or first is replaced by the first matched fragment, quoted.
+   wide: a match too long to mark inside the message. ---- */
+var RULES = [
+  { id: 'length', weight: 75, scope: 'all',
+    name: 'Short enough for one look',
+    rule: 'An invitation note is at most 200 characters and 40 words. A LinkedIn message is at most 80 words. A cold email is at most 120 words, greeting and sign-off included.',
+    why: 'A stranger gives a first message one look. What does not fit in that look is not read, and length is the first sign that a message went to many people.',
+    ex: 'Fails: a note of 212 characters, a LinkedIn message of 95 words, an email of 160.',
+    run: function (c) {
+      var lim = LIMITS[c.channel], lead = c.body.length - c.body.replace(/^\s+/, '').length;
+      var chars = c.body.trim().length, n = c.words.length, cut = -1;
+      var size = (lim.chars ? chars + ' characters, ' : '') + n + ' words';
+      var cap = (lim.chars ? lim.chars + ' characters and ' : '') + lim.words + ' words';
+      if (n > lim.words) cut = c.words[lim.words].start;
+      if (lim.chars && chars > lim.chars) {
+        var over = c.words.filter(function (w) { return w.end > lead + lim.chars; })[0];
+        if (over) cut = cut < 0 ? over.start : Math.min(cut, over.start);
+      }
+      if (cut < 0) return { status: 'pass', verdict: size + '. The limit for a ' + CHANNELS[c.channel] + ' is ' + cap + '.' };
+      return { status: 'fail', matches: [{ start: cut, end: c.body.replace(/\s+$/, '').length, wide: true, cut: true }],
+        verdict: size + '. The limit for a ' + CHANNELS[c.channel] + ' is ' + cap + '. Everything from %q on is over it.',
+        first: 'Cut it to ' + cap + ': it runs to ' + size + ', and everything from %q on is over the limit.' };
+    } },
+
+  { id: 'opener', weight: 85, scope: 'all',
+    name: 'Opens with the reader, not with you',
+    rule: 'The first sentence does not start with I, We, My, Our or your name. The greeting does not count, and a sentence about what you read of theirs (I read, I saw, I noticed) passes.',
+    why: 'The first words decide whether the second sentence gets read. Your name and your job are the least interesting thing a stranger can find there.',
+    ex: 'Fails: "My name is Tobin and I run Tallybench." Passes: "Marit, Pellwood\'s advert says the week is planned on a whiteboard."',
+    run: function (c) {
+      var s = c.opening[0];
+      if (s && (INTRO.test(s.text) || (SELF.test(s.text) && !SAW.test(s.text)))) {
+        return { status: 'fail', matches: [headOf(s, 5)],
+          verdict: 'Opens with %q. The first thing the reader learns is about the sender.',
+          first: 'Open with the reader: the message starts %q, which is about you.' };
+      }
+      return { status: 'pass', verdict: 'The first sentence does not open with I, We, My or Our.' };
+    } },
+
+  { id: 'observation', weight: 90, scope: 'all',
+    name: 'Says something about the reader',
+    rule: 'One of the first two sentences is about the reader. A line that would fit anyone does not count: a compliment, "came across your profile", "been following your work".',
+    why: 'The observation is the one part of a cold message that is about the person reading it. If it could be pasted to anyone, the reader knows it was. This page cannot tell whether yours is true or specific. It can only tell when none is there.',
+    ex: 'Fails: "I was impressed by what you\'re doing at Pellwood." Passes: a sentence only this reader could have been sent.',
+    run: function (c) {
+      var g = unquoted(c, find(c.nb, GENERIC)), o = c.opening;
+      if (g.length) {
+        return { status: 'fail', matches: g, verdict: 'Looks like a line that would fit anyone: %q.',
+          first: 'Replace %q with one thing you read about how this person\'s company works: as written it would fit anyone.' };
+      }
+      if (o.length && o.every(aboutSender)) {
+        return { status: 'fail', matches: o.map(function (s) { return { start: s.start, end: s.end, wide: true }; }),
+          verdict: 'Looks like the opening is about the sender only. Nothing in the first ' + (o.length > 1 ? 'two sentences' : 'sentence') + ' refers to the reader.',
+          first: 'Put one sentence about the reader ahead of %q: the opening is all about you.' };
+      }
+      return { status: 'pass', verdict: 'No line that would fit anyone, and the opening is not all about the sender. Whether what it says about the reader is true and specific is yours to judge.' };
+    } },
+
+  { id: 'filler', weight: 45, scope: 'all',
+    name: 'No warm-up lines',
+    rule: 'None of the lines that carry nothing: "hope this finds you well", "quick question", "just reaching out", "touching base", "circling back", "I know you\'re busy", "I wanted to", "would love to connect".',
+    why: 'They carry no information. A reader who has seen them at the top of other people\'s mailings stops there.',
+    ex: 'Fails: "I hope this email finds you well."',
+    run: function (c) {
+      var m = unquoted(c, find(c.nb, FILLER));
+      if (!m.length) return { status: 'pass', verdict: 'No warm-up line found.' };
+      return { status: 'fail', matches: m, verdict: 'Warm-up ' + (m.length > 1 ? 'lines' : 'line') + ' found: %q.',
+        first: 'Delete %q and start with the point.' };
+    } },
+
+  { id: 'asks', weight: 70, scope: 'all',
+    name: 'One ask',
+    rule: 'One ask at most. A question mark is an ask. So is "let me know", "book a time", "check out", "sign up". A line saying how to make it stop is not counted.',
+    why: 'Two asks make the reader choose which one to answer, and the easy choice is neither. One question they can answer in a line is the cheapest reply there is.',
+    ex: 'Fails: "Do you have time this week? Or let me know who handles this." That is two.',
+    run: function (c) {
+      var asks = [];
+      c.sents.forEach(function (s, i) {
+        var h, next = c.sents[i + 1];
+        if (OPTOUT.test(s.text) || (next && OPTOUT.test(next.text) && wordSpans(s.text).length <= 5)) return;
+        if (/\?["')\]]*$/.test(s.text)) {
+          h = s.start + s.text.lastIndexOf('?');
+          if (!c.quoted.some(function (q) { return h >= q.start && h < q.end; })) asks.push({ start: s.start, end: s.end, wide: true });
+        } else {
+          h = find(s.text, CTA).map(function (x) { return { start: s.start + x.start, end: s.start + x.end, wide: true }; });
+          h = unquoted(c, h).filter(function (x) { return !theirs(c, x); });
+          if (h.length) asks.push(h[0]);
+        }
+      });
+      if (asks.length < 2) return { status: 'pass', verdict: asks.length ? 'One ask.' : 'No ask found. That is allowed.', matches: [] };
+      return { status: 'fail', matches: asks, verdict: 'Looks like ' + asks.length + ' asks. One is the most a first message carries.',
+        first: 'Keep one ask and cut the rest: it looks like ' + asks.length + ' asks, the first being %q.' };
+    } },
+
+  { id: 'bigask', weight: 80, scope: 'all',
+    name: 'A small ask',
+    rule: 'A first message does not ask for a call, a demo, a meeting, "15 minutes" or a slot in a calendar.',
+    why: 'Time is the most expensive thing a stranger can give you, and so far you have given them no reason. A question about their own situation costs them a line. The call comes after the reply.',
+    ex: 'Fails: "Do you have 15 minutes for a quick call?" Passes: "Is that still how Monday gets decided?"',
+    run: function (c) {
+      var m = tidy(unquoted(c, find(c.nb, MEETING)).filter(function (x) { return !theirs(c, x); }).concat(c.links.filter(function (l) { return l.kind === 'calendar' && !l.optout; })));
+      if (!m.length) return { status: 'pass', verdict: 'No request for a call, a demo or a meeting found.' };
+      return { status: 'fail', matches: m, verdict: 'Looks like a request for the reader\'s time: %q. That is a big ask in a first message.',
+        first: 'Swap %q for a question the reader can answer in one line: a first message has not earned their time yet.' };
+    } },
+
+  { id: 'links', weight: 65, scope: 'all',
+    name: 'Links',
+    rule: 'No link in an invitation note or a LinkedIn message. At most one in an email. No link shortener and no calendar link anywhere. A domain written as a word (yoursite.com) is not counted, and neither is a link on the line that says how to make it stop.',
+    why: 'A link asks for a click before there is a reason to trust you, and it competes with the reply you want. A shortener hides where the click goes. A calendar link is a request for a meeting, and the rule on the size of the ask covers that.',
+    ex: 'Fails: two links in an email, any link in a note, a shortened link, a booking page.',
+    run: function (c) {
+      var all = c.links.filter(function (l) { return !l.optout; }), allowed = LINKS_ALLOWED[c.channel];
+      var bad = all.filter(function (l) { return l.kind !== 'link'; }), n = all.length, kinds = [];
+      if (n <= allowed && !bad.length) return { status: 'pass', verdict: n ? 'One link, which an email can carry.' : 'No link found.' };
+      if (bad.some(function (l) { return l.kind === 'calendar'; })) kinds.push('a calendar link');
+      if (bad.some(function (l) { return l.kind === 'shortener'; })) kinds.push('a link shortener');
+      return { status: 'fail', matches: n > allowed ? all : bad,
+        verdict: n + (n === 1 ? ' link' : ' links') + ' found. A ' + CHANNELS[c.channel] + ' carries ' + (allowed ? 'one at most' : 'none') + '.' + (kinds.length ? ' Looks like ' + kinds.join(' and ') + ': %q.' : ''),
+        first: 'Take out %q: ' + (kinds.length ? 'it looks like ' + kinds.join(' and ') + ', and no first message carries one.' : 'a ' + CHANNELS[c.channel] + ' carries ' + (allowed ? 'one link at most.' : 'no link.')) };
+    } },
+
+  { id: 'claims', weight: 60, scope: 'all',
+    name: 'No claim with nothing behind it',
+    rule: 'No multiplier (10x, double your), no superlative (the leading, the best, world-class, revolutionary, #1), no guarantee, no percentage next to a result. A sentence that names its source is left alone.',
+    why: 'The reader cannot check a superlative from inside an inbox, so it counts for nothing. A number about their future is a promise made to someone you have never spoken to.',
+    ex: 'Fails: "the leading platform", "10x faster", "cut costs by 30%".',
+    run: function (c) {
+      var m = unquoted(c, find(c.nb, CLAIMS)).filter(function (x) { var s = sentenceAt(c, x.start); return !(s && SOURCE.test(s.text)); });
+      if (!m.length) return { status: 'pass', verdict: 'No multiplier, superlative or guarantee found.' };
+      return { status: 'fail', matches: m, verdict: 'Looks like a claim the message does not back: %q.',
+        first: 'Cut %q, or put what it rests on next to it.' };
+    } },
+
+  { id: 'buzzwords', weight: 40, scope: 'all',
+    name: 'No buzzwords',
+    rule: 'None of the words in the list beside this rule, and no "solution" as a name for the product.',
+    why: 'Each of these words can be deleted and the sentence loses nothing. They are also the vocabulary of the mailings your reader deletes, so they file yours with them.',
+    show: BUZZ.concat(['solution (as a name for the product)']),
+    run: function (c) {
+      var m = find(c.nb, plain(BUZZ).concat(['solutions? provider'])), x;
+      SOLUTION.lastIndex = 0;
+      while ((x = SOLUTION.exec(c.nb))) m.push({ start: x.index + x[1].length + x[2].length, end: x.index + x[0].length, where: 'body' });
+      m = unquoted(c, tidy(m));
+      if (!m.length) return { status: 'pass', verdict: 'None of the listed words found.' };
+      return { status: 'fail', matches: m, verdict: m.length + (m.length === 1 ? ' listed word' : ' listed words') + ' found, the first being %q.',
+        first: 'Say it without %q' + (m.length > 1 ? ' and the ' + (m.length - 1) + ' other listed ' + (m.length === 2 ? 'word' : 'words') : '') + ': the sentence loses nothing.' };
+    } },
+
+  { id: 'features', weight: 55, scope: 'all',
+    name: 'No feature list',
+    rule: 'No list of what the product does: three bullets or more, or a run of features in one sentence (three after a word such as "includes" or "offers", four anywhere in a sentence about you).',
+    why: 'A feature list answers a question the reader has not asked yet. In a first message the only question is whether this concerns them.',
+    ex: 'Fails: "It includes live tracking, smart dispatch and route planning."',
+    run: function (c) {
+      var re = /(^|\n)[ \t]*(?:[-*\u2022\u00B7\u2013>+]|\d{1,2}[.)])[ \t]+\S[^\n]*/g, m, b = [], hit = null;
+      while ((m = re.exec(c.nb))) b.push({ start: m.index + m[1].length, end: m.index + m[0].length });
+      if (b.length >= 3) hit = { start: b[0].start, end: b[b.length - 1].end, n: b.length + ' bullets' };
+      else c.sents.forEach(function (s) {
+        var r = seriesIn(s), t, w, from;
+        if (hit || !r || /^(?:\W*\w+\W+){0,2}your?(?![a-z])/i.test(s.text)) return;
+        t = FEATURE.exec(r.head);
+        if (!((r.items >= 4 && (t || WE.test(s.text))) || (r.items >= 3 && t))) return;
+        w = wordSpans(r.head);
+        from = t ? t.index + t[0].length : (w.length > 3 ? w[w.length - 3].start : 0);
+        hit = { start: s.start + r.headAt + from + (r.head.slice(from).match(/^\s*/)[0].length), end: s.start + r.end, n: r.items + ' items in a row' };
+      });
+      if (!hit) return { status: 'pass', verdict: 'No run of features found.' };
+      return { status: 'fail', matches: [{ start: hit.start, end: hit.end, wide: true }], verdict: 'Looks like a feature list, ' + hit.n + ': %q.',
+        first: 'Replace the list %q with the one thing that concerns this reader.' };
+    } },
+
+  { id: 'tokens', weight: 100, scope: 'all',
+    name: 'No unfilled template fields',
+    rule: 'No field that did not fill, in the message or the subject: {{first_name}}, {First}, [Name], <company>, %FIRSTNAME%.',
+    why: 'A field that did not fill tells the reader how the message was made. Nothing after it gets read.',
+    ex: 'Fails: "Hi {{first_name}}," and "I saw that [Company] is hiring."',
+    run: function (c) {
+      var m = tidy(find(c.nb, TOKENS).concat(find(c.ns, TOKENS, 'subject')));
+      if (!m.length) return { status: 'pass', verdict: 'No template field found.' };
+      return { status: 'fail', matches: m, verdict: 'Looks like a template field that did not fill: %q.',
+        first: 'Fill or remove %q before anything else: a reader who sees a template field stops there.' };
+    } },
+
+  { id: 'shouting', weight: 35, scope: 'all',
+    name: 'No shouting',
+    rule: 'One exclamation mark at most, no words in capitals, no emoji. Capitals of four letters or fewer are taken for an acronym and ignored, unless the word is one that sells (FREE, NOW, NEW).',
+    why: 'Emphasis is how advertising talks. A person writing to one other person about their business has no reason to raise their voice.',
+    ex: 'Fails: "Act NOW!!", "This is HUGE", a rocket emoji. Passes: CRM, API, B2B.',
+    run: function (c) {
+      var bangs = [], re = /\S*!+/g, m, all, parts = [];
+      while ((m = re.exec(c.nb))) bangs.push({ start: m.index, end: m.index + m[0].length });
+      var n = (c.nb.match(/!/g) || []).length, caps = capsOf(c.nb, 'body'), emo = emojiOf(c.body, 'body');
+      if (n < 2) bangs = [];
+      all = tidy(bangs.concat(caps, emo));
+      if (!all.length) return { status: 'pass', verdict: 'No capitals for emphasis, no emoji, ' + (n ? 'one exclamation mark.' : 'no exclamation marks.') };
+      if (bangs.length) parts.push(n + ' exclamation marks');
+      if (caps.length) parts.push(caps.length + (caps.length === 1 ? ' word' : ' words') + ' in capitals');
+      if (emo.length) parts.push(emo.length + ' emoji');
+      return { status: 'fail', matches: all, verdict: 'Found ' + parts.join(', ') + '.', first: 'Lower the voice: take out %q' + (all.length > 1 ? ' and the rest of the emphasis.' : '.') };
+    } },
+
+  { id: 'sentences', weight: 30, scope: 'all',
+    name: 'Short sentences',
+    rule: 'Sentences average 22 words or fewer, and none runs past 35. A semicolon or a new line ends a sentence here, and lines of one or two words (a sign-off) are left out of the average.',
+    why: 'A cold message is read fast and once. A sentence that needs a breath in the middle loses the reader in the middle.',
+    ex: 'Fails: one sentence of 40 words, or four sentences of 25.',
+    run: function (c) {
+      var s = sentencesOf(c.nb, c.greet.end, true).map(function (x) { x.n = wordSpans(x.text).length; return x; }).filter(function (x) { return x.n > 2; });
+      if (!s.length) return { status: 'pass', verdict: 'No full sentence to measure.' };
+      var total = 0, top = s[0];
+      s.forEach(function (x) { total += x.n; if (x.n > top.n) top = x; });
+      var avg = Math.round(10 * total / s.length) / 10, size = 'Longest sentence ' + top.n + ' words, average ' + avg + ' over ' + s.length + (s.length === 1 ? ' sentence' : ' sentences') + '.';
+      if (top.n <= MAX_SENTENCE && !(s.length >= 2 && avg > AVG_SENTENCE)) return { status: 'pass', verdict: size };
+      return { status: 'fail', matches: [{ start: top.start, end: top.end, wide: true }], verdict: size + ' The limit is ' + MAX_SENTENCE + ' for one sentence and ' + AVG_SENTENCE + ' on average.',
+        first: 'Split the sentence that starts %q: it runs to ' + top.n + ' words.' };
+    } },
+
+  { id: 'subject', weight: 50, scope: 'email',
+    name: 'A subject line a colleague could have typed',
+    rule: 'Email only. Six words or fewer, capitalised as a sentence: first word up, the rest lower case unless it is a name. No "Re:" or "Fwd:" on a first email, no capitals for emphasis, no exclamation mark, no emoji, and not the reader\'s first name.',
+    why: 'A subject is judged next to the ones from colleagues and customers, and one that looks like theirs is opened on its merits. A headline looks like a campaign. A "Re:" on a first email is found out in a second, and nothing after it is believed.',
+    ex: 'Fails: "Re: Quick Question About Your Shop Floor Scheduling". Passes: "Scheduling at Pellwood Machining".',
+    run: function (c) {
+      var s = c.ns, w = wordSpans(s), probs = [], m = [], x, alpha, letters = s.replace(/[^A-Za-z]/g, '');
+      if (c.channel !== 'email') return { status: 'na', verdict: 'Email only. A LinkedIn message has no subject line.' };
+      if (!w.length) return { status: 'na', verdict: 'No subject line pasted. Add one and it is checked.' };
+      function whole() { m.push({ start: 0, end: s.length, where: 'subject' }); }
+      if ((x = /^\s*(?:re|fwd?|fw)\s*:/i.exec(s))) { probs.push('a "' + x[0].trim() + '" on a first email'); m.push({ start: 0, end: x[0].length, where: 'subject' }); }
+      if (w.length > SUBJECT_WORDS) { probs.push(w.length + ' words where ' + SUBJECT_WORDS + ' is the limit'); m.push({ start: w[SUBJECT_WORDS].start, end: s.length, where: 'subject' }); }
+      alpha = w.map(function (p) { return s.slice(p.start, p.end); }).filter(function (p) { return /^[A-Za-z]/.test(p); });
+      if (letters.length >= 4 && letters === letters.toUpperCase()) { probs.push('all capitals'); whole(); }
+      else {
+        if ((x = capsOf(s, 'subject')).length) { probs.push('capitals for emphasis'); m = m.concat(x); }
+        if (alpha.length >= 3 && alpha.every(function (p) { return /^[A-Z]/.test(p); }) &&
+            (alpha.length >= 4 || alpha.slice(1).some(function (p) { return SMALL.test(p); }))) { probs.push('every word capitalised, which looks like a headline'); whole(); }
+        else if (/^[a-z]/.test(s)) { probs.push('a lower-case first word'); m.push({ start: 0, end: w[0].end, where: 'subject' }); }
+      }
+      if (/!/.test(s)) { probs.push('an exclamation mark'); m.push({ start: s.indexOf('!'), end: s.indexOf('!') + 1, where: 'subject' }); }
+      if ((x = emojiOf(c.subject, 'subject')).length) { probs.push('an emoji'); m = m.concat(x); }
+      if (c.greet.name && (x = find(s, [c.greet.name], 'subject')).length) { probs.push('the reader\'s first name'); m = m.concat(x); }
+      if (!probs.length) return { status: 'pass', verdict: w.length + (w.length === 1 ? ' word' : ' words') + ', written as a sentence.' };
+      return { status: 'fail', matches: m, verdict: 'The subject has ' + probs.join('; ') + '.',
+        first: 'Rewrite the subject line, which has ' + probs.join('; ') + ': %q.' };
+    } },
+
+  { id: 'wayout', weight: 15, scope: 'email',
+    name: 'Says how to make it stop',
+    rule: 'Email only. One plain line that says how to make it stop, such as "Reply stop and I will not write again."',
+    why: 'It costs one line, and it tells the reader there is a person on the other end who stops when asked. The rules for commercial email in many countries expect it too. Check the ones that apply to you.',
+    ex: 'Passes: "Reply stop and I will not write again."',
+    run: function (c) {
+      var s = null;
+      if (c.channel !== 'email') return { status: 'na', verdict: 'Email only. On LinkedIn a stop line makes a message read as a mailing.' };
+      c.all.forEach(function (x) { if (!s && OPTOUT.test(x.text)) s = x; });
+      if (s) return { status: 'pass', matches: [{ start: s.start, end: s.end, wide: true }], verdict: 'Found: %q.' };
+      return { status: 'fail', matches: [], verdict: 'No line found that says how to make it stop.',
+        first: 'Add one plain line that says how to make it stop, such as "Reply stop and I will not write again."' };
+    } }
+];
+
+function quote(text) {
+  var t = String(text).replace(/\s+/g, ' ').trim();
+  return '"' + (t.length > 72 ? t.slice(0, 70).replace(/\s+\S*$/, '') + '...' : t) + '"';
+}
+
+/* input: { channel: note | dm | email, subject, body }. Under MIN_WORDS words
+   nothing is judged: state is 'empty' or 'short', never a pass. */
+function checkMessage(input) {
+  var c = contextOf(input), n = c.words.length;
+  var out = { channel: c.channel, subject: c.subject, body: c.body, words: n, chars: c.body.trim().length,
+    state: n === 0 ? 'empty' : n < MIN_WORDS ? 'short' : 'checked', results: [], passed: 0, failed: 0, applicable: 0, first: null };
+  if (out.state !== 'checked') return out;
+  RULES.forEach(function (rule, i) {
+    var r = rule.run(c), q;
+    r.n = i + 1; r.id = rule.id; r.name = rule.name; r.why = rule.why; r.weight = rule.weight;
+    r.matches = tidy(r.matches || []);
+    r.matches.forEach(function (m) { m.where = m.where || 'body'; m.text = (m.where === 'subject' ? c.subject : c.body).slice(m.start, m.end); });
+    q = r.matches.length ? quote(r.matches[0].text) : '';
+    r.verdict = r.verdict.replace('%q', q);
+    r.first = r.first ? r.first.replace('%q', q) : '';
+    if (r.status !== 'na') { out.applicable++; out[r.status === 'pass' ? 'passed' : 'failed']++; }
+    if (r.status === 'fail' && (!out.first || r.weight > out.first.weight)) out.first = r;
+    out.results.push(r);
+  });
+  return out;
+}
+
+/* Both messages are invented: the founder, the product, the reader and the company do not exist. */
+var EXAMPLES = {
+  bad: { channel: 'email', subject: 'Re: Quick Question About Your Shop Floor Scheduling',
+    body: 'Hi Marit,\n\nI hope this email finds you well. My name is Tobin and I\'m the founder of Tallybench, the leading scheduling platform for machine shops. I came across your profile and was impressed by what you\'re doing at Pellwood Machining.\n\nOur cutting-edge solution leverages real-time data to unlock 10x faster job scheduling, and it integrates seamlessly with the tools you already use.\n\nDo you have 15 minutes this week for a quick call? Or let me know who the right person is and I\'ll reach out to them.\n\nBest,\nTobin' },
+  better: { channel: 'email', subject: 'Scheduling at Pellwood Machining',
+    body: 'Marit, Pellwood\'s advert for a second-shift lead says the week is planned "on the whiteboard by the saw". I built Tallybench for shops that still plan on a whiteboard. Is that still how Monday gets decided?\n\nTobin\n\nReply stop and I will not write again.' }
+};
+/* ===== message-rules:end ===== */
+
+(function () {
+  function $(id) { return document.getElementById(id); }
+  var box = $('msg'), go = $('go');
+  if (!box || !go) return;
+  var subj = $('subject'), swap = $('swap'), label = $('msg-label');
+  var radios = Array.prototype.slice.call(document.querySelectorAll('input[name="channel"]'));
+  var CLS = { pass: 'sign', fail: 'alone', na: 'read' }, WORD = { pass: 'pass', fail: 'fail', na: 'n/a' };
+  var NAMES = { note: 'LinkedIn invitation note', dm: 'LinkedIn message', email: 'Cold email' };
+  var loaded = 'bad', timer = null;
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function empty(node) { while (node.firstChild) node.removeChild(node.firstChild); }
+  function channel() {
+    for (var i = 0; i < radios.length; i++) if (radios[i].checked) return radios[i].value;
+    return 'email';
+  }
+  function clip(s, n) {
+    s = s.replace(/\s+/g, ' ');
+    return s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : s;
+  }
+
+  /* One matched fragment with a little of what stands around it. */
+  function snippet(src, m) {
+    var li = el('li'), a = Math.max(0, m.start - 28), b = Math.min(src.length, m.end + 28);
+    var before = src.slice(a, m.start).replace(/\s+/g, ' '), after = src.slice(m.end, b).replace(/\s+/g, ' ');
+    if (a > 0) before = '…' + before.replace(/^\S*\s/, '');
+    if (b < src.length) after = after.replace(/\s\S*$/, '') + '…';
+    li.appendChild(document.createTextNode((m.where === 'subject' ? 'Subject: ' : '') + before));
+    li.appendChild(el('mark', null, clip(m.text, 110)));
+    li.appendChild(document.createTextNode(after));
+    return li;
+  }
+
+  /* The short matches of every failing rule, merged where they overlap. */
+  function merged(results, where) {
+    var list = [], out = [];
+    results.forEach(function (r) {
+      if (r.status !== 'fail') return;
+      r.matches.forEach(function (m) { if (!m.wide && m.where === where) list.push({ start: m.start, end: m.end, label: 'R' + r.n }); });
+    });
+    list.sort(function (a, b) { return (a.start - b.start) || (b.end - a.end); });
+    list.forEach(function (m) {
+      var last = out[out.length - 1];
+      if (last && m.start < last.end) {
+        last.end = Math.max(last.end, m.end);
+        if (last.label.split(' ').indexOf(m.label) < 0) last.label += ' ' + m.label;
+      } else out.push(m);
+    });
+    return out;
+  }
+
+  function paint(node, text, marks, cut, cutLabel) {
+    var pos = 0, flagged = false;
+    function put(a, b, mark) {
+      var e, t;
+      if (b <= a) return;
+      if (cut >= 0 && a < cut && b > cut) { put(a, cut, mark); put(cut, b, mark); return; }
+      if (cut >= 0 && a >= cut && !flagged) { node.appendChild(el('span', 'cut', cutLabel)); flagged = true; }
+      t = text.slice(a, b);
+      if (mark) { e = el('mark', null, t); e.setAttribute('data-r', mark.label); }
+      else e = cut >= 0 && a >= cut ? el('span', 'over', t) : document.createTextNode(t);
+      node.appendChild(e);
+    }
+    marks.forEach(function (m) { put(pos, m.start, null); put(m.start, m.end, m); pos = m.end; });
+    put(pos, text.length, null);
+  }
+
+  function relabel() {
+    var mine = box.value !== EXAMPLES.bad.body && box.value !== EXAMPLES.better.body;
+    empty(label);
+    label.appendChild(el('strong', null, mine ? 'Your message.' : 'This message is invented.'));
+    label.appendChild(document.createTextNode(mine ? ' It stays in this page.'
+      : ' An invented founder, an invented product, an invented reader. Delete it and paste your own.'));
+  }
+
+  function run(scroll) {
+    var res = checkMessage({ channel: channel(), subject: subj.value, body: box.value });
+    var score = $('score'), legend = $('legend'), hint = $('hint'), first = $('first'), detail = $('detail');
+    $('subject-field').hidden = res.channel !== 'email';
+    relabel();
+    empty(score); empty(legend);
+    if (res.state !== 'checked') {
+      score.textContent = res.state === 'empty' ? 'Nothing to check yet.' : 'Too short to judge.';
+      hint.textContent = 'Paste the whole message, five words or more. Nothing is judged before that.';
+      hint.hidden = false; legend.hidden = true; first.hidden = true; detail.hidden = true;
+      $('meta').textContent = '';
+      return;
+    }
+    hint.hidden = true; legend.hidden = false; first.hidden = false; detail.hidden = false;
+    $('meta').textContent = NAMES[res.channel] + ', ' + res.words + ' words, ' + res.chars + ' characters';
+    score.appendChild(el('b', null, res.passed + ' of ' + res.applicable));
+    score.appendChild(document.createTextNode(' checks passed.'));
+    legend.appendChild(el('span', 'v-sign', res.passed + ' passed'));
+    legend.appendChild(el('span', 'v-alone', res.failed + ' to change'));
+    legend.appendChild(el('span', 'v-read', (res.results.length - res.applicable) + ' not applicable'));
+    first.className = res.first ? 'first' : 'first ok';
+    $('first-head').textContent = res.first ? 'What to change first' : 'Nothing to change on form';
+    $('first-text').textContent = res.first ? res.first.first
+      : 'Every rule that applies passed. That covers form only. Whether this person has the problem, and whether they can sign, is not something this page can see.';
+
+    var marked = $('marked'), line, cutAt = -1, cutLabel = '';
+    empty(marked);
+    if (res.subject) {
+      line = el('span', 'subj');
+      line.appendChild(document.createTextNode('Subject: '));
+      paint(line, res.subject, merged(res.results, 'subject'), -1, '');
+      marked.appendChild(line);
+    }
+    res.results.forEach(function (r) {
+      if (r.status === 'fail' && r.matches[0] && r.matches[0].cut) { cutAt = r.matches[0].start; cutLabel = 'R' + r.n + ' limit'; }
+    });
+    paint(marked, res.body, merged(res.results, 'body'), cutAt, cutLabel);
+
+    var checks = $('checks');
+    empty(checks);
+    res.results.forEach(function (r) {
+      var li = el('li', r.status), s = el('div', 'ck-s'), b = el('div', 'ck-b'), a = el('a', null, 'R' + r.n), ul, w;
+      a.href = '#rule-' + r.n;
+      a.title = 'Rule ' + r.n + ' in the list below';
+      s.appendChild(el('span', 'chip v-' + CLS[r.status], WORD[r.status]));
+      s.appendChild(a);
+      b.appendChild(el('p', 'ck-name', r.name));
+      b.appendChild(el('p', 'ck-v', r.verdict));
+      if (r.status === 'fail' && r.matches.length) {
+        ul = el('ul', 'ck-m');
+        r.matches.slice(0, 4).forEach(function (m) { ul.appendChild(snippet(m.where === 'subject' ? res.subject : res.body, m)); });
+        if (r.matches.length > 4) ul.appendChild(el('li', null, 'and ' + (r.matches.length - 4) + ' more, marked in the message above'));
+        b.appendChild(ul);
+      }
+      if (r.status === 'fail') {
+        w = el('p', 'ck-w');
+        w.appendChild(el('b', null, 'Why this rule. '));
+        w.appendChild(document.createTextNode(r.why));
+        b.appendChild(w);
+      } else if (r.status === 'pass') {
+        /* A rule that passed keeps its reason one press away, so the list stays short. */
+        w = el('details', 'ck-d');
+        w.appendChild(el('summary', null, 'Why this rule'));
+        w.appendChild(el('p', 'ck-w', r.why));
+        b.appendChild(w);
+      }
+      li.appendChild(s); li.appendChild(b);
+      checks.appendChild(li);
+    });
+    if (scroll) $('result').scrollIntoView();
+  }
+
+  function load(which) {
+    var ex = EXAMPLES[which];
+    loaded = which;
+    radios.forEach(function (r) { r.checked = r.value === ex.channel; });
+    subj.value = ex.subject;
+    box.value = ex.body;
+    swap.textContent = which === 'bad' ? 'Load a better version' : 'Load the first version';
+    run(false);
+  }
+
+  /* The rule list is written from the same objects the check runs on. */
+  RULES.forEach(function (r, i) {
+    var li = el('li'), rt = el('div', 'rt'), ex = el('div', 'ex');
+    li.id = 'rule-' + (i + 1);
+    rt.appendChild(el('strong', null, r.name + '. '));
+    rt.appendChild(document.createTextNode(r.rule));
+    rt.appendChild(el('p', 'small muted', r.why));
+    ex.appendChild(el('b', null, 'Weight ' + r.weight + (r.scope === 'email' ? ', email only' : '')));
+    ex.appendChild(document.createTextNode(r.show ? r.show.join(', ') : r.ex));
+    li.appendChild(rt); li.appendChild(ex);
+    $('rule-list').appendChild(li);
+  });
+
+  function later() { clearTimeout(timer); timer = setTimeout(function () { run(false); }, 250); }
+  box.addEventListener('input', later);
+  subj.addEventListener('input', later);
+  radios.forEach(function (r) { r.addEventListener('change', function () { run(false); }); });
+  go.addEventListener('click', function () { run(true); });
+  swap.addEventListener('click', function () { load(loaded === 'bad' ? 'better' : 'bad'); });
+  $('clear').addEventListener('click', function () {
+    box.value = ''; subj.value = ''; loaded = 'better'; swap.textContent = 'Load the invented example';
+    run(false); box.focus();
+  });
+  load('bad');
+})();
+</script>
+</body>
+</html>
