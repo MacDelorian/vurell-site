@@ -8,6 +8,9 @@
 <meta name="robots" content="index,follow">
 <meta property="og:title" content="Vurell | A go-to-market agency for technical founders">
 <meta property="og:description" content="Vurell is a go-to-market agency for technical founders. We take you into your first market and to your first customers. Who to sell to, what to say to them, and the sending.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
 @font-face{font-family:"Geist";src:url("fonts/geist-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 @font-face{font-family:"Geist Mono";src:url("fonts/geist-mono-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
@@ -38,6 +41,7 @@ code{font-family:var(--mono);font-size:.9em}
 .top{position:sticky;top:0;z-index:20;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;height:3.6rem;padding:0 1rem;background:color-mix(in srgb,var(--ground) 84%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--rule)}
 .brand{justify-self:start;font-weight:600;font-size:1.05rem;letter-spacing:-.02em;color:var(--ink)}
 .brand:hover{text-decoration:none}
+.brand svg{display:block;height:1.55rem;width:auto}
 .links{display:flex;gap:1.4rem;justify-self:center}
 .links a{color:var(--muted);font-size:.9rem;font-weight:500;white-space:nowrap}
 .links a:hover{color:var(--ink);text-decoration:none}
@@ -171,7 +175,7 @@ footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
-  <a class="brand" href="./">Vurell</a>
+  <a class="brand" href="./" aria-label="Vurell"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-372.7 -852.0 2977.2 937.2" aria-hidden="true" focusable="false"><path d="M-226.9 -459.2 L0.0 -66.2" stroke="currentColor" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M0.0 -66.2 L431.7 -706.2" stroke="var(--accent, #2F5BFF)" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M728.56 12.0Q647.16 12.0 600.06 -41.5Q552.96 -95.0 552.96 -190.20V-534.00H680.96V-221.60Q680.96 -154.60 703.06 -123.30Q725.16 -92.00 771.36 -92.00Q823.16 -92.00 851.96 -126.50Q880.76 -161.00 880.76 -226.80V-534.00H1008.76V0.0H891.16L888.36 -146.60L904.96 -141.60Q892.16 -66.20 847.16 -27.10Q802.16 12.0 728.56 12.0Z M1114.96 0.0V-534.00H1234.56L1239.36 -385.59L1228.96 -388.19Q1240.96 -464.99 1274.26 -499.50Q1307.56 -534.00 1365.16 -534.00H1414.76V-424.39H1364.96Q1323.76 -424.39 1296.86 -412.29Q1269.96 -400.19 1256.46 -374.69Q1242.96 -349.19 1242.96 -307.59V0.0Z M1719.16 12.0Q1639.36 12.0 1580.66 -22.40Q1521.96 -56.80 1489.86 -119.70Q1457.76 -182.60 1457.76 -267.00Q1457.76 -351.40 1489.86 -413.80Q1521.96 -476.20 1580.06 -511.10Q1638.16 -546.00 1716.76 -546.00Q1792.96 -546.00 1850.16 -511.90Q1907.36 -477.80 1938.66 -413.79Q1969.96 -349.79 1969.96 -259.99V-231.39H1590.56Q1594.36 -160.80 1628.86 -125.60Q1663.36 -90.40 1720.76 -90.40Q1763.56 -90.40 1791.86 -109.50Q1820.16 -128.60 1831.56 -163.80L1962.36 -155.60Q1940.96 -78.19 1876.26 -33.09Q1811.56 12.0 1719.16 12.0ZM1590.56 -317.40H1837.16Q1833.16 -382.39 1800.46 -413.79Q1767.76 -445.19 1716.76 -445.19Q1665.36 -445.19 1631.86 -412.29Q1598.36 -379.39 1590.56 -317.40Z M2172.96 0.0Q2114.16 0.0 2079.56 -30.00Q2044.96 -60.00 2044.96 -126.40V-710.0H2172.96V-139.40Q2172.96 -118.60 2183.26 -108.90Q2193.56 -99.20 2212.76 -99.20H2251.96V0.0Z M2434.96 0.0Q2376.16 0.0 2341.56 -30.00Q2306.96 -60.00 2306.96 -126.40V-710.0H2434.96V-139.40Q2434.96 -118.60 2445.26 -108.90Q2455.56 -99.20 2474.76 -99.20H2513.96V0.0Z" fill="currentColor"/></svg></a>
   <nav class="links" aria-label="Site"><a href="#about">About</a><a href="#how">How we work</a><a href="count/">The count</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a><a href="engagement/">An engagement</a></nav>
   <div class="top-cta"><a class="btn sm" href="count/">Count your last twenty</a><a class="btn sm ghost" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></div>
   <details class="menu"><summary>Menu</summary><nav aria-label="Site"><a href="#about">About</a><a href="#how">How we work</a><a href="count/">The count</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a><a href="engagement/">An engagement</a><a class="go" href="count/">Count your last twenty</a><a class="go" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></nav></details>
