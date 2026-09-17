@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An engagement, step by step | Vurell</title>
+<meta name="description" content="Illustrative example. Not a client. The figures show the shape of the work, not results we have delivered.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="An engagement, step by step | Vurell">
+<meta property="og:description" content="Illustrative example. Not a client. The figures show the shape of the work, not results we have delivered.">
+<style>
+@font-face{font-family:"Geist";src:url("../fonts/geist-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("../fonts/geist-mono-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+:root{--ground:#FAFAF9;--ink:#0B0C0E;--muted:#6B7280;--accent:#2F5BFF;--on-accent:#FFFFFF;--card:#FFFFFF;--rule:#E3E3DF;--soft:#F2F2EF;--dot:#CFCFCA;--sign:#0E7A4F;--studio:#8A5A00;--alone:#9B2C2C;--read:#4B5563;--sans:"Geist",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:"Geist Mono","SF Mono","Cascadia Code",Consolas,"Liberation Mono",monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--on-accent:#0B0C0E;--card:#121418;--rule:#262930;--soft:#16181D;--dot:#2A2D33;--sign:#6FCF9C;--studio:#D9B56A;--alone:#E39C9C;--read:#AEB5BF}}
+:root[data-theme="dark"]{--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--on-accent:#0B0C0E;--card:#121418;--rule:#262930;--soft:#16181D;--dot:#2A2D33;--sign:#6FCF9C;--studio:#D9B56A;--alone:#E39C9C;--read:#AEB5BF}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+.wrap{max-width:74rem;margin:0 auto;padding-inline:1rem}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:.16em}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+[id]{scroll-margin-top:4.5rem}
+h1,h2,h3{margin:0;font-weight:600;line-height:1.1;letter-spacing:-.02em}
+h1{font-size:clamp(2.4rem,6vw,4.5rem);line-height:1.02;letter-spacing:-.035em;max-width:17ch}
+h2{font-size:1.6rem;letter-spacing:-.025em}
+h3{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);line-height:1.4;margin:1.6rem 0 .5rem}
+h3:first-child{margin-top:0}
+p{margin:0 0 1rem}
+p:last-child{margin-bottom:0}
+.eyebrow{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 .9rem}
+.muted{color:var(--muted)}
+.small{font-size:.875rem}
+.skip{position:absolute;left:-999px;top:.5rem;background:var(--card);color:var(--ink);padding:.5rem .8rem;border:1px solid var(--rule);border-radius:6px;z-index:50}
+.skip:focus{left:.5rem}
+.top{position:sticky;top:0;z-index:20;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;height:3.6rem;padding:0 1rem;background:color-mix(in srgb,var(--ground) 84%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--rule)}
+.brand{justify-self:start;font-weight:600;font-size:1.05rem;letter-spacing:-.02em;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.links{display:flex;gap:1.4rem;justify-self:center}
+.links a{color:var(--muted);font-size:.9rem;font-weight:500;white-space:nowrap}
+.links a:hover,.links a[aria-current]{color:var(--ink);text-decoration:none}
+.top-cta{display:flex;gap:.5rem;justify-self:end}
+.menu{display:none;justify-self:end}
+.menu summary{list-style:none;cursor:pointer;font-size:.9rem;font-weight:600;padding:.45rem .8rem;border:1px solid var(--rule);border-radius:7px;background:var(--card)}
+.menu summary::-webkit-details-marker{display:none}
+.menu nav{position:absolute;left:0;right:0;top:3.6rem;display:flex;flex-direction:column;padding:.5rem 1rem 1rem;background:var(--card);border-bottom:1px solid var(--rule)}
+.menu nav a{padding:.65rem 0;color:var(--ink);font-weight:500;border-bottom:1px solid var(--rule)}
+.menu nav a.go{color:var(--accent);font-weight:600;border-bottom:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.72rem 1.15rem;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:var(--on-accent);font:inherit;font-size:.95rem;font-weight:600;line-height:1.2;cursor:pointer;white-space:nowrap;text-decoration:none}
+.btn:hover{filter:brightness(1.08);text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.btn.ghost:hover{filter:none;border-color:var(--ink)}
+.btn.sm{padding:.5rem .85rem;font-size:.85rem;border-radius:7px}
+.hero{position:relative;overflow:hidden;padding-block:3rem 2rem}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--dot) 1px,transparent 1.4px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 85% 95% at 50% 0%,#000 25%,transparent 78%);mask-image:radial-gradient(ellipse 85% 95% at 50% 0%,#000 25%,transparent 78%);pointer-events:none}
+.hero .wrap{position:relative}
+.lede{font-size:1.25rem;line-height:1.4;color:var(--muted);max-width:44ch;margin:1.4rem 0 0}
+/* C-44. Body size, never smaller, never below the figures it labels. */
+.label{font-size:max(1em,1.02rem);line-height:1.5;font-weight:500;color:var(--ink);background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--alone);border-radius:8px;padding:.8rem 1rem;max-width:62ch;margin:0 0 2rem}
+.body{padding-block:1rem 4rem}
+.timeline{list-style:none;margin:0;padding:0}
+.tl{display:grid;gap:1rem 3rem;padding-block:2.5rem;border-top:1px solid var(--rule)}
+.tl-rail .num{display:block;font-family:var(--mono);font-size:.74rem;color:var(--muted);margin-bottom:.5rem}
+.tl-main{display:grid;gap:1.5rem 2.5rem;min-width:0}
+.tl-text{max-width:60ch;min-width:0}
+.tl-text p{font-size:1.02rem}
+.art{background:var(--card);border:1px solid var(--rule);border-radius:12px;overflow:hidden;min-width:0;align-self:start}
+.art-head{padding:.7rem 1rem;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+.art table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.4}
+.art td{padding:.6rem 1rem;border-bottom:1px solid var(--rule);vertical-align:top}
+.art tr:last-child td{border-bottom:0}
+.art td.n{font-family:var(--mono);font-weight:600;text-align:right;white-space:nowrap;width:4rem}
+.art tr.sum td{background:var(--soft);font-weight:600}
+.art tr.why td:first-child{color:var(--muted);padding-left:1.75rem}
+.art pre{margin:0;padding:.9rem 1rem;font-family:var(--mono);font-size:.78rem;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere}
+.art pre b{font-weight:600}
+.kv{display:grid;grid-template-columns:4.5rem minmax(0,1fr);gap:.35rem .5rem;margin:0;padding:.9rem 1rem;font-family:var(--mono);font-size:.78rem;line-height:1.55}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;overflow-wrap:anywhere}
+.kv b{font-weight:600}
+.art .label{margin:0;border:0;border-bottom:1px solid var(--rule);border-left:3px solid var(--alone);border-radius:0;max-width:none;font-size:1.02rem}
+.keeps{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:1.5rem;max-width:62ch;margin-top:1rem}
+.keeps p{font-size:1.02rem}
+.closing{max-width:62ch;margin:1.5rem 0 0;font-size:1.02rem;font-weight:500}
+.cta{background:var(--ink);color:var(--ground);border-radius:16px;padding:3rem 1.25rem;text-align:center;margin-top:3rem}
+.cta .eyebrow{color:color-mix(in srgb,var(--ground) 65%,transparent)}
+.cta h2{margin:0 auto;max-width:22ch;font-size:2rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem;justify-content:center}
+.cta .btn{background:var(--ground);color:var(--ink);border-color:var(--ground)}
+.cta .btn.ghost{background:transparent;color:var(--ground);border-color:color-mix(in srgb,var(--ground) 35%,transparent)}
+footer{border-top:1px solid var(--rule)}
+footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var(--muted)}
+.foot-nav{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin:0 0 1.4rem;font-weight:500}
+.foot-nav a{color:var(--ink)}
+@media (min-width:760px){body{font-size:18px}.wrap{padding-inline:2rem}.hero{padding-block:4.5rem 2rem}.lede{font-size:1.4rem}.tl{grid-template-columns:13rem minmax(0,1fr)}.tl-rail{position:sticky;top:5rem;align-self:start}.cta{padding:4rem 2rem}}
+@media (min-width:1100px){.tl-main.has-art{grid-template-columns:minmax(0,1fr) minmax(0,24rem)}}
+@media (max-width:1179px){.links,.top-cta{display:none}.menu{display:block}.top{grid-template-columns:1fr auto}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+<!--
+  Cloudflare Web Analytics (cookieless, no banner). Paste the real token and
+  uncomment ONLY after the operator's Cloudflare account exists and the Pages
+  project is created; until then this page makes zero external requests.
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "REPLACE_WITH_TOKEN"}'></script>
+-->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="../">Vurell</a>
+  <nav class="links" aria-label="Site"><a href="../#about">About</a><a href="../#how">How we work</a><a href="../count/">The count</a><a href="../#pricing">Pricing</a><a href="../reads/">Reads</a><a href="./" aria-current="page">An engagement</a></nav>
+  <div class="top-cta"><a class="btn sm" href="../count/">Count your last twenty</a><a class="btn sm ghost" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></div>
+  <details class="menu"><summary>Menu</summary><nav aria-label="Site"><a href="../#about">About</a><a href="../#how">How we work</a><a href="../count/">The count</a><a href="../#pricing">Pricing</a><a href="../reads/">Reads</a><a href="./">An engagement</a><a class="go" href="../count/">Count your last twenty</a><a class="go" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></nav></details>
+</header>
+<main id="main">
+
+<section class="hero"><div class="wrap">
+  <p class="label">Illustrative example. Not a client. The figures show the shape of the work, not results we have delivered.</p>
+  <h1>An engagement, step by step</h1>
+  <p class="lede">Nothing below happened. The company is invented, the people are roles rather than names, and the numbers were chosen to show what each step produces.</p>
+</div></section>
+
+<section class="body"><div class="wrap">
+  <ol class="timeline">
+
+    <li class="tl" id="market">
+      <div class="tl-rail"><span class="num">01</span><h2>Market</h2></div>
+      <div class="tl-main has-art">
+        <div class="tl-text">
+          <h3>The company</h3>
+          <p>Fernbrook Ledger, a seed-stage B2B SaaS that reconciles freight invoices against delivery records. Two engineers, no salesperson, a product that works.</p>
+          <h3>The market</h3>
+          <p>Freight brokerages in the UK and Ireland between ten and sixty people. At that size the person who feels the problem is the person who signs. Carriers and anything over two hundred people were left out, because there the signature is three seats away.</p>
+          <p class="label" style="margin:1.6rem 0 0">Illustrative example. Not a client. The figures show the shape of the work, not results we have delivered.</p>
+          <h3>The read</h3>
+          <p>Forty-six people read one at a time from what they leave in public. Twenty kept. Twenty-six killed, and each kill is written down with the reason: nine where the title spends a budget somebody above it owns, seven where a sales seat at the same company already owns the buy, six with nothing public in ninety days showing the problem now, four over two hundred people.</p>
+        </div>
+        <div class="art">
+          <p class="label">Illustrative example. Not a client. The figures show the shape of the work, not results we have delivered.</p>
+          <div class="art-head">twenty.md and kill-list.md &middot; example, invented</div>
+          <table>
+            <tr class="sum"><td>Read</td><td class="n">46</td></tr>
+            <tr class="sum"><td>Kept</td><td class="n">20</td></tr>
+            <tr class="sum"><td>Killed, each with the reason</td><td class="n">26</td></tr>
+            <tr class="why"><td>the title spends a budget somebody above it owns</td><td class="n">9</td></tr>
+            <tr class="why"><td>a sales seat at the same company already owns the buy</td><td class="n">7</td></tr>
+            <tr class="why"><td>nothing public in ninety days showing the problem now</td><td class="n">6</td></tr>
+            <tr class="why"><td>over two hundred people</td><td class="n">4</td></tr>
+          </table>
+        </div>
+      </div>
+    </li>
+
+    <li class="tl" id="message">
+      <div class="tl-rail"><span class="num">02</span><h2>Message</h2></div>
+      <div class="tl-main">
+        <div class="tl-text">
+          <p>Three of the twenty kept, and the line that kept them. A managing director who wrote publicly about chasing a credit note for six weeks. An operations director whose company posted a job for a reconciliation clerk. A finance lead who asked a public forum how other brokers close a month with paperwork missing.</p>
+        </div>
+      </div>
+    </li>
+
+    <li class="tl" id="sending">
+      <div class="tl-rail"><span class="num">03</span><h2>Sending</h2></div>
+      <div class="tl-main has-art">
+        <div class="tl-text">
+          <h3>The sending</h3>
+          <p>Twenty notes, one per name, each opening on the line that put the name on the list. The founder pressed Send from their own account, twenty over four weeks.</p>
+        </div>
+        <div class="art">
+          <div class="art-head">messages/01.md &middot; example, invented</div>
+<dl class="kv"><dt>to:</dt><dd>row 1 of twenty.md, a managing director</dd><dt>opens:</dt><dd>the line that put the name on the list</dd><dt>source:</dt><dd>wrote publicly about chasing a credit note for six weeks</dd><dt>send:</dt><dd><b>the founder presses it, from their own account</b></dd></dl>
+        </div>
+      </div>
+    </li>
+
+    <li class="tl" id="first-customers">
+      <div class="tl-rail"><span class="num">04</span><h2>First customers</h2></div>
+      <div class="tl-main has-art">
+        <div class="tl-text">
+          <h3>The replies</h3>
+          <p>Four wrote back. Two said not now and gave a reason, which went into the repository. Two kept talking, and one of those two reached the point where a pilot could be proposed.</p>
+          <h3>The pilot</h3>
+          <p>Two weeks, a fixed sum, one month of that broker's invoices reconciled by hand before anybody writes software. One page, sent by the founder.</p>
+        </div>
+        <div class="art">
+          <p class="label">Illustrative example. Not a client. The figures show the shape of the work, not results we have delivered.</p>
+          <div class="art-head">log/ &middot; example, invented</div>
+          <table>
+            <tr><td>Notes sent, over four weeks</td><td class="n">20</td></tr>
+            <tr><td>Wrote back</td><td class="n">4</td></tr>
+            <tr class="why"><td>said not now and gave a reason</td><td class="n">2</td></tr>
+            <tr class="why"><td>kept talking</td><td class="n">2</td></tr>
+            <tr><td>Reached the point where a pilot could be proposed</td><td class="n">1</td></tr>
+          </table>
+        </div>
+      </div>
+    </li>
+
+  </ol>
+
+  <div class="keeps">
+    <h3>What the founder keeps</h3>
+    <p>Forty-six judgements, twenty names with their quoted evidence, twenty-six kills with the reason each, every message, every reply, and the rules that decided them. Plain text, in a repository the founder owns.</p>
+  </div>
+  <p class="closing">We publish no reply rate, and the numbers above are not one. They were chosen to show the shape of a week's work.</p>
+
+  <div class="cta">
+    <p class="eyebrow">Who it is for</p>
+    <h2>This is for founders who shipped something good and have never sold anything.</h2>
+    <div class="cta-row"><a class="btn" href="../count/">Count your last twenty</a><a class="btn ghost" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></div>
+  </div>
+</div></section>
+
+</main>
+
+<footer><div class="wrap">
+  <nav class="foot-nav" aria-label="Footer"><a href="../#about">About</a><a href="../#how">How we work</a><a href="../count/">The count</a><a href="../#pricing">Pricing</a><a href="../reads/">Reads</a><a href="./">An engagement</a><a href="../one-pager/">One-pager</a></nav>
+  <p>Vurell. Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France. <a href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">miro@vurell.com</a>. Every message read by a person before it goes.</p>
+  <p>If I wrote to you and you want it to stop, reply stop and I delete the record.</p>
+</div></footer>
+</body>
+</html>

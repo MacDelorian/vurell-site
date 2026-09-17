@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vurell | Who in your market has the problem now</title>
-<meta name="description" content="Vurell takes technical founders who have never sold into their first market: who to sell to there, what to say to them, and the sending.">
+<title>Vurell | A go-to-market agency for technical founders</title>
+<meta name="description" content="Vurell is a go-to-market agency for technical founders. We take you into your first market and to your first customers. Fixed scope, a public price.">
 <meta name="robots" content="index,follow">
-<meta property="og:title" content="Vurell | Who in your market has the problem now">
-<meta property="og:description" content="Vurell takes technical founders who have never sold into their first market: who to sell to there, what to say to them, and the sending. Twenty messages, one per name. You press Send.">
+<meta property="og:title" content="Vurell | A go-to-market agency for technical founders">
+<meta property="og:description" content="Vurell is a go-to-market agency for technical founders. We take you into your first market and to your first customers. Who to sell to, what to say to them, and the sending.">
 <style>
 @font-face{font-family:"Geist";src:url("fonts/geist-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 @font-face{font-family:"Geist Mono";src:url("fonts/geist-mono-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
@@ -58,7 +58,7 @@ code{font-family:var(--mono);font-size:.9em}
 .hero .wrap{position:relative}
 .hero h1{max-width:none;text-wrap:balance}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:2.5rem;margin-top:1.5rem}
-.lede{font-size:1.25rem;line-height:1.4;color:var(--muted);max-width:32ch;margin:0}
+.lede{font-size:1.25rem;line-height:1.4;color:var(--muted);max-width:36ch;margin:0}
 .cta-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
 .hero-note{font-size:.9rem;line-height:1.5;color:var(--muted);max-width:46ch;margin:1.4rem 0 0}
 .demo{background:var(--card);border:1px solid var(--rule);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;min-width:0}
@@ -100,7 +100,7 @@ code{font-family:var(--mono);font-size:.9em}
 .fact.wide{grid-column:1/-1}
 .sec-head{max-width:44rem;margin-bottom:2.25rem}
 .sec-head>p:last-child{color:var(--muted);font-size:1.05rem;margin:1rem 0 0;max-width:52ch}
-.grid3{display:grid;gap:1.1rem}
+.grid3,.grid4{display:grid;gap:1.1rem}
 .card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:1.5rem;min-width:0}
 .steps{list-style:none;margin:0;padding:0}
 .step{display:flex;flex-direction:column;gap:.9rem}
@@ -126,6 +126,9 @@ code{font-family:var(--mono);font-size:.9em}
 .tile .scope{font-size:.95rem;line-height:1.5;margin:0;padding-top:.85rem;border-top:1px solid var(--rule)}
 .pilot{display:flex;flex-wrap:wrap;gap:.35rem 1.25rem;align-items:baseline;margin-top:1.1rem;padding:1rem 1.5rem;border:1px dashed var(--rule);border-radius:12px;font-size:.95rem}
 .pilot .name{font-weight:600;font-size:1.05rem}
+.pilot .rung{font-family:var(--mono);font-size:.74rem;color:var(--muted);flex-basis:100%}
+.tile .scope.lead{font-weight:500}
+.tile .scope.more{padding-top:0;border-top:0}
 .after{margin:1.5rem 0 0;font-size:1.05rem}
 .read{display:flex;flex-direction:column;gap:.8rem;color:var(--ink)}
 .read:hover{border-color:var(--ink);text-decoration:none}
@@ -151,9 +154,10 @@ footer{border-top:1px solid var(--rule);margin-top:2rem}
 footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var(--muted)}
 .foot-nav{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin:0 0 1.4rem;font-weight:500}
 .foot-nav a{color:var(--ink)}
-@media (min-width:760px){body{font-size:18px}.wrap{padding-inline:2rem}.sec{padding-block:6rem}.hero{padding-block:5rem 4.5rem}.lede{font-size:1.4rem}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.own{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4rem;align-items:center}.about{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:4rem;align-items:start}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.cta{padding:4rem 2rem}}
-@media (min-width:980px){h1{font-size:clamp(2.4rem,5vw,4rem)}.hero-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:4rem;align-items:start;margin-top:1.75rem}.lede{font-size:1.5rem}}
-@media (max-width:999px){.links,.top-cta{display:none}.menu{display:block}.top{grid-template-columns:1fr auto}}
+@media (min-width:760px){body{font-size:18px}.wrap{padding-inline:2rem}.sec{padding-block:6rem}.hero{padding-block:5rem 4.5rem}.lede{font-size:1.4rem}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}.own{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4rem;align-items:center}.about{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:4rem;align-items:start}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.cta{padding:4rem 2rem}}
+@media (min-width:980px){h1{font-size:clamp(2.4rem,4.2vw,3.4rem)}.hero-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:4rem;align-items:start;margin-top:1.75rem}.lede{font-size:1.5rem}}
+@media (min-width:1100px){.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:1179px){.links,.top-cta{display:none}.menu{display:block}.top{grid-template-columns:1fr auto}}
 @media (max-width:759px){.demo-n{font-size:2.9rem}}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.demo-body.in>*{animation:none}}
 </style>
@@ -168,18 +172,18 @@ footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <a class="brand" href="./">Vurell</a>
-  <nav class="links" aria-label="Site"><a href="#about">About</a><a href="count/">The count</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a></nav>
+  <nav class="links" aria-label="Site"><a href="#about">About</a><a href="#how">How we work</a><a href="count/">The count</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a><a href="engagement/">An engagement</a></nav>
   <div class="top-cta"><a class="btn sm" href="count/">Count your last twenty</a><a class="btn sm ghost" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></div>
-  <details class="menu"><summary>Menu</summary><nav aria-label="Site"><a href="#about">About</a><a href="count/">The count</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a><a class="go" href="count/">Count your last twenty</a><a class="go" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></nav></details>
+  <details class="menu"><summary>Menu</summary><nav aria-label="Site"><a href="#about">About</a><a href="#how">How we work</a><a href="count/">The count</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a><a href="engagement/">An engagement</a><a class="go" href="count/">Count your last twenty</a><a class="go" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></nav></details>
 </header>
 <main id="main">
 
 <section class="hero"><div class="wrap">
-  <h1>I find the people in your market who have the problem this month, with the line that shows it.</h1>
+  <h1>Vurell is a go-to-market agency for technical founders. We take you into your first market and to your first customers.</h1>
   <div class="hero-grid">
   <div class="hero-copy">
-    <p class="lede">Twenty messages, one per name. You press Send.</p>
-    <div class="cta-row"><a class="btn" href="count/">Count your last twenty</a><a class="btn ghost" href="#how">How it works</a></div>
+    <p class="lede">Who to sell to, what to say to them, and the sending. Fixed scope, a public price, and the first draft before you commit.</p>
+    <div class="cta-row"><a class="btn" href="count/">Count your last twenty</a><a class="btn ghost" href="#how">How we work</a></div>
     <p class="hero-note">Paste the last twenty people you wrote to, titles and companies, no names. You get the number who could sign without asking anybody, and a verdict per row. It runs in your browser: nothing you type leaves it, nothing is stored.</p>
   </div>
   <div class="demo" id="count">
@@ -195,37 +199,35 @@ footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var
     <div class="about-lead">
       <p class="eyebrow">A go-to-market agency</p>
       <h2>Vurell takes technical founders who have never sold into their first market: who to sell to there, what to say to them, and the sending.</h2>
-      <p>Vurell is an agency the way a workshop is a workshop. Right now that means me.</p>
     </div>
     <div class="facts">
-      <div class="card fact"><p class="kind">How it is run</p><p>One person and a set of AI agents. Every message read by a person before it goes.</p></div>
       <div class="card fact"><p class="kind">Who and where</p><p>Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France.</p></div>
       <div class="card fact"><p class="kind">How the work is done</p><p>The rules are written down. You own the repository: the list, the evidence, the kill list, every message, every reply, the rules.</p></div>
       <div class="card fact"><p class="kind">What is published</p><ul class="plain"><li><a href="https://www.linkedin.com/pulse/800-cold-emails-400-opens-zero-replies-copy-problem-sabelnykov-xbuve/">800 cold emails, 400 opens, zero replies. The copy was not the problem.</a></li><li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749593793880064/">Covera, AI agents for insurance brokers.</a></li><li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749779647721472/">Forward, private credit origination.</a></li></ul><p class="small"><a href="reads/">Public reads</a></p></div>
-      <div class="card fact wide"><p class="kind">The founder</p><p>Two years in sales. Before that, a manufacturer that needed a new market, and I helped it enter.</p></div>
+      <div class="card fact"><p class="kind">The founder</p><p>Two years in sales. Before that, a manufacturer that needed a new market, and I helped it enter.</p></div>
     </div>
   </div>
 </div></section>
 
 <section class="sec" id="how"><div class="wrap">
   <div class="sec-head">
-    <p class="eyebrow">How it works</p>
-    <h2>Count first. Then the read. Then the sending.</h2>
-    <p>Three rungs, each built on the one before it.</p>
+    <p class="eyebrow">How we work</p>
+    <h2>Market, message, sending, first customers.</h2>
+    <p>In that order, and the order is the whole method.</p>
   </div>
-  <ol class="grid3 steps">
+  <ol class="grid4 steps">
     <li class="card step">
-      <span class="num">01 &middot; Free</span>
-      <h3>Who could sign</h3>
-      <p>You get the number who could sign without asking anybody, and a verdict per row. Every verdict on the count page names the rule that fired and says what on the line would change it. Seven rules, in the order they run, are printed under the result.</p>
+      <span class="num">01</span>
+      <h3>Market</h3>
+      <p>We choose the first market and who in it can sign. One segment, named, and the people who cannot sign are named too.</p>
 <pre class="art"><span class="k">count/ &middot; one row, invented</span>Founder, Northbeam Instruments
 <b class="v-sign">can sign</b> &middot; R3
 Founder is an owner title. It signs without asking anybody.</pre>
     </li>
     <li class="card step">
       <span class="num">02</span>
-      <h3>Who has it now</h3>
-      <p>I read forty to fifty people by their public traces. Who has the problem this month, who to exclude, who can sign. Twenty names with their evidence, and what to say, from who has it. Five working days.</p>
+      <h3>Message</h3>
+      <p>What to say, taken from who has the problem rather than from what the product does. Every line carries the quote it rests on.</p>
 <pre class="art"><span class="k">twenty.md &middot; example, invented</span>## 1. Founder, Northbeam Instruments
 &gt; "Shipped it. The part I had not planned for is finding who pays for it."
 &gt; LinkedIn post, 4 September
@@ -233,22 +235,28 @@ Founder is an owner title. It signs without asking anybody.</pre>
     </li>
     <li class="card step">
       <span class="num">03</span>
-      <h3>Twenty conversations</h3>
-      <p>Twenty named people, a note each carrying its source quote. You press Send. I work the replies with you up to the pilot ask. Measured by replies, pilots proposed, and the reason for every no. No meetings are guaranteed.</p>
+      <h3>Sending</h3>
+      <p>The first twenty conversations. One note per name, carrying its source quote. You press Send, from your own account.</p>
 <pre class="art"><span class="k">messages/01.md &middot; example</span>to:      row 1 of twenty.md
 opens:   the quoted line, their post of 4 September
 asks:    one question
 source:  twenty.md, row 1
 send:    <b>you press it</b></pre>
     </li>
+    <li class="card step">
+      <span class="num">04</span>
+      <h3>First customers</h3>
+      <p>The pilot offer, and the replies worked together. Every no is written down with the reason it carried.</p>
+    </li>
   </ol>
+  <p class="after"><a href="engagement/">An engagement, step by step<span aria-hidden="true"> &rarr;</span></a></p>
 </div></section>
 
 <section class="sec" id="own"><div class="wrap own">
   <div>
     <p class="eyebrow">What you own</p>
     <h2>You own the repository: the list, the evidence, the kill list, every message, every reply, the rules.</h2>
-    <p>Plain text in a git repository, readable without me.</p>
+    <p>Plain text in a git repository, readable without us.</p>
   </div>
   <div class="tree">
     <div class="tree-head">a private git repository you own</div>
@@ -268,7 +276,7 @@ send:    <b>you press it</b></pre>
 <section class="sec" id="pricing"><div class="wrap">
   <div class="sec-head">
     <p class="eyebrow" id="ladder">The ladder</p>
-    <h2>Three rungs and a pilot.</h2>
+    <h2>Four rungs.</h2>
     <p>Fixed scope at every rung.</p>
   </div>
   <div class="grid3">
@@ -282,22 +290,23 @@ send:    <b>you press it</b></pre>
       <span class="rung">Rung 1 &middot; Five working days</span>
       <p class="name">Who has it now.</p>
       <p class="price"><b>$600</b> founding rate, first three clients. $1,500 list.</p>
-      <p class="scope">I read forty to fifty people by their public traces. Who has the problem this month, who to exclude, who can sign. Twenty names with their evidence, and what to say, from who has it. Five working days.</p>
+      <p class="scope lead">We find the people in your market who have the problem this month, with the line that shows it.</p>
+      <p class="scope more">We read forty to fifty people by their public traces. Who has the problem this month, who to exclude, who can sign. Twenty names with their evidence, and what to say, from who has it. Five working days.</p>
     </div>
     <div class="card tile">
       <span class="rung">Rung 2 &middot; Four weeks</span>
       <p class="name">Twenty conversations.</p>
       <p class="price"><b>$1,200</b> founding rate, first three clients. $2,400 list.</p>
-      <p class="scope">Twenty named people, a note each carrying its source quote. You press Send. I work the replies with you up to the pilot ask. Measured by replies, pilots proposed, and the reason for every no. No meetings are guaranteed.</p>
+      <p class="scope">Twenty named people, a note each carrying its source quote. You press Send. We work the replies with you up to the pilot ask. Measured by replies, pilots proposed, and the reason for every no. No meetings are guaranteed.</p>
     </div>
   </div>
-  <div class="pilot"><span class="name">Pilot.</span><span>Two weeks, manual, fixed scope. The message that proposes it.</span></div>
+  <div class="pilot"><span class="rung">Rung 3 &middot; Two weeks</span><span class="name">Pilot.</span><span>Two weeks, manual, fixed scope. The message that proposes it.</span></div>
   <p class="after">You see the first draft before committing to anything.</p>
 </div></section>
 
 <section class="sec" id="reads"><div class="wrap">
   <div class="sec-head">
-    <p class="eyebrow">What I have written</p>
+    <p class="eyebrow">What we have written</p>
     <h2>Three public reads. One campaign, two landing pages.</h2>
   </div>
   <div class="grid3">
@@ -316,7 +325,7 @@ send:    <b>you press it</b></pre>
   <div class="faq">
     <details><summary>What does the count not know?</summary><div class="a">This is a title read, not a person read. It reads the words you pasted and nothing else. The paid rung reads the person: the profile, the company page and the last things they wrote, under written gates, with the quoted line that decided it.</div></details>
     <details><summary>Does anything I paste leave the browser?</summary><div class="a">It runs in your browser: nothing you type leaves it, nothing is stored.</div></details>
-    <details><summary>Who presses Send?</summary><div class="a">Twenty named people, a note each carrying its source quote. You press Send. I work the replies with you up to the pilot ask.</div></details>
+    <details><summary>Who presses Send?</summary><div class="a">Twenty named people, a note each carrying its source quote. You press Send. We work the replies with you up to the pilot ask.</div></details>
     <details><summary>Do you promise meetings?</summary><div class="a">No meetings are guaranteed. Measured by replies, pilots proposed, and the reason for every no.</div></details>
   </div>
 </div></section>
@@ -330,8 +339,8 @@ send:    <b>you press it</b></pre>
 </main>
 
 <footer><div class="wrap">
-  <nav class="foot-nav" aria-label="Footer"><a href="#about">About</a><a href="count/">The count</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a></nav>
-  <p>Vurell. Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France. <a href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">miro@vurell.com</a>. One person and a set of AI agents. Every message read by a person before it goes.</p>
+  <nav class="foot-nav" aria-label="Footer"><a href="#about">About</a><a href="#how">How we work</a><a href="count/">The count</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a><a href="engagement/">An engagement</a><a href="one-pager/">One-pager</a></nav>
+  <p>Vurell. Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France. <a href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">miro@vurell.com</a>. Every message read by a person before it goes.</p>
   <p>If I wrote to you and you want it to stop, reply stop and I delete the record.</p>
 </div></footer>
 

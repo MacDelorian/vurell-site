@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vurell one-pager | A go-to-market agency for technical founders</title>
+<meta name="description" content="Vurell is a go-to-market agency for technical founders. We take you into your first market and to your first customers. Fixed scope, a public price.">
+<meta name="robots" content="index,follow">
+<style>
+@font-face{font-family:"Geist";src:url("../fonts/geist-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("../fonts/geist-mono-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+:root{--ground:#FAFAF9;--ink:#0B0C0E;--muted:#5B6470;--accent:#2F5BFF;--card:#FFFFFF;--rule:#DCDCD7;--soft:#F2F2EF;--shadow:0 30px 60px -30px rgba(11,12,14,.28),0 1px 2px rgba(11,12,14,.06);--sans:"Geist",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:"Geist Mono","SF Mono","Cascadia Code",Consolas,"Liberation Mono",monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--card:#121418;--rule:#262930;--soft:#16181D;--shadow:0 30px 60px -30px rgba(0,0,0,.8),0 1px 2px rgba(0,0,0,.5)}}
+:root[data-theme="dark"]{--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--card:#121418;--rule:#262930;--soft:#16181D;--shadow:0 30px 60px -30px rgba(0,0,0,.8),0 1px 2px rgba(0,0,0,.5)}
+@page{size:A4;margin:0}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;max-width:210mm;margin:0 auto;padding:1rem;font-size:14px}
+.bar a{color:var(--muted);font-weight:500}
+.bar a:hover{color:var(--ink)}
+.bar a.pdf{color:var(--accent);font-weight:600}
+.sheet{width:210mm;max-width:100%;min-height:297mm;margin:0 auto 3rem;padding:16mm 17mm 14mm;background:var(--card);border:1px solid var(--rule);border-radius:4px;box-shadow:var(--shadow);display:flex;flex-direction:column;font-size:10pt;line-height:1.48}
+.mast{display:flex;justify-content:space-between;align-items:baseline;gap:6mm;padding-bottom:4mm;border-bottom:1pt solid var(--ink)}
+.wordmark{margin:0;font-size:23pt;font-weight:600;letter-spacing:-.035em;line-height:1}
+.mast .sub{font-size:10.2pt;color:var(--muted);font-weight:500;text-align:right}
+.intro{margin:6.6mm 0 0}
+.intro .big{font-size:18.5pt;line-height:1.15;font-weight:600;letter-spacing:-.028em;margin:0;text-wrap:balance}
+.intro .next{font-size:12.2pt;line-height:1.38;color:var(--muted);margin:3.6mm 0 0;max-width:155mm}
+h2{font-family:var(--mono);font-size:7.6pt;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 2mm}
+p{margin:0}
+.row{display:grid;gap:8mm;margin-top:6.2mm}
+.two{grid-template-columns:1fr 1fr}
+.block{margin-top:6.2mm}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);border:.75pt solid var(--rule);border-radius:2.5mm;overflow:hidden}
+.strip>div{padding:3.4mm 3.6mm;border-left:.75pt solid var(--rule);background:var(--soft)}
+.strip>div:first-child{border-left:0}
+.strip .n{display:block;font-family:var(--mono);font-size:6.8pt;color:var(--muted);margin-bottom:1.2mm}
+.strip b,.runs b{display:block;font-weight:600;font-size:11pt;letter-spacing:-.01em;margin-bottom:1mm}
+.strip p{font-size:9.1pt;line-height:1.45}
+.runs{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:6mm}
+.runs>div{padding-top:2.4mm;border-top:.75pt solid var(--ink)}
+.runs p{font-size:9.6pt;line-height:1.47}
+.pair{display:grid;grid-template-columns:2fr 3fr;gap:8mm;margin-top:6.2mm;align-items:stretch}
+.pair>section{border:.75pt solid var(--rule);border-radius:2.5mm;padding:3.5mm 4.2mm}
+.pair>section.no{border-color:var(--ink)}
+.contact{margin-top:auto;padding-top:4mm;border-top:1pt solid var(--ink);display:flex;justify-content:space-between;gap:6mm;align-items:baseline}
+.contact h2{margin:0;flex:none}
+.contact p{font-size:9.2pt;text-align:right}
+@media screen and (max-width:720px){.sheet{min-height:0;padding:1.5rem 1rem;font-size:15px;border-radius:0;border-left:0;border-right:0}.mast{flex-direction:column;gap:.4rem}.mast .sub{text-align:left;font-size:14px}.wordmark{font-size:1.8rem}.intro .big{font-size:1.5rem}.intro .next{font-size:1.05rem}h2{font-size:.7rem}.two,.pair,.runs,.strip{grid-template-columns:1fr}.strip>div{border-left:0;border-top:.75pt solid var(--rule)}.strip>div:first-child{border-top:0}.strip p,.runs p,.contact p{font-size:15px}.strip b,.runs b{font-size:1.05rem}.strip .n{font-size:.7rem}.contact{flex-direction:column;gap:.4rem}.contact p{text-align:left}}
+@media print{:root{--ground:#FFFFFF!important;--ink:#0B0C0E!important;--muted:#5B6470!important;--card:#FFFFFF!important;--rule:#DCDCD7!important;--soft:#F2F2EF!important}html,body{background:#FFFFFF}.bar{display:none}.sheet{width:210mm;height:297mm;min-height:0;margin:0;border:0;border-radius:0;box-shadow:none;overflow:hidden}}
+</style>
+</head>
+<body>
+<nav class="bar" aria-label="Document"><a href="../">&larr; vurell.com</a><a class="pdf" href="vurell-one-pager.pdf">Download the PDF</a></nav>
+<main class="sheet">
+
+  <header class="mast">
+    <h1 class="wordmark">Vurell</h1>
+    <span class="sub">A go-to-market agency for technical founders</span>
+  </header>
+
+  <section class="intro">
+    <p class="big">Vurell is a go-to-market agency for technical founders. We take you into your first market and to your first customers.</p>
+    <p class="next">Who to sell to, what to say to them, and the sending. Fixed scope, a public price, and the first draft before you commit.</p>
+  </section>
+
+  <div class="row two">
+    <section>
+      <h2>Who we work with</h2>
+      <p>Founders who shipped something good and have never sold anything. Selling was somebody else's job at every company you worked at before this one. One market at a time, chosen before anything is written.</p>
+    </section>
+    <section>
+      <h2>What we do</h2>
+      <p>We choose the first market, read who in it can sign and has the problem this month, write what to say, and prepare the sending.</p>
+    </section>
+  </div>
+
+  <section class="block">
+    <h2>Our method, in four steps</h2>
+    <div class="strip">
+      <div><span class="n">01</span><b>Market.</b><p>We choose the first market and who in it can sign. One segment, named, and the people who cannot sign are named too.</p></div>
+      <div><span class="n">02</span><b>Message.</b><p>What to say, taken from who has the problem rather than from what the product does. Every line carries the quote it rests on.</p></div>
+      <div><span class="n">03</span><b>Sending.</b><p>The first twenty conversations. One note per name, carrying its source quote. You press Send, from your own account.</p></div>
+      <div><span class="n">04</span><b>First customers.</b><p>The pilot offer, and the replies worked together. Every no is written down with the reason it carried.</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>How an engagement runs</h2>
+    <div class="runs">
+      <div><b>Week one.</b><p>You send five things. We read forty to fifty people in your segment and twenty names come back, each with the evidence behind it. You see the first draft before committing to anything.</p></div>
+      <div><b>Weeks two to five.</b><p>A note per name. You press Send. We work the replies with you up to the pilot ask.</p></div>
+      <div><b>After that.</b><p>A pilot where a reply carries one, and a written reason for every no.</p></div>
+    </div>
+  </section>
+
+  <div class="pair">
+    <section>
+      <h2>What you receive</h2>
+      <p>A private repository you own: the list, the evidence, the kill list, every message, every reply, the rules. Plain text, readable without us.</p>
+    </section>
+    <section class="no">
+      <h2>What we do not promise</h2>
+      <p>No meetings are guaranteed. We forecast no reply rate, no number of customers and no revenue, here or anywhere else. Nothing goes out of your account without you pressing Send. Fixed scope and a public price at every rung, listed on vurell.com.</p>
+    </section>
+  </div>
+
+  <footer class="contact">
+    <h2>Contact</h2>
+    <p>Myroslav Sabelnykov &middot; <a href="mailto:miro@vurell.com">miro@vurell.com</a> &middot; <a href="../">vurell.com</a></p>
+  </footer>
+
+</main>
+</body>
+</html>
