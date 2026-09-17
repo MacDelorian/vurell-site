@@ -9,80 +9,83 @@
 <meta property="og:title" content="Public reads | Vurell">
 <meta property="og:description" content="A public read is a landing page taken one sentence at a time. Which sentence survives contact with the buyer the page names, and which claims do not.">
 <style>
-:root {
-  --ink: #16181d;
-  --bg: #ffffff;
-  --link: #1a4fb4;
-}
-* { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 17px;
-  line-height: 1.55;
-}
-main {
-  max-width: 34rem;
-  margin: 0 auto;
-  padding: 3rem 1.25rem 2rem;
-}
-section { margin: 0 0 2.75rem; }
-h1 {
-  font-size: 1.65rem;
-  line-height: 1.3;
-  font-weight: 600;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
-h2 {
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  margin: 0 0 0.75rem;
-}
-p { margin: 0 0 1rem; }
-p:last-child { margin-bottom: 0; }
-a { color: var(--link); }
-a:hover { text-decoration: none; }
-.cta {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.7rem 1.15rem;
-  border: 1px solid var(--link);
-  border-radius: 4px;
-  color: var(--link);
-  font-weight: 600;
-  text-decoration: none;
-}
-.cta:hover { background: var(--link); color: var(--bg); }
-.price p { margin-bottom: 0.55rem; }
-.price .line { font-weight: 600; }
-.price .scope { margin-bottom: 1.4rem; }
-.reads { list-style: none; margin: 0; padding: 0; }
-.reads li { margin: 0 0 0.7rem; }
-footer {
-  max-width: 34rem;
-  margin: 0 auto;
-  padding: 1.75rem 1.25rem 3rem;
-  border-top: 1px solid var(--ink);
-  font-size: 0.86rem;
-  line-height: 1.5;
-}
-footer p { margin: 0 0 0.7rem; }
-footer p:last-child { margin-bottom: 0; }
-@media (max-width: 420px) {
-  body { font-size: 16px; }
-  main { padding: 2rem 1rem 1.5rem; }
-  h1 { font-size: 1.4rem; }
-  footer { padding: 1.5rem 1rem 2.5rem; }
-}
-@media (min-width: 1100px) {
-  main { padding-top: 4.5rem; }
-}
+@font-face{font-family:"Geist";src:url("../fonts/geist-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("../fonts/geist-mono-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+:root{--ground:#FAFAF9;--ink:#0B0C0E;--muted:#6B7280;--accent:#2F5BFF;--on-accent:#FFFFFF;--card:#FFFFFF;--rule:#E3E3DF;--soft:#F2F2EF;--dot:#CFCFCA;--sign:#0E7A4F;--studio:#8A5A00;--alone:#9B2C2C;--read:#4B5563;--sans:"Geist",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:"Geist Mono","SF Mono","Cascadia Code",Consolas,"Liberation Mono",monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--on-accent:#0B0C0E;--card:#121418;--rule:#262930;--soft:#16181D;--dot:#2A2D33;--sign:#6FCF9C;--studio:#D9B56A;--alone:#E39C9C;--read:#AEB5BF}}
+:root[data-theme="dark"]{--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--on-accent:#0B0C0E;--card:#121418;--rule:#262930;--soft:#16181D;--dot:#2A2D33;--sign:#6FCF9C;--studio:#D9B56A;--alone:#E39C9C;--read:#AEB5BF}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+.wrap{max-width:74rem;margin:0 auto;padding-inline:1rem}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:.16em}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+[id]{scroll-margin-top:4.5rem}
+h1,h2,h3{margin:0;font-weight:600;line-height:1.1;letter-spacing:-.02em}
+h1{font-size:clamp(2.4rem,6vw,4.5rem);line-height:1.02;letter-spacing:-.035em;max-width:17ch}
+h3{font-size:1.05rem;line-height:1.4;letter-spacing:-.01em;margin:1.8rem 0 .45rem}
+h3:first-child{margin-top:0}
+p{margin:0 0 1rem}
+p:last-child{margin-bottom:0}
+code{font-family:var(--mono);font-size:.9em}
+.eyebrow{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 .9rem}
+.muted{color:var(--muted)}
+.small{font-size:.875rem}
+.skip{position:absolute;left:-999px;top:.5rem;background:var(--card);color:var(--ink);padding:.5rem .8rem;border:1px solid var(--rule);border-radius:6px;z-index:50}
+.skip:focus{left:.5rem}
+.top{position:sticky;top:0;z-index:20;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;height:3.6rem;padding:0 1rem;background:color-mix(in srgb,var(--ground) 84%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--rule)}
+.brand{justify-self:start;font-weight:600;font-size:1.05rem;letter-spacing:-.02em;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.links{display:flex;gap:1.4rem;justify-self:center}
+.links a{color:var(--muted);font-size:.9rem;font-weight:500;white-space:nowrap}
+.links a:hover{color:var(--ink);text-decoration:none}
+.top-cta{display:flex;gap:.5rem;justify-self:end}
+.menu{display:none;justify-self:end}
+.menu summary{list-style:none;cursor:pointer;font-size:.9rem;font-weight:600;padding:.45rem .8rem;border:1px solid var(--rule);border-radius:7px;background:var(--card)}
+.menu summary::-webkit-details-marker{display:none}
+.menu nav{position:absolute;left:0;right:0;top:3.6rem;display:flex;flex-direction:column;padding:.5rem 1rem 1rem;background:var(--card);border-bottom:1px solid var(--rule)}
+.menu nav a{padding:.65rem 0;color:var(--ink);font-weight:500;border-bottom:1px solid var(--rule)}
+.menu nav a.go{color:var(--accent);font-weight:600;border-bottom:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.72rem 1.15rem;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:var(--on-accent);font:inherit;font-size:.95rem;font-weight:600;line-height:1.2;cursor:pointer;white-space:nowrap;text-decoration:none}
+.btn:hover{filter:brightness(1.08);text-decoration:none}
+.btn.sm{padding:.5rem .85rem;font-size:.85rem;border-radius:7px}
+.hero{position:relative;overflow:hidden;padding-block:3.5rem 2.5rem}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--dot) 1px,transparent 1.4px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 85% 95% at 50% 0%,#000 25%,transparent 78%);mask-image:radial-gradient(ellipse 85% 95% at 50% 0%,#000 25%,transparent 78%);pointer-events:none}
+.hero .wrap{position:relative}
+.lede{font-size:1.25rem;line-height:1.4;color:var(--muted);max-width:44ch;margin:1.4rem 0 0}
+.hero-note{font-size:.9rem;line-height:1.5;color:var(--muted);max-width:46ch;margin:1.2rem 0 0}
+.list{padding-block:1rem 3rem}
+.grid3{display:grid;gap:1.1rem}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:1.5rem;min-width:0}
+.read{display:flex;flex-direction:column;gap:.8rem;color:var(--ink)}
+.read:hover{border-color:var(--ink);text-decoration:none}
+.read .kind{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin:0}
+.read .t{font-weight:600;font-size:1.05rem;line-height:1.35;margin:0}
+.read .go{margin-top:auto;padding-top:.6rem;color:var(--accent);font-size:.9rem;font-weight:600}
+.list>.wrap>p.small{margin:1.25rem 0 0}
+.sec.cta-sec .wrap{display:block}
+.sec{padding-block:3.5rem;border-top:1px solid var(--rule)}
+.sec .wrap{display:grid;gap:1.25rem 4rem}
+.rail .eyebrow{margin-bottom:.4rem}
+.rail .small{margin:0;max-width:26ch}
+.rail h2{font-size:1.6rem;letter-spacing:-.025em;margin:0 0 .5rem}
+.prose{max-width:62ch}
+.prose p{font-size:1.02rem}
+.prose .post{margin-top:1.6rem;font-weight:600}
+.cta{background:var(--ink);color:var(--ground);border-radius:16px;padding:3rem 1.25rem;text-align:center}
+.cta .eyebrow{color:color-mix(in srgb,var(--ground) 65%,transparent)}
+.cta p{max-width:52ch;margin:0 auto 1.6rem;font-size:1.05rem}
+.cta .btn{background:var(--ground);color:var(--ink);border-color:var(--ground)}
+footer{border-top:1px solid var(--rule)}
+footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var(--muted)}
+.foot-nav{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin:0 0 1.4rem;font-weight:500}
+.foot-nav a{color:var(--ink)}
+@media (min-width:760px){body{font-size:18px}.wrap{padding-inline:2rem}.hero{padding-block:5rem 3rem}.lede{font-size:1.4rem}.list{padding-block:1.5rem 4rem}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.sec{padding-block:5rem}.sec .wrap{grid-template-columns:16rem minmax(0,1fr)}.rail{position:sticky;top:5rem;align-self:start}.cta{padding:4rem 2rem}}
+@media (max-width:999px){.links,.top-cta{display:none}.menu{display:block}.top{grid-template-columns:1fr auto}}
+@media (max-width:759px){}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 </style>
 <!--
   Cloudflare Web Analytics (cookieless, no banner). Paste the real token and
@@ -92,75 +95,96 @@ footer p:last-child { margin-bottom: 0; }
 -->
 </head>
 <body>
-<main>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="../">Vurell</a>
+  <nav class="links" aria-label="Site"><a href="../#about">About</a><a href="../count/">The count</a><a href="../#how">How it works</a><a href="../#pricing">Pricing</a><a href="./">Reads</a></nav>
+  <div class="top-cta"><a class="btn sm" href="../count/">Count your last twenty</a><a class="btn sm ghost" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></div>
+  <details class="menu"><summary>Menu</summary><nav aria-label="Site"><a href="../#about">About</a><a href="../count/">The count</a><a href="../#how">How it works</a><a href="../#pricing">Pricing</a><a href="./">Reads</a><a class="go" href="../count/">Count your last twenty</a><a class="go" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></nav></details>
+</header>
+<main id="main">
 
-<section id="back">
-  <p><a href="../">Back to vurell.com</a></p>
-</section>
-
-<section id="intro">
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">What I have written</p>
   <h1>Public reads</h1>
-  <p>A public read is a landing page taken one sentence at a time. Which sentence survives contact with the buyer the page names, which claims do not, and who I would write to first. Written from the public page alone.</p>
-</section>
+  <p class="lede">A public read is a landing page taken one sentence at a time. Which sentence survives contact with the buyer the page names, which claims do not, and who I would write to first. Written from the public page alone.</p>
+  <p class="hero-note">Vurell takes technical founders who have never sold into their first market: who to sell to there, what to say to them, and the sending.</p>
+</div></section>
 
-<section id="covera">
-  <h2>Covera</h2>
-  <p>covera-agents.com. AI agents for insurance brokers. Read 7 September 2026.</p>
+<section class="list" id="list"><div class="wrap">
+  <p class="eyebrow">Three public reads</p>
+  <div class="grid3">
+    <a class="card read" href="https://www.linkedin.com/pulse/800-cold-emails-400-opens-zero-replies-copy-problem-sabelnykov-xbuve/"><p class="kind">Campaign read &middot; article</p><p class="t">800 cold emails, 400 opens, zero replies. The copy was not the problem.</p><span class="go">Read on LinkedIn &rarr;</span></a>
+    <a class="card read" href="https://www.linkedin.com/feed/update/urn:li:activity:7502749593793880064/"><p class="kind">Landing page read &middot; post</p><p class="t">Covera, AI agents for insurance brokers.</p><span class="go">Read on LinkedIn &rarr;</span></a>
+    <a class="card read" href="https://www.linkedin.com/feed/update/urn:li:activity:7502749779647721472/"><p class="kind">Landing page read &middot; post</p><p class="t">Forward, private credit origination.</p><span class="go">Read on LinkedIn &rarr;</span></a>
+  </div>
+  <p class="small muted">The two landing-page reads are printed in full below. The campaign read is an article and opens on LinkedIn.</p>
+</div></section>
 
-  <p><strong>What the page says it sells</strong></p>
-  <p>"AI agents for insurance brokers." Under it, "Less admin, more selling."</p>
+<section id="covera" class="sec"><div class="wrap">
+  <div class="rail"><p class="eyebrow">Landing page read</p><h2>Covera</h2><p class="small muted">covera-agents.com. AI agents for insurance brokers. Read 7 September 2026.</p></div>
+  <div class="prose">
+    <h3>What the page says it sells</h3>
+    <p>"AI agents for insurance brokers." Under it, "Less admin, more selling."</p>
 
-  <p><strong>What survives</strong></p>
-  <p>"It enters the risk profile into each carrier portal to request quotes, mapping fields from one carrier to the next. No more double entry." An agency owner knows what that costs, because they have done it. It names a task, in their words, with an end state.</p>
-  <p>Six named pains in the buyer's own language. "Missing documents." "Re-keying across carrier portals." "Late follow-ups." Listed flat, no adjectives.</p>
-  <p>The integrations. "AMS360, EZLynx, HawkSoft, Applied Epic" tells a broker at a glance whether this is for them.</p>
+    <h3>What survives</h3>
+    <p>"It enters the risk profile into each carrier portal to request quotes, mapping fields from one carrier to the next. No more double entry." An agency owner knows what that costs, because they have done it. It names a task, in their words, with an end state.</p>
+    <p>Six named pains in the buyer's own language. "Missing documents." "Re-keying across carrier portals." "Late follow-ups." Listed flat, no adjectives.</p>
+    <p>The integrations. "AMS360, EZLynx, HawkSoft, Applied Epic" tells a broker at a glance whether this is for them.</p>
 
-  <p><strong>What does not</strong></p>
-  <p>"12&#215; ROI after 4 weeks." Twelve times what. No price, no denominator, no method.</p>
-  <p>"We got back around ten hours a week from servicing and data entry." Signed "Commercial lines brokerage, San Jos&#233;". Brokers buy from brokers they can call. An unnamed agency cannot be called.</p>
-  <p>"17 hrs saved &#183; 12&#215; ROI on quoting &#183; 320 files handled." These sit inside the dashboard mock, in the same visual weight as live product state.</p>
+    <h3>What does not</h3>
+    <p>"12&#215; ROI after 4 weeks." Twelve times what. No price, no denominator, no method.</p>
+    <p>"We got back around ten hours a week from servicing and data entry." Signed "Commercial lines brokerage, San Jos&#233;". Brokers buy from brokers they can call. An unnamed agency cannot be called.</p>
+    <p>"17 hrs saved &#183; 12&#215; ROI on quoting &#183; 320 files handled." These sit inside the dashboard mock, in the same visual weight as live product state.</p>
 
-  <p><strong>Who I would write to first</strong></p>
-  <p>"Insurance brokers and captive agents, from local agencies to larger, established firms." The page names them once, in the FAQ, near the bottom. Put it first. Then carrier re-keying, alone, because it is the sharpest thing here.</p>
+    <h3>Who I would write to first</h3>
+    <p>"Insurance brokers and captive agents, from local agencies to larger, established firms." The page names them once, in the FAQ, near the bottom. Put it first. Then carrier re-keying, alone, because it is the sharpest thing here.</p>
 
-  <p><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749593793880064/">Read the full post</a></p>
-</section>
+    <p class="post"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749593793880064/">Read the full post</a></p>
+  </div>
+</div></section>
 
-<section id="forward">
-  <h2>Forward</h2>
-  <p>useforward.co. Private credit origination. Read 7 September 2026.</p>
+<section id="forward" class="sec"><div class="wrap">
+  <div class="rail"><p class="eyebrow">Landing page read</p><h2>Forward</h2><p class="small muted">useforward.co. Private credit origination. Read 7 September 2026.</p></div>
+  <div class="prose">
+    <h3>What the page says it sells</h3>
+    <p>"Origination Made Easy." Then, "Borrower inputs become fund ready outputs in minutes."</p>
 
-  <p><strong>What the page says it sells</strong></p>
-  <p>"Origination Made Easy." Then, "Borrower inputs become fund ready outputs in minutes."</p>
+    <h3>What survives</h3>
+    <p>"Funds receive mandate matched deals with risks and open diligence items alongside source evidence." Screening is the job. The cost of the job is finding out late what could have been known first. It is the one thing on the page a reader can picture arriving.</p>
+    <p>The worked example. "Acme, Inc. | $10M Facility | Senior Secured", then "Tenor: 36 months", "Pricing: 10.5% p.a.", "Covenants: Net leverage &#8804; 3.50x". It shows the output instead of describing it, and a credit reader can judge in one look whether the structure is sane.</p>
 
-  <p><strong>What survives</strong></p>
-  <p>"Funds receive mandate matched deals with risks and open diligence items alongside source evidence." Screening is the job. The cost of the job is finding out late what could have been known first. It is the one thing on the page a reader can picture arriving.</p>
-  <p>The worked example. "Acme, Inc. | $10M Facility | Senior Secured", then "Tenor: 36 months", "Pricing: 10.5% p.a.", "Covenants: Net leverage &#8804; 3.50x". It shows the output instead of describing it, and a credit reader can judge in one look whether the structure is sane.</p>
+    <h3>What does not</h3>
+    <p>"$20B AUM of funds using Forward to originate deals." AUM belongs to the fund. It says nothing about how many deals moved through the product.</p>
+    <p>"25+ Hours saved per analyst, weekly." No base, no sample, no period. An analyst's week is finite and this is a large slice of it.</p>
+    <p>"Origination Made Easy." In private credit, origination means sourcing. This page does not source deals. It structures materials for deals already in hand.</p>
 
-  <p><strong>What does not</strong></p>
-  <p>"$20B AUM of funds using Forward to originate deals." AUM belongs to the fund. It says nothing about how many deals moved through the product.</p>
-  <p>"25+ Hours saved per analyst, weekly." No base, no sample, no period. An analyst's week is finite and this is a large slice of it.</p>
-  <p>"Origination Made Easy." In private credit, origination means sourcing. This page does not source deals. It structures materials for deals already in hand.</p>
+    <h3>Who I would write to first</h3>
+    <p>The fund. The page reads to two readers and never chooses. "so your team can focus on underwriting and closing" is a credit fund. "We handle the packaging, you focus on getting deals funded" is whoever packages the borrower. Choose the fund, and open on screening.</p>
 
-  <p><strong>Who I would write to first</strong></p>
-  <p>The fund. The page reads to two readers and never chooses. "so your team can focus on underwriting and closing" is a credit fund. "We handle the packaging, you focus on getting deals funded" is whoever packages the borrower. Choose the fund, and open on screening.</p>
+    <p class="post"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749779647721472/">Read the full post</a></p>
+  </div>
+</div></section>
 
-  <p><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749779647721472/">Read the full post</a></p>
-</section>
+<section id="takedown" class="sec"><div class="wrap">
+  <div class="rail"><p class="eyebrow">Source</p></div>
+  <div class="prose">
+    <p>I read both pages on 7 September 2026, from the public page and nothing else. Both posts carry the same line: if you are the founder and want this taken down, say so and it goes.</p>
+  </div>
+</div></section>
 
-<section id="takedown">
-  <p>I read both pages on 7 September 2026, from the public page and nothing else. Both posts carry the same line: if you are the founder and want this taken down, say so and it goes.</p>
-</section>
-
-<section id="ask">
-  <p>Send the deck or the page you show buyers. I write back where the argument breaks and who I would write to first. Free, one round, no call.</p>
-</section>
+<section id="count" class="sec cta-sec"><div class="wrap"><div class="cta">
+  <p class="eyebrow">The free count</p>
+  <p>Paste the last twenty people you wrote to, titles and companies, no names. You get the number who could sign without asking anybody, and a verdict per row. It runs in your browser: nothing you type leaves it, nothing is stored.</p>
+  <a class="btn" href="../count/">Count your last twenty</a>
+</div></div></section>
 
 </main>
 
-<footer>
-  <p>Vurell. Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France. miro@vurell.com. One person and a set of AI agents. Every message read by a person before it goes.</p>
+<footer><div class="wrap">
+  <nav class="foot-nav" aria-label="Footer"><a href="../#about">About</a><a href="../count/">The count</a><a href="../#how">How it works</a><a href="../#pricing">Pricing</a><a href="./">Reads</a></nav>
+  <p>Vurell. Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France. <a href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">miro@vurell.com</a>. One person and a set of AI agents. Every message read by a person before it goes.</p>
   <p>If I wrote to you and you want it to stop, reply stop and I delete the record.</p>
-</footer>
+</div></footer>
 </body>
 </html>

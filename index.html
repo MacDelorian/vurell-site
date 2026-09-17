@@ -4,86 +4,158 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vurell | Who in your market has the problem now</title>
-<meta name="description" content="I find the people in your market who have the problem this month, with the line that shows it. Then twenty messages, one per name. You press Send.">
+<meta name="description" content="Vurell takes technical founders who have never sold into their first market: who to sell to there, what to say to them, and the sending.">
 <meta name="robots" content="index,follow">
 <meta property="og:title" content="Vurell | Who in your market has the problem now">
-<meta property="og:description" content="Who in your market has the problem this month, with the line that shows it. Then twenty messages, one per name. You press Send.">
+<meta property="og:description" content="Vurell takes technical founders who have never sold into their first market: who to sell to there, what to say to them, and the sending. Twenty messages, one per name. You press Send.">
 <style>
-:root {
-  --ink: #16181d;
-  --bg: #ffffff;
-  --link: #1a4fb4;
-}
-* { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 17px;
-  line-height: 1.55;
-}
-main {
-  max-width: 34rem;
-  margin: 0 auto;
-  padding: 3rem 1.25rem 2rem;
-}
-section { margin: 0 0 2.75rem; }
-.lede { font-size: 1.05rem; margin: 0.9rem 0 0; }
-h1 {
-  font-size: 1.65rem;
-  line-height: 1.3;
-  font-weight: 600;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
-h2 {
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  margin: 0 0 0.75rem;
-}
-p { margin: 0 0 1rem; }
-p:last-child { margin-bottom: 0; }
-a { color: var(--link); }
-a:hover { text-decoration: none; }
-.cta {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.7rem 1.15rem;
-  border: 1px solid var(--link);
-  border-radius: 4px;
-  color: var(--link);
-  font-weight: 600;
-  text-decoration: none;
-}
-.cta:hover { background: var(--link); color: var(--bg); }
-.price p { margin-bottom: 0.55rem; }
-.price .line { font-weight: 600; }
-.price .scope { margin-bottom: 1.4rem; }
-.reads { list-style: none; margin: 0; padding: 0; }
-.reads li { margin: 0 0 0.7rem; }
-footer {
-  max-width: 34rem;
-  margin: 0 auto;
-  padding: 1.75rem 1.25rem 3rem;
-  border-top: 1px solid var(--ink);
-  font-size: 0.86rem;
-  line-height: 1.5;
-}
-footer p { margin: 0 0 0.7rem; }
-footer p:last-child { margin-bottom: 0; }
-@media (max-width: 420px) {
-  body { font-size: 16px; }
-  main { padding: 2rem 1rem 1.5rem; }
-  h1 { font-size: 1.4rem; }
-  footer { padding: 1.5rem 1rem 2.5rem; }
-}
-@media (min-width: 1100px) {
-  main { padding-top: 4.5rem; }
-}
+@font-face{font-family:"Geist";src:url("fonts/geist-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("fonts/geist-mono-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+:root{--ground:#FAFAF9;--ink:#0B0C0E;--muted:#6B7280;--accent:#2F5BFF;--on-accent:#FFFFFF;--card:#FFFFFF;--rule:#E3E3DF;--soft:#F2F2EF;--dot:#CFCFCA;--sign:#0E7A4F;--studio:#8A5A00;--alone:#9B2C2C;--read:#4B5563;--shadow:0 30px 60px -30px rgba(11,12,14,.28),0 1px 2px rgba(11,12,14,.06);--sans:"Geist",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:"Geist Mono","SF Mono","Cascadia Code",Consolas,"Liberation Mono",monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--on-accent:#0B0C0E;--card:#121418;--rule:#262930;--soft:#16181D;--dot:#2A2D33;--sign:#6FCF9C;--studio:#D9B56A;--alone:#E39C9C;--read:#AEB5BF;--shadow:0 30px 60px -30px rgba(0,0,0,.8),0 1px 2px rgba(0,0,0,.5)}}
+:root[data-theme="dark"]{--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--on-accent:#0B0C0E;--card:#121418;--rule:#262930;--soft:#16181D;--dot:#2A2D33;--sign:#6FCF9C;--studio:#D9B56A;--alone:#E39C9C;--read:#AEB5BF;--shadow:0 30px 60px -30px rgba(0,0,0,.8),0 1px 2px rgba(0,0,0,.5)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+.wrap{max-width:74rem;margin:0 auto;padding-inline:1rem}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:.16em}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+[id]{scroll-margin-top:4.5rem}
+h1,h2,h3{margin:0;font-weight:600;line-height:1.1;letter-spacing:-.02em}
+h1{font-size:clamp(2.4rem,6vw,4.5rem);line-height:1.02;letter-spacing:-.035em;max-width:17ch}
+h2{font-size:2rem;max-width:26ch;letter-spacing:-.025em}
+h3{font-size:1.2rem;letter-spacing:-.012em}
+p{margin:0 0 1rem}
+p:last-child{margin-bottom:0}
+code{font-family:var(--mono);font-size:.9em}
+.eyebrow{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 .9rem}
+.muted{color:var(--muted)}
+.small{font-size:.875rem}
+.skip{position:absolute;left:-999px;top:.5rem;background:var(--card);color:var(--ink);padding:.5rem .8rem;border:1px solid var(--rule);border-radius:6px;z-index:50}
+.skip:focus{left:.5rem}
+.top{position:sticky;top:0;z-index:20;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;height:3.6rem;padding:0 1rem;background:color-mix(in srgb,var(--ground) 84%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--rule)}
+.brand{justify-self:start;font-weight:600;font-size:1.05rem;letter-spacing:-.02em;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.links{display:flex;gap:1.4rem;justify-self:center}
+.links a{color:var(--muted);font-size:.9rem;font-weight:500;white-space:nowrap}
+.links a:hover{color:var(--ink);text-decoration:none}
+.top-cta{display:flex;gap:.5rem;justify-self:end}
+.menu{display:none;justify-self:end}
+.menu summary{list-style:none;cursor:pointer;font-size:.9rem;font-weight:600;padding:.45rem .8rem;border:1px solid var(--rule);border-radius:7px;background:var(--card)}
+.menu summary::-webkit-details-marker{display:none}
+.menu nav{position:absolute;left:0;right:0;top:3.6rem;display:flex;flex-direction:column;padding:.5rem 1rem 1rem;background:var(--card);border-bottom:1px solid var(--rule)}
+.menu nav a{padding:.65rem 0;color:var(--ink);font-weight:500;border-bottom:1px solid var(--rule)}
+.menu nav a.go{color:var(--accent);font-weight:600;border-bottom:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.72rem 1.15rem;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:var(--on-accent);font:inherit;font-size:.95rem;font-weight:600;line-height:1.2;cursor:pointer;white-space:nowrap;text-decoration:none}
+.btn:hover{filter:brightness(1.08);text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.btn.ghost:hover{filter:none;border-color:var(--ink)}
+.btn.sm{padding:.5rem .85rem;font-size:.85rem;border-radius:7px}
+.hero{position:relative;overflow:hidden;padding-block:3.5rem 3rem}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--dot) 1px,transparent 1.4px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 85% 95% at 50% 0%,#000 25%,transparent 78%);mask-image:radial-gradient(ellipse 85% 95% at 50% 0%,#000 25%,transparent 78%);pointer-events:none}
+.hero .wrap{position:relative}
+.hero h1{max-width:none;text-wrap:balance}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:2.5rem;margin-top:1.5rem}
+.lede{font-size:1.25rem;line-height:1.4;color:var(--muted);max-width:32ch;margin:0}
+.cta-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.hero-note{font-size:.9rem;line-height:1.5;color:var(--muted);max-width:46ch;margin:1.4rem 0 0}
+.demo{background:var(--card);border:1px solid var(--rule);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;min-width:0}
+.demo-head,.demo-foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.75rem 1.1rem;font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+.demo-head{border-bottom:1px solid var(--rule)}
+.demo-head b{color:var(--ink);font-weight:600}
+.demo-foot{border-top:1px solid var(--rule);font-family:var(--sans);font-size:.85rem}
+.demo-foot a{font-weight:600}
+.demo-body{padding:1.1rem 1.1rem .6rem;min-height:8rem}
+.demo-n{font-size:3.4rem;font-weight:600;line-height:1;letter-spacing:-.045em;color:var(--accent);margin:0}
+.demo-n span{font-size:1.4rem;letter-spacing:-.02em;color:var(--muted);font-weight:500}
+.demo-sum{font-size:1rem;font-weight:500;margin:.35rem 0 0}
+.bar{display:flex;height:.55rem;border-radius:999px;overflow:hidden;background:var(--soft);margin:1rem 0 .6rem}
+.bar div{height:100%}
+.b-sign{background:var(--sign)}.b-studio{background:var(--studio)}.b-alone{background:var(--alone)}.b-read{background:var(--read)}
+.legend{display:flex;flex-wrap:wrap;gap:.25rem 1rem;font-family:var(--mono);font-size:.72rem;margin:0}
+.legend span::before{content:"";display:inline-block;width:.5rem;height:.5rem;border-radius:2px;background:currentColor;margin-right:.4rem;vertical-align:0}
+.v-sign{color:var(--sign)}.v-studio{color:var(--studio)}.v-alone{color:var(--alone)}.v-read{color:var(--read)}
+.chip{display:inline-flex;align-items:center;font-family:var(--mono);font-size:.68rem;line-height:1;padding:.32rem .5rem;border:1px solid color-mix(in srgb,currentColor 35%,transparent);border-radius:999px;white-space:nowrap;background:color-mix(in srgb,currentColor 10%,transparent)}
+.demo-rows{list-style:none;margin:1rem 0 0;padding:0;border-top:1px solid var(--rule)}
+.demo-rows li{display:grid;grid-template-columns:1.4rem minmax(0,1fr) auto;gap:.2rem .6rem;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--rule)}
+.demo-rows li:last-child{border-bottom:0}
+.demo-rows .n{font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.demo-rows .line{font-family:var(--mono);font-size:.78rem;overflow-wrap:anywhere}
+.demo-rows .why{grid-column:2/-1;font-size:.8rem;line-height:1.4;color:var(--muted)}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.demo-body.in>*{animation:rise .3s ease-out both}
+.demo-body.in>:nth-child(2){animation-delay:.05s}.demo-body.in>:nth-child(3){animation-delay:.1s}.demo-body.in>:nth-child(4){animation-delay:.15s}.demo-body.in>:nth-child(5){animation-delay:.2s}
+.sec{padding-block:4rem}
+.about{display:grid;gap:2rem}
+.about-lead h2{max-width:20ch;text-wrap:balance}
+.about-lead p{color:var(--muted);font-size:1.05rem;margin:1.1rem 0 0;max-width:46ch}
+.facts{display:grid;gap:1rem}
+.fact{padding:1.25rem}
+.fact .kind{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin:0 0 .6rem}
+.fact p{font-size:.95rem;line-height:1.5;margin:0}
+.fact .plain{list-style:none;margin:0 0 .6rem;padding:0;font-size:.95rem;line-height:1.5}
+.fact .plain li{margin:0 0 .4rem}
+.fact.wide{grid-column:1/-1}
+.sec-head{max-width:44rem;margin-bottom:2.25rem}
+.sec-head>p:last-child{color:var(--muted);font-size:1.05rem;margin:1rem 0 0;max-width:52ch}
+.grid3{display:grid;gap:1.1rem}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:1.5rem;min-width:0}
+.steps{list-style:none;margin:0;padding:0}
+.step{display:flex;flex-direction:column;gap:.9rem}
+.step .num{font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+.step p{font-size:.95rem;line-height:1.5;margin:0}
+.art{margin:auto 0 0;background:var(--soft);border:1px solid var(--rule);border-radius:8px;padding:.85rem .95rem;font-family:var(--mono);font-size:.74rem;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere;overflow-x:auto}
+.art .k{display:block;color:var(--muted);margin-bottom:.35rem}
+.art b{font-weight:600}
+.own{display:grid;gap:2rem}
+.own>div:first-child p{color:var(--muted);font-size:1.05rem;margin:1.2rem 0 0;max-width:46ch}
+.tree{background:var(--card);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+.tree-head{padding:.75rem 1.1rem;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+.tree ul{list-style:none;margin:0;padding:.4rem 0}
+.tree li{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;padding:.5rem 1.1rem;font-family:var(--mono);font-size:.84rem}
+.tree li.d{padding-left:2.4rem}
+.tree li span:last-child{font-family:var(--sans);font-size:.82rem;color:var(--muted);text-align:right}
+.tile{display:flex;flex-direction:column;gap:.85rem}
+.tile .rung{font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+.tile .name{font-weight:600;font-size:1.2rem;letter-spacing:-.012em;margin:0}
+.tile .name a{color:inherit}
+.tile .price{font-family:var(--mono);font-size:.84rem;color:var(--muted);margin:0;line-height:1.5}
+.tile .price b{display:block;font-family:var(--sans);font-size:2rem;font-weight:600;letter-spacing:-.03em;color:var(--ink);line-height:1.1;margin-bottom:.2rem}
+.tile .scope{font-size:.95rem;line-height:1.5;margin:0;padding-top:.85rem;border-top:1px solid var(--rule)}
+.pilot{display:flex;flex-wrap:wrap;gap:.35rem 1.25rem;align-items:baseline;margin-top:1.1rem;padding:1rem 1.5rem;border:1px dashed var(--rule);border-radius:12px;font-size:.95rem}
+.pilot .name{font-weight:600;font-size:1.05rem}
+.after{margin:1.5rem 0 0;font-size:1.05rem}
+.read{display:flex;flex-direction:column;gap:.8rem;color:var(--ink)}
+.read:hover{border-color:var(--ink);text-decoration:none}
+.read .kind{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin:0}
+.read .t{font-weight:600;font-size:1.05rem;line-height:1.35;margin:0}
+.read .go{margin-top:auto;padding-top:.6rem;color:var(--accent);font-size:.9rem;font-weight:600}
+.faq{max-width:46rem}
+.faq details{border-top:1px solid var(--rule)}
+.faq details:last-child{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;padding:1.05rem 0;font-weight:600;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);font-weight:400;color:var(--muted);flex:none}
+.faq details[open] summary::after{content:"\2212"}
+.faq .a{padding:0 0 1.2rem;color:var(--muted);max-width:60ch;font-size:.98rem}
+.cta{background:var(--ink);color:var(--ground);border-radius:16px;padding:3rem 1.25rem;text-align:center}
+.cta .eyebrow{color:color-mix(in srgb,var(--ground) 65%,transparent)}
+.cta h2{margin:0 auto;max-width:22ch}
+.cta .cta-row{justify-content:center}
+.cta .btn{background:var(--ground);color:var(--ink);border-color:var(--ground)}
+.cta .btn.ghost{background:transparent;color:var(--ground);border-color:color-mix(in srgb,var(--ground) 35%,transparent)}
+.cta .btn.ghost:hover{border-color:var(--ground)}
+footer{border-top:1px solid var(--rule);margin-top:2rem}
+footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var(--muted)}
+.foot-nav{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin:0 0 1.4rem;font-weight:500}
+.foot-nav a{color:var(--ink)}
+@media (min-width:760px){body{font-size:18px}.wrap{padding-inline:2rem}.sec{padding-block:6rem}.hero{padding-block:5rem 4.5rem}.lede{font-size:1.4rem}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.own{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4rem;align-items:center}.about{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:4rem;align-items:start}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.cta{padding:4rem 2rem}}
+@media (min-width:980px){h1{font-size:clamp(2.4rem,5vw,4rem)}.hero-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:4rem;align-items:start;margin-top:1.75rem}.lede{font-size:1.5rem}}
+@media (max-width:999px){.links,.top-cta{display:none}.menu{display:block}.top{grid-template-columns:1fr auto}}
+@media (max-width:759px){.demo-n{font-size:2.9rem}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.demo-body.in>*{animation:none}}
 </style>
 <!--
   Cloudflare Web Analytics (cookieless, no banner). Paste the real token and
@@ -93,52 +165,653 @@ footer p:last-child { margin-bottom: 0; }
 -->
 </head>
 <body>
-<main>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="./">Vurell</a>
+  <nav class="links" aria-label="Site"><a href="#about">About</a><a href="count/">The count</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a></nav>
+  <div class="top-cta"><a class="btn sm" href="count/">Count your last twenty</a><a class="btn sm ghost" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></div>
+  <details class="menu"><summary>Menu</summary><nav aria-label="Site"><a href="#about">About</a><a href="count/">The count</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a><a class="go" href="count/">Count your last twenty</a><a class="go" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></nav></details>
+</header>
+<main id="main">
 
-<section id="headline">
+<section class="hero"><div class="wrap">
   <h1>I find the people in your market who have the problem this month, with the line that shows it.</h1>
-  <p class="lede">Twenty messages, one per name. You press Send.</p>
-</section>
+  <div class="hero-grid">
+  <div class="hero-copy">
+    <p class="lede">Twenty messages, one per name. You press Send.</p>
+    <div class="cta-row"><a class="btn" href="count/">Count your last twenty</a><a class="btn ghost" href="#how">How it works</a></div>
+    <p class="hero-note">Paste the last twenty people you wrote to, titles and companies, no names. You get the number who could sign without asking anybody, and a verdict per row. It runs in your browser: nothing you type leaves it, nothing is stored.</p>
+  </div>
+  <div class="demo" id="count">
+    <div class="demo-head"><b>The free count</b><span>Example rows, invented</span></div>
+    <div class="demo-body" id="demo"><noscript><p class="small muted">The count is a script and runs in the browser. <a href="count/">Open the count page</a>.</p></noscript></div>
+    <div class="demo-foot"><span class="muted">Nobody on that list exists.</span><a href="count/">See all 20 &rarr;</a></div>
+  </div>
+  </div>
+</div></section>
 
-<section id="count">
-  <h2>The free count</h2>
-  <p>Paste the last twenty people you wrote to, titles and companies, no names. You get the number who could sign without asking anybody, and a verdict per row. It runs in your browser: nothing you type leaves it, nothing is stored.</p>
-  <p><a class="cta" href="count/">Count your last twenty</a></p>
-</section>
+<section class="sec" id="about"><div class="wrap">
+  <div class="about">
+    <div class="about-lead">
+      <p class="eyebrow">A go-to-market agency</p>
+      <h2>Vurell takes technical founders who have never sold into their first market: who to sell to there, what to say to them, and the sending.</h2>
+      <p>Vurell is an agency the way a workshop is a workshop. Right now that means me.</p>
+    </div>
+    <div class="facts">
+      <div class="card fact"><p class="kind">How it is run</p><p>One person and a set of AI agents. Every message read by a person before it goes.</p></div>
+      <div class="card fact"><p class="kind">Who and where</p><p>Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France.</p></div>
+      <div class="card fact"><p class="kind">How the work is done</p><p>The rules are written down. You own the repository: the list, the evidence, the kill list, every message, every reply, the rules.</p></div>
+      <div class="card fact"><p class="kind">What is published</p><ul class="plain"><li><a href="https://www.linkedin.com/pulse/800-cold-emails-400-opens-zero-replies-copy-problem-sabelnykov-xbuve/">800 cold emails, 400 opens, zero replies. The copy was not the problem.</a></li><li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749593793880064/">Covera, AI agents for insurance brokers.</a></li><li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749779647721472/">Forward, private credit origination.</a></li></ul><p class="small"><a href="reads/">Public reads</a></p></div>
+      <div class="card fact wide"><p class="kind">The founder</p><p>Two years in sales. Before that, a manufacturer that needed a new market, and I helped it enter.</p></div>
+    </div>
+  </div>
+</div></section>
 
-<section id="ladder" class="price">
-  <h2>The ladder</h2>
-  <p class="line">Who has it now. $600 founding rate, first three clients. $1,500 list.</p>
-  <p class="scope">I read forty to fifty people by their public traces. Who has the problem this month, who to exclude, who can sign. Twenty names with their evidence, and what to say, from who has it. Five working days.</p>
-  <p class="line">Twenty conversations. $1,200 founding rate, first three clients. $2,400 list.</p>
-  <p class="scope">Twenty named people, a note each carrying its source quote. You press Send. I work the replies with you up to the pilot ask. Measured by replies, pilots proposed, and the reason for every no. No meetings are guaranteed.</p>
-  <p class="line">Pilot.</p>
-  <p class="scope">Two weeks, manual, fixed scope. The message that proposes it.</p>
-  <p>You own the repository: the list, the evidence, the kill list, every message, every reply, the rules.</p>
-  <p>You see the first draft before committing to anything.</p>
-</section>
+<section class="sec" id="how"><div class="wrap">
+  <div class="sec-head">
+    <p class="eyebrow">How it works</p>
+    <h2>Count first. Then the read. Then the sending.</h2>
+    <p>Three rungs, each built on the one before it.</p>
+  </div>
+  <ol class="grid3 steps">
+    <li class="card step">
+      <span class="num">01 &middot; Free</span>
+      <h3>Who could sign</h3>
+      <p>You get the number who could sign without asking anybody, and a verdict per row. Every verdict on the count page names the rule that fired and says what on the line would change it. Seven rules, in the order they run, are printed under the result.</p>
+<pre class="art"><span class="k">count/ &middot; one row, invented</span>Founder, Northbeam Instruments
+<b class="v-sign">can sign</b> &middot; R3
+Founder is an owner title. It signs without asking anybody.</pre>
+    </li>
+    <li class="card step">
+      <span class="num">02</span>
+      <h3>Who has it now</h3>
+      <p>I read forty to fifty people by their public traces. Who has the problem this month, who to exclude, who can sign. Twenty names with their evidence, and what to say, from who has it. Five working days.</p>
+<pre class="art"><span class="k">twenty.md &middot; example, invented</span>## 1. Founder, Northbeam Instruments
+&gt; "Shipped it. The part I had not planned for is finding who pays for it."
+&gt; LinkedIn post, 4 September
+<b class="v-sign">can sign</b> &middot; has the problem this month</pre>
+    </li>
+    <li class="card step">
+      <span class="num">03</span>
+      <h3>Twenty conversations</h3>
+      <p>Twenty named people, a note each carrying its source quote. You press Send. I work the replies with you up to the pilot ask. Measured by replies, pilots proposed, and the reason for every no. No meetings are guaranteed.</p>
+<pre class="art"><span class="k">messages/01.md &middot; example</span>to:      row 1 of twenty.md
+opens:   the quoted line, their post of 4 September
+asks:    one question
+source:  twenty.md, row 1
+send:    <b>you press it</b></pre>
+    </li>
+  </ol>
+</div></section>
 
-<section id="who-it-is-for">
-  <h2>Who it is for</h2>
-  <p>This is for founders who shipped something good and have never sold anything.</p>
-</section>
+<section class="sec" id="own"><div class="wrap own">
+  <div>
+    <p class="eyebrow">What you own</p>
+    <h2>You own the repository: the list, the evidence, the kill list, every message, every reply, the rules.</h2>
+    <p>Plain text in a git repository, readable without me.</p>
+  </div>
+  <div class="tree">
+    <div class="tree-head">a private git repository you own</div>
+    <ul>
+      <li><span>README.md</span><span>how it is run</span></li>
+      <li><span>twenty.md</span><span>the list, the evidence</span></li>
+      <li><span>kill-list.md</span><span>the kill list</span></li>
+      <li><span>rules/</span><span>the rules</span></li>
+      <li class="d"><span>gates.md</span><span></span></li>
+      <li class="d"><span>rulings.md</span><span></span></li>
+      <li><span>messages/</span><span>every message</span></li>
+      <li><span>log/</span><span>every reply</span></li>
+    </ul>
+  </div>
+</div></section>
 
-<section id="proof">
-  <h2>What I have written</h2>
-  <p>Three public reads. One campaign, two landing pages.</p>
-  <ul class="reads">
-    <li><a href="https://www.linkedin.com/pulse/800-cold-emails-400-opens-zero-replies-copy-problem-sabelnykov-xbuve/">800 cold emails, 400 opens, zero replies. The copy was not the problem.</a></li>
-    <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749593793880064/">Covera, AI agents for insurance brokers.</a></li>
-    <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749779647721472/">Forward, private credit origination.</a></li>
-  </ul>
-  <p><a href="reads/">Public reads</a></p>
-</section>
+<section class="sec" id="pricing"><div class="wrap">
+  <div class="sec-head">
+    <p class="eyebrow" id="ladder">The ladder</p>
+    <h2>Three rungs and a pilot.</h2>
+    <p>Fixed scope at every rung.</p>
+  </div>
+  <div class="grid3">
+    <div class="card tile">
+      <span class="rung">Rung 0 &middot; Self-serve</span>
+      <p class="name"><a href="count/">Who could sign</a></p>
+      <p class="price"><b>Free</b></p>
+      <p class="scope">You get the number who could sign without asking anybody, and a verdict per row.</p>
+    </div>
+    <div class="card tile">
+      <span class="rung">Rung 1 &middot; Five working days</span>
+      <p class="name">Who has it now.</p>
+      <p class="price"><b>$600</b> founding rate, first three clients. $1,500 list.</p>
+      <p class="scope">I read forty to fifty people by their public traces. Who has the problem this month, who to exclude, who can sign. Twenty names with their evidence, and what to say, from who has it. Five working days.</p>
+    </div>
+    <div class="card tile">
+      <span class="rung">Rung 2 &middot; Four weeks</span>
+      <p class="name">Twenty conversations.</p>
+      <p class="price"><b>$1,200</b> founding rate, first three clients. $2,400 list.</p>
+      <p class="scope">Twenty named people, a note each carrying its source quote. You press Send. I work the replies with you up to the pilot ask. Measured by replies, pilots proposed, and the reason for every no. No meetings are guaranteed.</p>
+    </div>
+  </div>
+  <div class="pilot"><span class="name">Pilot.</span><span>Two weeks, manual, fixed scope. The message that proposes it.</span></div>
+  <p class="after">You see the first draft before committing to anything.</p>
+</div></section>
+
+<section class="sec" id="reads"><div class="wrap">
+  <div class="sec-head">
+    <p class="eyebrow">What I have written</p>
+    <h2>Three public reads. One campaign, two landing pages.</h2>
+  </div>
+  <div class="grid3">
+    <a class="card read" href="https://www.linkedin.com/pulse/800-cold-emails-400-opens-zero-replies-copy-problem-sabelnykov-xbuve/"><p class="kind">Campaign read &middot; article</p><p class="t">800 cold emails, 400 opens, zero replies. The copy was not the problem.</p><span class="go">Read on LinkedIn &rarr;</span></a>
+    <a class="card read" href="https://www.linkedin.com/feed/update/urn:li:activity:7502749593793880064/"><p class="kind">Landing page read &middot; post</p><p class="t">Covera, AI agents for insurance brokers.</p><span class="go">Read on LinkedIn &rarr;</span></a>
+    <a class="card read" href="https://www.linkedin.com/feed/update/urn:li:activity:7502749779647721472/"><p class="kind">Landing page read &middot; post</p><p class="t">Forward, private credit origination.</p><span class="go">Read on LinkedIn &rarr;</span></a>
+  </div>
+  <p class="after"><a href="reads/">Public reads<span aria-hidden="true"> &rarr;</span></a></p>
+</div></section>
+
+<section class="sec" id="faq"><div class="wrap">
+  <div class="sec-head">
+    <p class="eyebrow">Questions</p>
+    <h2>Four questions.</h2>
+  </div>
+  <div class="faq">
+    <details><summary>What does the count not know?</summary><div class="a">This is a title read, not a person read. It reads the words you pasted and nothing else. The paid rung reads the person: the profile, the company page and the last things they wrote, under written gates, with the quoted line that decided it.</div></details>
+    <details><summary>Does anything I paste leave the browser?</summary><div class="a">It runs in your browser: nothing you type leaves it, nothing is stored.</div></details>
+    <details><summary>Who presses Send?</summary><div class="a">Twenty named people, a note each carrying its source quote. You press Send. I work the replies with you up to the pilot ask.</div></details>
+    <details><summary>Do you promise meetings?</summary><div class="a">No meetings are guaranteed. Measured by replies, pilots proposed, and the reason for every no.</div></details>
+  </div>
+</div></section>
+
+<section class="sec" id="for"><div class="wrap"><div class="cta">
+  <p class="eyebrow">Who it is for</p>
+  <h2>This is for founders who shipped something good and have never sold anything.</h2>
+  <div class="cta-row"><a class="btn" href="count/">Count your last twenty</a><a class="btn ghost" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></div>
+</div></div></section>
 
 </main>
 
-<footer>
+<footer><div class="wrap">
+  <nav class="foot-nav" aria-label="Footer"><a href="#about">About</a><a href="count/">The count</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a></nav>
   <p>Vurell. Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France. <a href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">miro@vurell.com</a>. One person and a set of AI agents. Every message read by a person before it goes.</p>
   <p>If I wrote to you and you want it to stop, reply stop and I delete the record.</p>
-</footer>
+</div></footer>
+
+<script>
+/* ===== count-rules-copy:begin ===== a verbatim copy of the rule block that ships
+   in count/index.html, so the hero demo computes its number with the same rules.
+   The copy tested by selftest_ladder_tools.py is the one on the count page. */
+
+function fold(s) {
+  return String(s == null ? '' : s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+}
+
+function hit(text, words) {
+  var t = fold(text);
+  for (var i = 0; i < words.length; i++) {
+    if (new RegExp('(?:^|[^a-z0-9])(?:' + words[i] + ')(?:[^a-z0-9]|$)').test(t)) return words[i];
+  }
+  return null;
+}
+
+var OWNER = ['founders?', 'co-?founders?', 'mede-?oprichters?', 'ceo', 'chief executive( officer)?',
+  'owner', 'proprietor', 'inhaber', 'managing director', 'managing partner', 'geschaftsfuhrer(in)?',
+  'geschaeftsfuehrer(in)?', 'grunder(in)?', 'gruender(in)?', 'oprichter', 'president',
+  'zaakvoerder', 'partner', 'principal', 'sole trader'];
+
+var BLOCKED = ['marketing', 'growth', 'content', 'community', 'design', 'designer', 'engineering',
+  'engineer', 'manager', 'managers', 'coordinator', 'specialist', 'analyst', 'intern', 'interns',
+  'internship', 'student', 'assistant', 'associate', 'trainee', 'apprentice', 'recruiter'];
+
+var SALES = ['sales', 'account executive', 'business development', 'bizdev', 'biz dev', 'bd',
+  'ae', 'sdr', 'bdr', 'cro', 'chief revenue officer', 'revenue', 'partnerships',
+  'commercial director', 'go-?to-?market', 'gtm'];
+
+var STUDIO = ['agency', 'agencies', 'agentur', 'consultancy', 'consultancies', 'consulting',
+  'studio', 'studios', 'atelier', 'bureau', 'design shop', 'dev shop', 'creative partner'];
+
+var HEADISH = ['head', 'head of', 'vp', 'v\\.p\\.', 'vice president', 'svp', 'evp'];
+
+var BIG = 200;
+var SMALL = 50;
+
+/* The second pass, rules 8 to 10. These read the optional fields on a line
+   after the seven rules above have decided it. */
+var TYPE = ['marketplace', 'marketplaces', 'nonprofit', 'non-?profit', 'not-for-profit', 'ngo',
+  'university', 'universities', 'public sector', 'government', 'ministry', 'municipality'];
+
+var CLEVEL = ['cto', 'cfo', 'coo', 'cmo', 'cio', 'cpo', 'chro', 'cdo', 'ciso',
+  'chief [a-z]+ officer', 'chief [a-z]+ [a-z]+ officer'];
+
+
+function companyFrom(rest) {
+  return rest.replace(/\(.*$/, '').replace(/[.;]+$/, '').trim();
+}
+
+function splitLine(raw) {
+  var line = String(raw == null ? '' : raw).replace(/\s+/g, ' ').trim();
+  var title = line, rest = '';
+  var m = line.match(/^([^,]+),\s*(.*)$/);
+  if (m) { title = m[1]; rest = m[2]; }
+  else {
+    var a = line.match(/^(.*?)\s+(?:at|@|bij|bei|chez|presso)\s+(.*)$/i);
+    if (a) { title = a[1]; rest = a[2]; }
+  }
+  return { line: line, title: title.trim(), company: companyFrom(rest), rest: rest.trim() };
+}
+
+function num(s) { return parseInt(String(s).replace(/[.,\s]/g, ''), 10); }
+
+var UNIT = '(?:\\+\\s*)?(?:people|persons?|employees?|staff|heads?|headcount|ftes?|pax|seats?)';
+
+/* The headcount as written on the line, or null. */
+function sizeMatch(line) {
+  var t = fold(line);
+  return t.match(new RegExp('(\\d[\\d.,]*)\\s*(?:-|to|–)\\s*(\\d[\\d.,]*)\\s*' + UNIT)) ||
+    t.match(new RegExp('(\\d[\\d.,]*)\\s*' + UNIT)) ||
+    t.match(/\bteam of\s*(\d[\d.,]*)/) ||
+    t.match(/\b(\d[\d.,]*)\s*-\s*(?:person|people)\b/);
+}
+
+function sizeOf(line) {
+  var r = sizeMatch(line);
+  if (!r) return null;
+  return r[2] ? Math.max(num(r[1]), num(r[2])) : num(r[1]);
+}
+
+function companyKey(c) {
+  return fold(c)
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/(?:^|\s)(?:ltd|limited|inc|llc|gmbh|bv|sa|ag|oy|ab|as|nv|plc|co|company|the)(?=\s|$)/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/* Takes an array of raw lines, returns one verdict object per non-empty line.
+   verdict is one of: 'can sign', 'studio', 'cannot sign alone',
+   'cannot tell, needs a read'. Each object also carries decided (the words
+   that fired the rule), flip (what on the line would change the verdict) and
+   words (the decisive words as typed), all generated from the rule itself,
+   and from the second pass: firstRule and confidence. */
+function countWhoCouldSign(rawLines) {
+  var parsed = [];
+  for (var i = 0; i < rawLines.length; i++) {
+    var p = splitLine(rawLines[i]);
+    if (!p.line) continue;
+    p.n = parsed.length + 1;
+    p.size = sizeOf(p.line);
+    p.key = companyKey(p.company);
+    p.studio = !!hit(p.company + ' ' + p.rest + ' ' + p.title, STUDIO);
+    p.salesTitle = !!hit(p.title, SALES);
+    p.ctype = hit(p.company + ' ' + p.rest, TYPE);
+    p.clevel = hit(p.title, CLEVEL);
+    parsed.push(p);
+  }
+
+  var salesAt = {}, linesAt = {};
+  for (var j = 0; j < parsed.length; j++) {
+    var k = parsed[j].key;
+    if (k) linesAt[k] = (linesAt[k] || 0) + 1;
+    if (parsed[j].salesTitle && k) {
+      if (!salesAt[k]) salesAt[k] = [];
+      salesAt[k].push(parsed[j].n);
+    }
+  }
+
+  var out = [];
+  for (var q = 0; q < parsed.length; q++) out.push(secondPass(explain(verdictFor(parsed[q], salesAt), parsed[q], salesAt, linesAt), parsed[q]));
+  return out;
+}
+
+function verdictFor(p, salesAt) {
+  var res = { n: p.n, line: p.line, title: p.title, company: p.company, size: p.size };
+  var t = fold(p.title);
+  var isDirector = /(?:^|[^a-z])director(?:[^a-z]|$)/.test(t);
+
+  /* 1. nothing on the line that reads as a title */
+  if (!/[a-z]{2}/.test(t) ||
+      (!p.company && !hit(p.title, OWNER) && !hit(p.title, BLOCKED) &&
+       !hit(p.title, HEADISH) && !hit(p.title, SALES) && !isDirector)) {
+    res.rule = 1;
+    res.verdict = 'cannot tell, needs a read';
+    res.why = 'Nothing on this line reads as a title at a company.';
+    return res;
+  }
+
+  /* 2. a sales or BD title at the same company, anywhere in the list */
+  var s = p.key ? salesAt[p.key] : null;
+  if (s && s.length) {
+    var others = s.filter(function (x) { return x !== p.n; });
+    res.rule = 2;
+    res.verdict = 'cannot sign alone';
+    res.why = others.length
+      ? (p.company || 'That company') + ' also appears on line ' + others.join(' and ') +
+        ' with a sales title. Somebody there already owns the sale.'
+      : 'A sales or business-development seat at ' + (p.company || 'that company') +
+        '. It carries the quota; it does not own the signature.';
+    return res;
+  }
+
+  /* 3. an owner title */
+  if (hit(p.title, OWNER)) {
+    res.rule = 3;
+    if (p.studio) {
+      res.verdict = 'studio';
+      res.why = 'Owns the shop. A services firm can sign for itself, and it sells to other people too.';
+    } else {
+      res.verdict = 'can sign';
+      res.why = 'An owner title. It signs without asking anybody.';
+    }
+    return res;
+  }
+
+  /* 4. a seat that spends somebody else's budget */
+  var blocked = hit(p.title, BLOCKED);
+  if (blocked) {
+    res.rule = 4;
+    res.verdict = 'cannot sign alone';
+    res.why = (/^[aeiou]/.test(blocked) ? 'An ' : 'A ') + blocked +
+      ' seat spends a budget somebody above it owns.';
+    return res;
+  }
+
+  var headish = hit(p.title, HEADISH);
+
+  /* 5. VP or Head at a company over about 200, when the line gives a count */
+  if ((headish || isDirector) && p.size !== null && p.size > BIG) {
+    res.rule = 5;
+    res.verdict = 'cannot sign alone';
+    res.why = 'VP or Head at about ' + p.size + ' people. Over ' + BIG + ', the signature is upstairs.';
+    return res;
+  }
+
+  /* 6. Head of a small firm, or Director at a studio */
+  if (headish && p.size !== null && p.size <= SMALL) {
+    res.rule = 6;
+    res.verdict = 'can sign';
+    res.why = 'Head of a firm of about ' + p.size + '. Under ' + SMALL + ', the head is the company.';
+    return res;
+  }
+  if (isDirector && p.studio) {
+    res.rule = 6;
+    res.verdict = 'studio';
+    res.why = 'Director at a services firm. Runs the shop, and sells services to other people.';
+    return res;
+  }
+
+  /* 7. everything left over */
+  res.rule = 7;
+  res.verdict = 'cannot tell, needs a read';
+  res.why = (headish || isDirector)
+    ? 'A Head or Director title with no company size on the line. Add the headcount, or read the person.'
+    : 'Not a title this page can score. Needs a read.';
+  return res;
+}
+
+/* The longest word on the line that a list matched, as the person typed it.
+   Display only: the verdicts come from hit(), which is unchanged. */
+function shown(text, words) {
+  var t = fold(text), src = String(text).normalize('NFC'), best = null, m;
+  for (var i = 0; i < words.length; i++) {
+    m = new RegExp('(?:^|[^a-z0-9])(' + words[i] + ')(?:[^a-z0-9]|$)').exec(t);
+    if (m && (!best || m[1].length > best[1].length)) best = m;
+  }
+  if (!best) return null;
+  var at = best.index + best[0].indexOf(best[1]);
+  return src.length === t.length ? src.substr(at, best[1].length) : best[1];
+}
+
+function copy(p, patch) {
+  var q = {}, k;
+  for (k in p) q[k] = p[k];
+  for (k in patch) q[k] = patch[k];
+  return q;
+}
+
+function short(v) { return v === 'cannot tell, needs a read' ? 'needs a read' : v; }
+
+function as(r) { return short(r.verdict) + ' (rule ' + r.rule + ')'; }
+
+/* Adds decided, flip and words to a verdict. A flip that names another
+   verdict is computed by re-running verdictFor on the same line with one
+   thing changed, so it is checkable against the rules. */
+function explain(res, p, salesAt, linesAt) {
+  var w, s, alt, others, sizeText = (sizeMatch(p.line) || [''])[0];
+  var firm = p.company || 'this company';
+  res.words = [];
+  if (res.rule === 1) {
+    res.decided = res.why;
+    res.flip = 'A title on the line, then a comma, then the company, would let the rules read it.';
+  } else if (res.rule === 2) {
+    others = salesAt[p.key].filter(function (x) { return x !== p.n; });
+    w = p.salesTitle ? shown(p.title, SALES) : null;
+    if (w) {
+      res.words = [w];
+      res.decided = w + ': a sales or business-development seat carries the quota. It does not own the signature.';
+      res.flip = 'A headcount would not change it. The sales seat is the reason' +
+        (linesAt[p.key] > 1 ? ', and it moves every other ' + firm + ' line on the list too' : '') + '.';
+    } else {
+      alt = verdictFor(p, {});
+      res.words = [p.company];
+      res.decided = firm + ' also appears on line ' + others.join(' and ') + ' with a sales title. Somebody there already owns the sale.';
+      res.flip = 'Without line ' + others.join(' and ') + ' on the list, this line would read ' + as(alt) + '.';
+    }
+  } else if (res.rule === 3) {
+    w = shown(p.title, OWNER);
+    res.words = [w];
+    if (res.verdict === 'studio') {
+      s = shown(p.company + ' ' + p.rest + ' ' + p.title, STUDIO);
+      res.words.push(s);
+      alt = verdictFor(copy(p, { studio: false }), salesAt);
+      res.decided = w + ' is an owner title, and ' + s + ' reads as a services firm: it can sign, and it sells services to other people too.';
+      res.flip = 'Without ' + s + ' on the line it would read ' + as(alt) + '.';
+    } else {
+      res.decided = w + ' is an owner title. It signs without asking anybody.';
+      res.flip = 'Only a sales title at ' + firm + ' elsewhere on the list would change it, to cannot sign alone (rule 2).';
+    }
+  } else if (res.rule === 4) {
+    w = shown(p.title, BLOCKED);
+    res.words = [w];
+    res.decided = w + ': that seat spends a budget somebody above it owns.';
+    res.flip = 'A headcount would not change it. The seat decides, not the size' +
+      (hit(p.title, HEADISH) ? ', and Head or VP in front of it does not either' : '') + '.';
+  } else if (res.rule === 5) {
+    res.words = [p.title, sizeText];
+    alt = verdictFor(copy(p, { size: SMALL }), salesAt);
+    var none = verdictFor(copy(p, { size: null }), salesAt);
+    res.decided = p.title + ' at ' + sizeText + '. Over ' + BIG + ', the signature is upstairs.';
+    res.flip = 'A headcount under ' + SMALL + ' on the line would make it ' + as(alt) + '. No headcount would make it ' + as(none) + '.';
+  } else if (res.rule === 6 && res.verdict === 'can sign') {
+    res.words = [p.title, sizeText];
+    alt = verdictFor(copy(p, { size: BIG + 1 }), salesAt);
+    res.decided = p.title + ' at ' + sizeText + '. Under ' + SMALL + ', the head is the company.';
+    res.flip = 'A headcount over ' + BIG + ' on the line would make it ' + as(alt) + '.';
+  } else if (res.rule === 6) {
+    s = shown(p.company + ' ' + p.rest + ' ' + p.title, STUDIO);
+    res.words = [shown(p.title, ['director']), s];
+    alt = verdictFor(copy(p, { studio: false }), salesAt);
+    res.decided = res.words[0] + ' and ' + s + ': runs the shop, and sells services to other people.';
+    res.flip = 'Without ' + s + ' on the line it would read ' + as(alt) + '.';
+  } else {
+    w = hit(p.title, HEADISH) || /(?:^|[^a-z])director(?:[^a-z]|$)/.test(fold(p.title));
+    if (w) {
+      res.words = [p.title];
+      var small = verdictFor(copy(p, { size: SMALL }), salesAt), big = verdictFor(copy(p, { size: BIG + 1 }), salesAt);
+      res.decided = p.title + ' with no headcount on the line. Add the headcount, or read the person.';
+      res.flip = (small.verdict !== res.verdict
+        ? 'A headcount under ' + SMALL + ' on the line would make it ' + as(small) + '. Over ' + BIG + ', ' + as(big) + '. Between the two it stays a read.'
+        : 'A headcount under ' + SMALL + ' would not change it: that rule reads Head and VP titles. Over ' + BIG + ', ' + as(big) + '.');
+    } else {
+      res.words = [p.title];
+      res.decided = p.title + ' is not a title this page can score.';
+      res.flip = 'The rules read owner, sales, seat and Head, VP or Director titles. Anything else needs a person read.';
+    }
+  }
+  return res;
+}
+
+/* Rules 8 to 10. Run after the seven, on the optional fields only. Rules 8
+   and 9 can move a row and then own its rule number; rule 10 adds a
+   confidence. firstRule keeps the rule the first pass ended on. */
+function secondPass(res, p) {
+  var w, was, sizeText = (sizeMatch(p.line) || [''])[0];
+  res.firstRule = res.rule;
+
+  /* 8. a company type this page cannot score */
+  if (p.ctype) {
+    w = shown(p.company + ' ' + p.rest, TYPE);
+    was = as(res);
+    res.rule = 8;
+    res.verdict = 'cannot tell, needs a read';
+    res.words = [w];
+    res.decided = w + ': a marketplace, nonprofit, university or public-sector body signs by a process this page cannot read.';
+    res.flip = 'Without ' + w + ' on the line it would read ' + was + '.';
+
+  /* 9. a C-level seat other than the CEO, when no earlier rule owned the title */
+  } else if (p.clevel && (res.firstRule === 4 || res.firstRule === 7)) {
+    w = shown(p.title, CLEVEL);
+    res.rule = 9;
+    res.words = [w, sizeText];
+    if (p.size !== null && p.size <= SMALL) {
+      res.verdict = 'can sign';
+      res.decided = w + ' at ' + sizeText + '. Under ' + SMALL + ', the C-level seat signs.';
+      res.flip = 'A headcount over ' + SMALL + ' on the line would make it cannot sign alone (rule 9).';
+    } else if (p.size !== null) {
+      res.verdict = 'cannot sign alone';
+      res.decided = w + ' at ' + sizeText + '. Over ' + SMALL + ', a C-level seat other than the CEO does not sign alone.';
+      res.flip = 'A headcount under ' + SMALL + ' on the line would make it can sign (rule 9).';
+    } else {
+      res.verdict = 'cannot sign alone';
+      res.words = [w];
+      res.decided = w + ' with no headcount on the line. A C-level seat other than the CEO signs only under ' + SMALL + ' people.';
+      res.flip = 'A headcount under ' + SMALL + ' on the line would make it can sign (rule 9).';
+    }
+  }
+
+  /* 10. confidence */
+  res.confidence = res.verdict === 'cannot tell, needs a read' ? 'low' : (p.size !== null ? 'high' : 'medium');
+  return res;
+}
+
+function tallyOf(results) {
+  var t = { 'can sign': 0, 'studio': 0, 'cannot sign alone': 0, 'cannot tell, needs a read': 0 };
+  for (var i = 0; i < results.length; i++) t[results[i].verdict]++;
+  t.couldSign = t['can sign'] + t['studio'];
+  t.total = results.length;
+  return t;
+}
+
+/* The rule that moved the most rows out of the signer pile (2, 4 or 5), then
+   rule 2 if it fired: it is the one rule that moves lines it did not touch. */
+function movers(results) {
+  var c = {}, firms = {}, out = [], best = null, r, i;
+  for (i = 0; i < results.length; i++) {
+    r = results[i];
+    c[r.rule] = (c[r.rule] || 0) + 1;
+    if (r.rule === 2 && r.company) firms[r.company] = true;
+  }
+  [2, 4, 5].forEach(function (k) { if ((c[k] || 0) > (best ? c[best] : 0)) best = k; });
+  function line(k) {
+    var what = k === 2 ? 'a sales title at ' + Object.keys(firms).join(' and ') + '.'
+      : k === 4 ? 'seats that spend a budget somebody above owns.'
+      : 'Head or VP titles at companies over ' + BIG + '.';
+    return 'Rule ' + k + ' moved ' + c[k] + (c[k] === 1 ? ' row: ' : ' rows: ') + what;
+  }
+  if (!best) return results.length ? ['No rule moved a row out of the signer pile.'] : [];
+  out.push(line(best));
+  if (best !== 2 && c[2]) out.push(line(2));
+  return out;
+}
+
+/* List-level shares and the one sentence on what to add. Confidence (rule
+   10) depends on the verdict and on whether the line carries a headcount, so
+   the only thing to add is a headcount. */
+function summary(results) {
+  var t = tallyOf(results), n = t.total, sales = 0, noSize = 0, i, r;
+  for (i = 0; i < n; i++) {
+    r = results[i];
+    if (r.rule === 2) sales++;
+    if (r.size === null) noSize++;
+  }
+  function pct(x) { return n ? Math.round(100 * x / n) + '%' : '0%'; }
+  return {
+    total: n,
+    signers: t.couldSign, signerShare: pct(t.couldSign),
+    sales: sales, salesShare: pct(sales),
+    unreadable: t['cannot tell, needs a read'], unreadableShare: pct(t['cannot tell, needs a read']),
+    noSize: noSize,
+    advice: !n ? '' : noSize
+      ? 'To raise the confidence, add a headcount in brackets to the ' + noSize + (noSize === 1 ? ' line' : ' lines') + ' without one.'
+      : 'Every line carries a headcount. Nothing to add.'
+  };
+}
+/* ===== count-rules-copy:end ===== */
+
+(function () {
+  var host = document.getElementById('demo');
+  if (!host) return;
+  /* The same twenty invented rows as the count page's example. Nobody on this list exists. */
+  var EXAMPLE = [
+    'Founder, Northbeam Instruments',
+    'Co-Founder & CTO, Kelpline Systems',
+    'CEO, Harrow & Pike (18 people)',
+    'Head of Growth, Northbeam Instruments',
+    'VP Marketing, Continental Fabrics (4,000 employees)',
+    'Geschäftsführer, Brennweite GmbH',
+    'Oprichter, Stroomlijn BV',
+    'Managing Director, Quillon Partners (12 people)',
+    'Head of Engineering, Sable Freight (900 employees)',
+    'Director, Pale Fox Studio',
+    'Marketing Manager, Ashgrove Dairy',
+    'Community Coordinator, Riverbend Collective',
+    'Data Analyst, Halberd Logistics',
+    'Product Design Intern, Kelpline Systems',
+    'Owner, Two Kettles Consultancy',
+    'Principal, Vantage Rock Advisors',
+    'Head of Product, Sable Freight (900 employees)',
+    'Head of Operations, Kestrel Tooling (22 people)',
+    'VP Business Development, Harrow & Pike (18 people)',
+    'linkedin.com/in/someone-i-met-at-a-meetup'
+  ];
+  var CLS = { 'can sign': 'sign', 'studio': 'studio', 'cannot sign alone': 'alone', 'cannot tell, needs a read': 'read' };
+  var KEYS = Object.keys(CLS);
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  var results = countWhoCouldSign(EXAMPLE), t = tallyOf(results);
+  while (host.firstChild) host.removeChild(host.firstChild);
+  var headline = t.couldSign + ' of ' + t.total + ' could sign without asking anybody.';
+  var n = el('p', 'demo-n');
+  n.appendChild(document.createTextNode(t.couldSign + ' '));
+  n.appendChild(el('span', null, 'of ' + t.total));
+  host.appendChild(n);
+  host.appendChild(el('p', 'demo-sum', 'could sign without asking anybody.'));
+  var bar = el('div', 'bar'), legend = el('p', 'legend');
+  bar.setAttribute('role', 'img');
+  bar.setAttribute('aria-label', headline);
+  KEYS.forEach(function (k) {
+    if (t[k]) {
+      var d = el('div', 'b-' + CLS[k]);
+      d.style.width = (100 * t[k] / t.total) + '%';
+      bar.appendChild(d);
+    }
+    legend.appendChild(el('span', 'v-' + CLS[k], t[k] + ' ' + short(k)));
+  });
+  host.appendChild(bar);
+  host.appendChild(legend);
+  var list = el('ol', 'demo-rows');
+  results.slice(0, 6).forEach(function (r) {
+    var li = el('li');
+    li.appendChild(el('span', 'n', String(r.n)));
+    li.appendChild(el('span', 'line', r.line));
+    li.appendChild(el('span', 'chip v-' + CLS[r.verdict], r.verdict));
+    li.appendChild(el('span', 'why', r.decided));
+    list.appendChild(li);
+  });
+  host.appendChild(list);
+  host.className += ' in';
+})();
+</script>
 </body>
 </html>
