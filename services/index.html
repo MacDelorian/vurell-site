@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What we do · Vurell</title>
-<meta name="description" content="Market, message, sending, first customers. Every part is a fixed scope with a public price, and you own everything we produce.">
+<meta name="description" content="Market and pricing, message, sending, sales kit, pipeline and CRM, first case study. Fixed scope, a public price, and you own everything produced.">
 <meta name="robots" content="index,follow">
 <meta property="og:title" content="What we do · Vurell">
-<meta property="og:description" content="Market, message, sending, first customers. Every part is a fixed scope with a public price, and you own everything we produce.">
+<meta property="og:description" content="Market and pricing, message, sending, sales kit, pipeline and CRM, first case study. Fixed scope, a public price, and you own everything produced.">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -78,6 +78,7 @@ code{font-family:var(--mono);font-size:.9em;overflow-wrap:anywhere}
 .pts li::before{content:"";position:absolute;left:0;top:.6em;width:.34rem;height:.34rem;border-radius:1px;background:var(--muted)}
 .repo{margin:auto 0 0;padding-top:.9rem;border-top:1px solid var(--rule);font-size:.875rem;color:var(--muted)}
 .repo code{color:var(--ink)}
+.wide-in .aka{margin-bottom:1.15rem}
 .no{list-style:none;margin:0;padding:0;display:grid;gap:0 3.5rem}
 .no li{padding:1.25rem 0;border-top:1px solid var(--rule)}
 .no h3{font-size:1.05rem;line-height:1.35;margin:0 0 .35rem}
@@ -112,7 +113,7 @@ footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var
 .foot-nav{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin:0 0 1.4rem;font-weight:500}
 .foot-nav a{color:var(--ink)}
 @media (min-width:760px){body{font-size:18px}.wrap{padding-inline:2rem}.hero{padding-block:4.5rem 3rem}.lede{font-size:1.35rem}.sec{padding-block:4.5rem}.no{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}.cta{padding:4rem 2rem}}
-@media (min-width:900px){.svc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:900px){.svc{grid-template-columns:repeat(2,minmax(0,1fr))}.svc>.wide{grid-column:1/-1}.wide-in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:4.1rem}.wide-in .pts{margin-top:.8rem}}
 @media (max-width:1179px){.links,.top-cta{display:none}.menu{display:block}.top{grid-template-columns:1fr auto}}
 @media (max-width:639px){.tbl thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.tbl table,.tbl tbody,.tbl tr,.tbl td{display:block}.tbl tr{padding:1rem 1.1rem;border-bottom:1px solid var(--rule)}.tbl tbody tr:last-child{border-bottom:0}.tbl td,.cmp td.c-how{padding:0;border:0;width:auto}.weeks td.wk,.weeks td.stage{display:inline}.weeks td.wk::before{content:attr(data-k) " "}.weeks td.wk::after{content:" \00b7  "}.weeks td.stage+td{margin-top:.35rem}.cmp td::before{content:attr(data-k);display:block;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 .2rem}.cmp td+td{border-left:0;margin-top:.85rem}}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
@@ -155,6 +156,8 @@ footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var
         <li>The exclusions: who looks right and is not, and why.</li>
         <li>The buying committee: who signs, who uses it, who can block it.</li>
         <li>The alternatives: what they use today instead of you.</li>
+        <li>Pricing and packaging: how to put the first price together, what goes in the box, and what stays out. You set the number, and we never suggest one.</li>
+        <li>Channels: which one to open first, and which to leave for later, with the reason.</li>
       </ul>
       <p class="repo">In your repository: <code>market/</code></p>
     </li>
@@ -168,6 +171,7 @@ footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var
         <li>One message per role in the buying committee.</li>
         <li>Every claim in your messages checked against something you can prove, in a claims file you keep.</li>
         <li>LinkedIn notes and email sequences, each line traceable to its source quote.</li>
+        <li>An elevator pitch: the two sentences you say when someone asks what you do.</li>
       </ul>
       <p class="repo">In your repository: <code>message/</code></p>
     </li>
@@ -182,6 +186,7 @@ footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var
         <li>Replies worked together, up to the pilot ask.</li>
         <li>A weekly report: replies, qualified conversations, the reason for every no.</li>
         <li>One change tested at a time, written down before it is read.</li>
+        <li>Sending setup on your own accounts: domain records, mailbox, warm-up plan, LinkedIn profile. You hold every account and every password.</li>
       </ul>
       <p class="repo">In your repository: <code>sending/</code>, <code>experiments/</code></p>
     </li>
@@ -199,7 +204,7 @@ footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var
 
     <li class="card" id="kit">
       <div class="svc-top"><span>05</span><span>Included in the eight weeks</span></div>
-      <h3>First-call kit</h3>
+      <h3>Sales kit</h3>
       <p class="aka">Agencies call it: sales enablement</p>
       <ul class="pts">
         <li>A discovery script: the questions that establish whether they have the problem now, and who signs.</li>
@@ -207,6 +212,8 @@ footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var
         <li>An objection library built from the real noes, each with its source.</li>
         <li>One card per alternative they use today.</li>
         <li>A pilot proposal template: two weeks, fixed scope, and you set the price.</li>
+        <li>A demo script: what to show, in what order, and what to leave out.</li>
+        <li>An ROI calculator your buyer can open. It ships blank. You put your own numbers in, and any number left in it names where it came from.</li>
         <li>One-pager ($250 founding rate, $500 list) and pitch deck of up to 12 slides ($1,000 founding rate, $2,500 list) as separate fixed-price lines.</li>
       </ul>
       <p class="repo">In your repository: <code>kit/</code></p>
@@ -220,9 +227,24 @@ footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var
         <li>The pipeline is one file: stage, date, next step, reason lost.</li>
         <li>Definitions written before the first send: reply, qualified conversation, pilot proposed, pilot paid.</li>
         <li>Kill conditions written before the first send: the numbers that say this market says no.</li>
-        <li>A CRM comes later, once there are a few dozen open conversations.</li>
+        <li>CRM setup in HubSpot or Pipedrive when the file stops being enough: pipeline stages, email and calendar connected, two or three automations, one training session. You create our seat in your own portal with the narrowest role that can build a pipeline, nothing of your customers' data is copied to our machines, and you remove the seat at handover. $1,000 founding rate, $2,000 list, as a separate fixed-price line.</li>
       </ul>
       <p class="repo">In your repository: <code>pipeline/</code></p>
+    </li>
+
+    <li class="card wide" id="proof">
+      <div class="svc-top"><span>07</span><span>Included in the eight weeks, when there is a customer to write about</span></div>
+      <div class="wide-in">
+        <div>
+          <h3>Proof</h3>
+          <p class="aka">Agencies call it: case studies</p>
+        </div>
+        <ul class="pts">
+          <li>Your first case study, written with your customer's permission and only when there is a customer to write about: the situation, what was done, the numbers, and what did not work.</li>
+          <li>A permission note your customer signs before anything is published.</li>
+        </ul>
+      </div>
+      <p class="repo">In your repository: <code>proof/</code></p>
     </li>
 
   </ol>
@@ -246,11 +268,11 @@ footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var
     <table class="weeks" role="table">
       <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Week</th><th role="columnheader" scope="col">Stage</th><th role="columnheader" scope="col">You get</th></tr></thead>
       <tbody role="rowgroup">
-        <tr role="row"><td role="cell" class="wk" data-k="Week">1</td><td role="cell" class="stage">Market</td><td role="cell">Segment, trigger, exclusions, buying committee, alternatives, first 20 names with evidence. <b>First draft before you commit.</b></td></tr>
-        <tr role="row"><td role="cell" class="wk" data-k="Week">2</td><td role="cell" class="stage">Message</td><td role="cell">Positioning conclusion, a message per role, the claims file, your founder profile rewrite.</td></tr>
-        <tr role="row"><td role="cell" class="wk" data-k="Week">3</td><td role="cell" class="stage">Setup</td><td role="cell">Sending readiness of your own LinkedIn account, domain and mailbox; pipeline file; definitions; <b>kill conditions in writing.</b></td></tr>
+        <tr role="row"><td role="cell" class="wk" data-k="Week">1</td><td role="cell" class="stage">Market</td><td role="cell">Segment, trigger, exclusions, buying committee, alternatives, pricing and packaging, channels, first 20 names with evidence. <b>First draft before you commit.</b></td></tr>
+        <tr role="row"><td role="cell" class="wk" data-k="Week">2</td><td role="cell" class="stage">Message</td><td role="cell">Positioning conclusion, a message per role, your elevator pitch, the claims file, your founder profile rewrite.</td></tr>
+        <tr role="row"><td role="cell" class="wk" data-k="Week">3</td><td role="cell" class="stage">Setup</td><td role="cell">Sending setup on your own accounts: domain records, mailbox, warm-up plan, LinkedIn profile; pipeline file; definitions; <b>kill conditions in writing.</b></td></tr>
         <tr role="row"><td role="cell" class="wk" data-k="Weeks">4 to 7</td><td role="cell" class="stage">Conversations</td><td role="cell">You press Send on 20 named people; weekly report; replies worked together; one change tested at a time; your post topics go out.</td></tr>
-        <tr role="row"><td role="cell" class="wk" data-k="Week">8</td><td role="cell" class="stage">Playbook</td><td role="cell">Objection library from the real noes, first-call kit final, the playbook for your first sales hire.</td></tr>
+        <tr role="row"><td role="cell" class="wk" data-k="Week">8</td><td role="cell" class="stage">Playbook</td><td role="cell">Objection library from the real noes, demo script, ROI calculator, sales kit final, the playbook for your first sales hire, and your first case study when there is a customer to write about.</td></tr>
       </tbody>
     </table>
   </div>

@@ -35,6 +35,8 @@ h2{font-family:var(--mono);font-size:7.6pt;font-weight:600;letter-spacing:.09em;
 p{margin:0}
 .row{display:grid;gap:8mm;margin-top:6.2mm}
 .two{grid-template-columns:1fr 1fr}
+.caps{list-style:none;margin:2mm 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 4mm;font-size:9.1pt;line-height:1.5;font-weight:600}
+.caps li::before{content:"";display:inline-block;width:1.1mm;height:1.1mm;margin-right:1.9mm;vertical-align:.14em;border-radius:.2mm;background:var(--muted)}
 .block{margin-top:6.2mm}
 .strip{display:grid;grid-template-columns:repeat(4,1fr);border:.75pt solid var(--rule);border-radius:2.5mm;overflow:hidden}
 .strip>div{padding:3.4mm 3.6mm;border-left:.75pt solid var(--rule);background:var(--soft)}
@@ -51,7 +53,7 @@ p{margin:0}
 .contact{margin-top:auto;padding-top:4mm;border-top:1pt solid var(--ink);display:flex;justify-content:space-between;gap:6mm;align-items:baseline}
 .contact h2{margin:0;flex:none}
 .contact p{font-size:9.2pt;text-align:right}
-@media screen and (max-width:720px){.sheet{min-height:0;padding:1.5rem 1rem;font-size:15px;border-radius:0;border-left:0;border-right:0}.mast{flex-direction:column;gap:.4rem}.mast .sub{text-align:left;font-size:14px}.wordmark{font-size:1.8rem}.intro .big{font-size:1.5rem}.intro .next{font-size:1.05rem}h2{font-size:.7rem}.two,.pair,.runs,.strip{grid-template-columns:1fr}.strip>div{border-left:0;border-top:.75pt solid var(--rule)}.strip>div:first-child{border-top:0}.strip p,.runs p,.contact p{font-size:15px}.strip b,.runs b{font-size:1.05rem}.strip .n{font-size:.7rem}.contact{flex-direction:column;gap:.4rem}.contact p{text-align:left}}
+@media screen and (max-width:720px){.sheet{min-height:0;padding:1.5rem 1rem;font-size:15px;border-radius:0;border-left:0;border-right:0}.mast{flex-direction:column;gap:.4rem}.mast .sub{text-align:left;font-size:14px}.wordmark{font-size:1.8rem}.intro .big{font-size:1.5rem}.intro .next{font-size:1.05rem}h2{font-size:.7rem}.two,.pair,.runs,.strip{grid-template-columns:1fr}.strip>div{border-left:0;border-top:.75pt solid var(--rule)}.strip>div:first-child{border-top:0}.strip p,.runs p,.contact p{font-size:15px}.caps{font-size:14px;margin-top:.6rem}.strip b,.runs b{font-size:1.05rem}.strip .n{font-size:.7rem}.contact{flex-direction:column;gap:.4rem}.contact p{text-align:left}}
 @media print{:root{--ground:#FFFFFF!important;--ink:#0B0C0E!important;--muted:#5B6470!important;--card:#FFFFFF!important;--rule:#DCDCD7!important;--soft:#F2F2EF!important}html,body{background:#FFFFFF}.bar{display:none}.sheet{width:210mm;height:297mm;min-height:0;margin:0;border:0;border-radius:0;box-shadow:none;overflow:hidden}}
 </style>
 </head>
@@ -77,6 +79,7 @@ p{margin:0}
     <section>
       <h2>What we do</h2>
       <p>We choose the first market, read who in it can sign and has the problem this month, write what to say, and prepare the sending.</p>
+      <ul class="caps"><li>Market and pricing</li><li>Message and pitch</li><li>Sending and setup</li><li>Sales kit</li><li>Pipeline and CRM</li><li>First case study</li></ul>
     </section>
   </div>
 
