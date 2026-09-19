@@ -134,12 +134,6 @@ footer .wrap{padding-block:2rem 3rem;font-size:.85rem;line-height:1.55;color:var
 @media (max-width:759px){textarea{min-height:17rem;font-size:.8rem}.stats{grid-template-columns:1fr}.rows{min-width:0}.rows thead{display:none}.rows tr{display:block;padding:.75rem 0;border-bottom:1px solid var(--rule)}.rows td{display:inline;border:0;padding:0 .5rem 0 0}.rows .line,.rows .ex{display:block;padding:.25rem 0}.rows .conf{display:inline;margin:0 0 0 .4rem}}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 </style>
-<!--
-  Cloudflare Web Analytics (cookieless, no banner). Paste the real token and
-  uncomment ONLY after the operator's Cloudflare account exists and the Pages
-  project is created; until then this page makes zero external requests.
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "REPLACE_WITH_TOKEN"}'></script>
--->
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -270,9 +264,10 @@ linkedin.com/in/someone-i-met-at-a-meetup</textarea>
 </main>
 
 <footer><div class="wrap">
-  <nav class="foot-nav" aria-label="Footer"><a href="../#about">About</a><a href="../services/">Services</a><a href="../#how">How we work</a><a href="#paste">The count</a><a href="../message/">Message check</a><a href="../#pricing">Pricing</a><a href="../reads/">Reads</a><a href="../engagement/">An engagement</a><a href="../one-pager/">One-pager</a></nav>
+  <nav class="foot-nav" aria-label="Footer"><a href="../#about">About</a><a href="../services/">Services</a><a href="../#how">How we work</a><a href="#paste">The count</a><a href="../message/">Message check</a><a href="../#pricing">Pricing</a><a href="../reads/">Reads</a><a href="../engagement/">An engagement</a><a href="../one-pager/">One-pager</a><a href="../#enquiry">Get in touch</a></nav>
   <p>Vurell. Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France. <a href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">miro@vurell.com</a>. Every message read by a person before it goes.</p>
   <p>If I wrote to you and you want it to stop, reply stop and I delete the record.</p>
+  <!-- cf-analytics:begin --><!-- <p>We count visits with Cloudflare Web Analytics, which sets no cookie and stores no personal data.</p> --><!-- cf-analytics:end -->
 </div></footer>
 
 <script>
@@ -787,5 +782,6 @@ function summary(results) {
   }
 })();
 </script>
+<!-- cf-analytics:begin --><!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "CF_TOKEN"}'></script> --><!-- cf-analytics:end -->
 </body>
 </html>

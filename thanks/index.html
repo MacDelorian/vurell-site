@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thank you · Vurell</title>
+<meta name="description" content="Your message is with us at miro@vurell.com. We answer within one working day.">
+<meta name="robots" content="noindex,follow">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<style>
+@font-face{font-family:"Geist";src:url("../fonts/geist-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("../fonts/geist-mono-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+
+/* ---- tokens: copied from the homepage; light is the design, dark follows the same names ---- */
+:root{color-scheme:light;--ground:#FAFAF9;--ink:#0B0C0E;--muted:#5F6573;--accent:#2F5BFF;--on-accent:#FFFFFF;--card:#FFFFFF;--rule:#E5E5E1;--soft:#F2F2EF;--soft2:#E9E9E5;--dot:#D3D3CE;--panel:#FFFFFF;--band-r:#EFF1F7;--btn:#0B0C0E;--btn-fg:#FFFFFF;--sign:#0E7A4F;--studio:#8A5A00;--alone:#9B2C2C;--read:#4B5563;--c-blue:#2F5BFF;--c-indigo:#4B3FE0;--c-violet:#8B5CF6;--c-cyan:#38C6F4;--blob:1;--glow:.55;--band-a:#2F5BFF;--band-b:#3A2BC4;--shadow-s:0 1px 2px rgba(11,12,14,.05),0 10px 28px -14px rgba(11,12,14,.16);--shadow-l:0 1px 2px rgba(11,12,14,.06),0 28px 56px -26px rgba(11,12,14,.26);--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");--sans:"Geist",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:"Geist Mono","SF Mono","Cascadia Code",Consolas,"Liberation Mono",monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){color-scheme:dark;--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--on-accent:#0B0C0E;--card:#121418;--rule:#262930;--soft:#15171C;--soft2:#1E2127;--dot:#23262D;--panel:#0F1115;--band-r:#111319;--btn:#F2F3F5;--btn-fg:#0B0C0E;--sign:#6FCF9C;--studio:#D9B56A;--alone:#E39C9C;--read:#AEB5BF;--blob:.62;--glow:.5;--band-a:#2344D6;--band-b:#2A1F8F;--shadow-s:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);--shadow-l:0 1px 2px rgba(0,0,0,.5),0 28px 56px -26px rgba(0,0,0,.85)}}
+:root[data-theme="dark"]{color-scheme:dark;--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--on-accent:#0B0C0E;--card:#121418;--rule:#262930;--soft:#15171C;--soft2:#1E2127;--dot:#23262D;--panel:#0F1115;--band-r:#111319;--btn:#F2F3F5;--btn-fg:#0B0C0E;--sign:#6FCF9C;--studio:#D9B56A;--alone:#E39C9C;--read:#AEB5BF;--blob:.62;--glow:.5;--band-a:#2344D6;--band-b:#2A1F8F;--shadow-s:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);--shadow-l:0 1px 2px rgba(0,0,0,.5),0 28px 56px -26px rgba(0,0,0,.85)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .st-q{--c:#A5A0FF}:root:not([data-theme="light"]) .st-p{--c:#C4A8FF}}
+
+/* ---- base, header, buttons: the homepage's rules, the subset this page uses ---- */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.wrap{max-width:72rem;margin:0 auto;padding-inline:1rem}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:.16em}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1{margin:0;font-weight:500;letter-spacing:-.04em}
+p{margin:0 0 1rem}
+p:last-child{margin-bottom:0}
+.skip{position:absolute;left:-999px;top:.5rem;background:var(--card);color:var(--ink);padding:.5rem .8rem;border:1px solid var(--rule);border-radius:8px;z-index:60}
+.skip:focus{left:.5rem}
+.top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--ground) 82%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px)}
+.top-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;height:4rem}
+.brand{justify-self:start;color:var(--ink);display:inline-flex}
+.brand:hover{text-decoration:none}
+.brand svg{display:block;height:1.55rem;width:auto}
+.links{display:flex;gap:1.6rem;justify-self:center}
+.links a{color:var(--ink);font-size:.9rem;font-weight:500;white-space:nowrap;opacity:.78}
+.links a:hover{opacity:1;text-decoration:none}
+.top-cta{display:flex;gap:.5rem;justify-self:end;align-items:center}
+.menu{display:none;justify-self:end}
+.menu summary{list-style:none;cursor:pointer;font-size:.9rem;font-weight:600;padding:.5rem .85rem;border:1px solid var(--rule);border-radius:9px;background:var(--card)}
+.menu summary::-webkit-details-marker{display:none}
+.menu nav{position:absolute;left:0;right:0;top:4rem;display:flex;flex-direction:column;padding:.5rem 1rem 1rem;background:var(--card);border-bottom:1px solid var(--rule);box-shadow:var(--shadow-s)}
+.menu nav a{padding:.7rem 0;color:var(--ink);font-weight:500;border-bottom:1px solid var(--rule)}
+.menu nav a.go{color:var(--accent);font-weight:600;border-bottom:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:2.75rem;padding:.7rem 1.15rem;border-radius:9px;border:1px solid var(--btn);background:var(--btn);color:var(--btn-fg);font:inherit;font-size:.9375rem;font-weight:600;line-height:1.2;cursor:pointer;white-space:nowrap;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.btn:hover{text-decoration:none;transform:translateY(-1px);box-shadow:0 10px 22px -12px rgba(11,12,14,.55)}
+.btn.ghost{background:var(--card);color:var(--ink);border-color:var(--rule)}
+.btn.ghost:hover{border-color:var(--ink);box-shadow:none}
+.btn.sm{min-height:2.3rem;padding:.5rem .9rem;font-size:.875rem;border-radius:8px}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;margin:0 0 1.1rem;padding:.3rem .75rem .3rem .6rem;border:1px solid var(--rule);border-radius:999px;background:var(--card);font-size:.78rem;font-weight:500;color:var(--muted);line-height:1.3}
+.eyebrow::before{content:"";width:.45rem;height:.45rem;border-radius:50%;background:linear-gradient(135deg,var(--c-cyan),var(--c-blue) 50%,var(--c-violet))}
+
+/* ---- the panel: the homepage hero, shorter ---- */
+.hero{padding:.5rem .5rem 0}
+.hero-panel{position:relative;overflow:hidden;isolation:isolate;border-radius:28px;background-color:var(--panel);background-image:radial-gradient(120% 55% at 50% 118%,color-mix(in srgb,var(--c-violet) 30%,transparent) 0%,color-mix(in srgb,var(--c-violet) 10%,transparent) 45%,transparent 70%);padding:4rem 1rem 4.5rem;text-align:center}
+.hero-panel::before{content:"";position:absolute;inset:0;z-index:-3;background-image:radial-gradient(var(--dot) 1px,transparent 1.4px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 35%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 70% 70% at 50% 35%,#000 20%,transparent 75%);opacity:.7}
+.blob{position:absolute;z-index:-2;border-radius:50%;pointer-events:none;opacity:var(--blob);filter:blur(3px)}
+.blob.a{width:24rem;height:24rem;left:-16rem;bottom:-12rem;background:radial-gradient(closest-side,#A9BBFF 0%,#2F5BFF 36%,#4B3FE0 64%,rgba(75,63,224,.45) 82%,rgba(75,63,224,0) 100%)}
+.blob.b{width:15rem;height:15rem;right:-10rem;bottom:1rem;background:radial-gradient(closest-side,#C8F1FF 0%,#38C6F4 30%,#5B6BFF 60%,rgba(139,92,246,.4) 82%,rgba(139,92,246,0) 100%)}
+.hero h1{font-size:clamp(2rem,1.05rem + 3.1vw,3.25rem);line-height:1.07;margin:0 auto;text-wrap:balance}
+.lede{font-size:1.0625rem;line-height:1.55;color:var(--muted);max-width:34rem;margin:1.25rem auto 0;text-wrap:balance}
+.cta-row{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:1.75rem}
+
+/* ---- footer card: the homepage's ---- */
+.foot{position:relative;isolation:isolate;overflow:hidden;padding:2rem .5rem .5rem}
+.foot::before{content:"";position:absolute;left:0;right:0;top:20%;bottom:0;z-index:-2;opacity:calc(var(--blob) * .7);background:radial-gradient(22% 70% at 0% 100%,var(--c-blue),transparent 75%),radial-gradient(20% 65% at 100% 95%,var(--c-violet),transparent 75%),radial-gradient(40% 35% at 50% 115%,var(--c-cyan),transparent 75%)}
+.foot-card{max-width:72rem;margin:0 auto;background:var(--card);border:1px solid var(--rule);border-radius:28px;box-shadow:var(--shadow-l);overflow:hidden}
+.foot-top{display:grid;gap:2rem;padding:2rem 1.5rem}
+.foot-top .brand svg{height:1.7rem}
+.foot-id p{margin:.9rem 0 0;color:var(--muted);font-size:.92rem;max-width:26ch}
+.foot-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem 2rem}
+.foot-cols p{margin:0 0 .75rem;font-size:.8rem;font-weight:500;color:var(--muted)}
+.foot-cols ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem}
+.foot-cols a{color:var(--ink);font-size:.92rem}
+.foot-rule{height:1px;background:linear-gradient(90deg,var(--c-cyan),var(--c-blue) 35%,var(--c-indigo) 65%,var(--c-violet))}
+.legal{padding:1.4rem 1.5rem 1.6rem;font-size:.85rem;line-height:1.55;color:var(--muted)}
+.legal p{margin:0 0 .5rem;max-width:62rem}
+
+@media (min-width:600px){.hero{padding:.75rem 1rem 0}}
+@media (min-width:760px){
+  .wrap{padding-inline:2rem}
+  .hero-panel{border-radius:40px;padding:6rem 2rem 6.5rem}
+  .lede{font-size:1.1875rem}
+  .foot{padding:3rem 1rem .75rem}
+  .foot-top{grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);padding:2.75rem 2.75rem 2.25rem}
+  .foot-cols{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .legal{padding:1.5rem 2.75rem 1.9rem}
+  .foot-card{border-radius:32px}
+}
+@media (min-width:1200px){.hero{padding:.75rem 3rem 0}}
+@media (max-width:1179px){.links,.top-cta{display:none}.menu{display:block}.top-in{grid-template-columns:1fr auto}}
+@media (max-width:599px){.cta-row .btn{flex:1 1 100%}}
+@media (prefers-reduced-motion: reduce){.btn{transition:none}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap top-in">
+  <a class="brand" href="../" aria-label="Vurell"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-372.7 -852.0 2977.2 937.2" aria-hidden="true" focusable="false"><path d="M-226.9 -459.2 L0.0 -66.2" stroke="currentColor" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M0.0 -66.2 L431.7 -706.2" stroke="var(--accent, #2F5BFF)" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M728.56 12.0Q647.16 12.0 600.06 -41.5Q552.96 -95.0 552.96 -190.20V-534.00H680.96V-221.60Q680.96 -154.60 703.06 -123.30Q725.16 -92.00 771.36 -92.00Q823.16 -92.00 851.96 -126.50Q880.76 -161.00 880.76 -226.80V-534.00H1008.76V0.0H891.16L888.36 -146.60L904.96 -141.60Q892.16 -66.20 847.16 -27.10Q802.16 12.0 728.56 12.0Z M1114.96 0.0V-534.00H1234.56L1239.36 -385.59L1228.96 -388.19Q1240.96 -464.99 1274.26 -499.50Q1307.56 -534.00 1365.16 -534.00H1414.76V-424.39H1364.96Q1323.76 -424.39 1296.86 -412.29Q1269.96 -400.19 1256.46 -374.69Q1242.96 -349.19 1242.96 -307.59V0.0Z M1719.16 12.0Q1639.36 12.0 1580.66 -22.40Q1521.96 -56.80 1489.86 -119.70Q1457.76 -182.60 1457.76 -267.00Q1457.76 -351.40 1489.86 -413.80Q1521.96 -476.20 1580.06 -511.10Q1638.16 -546.00 1716.76 -546.00Q1792.96 -546.00 1850.16 -511.90Q1907.36 -477.80 1938.66 -413.79Q1969.96 -349.79 1969.96 -259.99V-231.39H1590.56Q1594.36 -160.80 1628.86 -125.60Q1663.36 -90.40 1720.76 -90.40Q1763.56 -90.40 1791.86 -109.50Q1820.16 -128.60 1831.56 -163.80L1962.36 -155.60Q1940.96 -78.19 1876.26 -33.09Q1811.56 12.0 1719.16 12.0ZM1590.56 -317.40H1837.16Q1833.16 -382.39 1800.46 -413.79Q1767.76 -445.19 1716.76 -445.19Q1665.36 -445.19 1631.86 -412.29Q1598.36 -379.39 1590.56 -317.40Z M2172.96 0.0Q2114.16 0.0 2079.56 -30.00Q2044.96 -60.00 2044.96 -126.40V-710.0H2172.96V-139.40Q2172.96 -118.60 2183.26 -108.90Q2193.56 -99.20 2212.76 -99.20H2251.96V0.0Z M2434.96 0.0Q2376.16 0.0 2341.56 -30.00Q2306.96 -60.00 2306.96 -126.40V-710.0H2434.96V-139.40Q2434.96 -118.60 2445.26 -108.90Q2455.56 -99.20 2474.76 -99.20H2513.96V0.0Z" fill="currentColor"/></svg></a>
+  <nav class="links" aria-label="Site"><a href="../#about">About</a><a href="../services/">Services</a><a href="../#how">How we work</a><a href="../count/">The count</a><a href="../#pricing">Pricing</a><a href="../reads/">Reads</a></nav>
+  <div class="top-cta"><a class="btn sm ghost" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a><a class="btn sm" href="../count/">Count your last twenty</a></div>
+  <details class="menu"><summary>Menu</summary><nav aria-label="Site"><a href="../#about">About</a><a href="../services/">Services</a><a href="../#how">How we work</a><a href="../count/">The count</a><a href="../#pricing">Pricing</a><a href="../reads/">Reads</a><a class="go" href="../count/">Count your last twenty</a><a class="go" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></nav></details>
+</div></header>
+<main id="main">
+
+<section class="hero"><div class="hero-panel">
+  <span class="blob a" aria-hidden="true"></span><span class="blob b" aria-hidden="true"></span>
+  <p class="eyebrow">Message sent</p>
+  <h1>Thank you.</h1>
+  <p class="lede">Your message is with us at miro@vurell.com. We answer within one working day, by email, to the address you gave.</p>
+  <div class="cta-row"><a class="btn" href="../count/">Count your last twenty</a><a class="btn ghost" href="../">Back to the homepage</a></div>
+</div></section>
+
+</main>
+
+<footer class="foot"><div class="foot-card">
+  <div class="foot-top">
+    <div class="foot-id"><a class="brand" href="../" aria-label="Vurell"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-372.7 -852.0 2977.2 937.2" aria-hidden="true" focusable="false"><path d="M-226.9 -459.2 L0.0 -66.2" stroke="currentColor" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M0.0 -66.2 L431.7 -706.2" stroke="var(--accent, #2F5BFF)" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M728.56 12.0Q647.16 12.0 600.06 -41.5Q552.96 -95.0 552.96 -190.20V-534.00H680.96V-221.60Q680.96 -154.60 703.06 -123.30Q725.16 -92.00 771.36 -92.00Q823.16 -92.00 851.96 -126.50Q880.76 -161.00 880.76 -226.80V-534.00H1008.76V0.0H891.16L888.36 -146.60L904.96 -141.60Q892.16 -66.20 847.16 -27.10Q802.16 12.0 728.56 12.0Z M1114.96 0.0V-534.00H1234.56L1239.36 -385.59L1228.96 -388.19Q1240.96 -464.99 1274.26 -499.50Q1307.56 -534.00 1365.16 -534.00H1414.76V-424.39H1364.96Q1323.76 -424.39 1296.86 -412.29Q1269.96 -400.19 1256.46 -374.69Q1242.96 -349.19 1242.96 -307.59V0.0Z M1719.16 12.0Q1639.36 12.0 1580.66 -22.40Q1521.96 -56.80 1489.86 -119.70Q1457.76 -182.60 1457.76 -267.00Q1457.76 -351.40 1489.86 -413.80Q1521.96 -476.20 1580.06 -511.10Q1638.16 -546.00 1716.76 -546.00Q1792.96 -546.00 1850.16 -511.90Q1907.36 -477.80 1938.66 -413.79Q1969.96 -349.79 1969.96 -259.99V-231.39H1590.56Q1594.36 -160.80 1628.86 -125.60Q1663.36 -90.40 1720.76 -90.40Q1763.56 -90.40 1791.86 -109.50Q1820.16 -128.60 1831.56 -163.80L1962.36 -155.60Q1940.96 -78.19 1876.26 -33.09Q1811.56 12.0 1719.16 12.0ZM1590.56 -317.40H1837.16Q1833.16 -382.39 1800.46 -413.79Q1767.76 -445.19 1716.76 -445.19Q1665.36 -445.19 1631.86 -412.29Q1598.36 -379.39 1590.56 -317.40Z M2172.96 0.0Q2114.16 0.0 2079.56 -30.00Q2044.96 -60.00 2044.96 -126.40V-710.0H2172.96V-139.40Q2172.96 -118.60 2183.26 -108.90Q2193.56 -99.20 2212.76 -99.20H2251.96V0.0Z M2434.96 0.0Q2376.16 0.0 2341.56 -30.00Q2306.96 -60.00 2306.96 -126.40V-710.0H2434.96V-139.40Q2434.96 -118.60 2445.26 -108.90Q2455.56 -99.20 2474.76 -99.20H2513.96V0.0Z" fill="currentColor"/></svg></a><p>Vurell is a go-to-market agency for technical founders.</p></div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div><p>Site</p><ul><li><a href="../#about">About</a></li><li><a href="../services/">Services</a></li><li><a href="../#how">How we work</a></li><li><a href="../#pricing">Pricing</a></li><li><a href="../reads/">Reads</a></li><li><a href="../#enquiry">Get in touch</a></li></ul></div>
+      <div><p>Free checks</p><ul><li><a href="../count/">The count</a></li><li><a href="../message/">Message check</a></li></ul></div>
+      <div><p>Documents</p><ul><li><a href="../engagement/">An engagement</a></li><li><a href="../one-pager/">One-pager</a></li></ul></div>
+    </nav>
+  </div>
+  <div class="foot-rule" aria-hidden="true"></div>
+  <div class="legal">
+  <p>Vurell. Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France. <a href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">miro@vurell.com</a>. Every message read by a person before it goes.</p>
+  <p>If I wrote to you and you want it to stop, reply stop and I delete the record.</p>
+  <!-- cf-analytics:begin --><!-- <p>We count visits with Cloudflare Web Analytics, which sets no cookie and stores no personal data.</p> --><!-- cf-analytics:end -->
+  </div>
+</div></footer>
+
+<!-- cf-analytics:begin --><!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "CF_TOKEN"}'></script> --><!-- cf-analytics:end -->
+</body>
+</html>

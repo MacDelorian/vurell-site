@@ -316,6 +316,21 @@ blockquote{margin:0}
 .cta .eyebrow::before{background:#FFFFFF}
 .cta h2{margin:0 auto;max-width:22ch;color:#FFFFFF}
 .cta :focus-visible{outline-color:#FFFFFF}
+/* the enquiry form: a card inside the closing panel, plain HTML POST (Netlify Forms) */
+.enq{max-width:44rem;margin:2.5rem auto 0;padding:1.4rem 1.1rem;border-radius:22px;background:var(--card);color:var(--ink);text-align:left;box-shadow:0 1px 2px rgba(8,14,70,.12),0 34px 64px -30px rgba(8,14,70,.7)}
+.enq :focus-visible{outline-color:var(--accent)}
+.enq h3{font-size:1.25rem}
+.enq-note{margin:.45rem 0 0;color:var(--muted);font-size:.95rem}
+.enq-grid{display:grid;gap:1rem;grid-template-columns:minmax(0,1fr);margin-top:1.25rem}
+.fld{display:flex;flex-direction:column;gap:.4rem;margin:0;min-width:0}
+.fld label{font-size:.85rem;font-weight:500}
+.fld input,.fld textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--rule);border-radius:10px;background:var(--ground);color:var(--ink);font:inherit;font-size:1rem;line-height:1.4}
+.fld textarea{min-height:7.5rem;resize:vertical;font-family:var(--mono);font-size:.85rem;line-height:1.55}
+.fld input::placeholder,.fld textarea::placeholder{color:var(--muted);opacity:.85}
+.fld input:focus,.fld textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+.fld .hint{font-size:.8rem;line-height:1.45;color:var(--muted)}
+.enq-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1rem;margin-top:1.25rem;padding-top:1.1rem;border-top:1px solid var(--rule)}
+.enq-alt{margin:0;font-size:.875rem;color:var(--muted)}
 
 /* ---- footer card ---- */
 .foot{position:relative;isolation:isolate;overflow:hidden;padding:2rem .5rem .5rem}
@@ -334,6 +349,7 @@ blockquote{margin:0}
 .legal p{margin:0 0 .5rem;max-width:62rem}
 
 /* ---- layout steps ---- */
+@media (min-width:600px){.enq{padding:2rem}.enq-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.fld.wide{grid-column:1/-1}}
 @media (min-width:600px){.hero{padding:.75rem 1rem 0}.blob.a{width:34rem;height:34rem;left:-21rem;bottom:-12rem}.blob.b{width:20rem;height:20rem;right:-12rem;bottom:5rem}}
 @media (min-width:760px){
   .wrap{padding-inline:2rem}
@@ -374,6 +390,8 @@ blockquote{margin:0}
 @media (max-width:599px){
   .ask-foot .btn{width:100%}
   .cta .cta-row .btn{flex:1 1 100%}
+  .cta{padding-inline:.75rem}
+  .enq-foot .btn{width:100%}
   .vt tr{display:grid;grid-template-columns:1.6rem minmax(0,1fr) auto;align-items:center;gap:.3rem 0;padding:.55rem 0;border-top:1px solid var(--rule)}
   .vt td{border:0;padding:0 .3rem}
   .vt .l{grid-column:2/4}
@@ -389,20 +407,14 @@ blockquote{margin:0}
   .btn:hover,.mock:hover,.feat:hover,.fact:hover,.tile:hover,.read:hover{transform:none}
 }
 </style>
-<!--
-  Cloudflare Web Analytics (cookieless, no banner). Paste the real token and
-  uncomment ONLY after the operator's Cloudflare account exists and the Pages
-  project is created; until then this page makes zero external requests.
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "REPLACE_WITH_TOKEN"}'></script>
--->
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap top-in">
   <a class="brand" href="./" aria-label="Vurell"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-372.7 -852.0 2977.2 937.2" aria-hidden="true" focusable="false"><path d="M-226.9 -459.2 L0.0 -66.2" stroke="currentColor" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M0.0 -66.2 L431.7 -706.2" stroke="var(--accent, #2F5BFF)" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M728.56 12.0Q647.16 12.0 600.06 -41.5Q552.96 -95.0 552.96 -190.20V-534.00H680.96V-221.60Q680.96 -154.60 703.06 -123.30Q725.16 -92.00 771.36 -92.00Q823.16 -92.00 851.96 -126.50Q880.76 -161.00 880.76 -226.80V-534.00H1008.76V0.0H891.16L888.36 -146.60L904.96 -141.60Q892.16 -66.20 847.16 -27.10Q802.16 12.0 728.56 12.0Z M1114.96 0.0V-534.00H1234.56L1239.36 -385.59L1228.96 -388.19Q1240.96 -464.99 1274.26 -499.50Q1307.56 -534.00 1365.16 -534.00H1414.76V-424.39H1364.96Q1323.76 -424.39 1296.86 -412.29Q1269.96 -400.19 1256.46 -374.69Q1242.96 -349.19 1242.96 -307.59V0.0Z M1719.16 12.0Q1639.36 12.0 1580.66 -22.40Q1521.96 -56.80 1489.86 -119.70Q1457.76 -182.60 1457.76 -267.00Q1457.76 -351.40 1489.86 -413.80Q1521.96 -476.20 1580.06 -511.10Q1638.16 -546.00 1716.76 -546.00Q1792.96 -546.00 1850.16 -511.90Q1907.36 -477.80 1938.66 -413.79Q1969.96 -349.79 1969.96 -259.99V-231.39H1590.56Q1594.36 -160.80 1628.86 -125.60Q1663.36 -90.40 1720.76 -90.40Q1763.56 -90.40 1791.86 -109.50Q1820.16 -128.60 1831.56 -163.80L1962.36 -155.60Q1940.96 -78.19 1876.26 -33.09Q1811.56 12.0 1719.16 12.0ZM1590.56 -317.40H1837.16Q1833.16 -382.39 1800.46 -413.79Q1767.76 -445.19 1716.76 -445.19Q1665.36 -445.19 1631.86 -412.29Q1598.36 -379.39 1590.56 -317.40Z M2172.96 0.0Q2114.16 0.0 2079.56 -30.00Q2044.96 -60.00 2044.96 -126.40V-710.0H2172.96V-139.40Q2172.96 -118.60 2183.26 -108.90Q2193.56 -99.20 2212.76 -99.20H2251.96V0.0Z M2434.96 0.0Q2376.16 0.0 2341.56 -30.00Q2306.96 -60.00 2306.96 -126.40V-710.0H2434.96V-139.40Q2434.96 -118.60 2445.26 -108.90Q2455.56 -99.20 2474.76 -99.20H2513.96V0.0Z" fill="currentColor"/></svg></a>
   <nav class="links" aria-label="Site"><a href="#about">About</a><a href="services/">Services</a><a href="#how">How we work</a><a href="count/">The count</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a></nav>
-  <div class="top-cta"><a class="btn sm ghost" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a><a class="btn sm" href="count/">Count your last twenty</a></div>
-  <details class="menu"><summary>Menu</summary><nav aria-label="Site"><a href="#about">About</a><a href="services/">Services</a><a href="#how">How we work</a><a href="count/">The count</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a><a class="go" href="count/">Count your last twenty</a><a class="go" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></nav></details>
+  <div class="top-cta"><a class="btn sm ghost" href="#enquiry">Write to miro@vurell.com</a><a class="btn sm" href="count/">Count your last twenty</a></div>
+  <details class="menu"><summary>Menu</summary><nav aria-label="Site"><a href="#about">About</a><a href="services/">Services</a><a href="#how">How we work</a><a href="count/">The count</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a><a class="go" href="count/">Count your last twenty</a><a class="go" href="#enquiry">Write to miro@vurell.com</a></nav></details>
 </div></header>
 <main id="main">
 
@@ -690,7 +702,7 @@ blockquote{margin:0}
   </div>
   <div class="faq">
     <details><summary>What does the count not know?</summary><div class="a">This is a title read, not a person read. It reads the words you pasted and nothing else. The paid rung reads the person: the profile, the company page and the last things they wrote, under written gates, with the quoted line that decided it.</div></details>
-    <details><summary>Does anything I paste leave the browser?</summary><div class="a">It runs in your browser: nothing you type leaves it, nothing is stored.</div></details>
+    <details><summary>Does anything I paste leave the browser?</summary><div class="a">Not from the count. It runs in your browser: nothing you type into it leaves it, nothing is stored. The form at the foot of this page is separate, and sends only when you press Send.</div></details>
     <details><summary>Who presses Send?</summary><div class="a">Twenty named people, a note each carrying its source quote. You press Send. We work the replies with you up to the pilot ask.</div></details>
     <details><summary>Do you promise meetings?</summary><div class="a">No meetings are guaranteed. Measured by replies, pilots proposed, and the reason for every no.</div></details>
   </div>
@@ -699,7 +711,23 @@ blockquote{margin:0}
 <section class="sec" id="for" style="padding-top:0"><div class="wrap"><div class="cta">
   <p class="eyebrow">Who it is for</p>
   <h2>This is for founders who shipped something good and have never sold anything.</h2>
-  <div class="cta-row"><a class="btn black" href="count/">Count your last twenty</a><a class="btn glass" href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">Write to miro@vurell.com</a></div>
+  <div class="cta-row"><a class="btn black" href="count/">Count your last twenty</a></div>
+  <form class="enq" id="enquiry" name="enquiry" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="enquiry">
+    <p class="hp" hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <h3>Write to us</h3>
+    <p class="enq-note">This sends your message to us at miro@vurell.com. We answer within one working day.</p>
+    <div class="enq-grid">
+      <p class="fld"><label for="enq-name">Name</label><input id="enq-name" name="name" type="text" autocomplete="name" required></p>
+      <p class="fld"><label for="enq-company">Company</label><input id="enq-company" name="company" type="text" autocomplete="organization" required></p>
+      <p class="fld wide"><label for="enq-email">Email</label><input id="enq-email" name="email" type="email" autocomplete="email" required></p>
+      <p class="fld wide"><label for="enq-titles">Titles of your last twenty prospects (optional)</label><textarea id="enq-titles" name="titles" rows="5" spellcheck="false" placeholder="One per line: title, company, no names" aria-describedby="enq-titles-hint"></textarea><span class="hint" id="enq-titles-hint">Sent with your message. Pasted into the count instead, the same lines stay in your browser.</span></p>
+    </div>
+    <div class="enq-foot">
+      <p class="enq-alt">Or write from your own mail: <a href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">miro@vurell.com</a></p>
+      <button class="btn" type="submit">Send</button>
+    </div>
+  </form>
 </div></div></section>
 
 </main>
@@ -708,7 +736,7 @@ blockquote{margin:0}
   <div class="foot-top">
     <div class="foot-id"><a class="brand" href="./" aria-label="Vurell"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-372.7 -852.0 2977.2 937.2" aria-hidden="true" focusable="false"><path d="M-226.9 -459.2 L0.0 -66.2" stroke="currentColor" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M0.0 -66.2 L431.7 -706.2" stroke="var(--accent, #2F5BFF)" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M728.56 12.0Q647.16 12.0 600.06 -41.5Q552.96 -95.0 552.96 -190.20V-534.00H680.96V-221.60Q680.96 -154.60 703.06 -123.30Q725.16 -92.00 771.36 -92.00Q823.16 -92.00 851.96 -126.50Q880.76 -161.00 880.76 -226.80V-534.00H1008.76V0.0H891.16L888.36 -146.60L904.96 -141.60Q892.16 -66.20 847.16 -27.10Q802.16 12.0 728.56 12.0Z M1114.96 0.0V-534.00H1234.56L1239.36 -385.59L1228.96 -388.19Q1240.96 -464.99 1274.26 -499.50Q1307.56 -534.00 1365.16 -534.00H1414.76V-424.39H1364.96Q1323.76 -424.39 1296.86 -412.29Q1269.96 -400.19 1256.46 -374.69Q1242.96 -349.19 1242.96 -307.59V0.0Z M1719.16 12.0Q1639.36 12.0 1580.66 -22.40Q1521.96 -56.80 1489.86 -119.70Q1457.76 -182.60 1457.76 -267.00Q1457.76 -351.40 1489.86 -413.80Q1521.96 -476.20 1580.06 -511.10Q1638.16 -546.00 1716.76 -546.00Q1792.96 -546.00 1850.16 -511.90Q1907.36 -477.80 1938.66 -413.79Q1969.96 -349.79 1969.96 -259.99V-231.39H1590.56Q1594.36 -160.80 1628.86 -125.60Q1663.36 -90.40 1720.76 -90.40Q1763.56 -90.40 1791.86 -109.50Q1820.16 -128.60 1831.56 -163.80L1962.36 -155.60Q1940.96 -78.19 1876.26 -33.09Q1811.56 12.0 1719.16 12.0ZM1590.56 -317.40H1837.16Q1833.16 -382.39 1800.46 -413.79Q1767.76 -445.19 1716.76 -445.19Q1665.36 -445.19 1631.86 -412.29Q1598.36 -379.39 1590.56 -317.40Z M2172.96 0.0Q2114.16 0.0 2079.56 -30.00Q2044.96 -60.00 2044.96 -126.40V-710.0H2172.96V-139.40Q2172.96 -118.60 2183.26 -108.90Q2193.56 -99.20 2212.76 -99.20H2251.96V0.0Z M2434.96 0.0Q2376.16 0.0 2341.56 -30.00Q2306.96 -60.00 2306.96 -126.40V-710.0H2434.96V-139.40Q2434.96 -118.60 2445.26 -108.90Q2455.56 -99.20 2474.76 -99.20H2513.96V0.0Z" fill="currentColor"/></svg></a><p>Vurell is a go-to-market agency for technical founders.</p></div>
     <nav class="foot-cols" aria-label="Footer">
-      <div><p>Site</p><ul><li><a href="#about">About</a></li><li><a href="services/">Services</a></li><li><a href="#how">How we work</a></li><li><a href="#pricing">Pricing</a></li><li><a href="reads/">Reads</a></li></ul></div>
+      <div><p>Site</p><ul><li><a href="#about">About</a></li><li><a href="services/">Services</a></li><li><a href="#how">How we work</a></li><li><a href="#pricing">Pricing</a></li><li><a href="reads/">Reads</a></li><li><a href="#enquiry">Get in touch</a></li></ul></div>
       <div><p>Free checks</p><ul><li><a href="count/">The count</a></li><li><a href="message/">Message check</a></li></ul></div>
       <div><p>Documents</p><ul><li><a href="engagement/">An engagement</a></li><li><a href="one-pager/">One-pager</a></li></ul></div>
     </nav>
@@ -717,6 +745,7 @@ blockquote{margin:0}
   <div class="legal">
   <p>Vurell. Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France. <a href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">miro@vurell.com</a>. Every message read by a person before it goes.</p>
   <p>If I wrote to you and you want it to stop, reply stop and I delete the record.</p>
+  <!-- cf-analytics:begin --><!-- <p>We count visits with Cloudflare Web Analytics, which sets no cookie and stores no personal data.</p> --><!-- cf-analytics:end -->
   </div>
 </div></footer>
 
@@ -739,5 +768,6 @@ blockquote{margin:0}
   });
 })();
 </script>
+<!-- cf-analytics:begin --><!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "CF_TOKEN"}'></script> --><!-- cf-analytics:end -->
 </body>
 </html>
