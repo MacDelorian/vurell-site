@@ -15,26 +15,25 @@
 @font-face{font-family:"Geist";src:url("fonts/geist-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 @font-face{font-family:"Geist Mono";src:url("fonts/geist-mono-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 
-/* ---- tokens: light is the design, dark follows the same names ---- */
-:root{color-scheme:light;--ground:#FAFAF9;--ink:#0B0C0E;--muted:#5F6573;--accent:#2F5BFF;--on-accent:#FFFFFF;--card:#FFFFFF;--rule:#E5E5E1;--soft:#F2F2EF;--soft2:#E9E9E5;--dot:#D3D3CE;--panel:#FFFFFF;--band-r:#EFF1F7;--btn:#0B0C0E;--btn-fg:#FFFFFF;--sign:#0E7A4F;--studio:#8A5A00;--alone:#9B2C2C;--read:#4B5563;--c-blue:#2F5BFF;--c-indigo:#4B3FE0;--c-violet:#8B5CF6;--c-cyan:#38C6F4;--blob:1;--glow:.55;--band-a:#2F5BFF;--band-b:#3A2BC4;--shadow-s:0 1px 2px rgba(11,12,14,.05),0 10px 28px -14px rgba(11,12,14,.16);--shadow-l:0 1px 2px rgba(11,12,14,.06),0 28px 56px -26px rgba(11,12,14,.26);--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");--sans:"Geist",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:"Geist Mono","SF Mono","Cascadia Code",Consolas,"Liberation Mono",monospace}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){color-scheme:dark;--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--on-accent:#0B0C0E;--card:#121418;--rule:#262930;--soft:#15171C;--soft2:#1E2127;--dot:#23262D;--panel:#0F1115;--band-r:#111319;--btn:#F2F3F5;--btn-fg:#0B0C0E;--sign:#6FCF9C;--studio:#D9B56A;--alone:#E39C9C;--read:#AEB5BF;--blob:.62;--glow:.5;--band-a:#2344D6;--band-b:#2A1F8F;--shadow-s:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);--shadow-l:0 1px 2px rgba(0,0,0,.5),0 28px 56px -26px rgba(0,0,0,.85)}}
-:root[data-theme="dark"]{color-scheme:dark;--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--on-accent:#0B0C0E;--card:#121418;--rule:#262930;--soft:#15171C;--soft2:#1E2127;--dot:#23262D;--panel:#0F1115;--band-r:#111319;--btn:#F2F3F5;--btn-fg:#0B0C0E;--sign:#6FCF9C;--studio:#D9B56A;--alone:#E39C9C;--read:#AEB5BF;--blob:.62;--glow:.5;--band-a:#2344D6;--band-b:#2A1F8F;--shadow-s:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);--shadow-l:0 1px 2px rgba(0,0,0,.5),0 28px 56px -26px rgba(0,0,0,.85)}
+/* ---- tokens: light is the design, dark follows the same names. One accent, no blobs. ---- */
+:root{color-scheme:light;--ground:#FAFAF9;--ink:#0B0C0E;--muted:#5F6573;--accent:#2F5BFF;--on-accent:#FFFFFF;--card:#FFFFFF;--rule:#E5E5E1;--soft:#F2F2EF;--dot:#D8D8D3;--panel:#FFFFFF;--btn:#0B0C0E;--btn-fg:#FFFFFF;--shadow-s:0 1px 2px rgba(11,12,14,.05),0 10px 28px -14px rgba(11,12,14,.16);--sans:"Geist",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:"Geist Mono","SF Mono","Cascadia Code",Consolas,"Liberation Mono",monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){color-scheme:dark;--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--on-accent:#0B0C0E;--card:#121418;--rule:#262930;--soft:#15171C;--dot:#23262D;--panel:#101216;--btn:#F2F3F5;--btn-fg:#0B0C0E;--shadow-s:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}}
+:root[data-theme="dark"]{color-scheme:dark;--ground:#0B0C0E;--ink:#F2F3F5;--muted:#9CA3AF;--accent:#7C9BFF;--on-accent:#0B0C0E;--card:#121418;--rule:#262930;--soft:#15171C;--dot:#23262D;--panel:#101216;--btn:#F2F3F5;--btn-fg:#0B0C0E;--shadow-s:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7)}
 
 /* ---- base ---- */
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:5rem}
 body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;overflow-x:clip}
-.wrap{max-width:72rem;margin:0 auto;padding-inline:1rem}
+.wrap{max-width:60rem;margin:0 auto;padding-inline:1rem}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline;text-underline-offset:.16em}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
 h1,h2,h3{margin:0;font-weight:500;line-height:1.1;letter-spacing:-.03em}
-h2{font-size:clamp(1.75rem,1.15rem + 1.9vw,2.5rem);line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
-h3{font-size:1.125rem;letter-spacing:-.015em}
+h2{font-size:clamp(1.6rem,1.1rem + 1.6vw,2.25rem);line-height:1.14;letter-spacing:-.035em;text-wrap:balance}
+h3{font-size:1.0625rem;letter-spacing:-.015em}
 p{margin:0 0 1rem}
 p:last-child{margin-bottom:0}
-code,.mono{font-family:var(--mono)}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .skip{position:absolute;left:-999px;top:.5rem;background:var(--card);color:var(--ink);padding:.5rem .8rem;border:1px solid var(--rule);border-radius:8px;z-index:60}
 .skip:focus{left:.5rem}
@@ -54,358 +53,136 @@ code,.mono{font-family:var(--mono)}
 .menu summary::-webkit-details-marker{display:none}
 .menu nav{position:absolute;left:0;right:0;top:4rem;display:flex;flex-direction:column;padding:.5rem 1rem 1rem;background:var(--card);border-bottom:1px solid var(--rule);box-shadow:var(--shadow-s)}
 .menu nav a{padding:.7rem 0;color:var(--ink);font-weight:500;border-bottom:1px solid var(--rule)}
-.menu nav a.go{color:var(--accent);font-weight:600;border-bottom:0}
+.menu nav a.go{color:var(--accent);font-weight:600;border-bottom:0;font-family:var(--sans);font-size:1rem}
 
 /* ---- buttons ---- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:2.75rem;padding:.7rem 1.15rem;border-radius:9px;border:1px solid var(--btn);background:var(--btn);color:var(--btn-fg);font:inherit;font-size:.9375rem;font-weight:600;line-height:1.2;cursor:pointer;white-space:nowrap;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-.btn:hover{text-decoration:none;transform:translateY(-1px);box-shadow:0 10px 22px -12px rgba(11,12,14,.55)}
-.btn.ghost{background:var(--card);color:var(--ink);border-color:var(--rule)}
-.btn.ghost:hover{border-color:var(--ink);box-shadow:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:2.75rem;padding:.7rem 1.15rem;border-radius:9px;border:1px solid var(--btn);background:var(--btn);color:var(--btn-fg);font:inherit;font-size:.9375rem;font-weight:600;line-height:1.2;cursor:pointer;white-space:nowrap;text-decoration:none}
+.btn:hover{text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.btn.ghost:hover{border-color:var(--ink)}
 .btn.sm{min-height:2.3rem;padding:.5rem .9rem;font-size:.875rem;border-radius:8px}
-.btn.black{background:#0B0C0E;border-color:#0B0C0E;color:#FFFFFF}
-.btn.glass{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.4);color:#FFFFFF}
-.btn.glass:hover{border-color:#FFFFFF;box-shadow:none}
+.btn.white{background:var(--ground);border-color:var(--ground);color:var(--ink)}
 
-/* ---- eyebrow and section heads ---- */
-.eyebrow{display:inline-flex;align-items:center;gap:.5rem;margin:0 0 1.1rem;padding:.3rem .75rem .3rem .6rem;border:1px solid var(--rule);border-radius:999px;background:var(--card);font-size:.78rem;font-weight:500;color:var(--muted);line-height:1.3}
-.eyebrow::before{content:"";width:.45rem;height:.45rem;border-radius:50%;background:linear-gradient(135deg,var(--c-cyan),var(--c-blue) 50%,var(--c-violet))}
-.sec{padding-block:5rem}
-.head{max-width:46rem;margin:0 auto 2.75rem;text-align:center}
-.head h2{margin-inline:auto;max-width:28ch}
-.head .intro{color:var(--muted);font-size:1.0625rem;margin:1rem auto 0;max-width:40rem}
-.head.left{text-align:left;margin-left:0}
-.head.left h2{margin-left:0;max-width:40ch}
-.after{margin:1.5rem 0 0;font-size:1rem}
-.after+.after{margin-top:.5rem}
+/* ---- sections: fewer things, more air between them ---- */
+.sec{padding-block:3rem}
+.sec.band{padding-block:2rem}
+.head{max-width:42rem;margin:0 auto 1rem;text-align:center}
+.head h2{margin-inline:auto;max-width:30ch}
+.head.wide{max-width:60rem}
+.head.wide h2{max-width:52ch}
+.head .intro{color:var(--muted);font-size:1.0625rem;margin:.75rem auto 0;max-width:38rem}
+.head.left{text-align:left;margin-left:0;margin-bottom:1rem}
+.head.left h2{margin-left:0;max-width:46ch;text-wrap:pretty;font-size:clamp(1.45rem,1rem + 1.2vw,1.85rem)}
+.after{margin:1rem 0 0;font-size:.95rem;color:var(--muted)}
+.after+.after{margin-top:.4rem}
 .center{text-align:center}
-.arrow-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.75rem;margin-top:2rem;font-weight:500}
+.arrow-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.75rem;margin-top:1.5rem;font-weight:500}
 
 /* ---- hero ---- */
 .hero{padding:.5rem .5rem 0}
-.hero-panel{position:relative;overflow:hidden;isolation:isolate;border-radius:28px;background-color:var(--panel);background-image:radial-gradient(120% 55% at 50% 118%,color-mix(in srgb,var(--c-violet) 30%,transparent) 0%,color-mix(in srgb,var(--c-violet) 10%,transparent) 45%,transparent 70%);padding:3.25rem 1rem 2.5rem;text-align:center}
-.hero-panel::before{content:"";position:absolute;inset:0;z-index:-3;background-image:radial-gradient(var(--dot) 1px,transparent 1.4px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 35%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 70% 70% at 50% 35%,#000 20%,transparent 75%);opacity:.7}
-.hero-panel::after{content:"";position:absolute;inset:0;z-index:-1;background-image:var(--grain);background-size:180px;opacity:.6;mix-blend-mode:soft-light;pointer-events:none;-webkit-mask-image:radial-gradient(38% 75% at 0% 90%,#000 30%,transparent 75%),radial-gradient(22% 55% at 100% 75%,#000 30%,transparent 75%),radial-gradient(70% 30% at 50% 100%,#000,transparent 80%);mask-image:radial-gradient(38% 75% at 0% 90%,#000 30%,transparent 75%),radial-gradient(22% 55% at 100% 75%,#000 30%,transparent 75%),radial-gradient(70% 30% at 50% 100%,#000,transparent 80%)}
-.blob{position:absolute;z-index:-2;border-radius:50%;pointer-events:none;opacity:var(--blob);filter:blur(3px)}
-.blob.a{width:24rem;height:24rem;left:-16rem;bottom:-9rem;background:radial-gradient(closest-side,#A9BBFF 0%,#2F5BFF 36%,#4B3FE0 64%,rgba(75,63,224,.45) 82%,rgba(75,63,224,0) 100%)}
-.blob.b{width:15rem;height:15rem;right:-10rem;bottom:4rem;background:radial-gradient(closest-side,#C8F1FF 0%,#38C6F4 30%,#5B6BFF 60%,rgba(139,92,246,.4) 82%,rgba(139,92,246,0) 100%)}
-.hero h1{font-size:clamp(2rem,1.05rem + 3.1vw,3.25rem);line-height:1.07;letter-spacing:-.04em;max-width:21em;margin:0 auto;text-wrap:balance}
-.lede{font-size:1.0625rem;line-height:1.55;color:var(--muted);max-width:34rem;margin:1.25rem auto 0;text-wrap:balance}
-.cta-row{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:1.75rem}
+.hero-panel{position:relative;overflow:hidden;isolation:isolate;border-radius:28px;border:1px solid var(--rule);background:var(--panel);padding:2.75rem 1rem 2.5rem;text-align:center}
+.hero-panel::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(var(--dot) 1px,transparent 1.4px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 65% 60% at 50% 28%,#000 8%,transparent 72%);mask-image:radial-gradient(ellipse 65% 60% at 50% 28%,#000 8%,transparent 72%);opacity:.5}
+.hero h1{font-size:clamp(1.9rem,1.05rem + 2.6vw,2.8rem);line-height:1.08;letter-spacing:-.04em;max-width:20em;margin:0 auto;text-wrap:balance}
+.lede{font-size:1.0625rem;line-height:1.55;color:var(--muted);max-width:34rem;margin:1rem auto 0;text-wrap:balance}
 
-/* the count box, the centrepiece */
-.ask{position:relative;max-width:48rem;margin:2.25rem auto 0;padding:2px;border-radius:22px;background:linear-gradient(100deg,var(--c-cyan) 0%,var(--c-blue) 34%,var(--c-indigo) 66%,var(--c-violet) 100%);text-align:left}
-.ask::before{content:"";position:absolute;inset:-4px;z-index:-1;border-radius:28px;background:inherit;filter:blur(20px);opacity:var(--glow);animation:breathe 7s ease-in-out infinite alternate}
-.ask:focus-within{outline:2px solid var(--accent);outline-offset:4px}
-.ask-in{border-radius:20px;background:var(--card);padding:.85rem .9rem .9rem}
+/* the count box: the one thing in the hero that does something */
+.ask{max-width:42rem;margin:2rem auto 0;border:1px solid var(--accent);border-radius:18px;background:var(--card);text-align:left}
+.ask:focus-within{outline:2px solid var(--accent);outline-offset:3px}
+.ask-in{padding:.85rem .9rem .9rem}
 .ask-top{display:flex;justify-content:space-between;gap:.5rem 1rem;flex-wrap:wrap;padding:0 .35rem .35rem;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
 .ask-top b{color:var(--ink);font-weight:500}
-.ask textarea{display:block;width:100%;min-height:6.5rem;padding:.4rem .35rem;border:0;outline:0;resize:none;background:transparent;color:var(--ink);font:inherit;font-size:1rem;line-height:1.55}
+.ask textarea{display:block;width:100%;min-height:5.5rem;padding:.4rem .35rem;border:0;outline:0;resize:none;background:transparent;color:var(--ink);font:inherit;font-size:1rem;line-height:1.55}
 .ask textarea::placeholder{color:var(--muted);opacity:.85}
 .ask-foot{display:flex;align-items:center;justify-content:space-between;gap:.75rem 1rem;flex-wrap:wrap;padding:.5rem .35rem 0}
-.ask-note{font-size:.8125rem;line-height:1.45;color:var(--muted);max-width:30rem;margin:0}
-@keyframes breathe{from{opacity:calc(var(--glow) * .7);transform:scale(.99)}to{opacity:calc(var(--glow) * 1.35);transform:scale(1.01)}}
-.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;list-style:none;margin:1.5rem auto 0;padding:0;max-width:44rem}
-.chips a{display:inline-flex;align-items:center;min-height:2.1rem;padding:.3rem .9rem;border-radius:999px;border:1px solid var(--rule);background:color-mix(in srgb,var(--card) 72%,transparent);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:var(--muted);font-size:.84rem;font-weight:500}
-.chips a:hover{color:var(--ink);border-color:var(--ink);text-decoration:none}
+.ask-note{font-size:.8125rem;line-height:1.45;color:var(--muted);max-width:28rem;margin:0}
 
-/* ---- mock-ups, shared ---- */
-.mock{margin:0;min-width:0;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--rule);border-radius:18px;box-shadow:var(--shadow-s);overflow:hidden;transition:transform .22s ease,box-shadow .22s ease}
-.mock:hover{transform:translateY(-3px);box-shadow:var(--shadow-l)}
-.bar{display:flex;align-items:center;gap:.4rem .75rem;flex-wrap:wrap;padding:.7rem 1rem;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:.7rem;line-height:1.3;color:var(--muted)}
-.bar .path{color:var(--ink);font-weight:500;display:inline-flex;align-items:center;gap:.45rem}
-.bar .path::before{content:"";width:.6rem;height:.75rem;border:1.5px solid currentColor;border-radius:2px;opacity:.55}
-.bar .meta{margin-left:auto}
-.body{padding:1rem 1.1rem 1.15rem;display:flex;flex-direction:column;gap:.85rem;flex:1;min-width:0}
-.k{font-family:var(--mono);font-size:.68rem;letter-spacing:.02em;color:var(--muted);margin:0}
-.chip{display:inline-flex;align-items:center;font-family:var(--mono);font-size:.68rem;line-height:1;padding:.32rem .5rem;border:1px solid color-mix(in srgb,currentColor 32%,transparent);border-radius:999px;white-space:nowrap;background:color-mix(in srgb,currentColor 9%,transparent)}
-.v-sign{color:var(--sign)}.v-studio{color:var(--studio)}.v-alone{color:var(--alone)}.v-read{color:var(--read)}.v-acc{color:var(--accent)}
-.st{display:inline-flex;font-family:var(--mono);font-size:.66rem;line-height:1;padding:.3rem .45rem;border-radius:6px;white-space:nowrap;color:var(--c);background:color-mix(in srgb,var(--c) 11%,transparent)}
-.st-i{--c:var(--read)}.st-r{--c:var(--accent)}.st-q{--c:var(--c-indigo)}.st-p{--c:var(--c-violet)}.st-l{--c:var(--alone)}
-:root[data-theme="dark"] .st-q{--c:#A5A0FF}:root[data-theme="dark"] .st-p{--c:#C4A8FF}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .st-q{--c:#A5A0FF}:root:not([data-theme="light"]) .st-p{--c:#C4A8FF}}
-blockquote{margin:0}
+/* ---- plain rows, used by how we work, the ladder and the reads ---- */
+.rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.rows li{display:grid;gap:.2rem 2rem;padding:.85rem 0;border-bottom:1px solid var(--rule)}
+.rows h3{margin:0}
+.rows p{margin:0;color:var(--muted);font-size:.98rem;line-height:1.5}
+.row-k{display:flex;gap:.75rem;align-items:baseline}
+.num{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.kind{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin:0 0 .35rem}
+.mine p{margin:0 0 .5rem;max-width:44rem}
+.mine p:last-child{margin-bottom:0}
 
-/* ---- what you get: the mosaic ---- */
-.get{position:relative;isolation:isolate}
-.get::before{content:"";position:absolute;inset:18rem 0 6rem;z-index:-1;background:radial-gradient(50% 45% at 30% 50%,color-mix(in srgb,var(--c-blue) 10%,transparent),transparent 70%),radial-gradient(45% 45% at 75% 60%,color-mix(in srgb,var(--c-violet) 9%,transparent),transparent 70%);pointer-events:none}
-.mosaic{display:grid;gap:1rem;grid-template-columns:minmax(0,1fr)}
-.examples{margin:1.5rem 0 0;text-align:center;font-family:var(--mono);font-size:.75rem;color:var(--muted)}
-.pros .who{display:flex;align-items:center;gap:.8rem}
-.avatar{flex:none;width:2.6rem;height:2.6rem;border-radius:50%;background:radial-gradient(circle at 30% 30%,#C8F1FF,var(--c-blue) 55%,var(--c-violet));opacity:.9}
-.who-t{margin:0;font-weight:600;font-size:1rem;letter-spacing:-.01em}
-.who-c{margin:0;font-size:.85rem;color:var(--muted)}
-.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:0}
-.fields{margin:0;display:flex;flex-direction:column;gap:.9rem}
-.fields dt{font-family:var(--mono);font-size:.68rem;color:var(--muted);margin:0 0 .3rem}
-.fields dd{margin:0;font-size:.92rem;line-height:1.45}
-.quote{padding:.75rem .9rem;border-left:2px solid var(--accent);background:var(--soft);border-radius:0 10px 10px 0;font-size:.92rem;line-height:1.45}
-.src{display:block;margin-top:.4rem;font-family:var(--mono);font-size:.68rem;color:var(--muted)}
-.bubble{display:inline-block;padding:.65rem .9rem;border-radius:14px 14px 14px 4px;background:var(--accent);color:var(--on-accent);font-size:.9rem;line-height:1.4}
-.pros .body{gap:1rem}
-.pros .fields{flex:1}
-.pros .push{margin-top:auto}
-.bigline{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;margin:0}
-.bigline b{font-size:2.6rem;font-weight:600;letter-spacing:-.045em;line-height:1;color:var(--accent)}
-.bigline b span{font-size:1.1rem;color:var(--muted);font-weight:500;letter-spacing:-.01em}
-.bigline em{font-style:normal;font-weight:500;font-size:.95rem}
-.vbar{display:flex;height:.5rem;border-radius:999px;overflow:hidden;background:var(--soft)}
-.vbar i{display:block;height:100%}
-.b-sign{background:var(--sign)}.b-studio{background:var(--studio)}.b-alone{background:var(--alone)}.b-read{background:var(--read)}
-.legend{display:flex;flex-wrap:wrap;gap:.2rem 1rem;margin:0;font-family:var(--mono);font-size:.68rem}
-.legend span::before{content:"";display:inline-block;width:.5rem;height:.5rem;border-radius:2px;background:currentColor;margin-right:.4rem}
-.vt{width:100%;border-collapse:collapse;font-size:.8rem}
-.vt td{padding:.5rem .35rem;border-top:1px solid var(--rule);vertical-align:middle}
-.vt .n,.vt .r{font-family:var(--mono);font-size:.68rem;color:var(--muted);width:1.6rem}
-.vt .r{text-align:right;width:2rem}
-.vt .l{font-family:var(--mono);font-size:.74rem;overflow-wrap:anywhere}
-.vt .c{text-align:right;width:1%}
-.checks{list-style:none;margin:0;padding:0}
-.checks li{display:flex;justify-content:space-between;align-items:center;gap:.75rem;padding:.5rem 0;border-top:1px solid var(--rule);font-size:.84rem;line-height:1.35}
-.checks li:first-child{border-top:0;padding-top:0}
-.pass{color:var(--sign)}.fail{color:var(--alone)}.na{color:var(--read)}
-.first{margin:0;padding:.65rem .8rem;border-radius:10px;background:color-mix(in srgb,var(--alone) 8%,var(--card));border:1px solid color-mix(in srgb,var(--alone) 25%,transparent);font-size:.84rem}
-.first .k{display:block;margin-bottom:.2rem}
-.kills{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.7rem}
-.kills li{display:flex;flex-direction:column;gap:.2rem;padding-bottom:.7rem;border-bottom:1px solid var(--rule)}
-.kills li:last-child{border-bottom:0;padding-bottom:0}
-.kills s{font-family:var(--mono);font-size:.74rem;color:var(--muted);text-decoration-color:color-mix(in srgb,var(--alone) 70%,transparent)}
-.kills span{font-size:.84rem;line-height:1.4}
-.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.pipe{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.72rem;white-space:nowrap}
-.pipe th{font-weight:500;text-align:left;color:var(--muted);padding:.6rem .8rem;border-bottom:1px solid var(--rule);background:var(--soft)}
-.pipe td{padding:.6rem .8rem;border-bottom:1px solid var(--rule)}
-.pipe tr:last-child td{border-bottom:0}
-.pipe .lost{color:var(--alone)}
-.tree{list-style:none;margin:0;padding:.5rem 0}
-.tree li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.42rem 1.1rem;font-size:.82rem}
-.tree .f,.tree .d{font-family:var(--mono);font-size:.8rem;display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap}
-.tree .d::before{content:"";width:.8rem;height:.6rem;border-radius:2px;background:color-mix(in srgb,var(--accent) 55%,transparent)}
-.tree .f::before{content:"";width:.6rem;height:.72rem;border:1.5px solid var(--muted);border-radius:2px;opacity:.7}
-.tree li span:last-child{color:var(--muted);text-align:right}
+/* the reads: a title and where it lives */
+.pub li{grid-template-columns:minmax(0,1fr) auto;align-items:baseline}
+.pub a{color:var(--ink);font-weight:500;font-size:1.0625rem;letter-spacing:-.015em}
+.pub .go{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
 
-/* ---- how we work: feature cards ---- */
-.how{position:relative;isolation:isolate}
-.how::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,transparent 0%,color-mix(in srgb,var(--c-blue) 9%,transparent) 22%,color-mix(in srgb,var(--c-indigo) 20%,transparent) 48%,color-mix(in srgb,var(--c-cyan) 9%,transparent) 76%,transparent 100%)}
-.how::after{content:"";position:absolute;inset:0;z-index:-1;background-image:var(--grain);background-size:180px;opacity:.4;mix-blend-mode:soft-light;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent 12%,#000 42%,#000 58%,transparent 88%);mask-image:linear-gradient(180deg,transparent 12%,#000 42%,#000 58%,transparent 88%)}
-.steps{list-style:none;margin:0;padding:0;display:grid;gap:1rem;grid-template-columns:minmax(0,1fr)}
-.feat{display:flex;flex-direction:column;min-width:0;background:color-mix(in srgb,var(--soft) 94%,transparent);border-radius:24px;padding:1rem;transition:transform .22s ease}
-.feat:hover{transform:translateY(-3px)}
-.feat-art{flex:1;display:grid;place-items:center;min-height:12rem;padding:1rem .25rem}
-.feat-cap{padding:1rem .5rem .5rem}
-.feat-cap .num{display:block;font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-bottom:.5rem}
-.feat-cap h3{margin-bottom:.4rem}
-.feat-cap p{color:var(--muted);font-size:.95rem;line-height:1.5;margin:0;max-width:40ch}
-.mini{width:100%;max-width:23rem;background:var(--card);border:1px solid var(--rule);border-radius:14px;box-shadow:var(--shadow-s);padding:.9rem 1rem;display:flex;flex-direction:column;gap:.6rem;font-size:.84rem;line-height:1.45}
-.mini-row{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
-.mini-row .l{font-family:var(--mono);font-size:.76rem;margin-right:auto}
-.mini .r{font-family:var(--mono);font-size:.68rem;color:var(--muted)}
-.mini .why{color:var(--muted);margin:0}
-.mini .who{font-weight:600;margin:0}
-.mini dl{display:grid;grid-template-columns:auto 1fr;gap:.35rem .8rem;margin:0}
-.mini dt{font-family:var(--mono);font-size:.7rem;color:var(--muted);padding-top:.1rem}
-.mini dd{margin:0}
-.send{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding-top:.6rem;border-top:1px solid var(--rule)}
-.send-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .75rem;border-radius:8px;background:var(--btn);color:var(--btn-fg);font-weight:600;font-size:.8rem}
-.log{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem}
-.log li{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .5rem;padding-bottom:.55rem;border-bottom:1px solid var(--rule)}
-.log li:last-child{border-bottom:0;padding-bottom:0}
-.log .id{font-family:var(--mono);font-size:.68rem;color:var(--muted)}
-.log q{flex-basis:100%;color:var(--ink)}
-.log .t{flex-basis:100%;color:var(--muted)}
+/* the ladder */
+.ladder li{grid-template-areas:"rung" "name" "price" "scope";gap:.25rem}
+.ladder .rung{grid-area:rung;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.ladder .name{grid-area:name;font-weight:500;font-size:1.125rem;letter-spacing:-.015em;margin:0;color:var(--ink)}
+.ladder .name a{color:var(--ink)}
+.ladder .price{grid-area:price;font-family:var(--mono);font-size:.8rem;color:var(--muted);margin:0}
+.ladder .price b{font-family:var(--sans);font-weight:600;color:var(--ink)}
+.ladder .scope{grid-area:scope;color:var(--muted);font-size:.98rem;line-height:1.5;margin:.35rem 0 0}
 
-/* ---- services band ---- */
-.band{display:grid;grid-template-columns:minmax(0,1fr)}
-.band-l{position:relative;isolation:isolate;overflow:hidden;color:#FFFFFF;padding:3.5rem 1rem;background:radial-gradient(60% 45% at 10% 0%,rgba(56,198,244,.55),transparent 70%),radial-gradient(70% 60% at 100% 100%,rgba(139,92,246,.6),transparent 70%),linear-gradient(160deg,var(--band-a),var(--band-b))}
-.band-l::after{content:"";position:absolute;inset:0;z-index:-1;background-image:var(--grain);background-size:180px;opacity:.5;mix-blend-mode:soft-light}
-.band-l .eyebrow{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#FFFFFF}
-.band-l .eyebrow::before{background:#FFFFFF}
-.pills{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.55rem}
-.pills li{display:inline-flex;align-items:baseline;gap:.55rem;padding:.55rem 1.1rem;border-radius:999px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.3);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 10px 24px -14px rgba(8,14,70,.7);font-size:1.0625rem;font-weight:500;letter-spacing:-.01em;line-height:1.25}
-.pills li i{font-style:normal;font-family:var(--mono);font-size:.7rem;opacity:.8}
-.pills li.on{background:#FFFFFF;color:#0B0C0E;border-color:#FFFFFF}
-.pills.extra li{background:transparent;border-style:dashed;box-shadow:none}
-.band-k{margin:1.5rem 0 .7rem;font-family:var(--mono);font-size:.74rem;color:rgba(255,255,255,.85)}
-.band-link{display:inline-block;margin-top:2rem;color:#FFFFFF;font-weight:600;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:.2em}
-.band-link:hover{text-decoration-color:#FFFFFF}
-.band-l :focus-visible{outline-color:#FFFFFF}
-.band-r{background:var(--band-r);padding:3.5rem 1rem;display:flex;flex-direction:column;align-items:center;text-align:center}
-.band-r h2{max-width:22ch}
-.band-r .intro{color:var(--muted);margin:1rem 0 0}
-.report{width:100%;max-width:32rem;margin-top:2.25rem;text-align:left}
-.rep{width:100%;border-collapse:collapse;font-size:.84rem}
-.rep th,.rep td{padding:.55rem .2rem;border-bottom:1px solid var(--rule);text-align:right;font-weight:400}
-.rep thead th{font-family:var(--mono);font-size:.66rem;color:var(--muted);padding-top:0}
-.rep tbody th{text-align:left;padding-right:.75rem}
-.rep td{font-family:var(--mono);font-size:.8rem;width:5.5rem}
-.rep tr:last-child th,.rep tr:last-child td{border-bottom:0}
-.rej{padding:.75rem .85rem;border-radius:10px;background:var(--soft);font-size:.86rem;line-height:1.45}
-.rej .k{margin-bottom:.35rem}
-
-/* ---- about: four small cards ---- */
-.facts{display:grid;gap:1rem;grid-template-columns:minmax(0,1fr)}
-.fact{display:flex;flex-direction:column;gap:2.5rem;min-width:0;background:var(--soft);border-radius:22px;padding:1.5rem;transition:transform .22s ease}
-.fact:hover{transform:translateY(-3px)}
-.fact svg{width:1.4rem;height:1.4rem;color:var(--ink);flex:none}
-.fact-cap{margin-top:auto}
-.fact .kind{font-size:.85rem;color:var(--muted);margin:0 0 .45rem}
-.fact p{font-size:.95rem;line-height:1.5}
-.fact .plain{list-style:none;margin:0 0 .6rem;padding:0;font-size:.95rem;line-height:1.45}
-.fact .plain li{margin:0 0 .45rem}
-
-/* ---- pricing ---- */
-.ladder{display:grid;gap:1rem;grid-template-columns:minmax(0,1fr)}
-.tile{display:flex;flex-direction:column;gap:.9rem;min-width:0;background:var(--card);border:1px solid var(--rule);border-radius:22px;padding:1.5rem;box-shadow:var(--shadow-s);transition:transform .22s ease,box-shadow .22s ease}
-.tile:hover{transform:translateY(-3px);box-shadow:var(--shadow-l)}
-.tile-top{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem}
-.rung{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
-.ind{display:inline-flex;align-items:flex-end;gap:3px;flex:none}
-.ind i{display:block;width:5px;border-radius:2px;background:var(--soft2)}
-.ind i:nth-child(1){height:6px}.ind i:nth-child(2){height:10px}.ind i:nth-child(3){height:14px}.ind i:nth-child(4){height:18px}
-.ind i.on{background:var(--accent)}
-.tile .name{font-weight:600;font-size:1.2rem;letter-spacing:-.015em;margin:0}
-.tile .name a{color:inherit}
-.price{font-family:var(--mono);font-size:.8rem;color:var(--muted);margin:0;line-height:1.5}
-.price b{display:block;font-family:var(--sans);font-size:2.2rem;font-weight:600;letter-spacing:-.04em;color:var(--ink);line-height:1.1;margin-bottom:.25rem}
-.scope{font-size:.95rem;line-height:1.5;margin:0;padding-top:.9rem;border-top:1px solid var(--rule)}
-.scope.lead{font-weight:500}
-.scope.more{padding-top:0;border-top:0;color:var(--muted)}
-.pilot{display:flex;flex-wrap:wrap;gap:.35rem 1.25rem;align-items:center;margin-top:1rem;padding:1.1rem 1.5rem;border:1px dashed color-mix(in srgb,var(--ink) 22%,transparent);border-radius:18px;font-size:.95rem}
-.pilot .rung{flex-basis:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.pilot .name{font-weight:600;font-size:1.05rem}
-
-/* ---- reads ---- */
-.reads{display:grid;gap:1rem;grid-template-columns:minmax(0,1fr)}
-.read{display:flex;flex-direction:column;gap:.7rem;min-width:0;background:var(--soft);border-radius:22px;padding:1rem 1rem 1.4rem;color:var(--ink);transition:transform .22s ease}
-.read:hover{text-decoration:none;transform:translateY(-3px)}
-.read:hover .go{text-decoration:underline;text-underline-offset:.16em}
-.read-art{height:9.5rem;border-radius:14px;background:var(--card);border:1px solid var(--rule);padding:1rem;display:flex;flex-direction:column;justify-content:center;gap:.6rem;margin-bottom:.4rem}
-.read .kind,.read .t,.read .go{padding-inline:.5rem}
-.read .kind{font-family:var(--mono);font-size:.7rem;color:var(--muted);margin:0}
-.read .t{font-weight:600;font-size:1.05rem;line-height:1.35;letter-spacing:-.01em;margin:0}
-.read .go{margin-top:auto;padding-top:.4rem;color:var(--accent);font-size:.9rem;font-weight:600}
-.hb{display:grid;grid-template-columns:3.6rem 1fr 2.2rem;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.66rem;color:var(--muted)}
-.hb i{display:block;height:.55rem;border-radius:999px;background:linear-gradient(90deg,var(--c-blue),var(--c-indigo))}
-.hb.zero i{width:3px;background:var(--alone)}
-.hb b{font-weight:500;color:var(--ink);text-align:right}
-.page{display:flex;flex-direction:column;gap:.45rem;justify-content:flex-start!important}
-.page .url{height:.9rem;width:60%;border-radius:999px;background:var(--soft);margin-bottom:.35rem}
-.page .h{height:.8rem;width:78%;border-radius:4px;background:var(--soft2);position:relative}
-.page .h.mark{background:color-mix(in srgb,var(--accent) 22%,transparent);outline:1.5px solid var(--accent);outline-offset:2px}
-.page .h.mark::after{content:"";position:absolute;right:-1.4rem;top:50%;width:.55rem;height:.55rem;margin-top:-.275rem;border-radius:50%;background:var(--accent)}
-.page .p{height:.45rem;border-radius:4px;background:var(--soft)}
-.page .p.s{width:70%}
-.page .b{height:1.2rem;width:34%;border-radius:6px;background:var(--soft2);margin-top:.3rem}
-.page .p.mark-p{position:relative;background:color-mix(in srgb,var(--accent) 30%,transparent);outline:1.5px solid var(--accent);outline-offset:2px}
-.page .p.mark-p::after{content:"";position:absolute;right:-1.4rem;top:50%;width:.55rem;height:.55rem;margin-top:-.275rem;border-radius:50%;background:var(--accent)}
-
-/* ---- faq ---- */
-.faq{max-width:46rem;margin:0 auto;display:flex;flex-direction:column;gap:.6rem}
-.faq details{background:var(--soft);border-radius:16px;transition:background-color .2s}
-.faq details[open]{background:var(--card);box-shadow:var(--shadow-s);outline:1px solid var(--rule)}
-.faq summary{cursor:pointer;padding:1.1rem 1.25rem;font-weight:500;font-size:1.02rem;list-style:none;display:flex;justify-content:space-between;gap:1rem;align-items:center;border-radius:16px}
+/* ---- questions ---- */
+.own{font-size:1.3rem;line-height:1.3;letter-spacing:-.025em;max-width:38rem;margin:0 auto;text-wrap:balance}
+.faq{max-width:44rem;margin:0 auto;border-top:1px solid var(--rule)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;padding:.8rem .25rem;font-weight:500;font-size:1.02rem;list-style:none;display:flex;justify-content:space-between;gap:1rem;align-items:center}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";flex:none;display:grid;place-items:center;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--card);border:1px solid var(--rule);font-family:var(--mono);font-weight:400;color:var(--muted);line-height:1}
+.faq summary::after{content:"+";flex:none;font-family:var(--mono);color:var(--muted);line-height:1}
 .faq details[open] summary::after{content:"\2212"}
-.faq .a{padding:0 1.25rem 1.25rem;color:var(--muted);max-width:60ch;font-size:.97rem}
+.faq .a{padding:0 .25rem 1.1rem;color:var(--muted);max-width:60ch;font-size:.97rem}
 
-/* ---- closing panel ---- */
-.cta{position:relative;overflow:hidden;isolation:isolate;border-radius:28px;padding:4rem 1.25rem 6rem;text-align:center;color:#FFFFFF;background:radial-gradient(45% 70% at 0% 0%,rgba(56,198,244,.75),transparent 70%),radial-gradient(45% 75% at 100% 0%,rgba(139,92,246,.8),transparent 70%),linear-gradient(180deg,#2F5BFF 0%,#3446E6 55%,#4B3FE0 100%)}
-.cta::before{content:"";position:absolute;left:50%;top:calc(100% - 4.25rem);width:150%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;z-index:-1;background:radial-gradient(closest-side,rgba(255,255,255,0) 92%,rgba(200,241,255,.35) 97%,rgba(255,255,255,.7) 99.4%,rgba(255,255,255,0) 100%);box-shadow:0 -30px 90px -10px rgba(200,241,255,.55)}
-.cta::after{content:"";position:absolute;inset:0;z-index:-1;background-image:var(--grain);background-size:180px;opacity:.5;mix-blend-mode:soft-light}
-.cta .eyebrow{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#FFFFFF}
-.cta .eyebrow::before{background:#FFFFFF}
-.cta h2{margin:0 auto;max-width:22ch;color:#FFFFFF}
-.cta :focus-visible{outline-color:#FFFFFF}
+/* ---- closing panel: one flat accent block ---- */
+.cta{border-radius:28px;padding:2.5rem 1.25rem 2.75rem;text-align:center;color:var(--on-accent);background:var(--accent)}
+.cta h2{margin:0 auto;max-width:34ch;color:inherit}
+.cta :focus-visible{outline-color:currentColor}
+.cta-row{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:1rem}
 /* the enquiry form: a card inside the closing panel, plain HTML POST (Netlify Forms) */
-.enq{max-width:44rem;margin:2.5rem auto 0;padding:1.4rem 1.1rem;border-radius:22px;background:var(--card);color:var(--ink);text-align:left;box-shadow:0 1px 2px rgba(8,14,70,.12),0 34px 64px -30px rgba(8,14,70,.7)}
+.enq{max-width:44rem;margin:1.75rem auto 0;padding:1.3rem 1.1rem;border-radius:20px;background:var(--card);color:var(--ink);text-align:left}
 .enq :focus-visible{outline-color:var(--accent)}
-.enq h3{font-size:1.25rem}
+.enq h3{font-size:1.2rem}
 .enq-note{margin:.45rem 0 0;color:var(--muted);font-size:.95rem}
-.enq-grid{display:grid;gap:1rem;grid-template-columns:minmax(0,1fr);margin-top:1.25rem}
+.enq-grid{display:grid;gap:.7rem;grid-template-columns:minmax(0,1fr);margin-top:1rem}
 .fld{display:flex;flex-direction:column;gap:.4rem;margin:0;min-width:0}
 .fld label{font-size:.85rem;font-weight:500}
 .fld input,.fld textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--rule);border-radius:10px;background:var(--ground);color:var(--ink);font:inherit;font-size:1rem;line-height:1.4}
-.fld textarea{min-height:7.5rem;resize:vertical;font-family:var(--mono);font-size:.85rem;line-height:1.55}
+.fld textarea{min-height:3rem;resize:vertical;font-family:var(--mono);font-size:.85rem;line-height:1.55}
 .fld input::placeholder,.fld textarea::placeholder{color:var(--muted);opacity:.85}
 .fld input:focus,.fld textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
 .fld .hint{font-size:.8rem;line-height:1.45;color:var(--muted)}
-.enq-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1rem;margin-top:1.25rem;padding-top:1.1rem;border-top:1px solid var(--rule)}
+.enq-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1rem;margin-top:.9rem;padding-top:.8rem;border-top:1px solid var(--rule)}
 .enq-alt{margin:0;font-size:.875rem;color:var(--muted)}
 
-/* ---- footer card ---- */
-.foot{position:relative;isolation:isolate;overflow:hidden;padding:2rem .5rem .5rem}
-.foot::before{content:"";position:absolute;left:0;right:0;top:20%;bottom:0;z-index:-2;opacity:calc(var(--blob) * .7);background:radial-gradient(22% 70% at 0% 100%,var(--c-blue),transparent 75%),radial-gradient(20% 65% at 100% 95%,var(--c-violet),transparent 75%),radial-gradient(40% 35% at 50% 115%,var(--c-cyan),transparent 75%)}
-.foot::after{content:"";position:absolute;inset:0;z-index:-1;background-image:var(--grain);background-size:180px;opacity:.6;mix-blend-mode:soft-light;-webkit-mask-image:radial-gradient(24% 75% at 0% 100%,#000 30%,transparent 80%),radial-gradient(22% 70% at 100% 95%,#000 30%,transparent 80%),radial-gradient(42% 38% at 50% 115%,#000 20%,transparent 80%);mask-image:radial-gradient(24% 75% at 0% 100%,#000 30%,transparent 80%),radial-gradient(22% 70% at 100% 95%,#000 30%,transparent 80%),radial-gradient(42% 38% at 50% 115%,#000 20%,transparent 80%)}
-.foot-card{max-width:72rem;margin:0 auto;background:var(--card);border:1px solid var(--rule);border-radius:28px;box-shadow:var(--shadow-l);overflow:hidden}
-.foot-top{display:grid;gap:2rem;padding:2rem 1.5rem}
-.foot-top .brand svg{height:1.7rem}
+/* ---- footer ---- */
+.foot{padding:1rem .5rem .5rem}
+.foot-card{max-width:60rem;margin:0 auto;border-top:1px solid var(--rule)}
+.foot-top{display:grid;gap:1.5rem;padding:1.75rem .5rem}
+.foot-top .brand svg{height:1.55rem}
 .foot-id p{margin:.9rem 0 0;color:var(--muted);font-size:.92rem;max-width:26ch}
 .foot-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem 2rem}
 .foot-cols p{margin:0 0 .75rem;font-size:.8rem;font-weight:500;color:var(--muted)}
-.foot-cols ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem}
+.foot-cols ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.3rem}
 .foot-cols a{color:var(--ink);font-size:.92rem}
-.foot-rule{height:1px;background:linear-gradient(90deg,var(--c-cyan),var(--c-blue) 35%,var(--c-indigo) 65%,var(--c-violet))}
-.legal{padding:1.4rem 1.5rem 1.6rem;font-size:.85rem;line-height:1.55;color:var(--muted)}
-.legal p{margin:0 0 .5rem;max-width:62rem}
+.legal{padding:1rem .5rem 1.15rem;border-top:1px solid var(--rule);font-size:.85rem;line-height:1.55;color:var(--muted)}
+.legal p{margin:0 0 .4rem;max-width:62rem}
 
 /* ---- layout steps ---- */
-@media (min-width:600px){.enq{padding:2rem}.enq-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.fld.wide{grid-column:1/-1}}
-@media (min-width:600px){.hero{padding:.75rem 1rem 0}.blob.a{width:34rem;height:34rem;left:-21rem;bottom:-12rem}.blob.b{width:20rem;height:20rem;right:-12rem;bottom:5rem}}
+@media (min-width:600px){.enq{padding:1.6rem}.enq-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.fld.wide{grid-column:1/-1}}
 @media (min-width:760px){
   .wrap{padding-inline:2rem}
-  .sec{padding-block:5.75rem}
-  .hero-panel{border-radius:40px;padding:5.25rem 2rem 3.25rem}
-  .lede{font-size:1.1875rem}
-  .ask-in{padding:1rem 1.1rem 1rem}
-  .mosaic{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .m-pros{grid-column:1;grid-row:1}.m-tree{grid-column:2;grid-row:1}.m-count{grid-column:1/-1;grid-row:2}.m-msg{grid-column:1;grid-row:3}.m-kill{grid-column:2;grid-row:3}.m-pipe{grid-column:1/-1;grid-row:4}
-  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .feat{padding:1.25rem}
-  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .ladder{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .reads{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .cta{padding:5.5rem 2rem 8rem;border-radius:36px}.cta::before{top:calc(100% - 6rem);width:120%}
-  .foot{padding:3rem 1rem .75rem}
-  .foot-top{grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);padding:2.75rem 2.75rem 2.25rem}
+  .sec{padding-block:2.5rem}
+  .hero{padding:.75rem 1rem 0}
+  .hero-panel{border-radius:36px;padding:3rem 2rem 2.75rem}
+  .lede{font-size:1.125rem}
+  .steps li{grid-template-columns:13rem minmax(0,1fr);align-items:baseline}
+  .ladder li{grid-template-columns:11rem 12rem minmax(0,1fr);grid-template-areas:"rung price scope" "name price scope";column-gap:2rem;row-gap:.2rem;align-items:baseline}
+  .cta{padding:2.25rem 2rem 2.5rem;border-radius:32px}
+  .foot{padding:1rem 1rem .75rem}
+  .foot-top{grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);padding:1.75rem .5rem 1.25rem}
   .foot-cols{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .legal{padding:1.5rem 2.75rem 1.9rem}
-  .foot-card{border-radius:32px}
 }
-@media (min-width:980px){
-  .band{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-  .band-l{padding:5.5rem 3rem 5.5rem max(2rem,calc((100vw - 72rem) / 2 + 2rem))}
-  .pills{flex-direction:column;align-items:flex-start}
-  .band-r{padding:5.5rem max(2rem,calc((100vw - 72rem) / 2 + 2rem)) 5.5rem 3rem;justify-content:center}
-  .steps{grid-template-columns:repeat(12,minmax(0,1fr))}
-  .f1{grid-column:span 7}.f2{grid-column:span 5}.f3{grid-column:span 5}.f4{grid-column:span 7}
-}
-@media (min-width:1100px){
-  .mosaic{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .m-pros{grid-column:1;grid-row:1}.m-count{grid-column:2/span 2;grid-row:1}.m-msg{grid-column:1;grid-row:2}.m-kill{grid-column:2;grid-row:2}.m-tree{grid-column:3;grid-row:2}.m-pipe{grid-column:1/-1;grid-row:3}
-  .facts{grid-template-columns:repeat(4,minmax(0,1fr))}
-  .fact{min-height:19rem}
-}
-@media (min-width:1200px){.hero{padding:.75rem 3rem 0}.blob.a{width:42rem;height:42rem;left:-23rem;bottom:-15rem}.blob.b{width:22rem;height:22rem;right:-12rem;bottom:6rem}}
 @media (max-width:1179px){.links,.top-cta{display:none}.menu{display:block}.top-in{grid-template-columns:1fr auto}}
-@media (max-width:599px){
-  .ask-foot .btn{width:100%}
-  .cta .cta-row .btn{flex:1 1 100%}
-  .cta{padding-inline:.75rem}
-  .enq-foot .btn{width:100%}
-  .vt tr{display:grid;grid-template-columns:1.6rem minmax(0,1fr) auto;align-items:center;gap:.3rem 0;padding:.55rem 0;border-top:1px solid var(--rule)}
-  .vt td{border:0;padding:0 .3rem}
-  .vt .l{grid-column:2/4}
-  .vt .c{grid-column:2;text-align:left;width:auto}
-  .vt .r{grid-column:3}
-  .pipe .co{display:none}
-  .vt .l{font-size:.7rem}
-}
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto}
-  .ask::before{animation:none}
-  .btn,.mock,.feat,.fact,.tile,.read{transition:none}
-  .btn:hover,.mock:hover,.feat:hover,.fact:hover,.tile:hover,.read:hover{transform:none}
-}
+@media (max-width:599px){.ask textarea{min-height:7.25rem}.ask-foot .btn{width:100%}.cta .cta-row .btn{flex:1 1 100%}.cta{padding-inline:.9rem}.enq-foot .btn{width:100%}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -419,285 +196,95 @@ blockquote{margin:0}
 <main id="main">
 
 <section class="hero"><div class="hero-panel">
-  <span class="blob a" aria-hidden="true"></span><span class="blob b" aria-hidden="true"></span>
   <h1>Vurell is a go-to-market agency for technical founders. We take you into your first market and to your first customers.</h1>
   <p class="lede">Who to sell to, what to say to them, and the sending. Fixed scope, a public price, and the first draft before you commit.</p>
   <div class="ask" id="count">
     <div class="ask-in">
       <div class="ask-top"><b>Who could sign</b><span>title, company, no names</span></div>
       <label class="sr" for="ask-lines">Paste the titles of your last twenty prospects</label>
-      <textarea id="ask-lines" spellcheck="false" placeholder="Paste the titles of your last twenty prospects&#10;&#10;Founder, Northbeam Instruments&#10;CEO, Harrow &amp; Pike (18 people)"></textarea>
+      <textarea id="ask-lines" spellcheck="false" placeholder="Paste the titles of your last twenty prospects&#10;&#10;Founder, Northbeam Instruments"></textarea>
       <div class="ask-foot">
         <p class="ask-note">It runs in your browser: nothing you type leaves it, nothing is stored.</p>
         <a class="btn" id="ask-go" href="count/">Count who could sign</a>
       </div>
     </div>
   </div>
-  <ul class="chips" aria-label="Pages">
-    <li><a href="count/">The count</a></li>
-    <li><a href="message/">Message check</a></li>
-    <li><a href="services/">Services</a></li>
-    <li><a href="engagement/">An engagement</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-  </ul>
 </div></section>
 
-<section class="sec get" id="own"><div class="wrap">
-  <div class="head">
-    <p class="eyebrow">What you get</p>
-    <h2>You own the repository: the list, the evidence, the kill list, every message, every reply, the rules.</h2>
-    <p class="intro">Plain text in a git repository, readable without us.</p>
-  </div>
-  <div class="mosaic">
-
-    <figure class="mock m-pros" aria-label="Example: one row of twenty.md, invented">
-      <div class="bar"><span class="path">twenty.md</span><span class="meta">row 1 of 20</span></div>
-      <div class="body pros">
-        <div class="who"><span class="avatar" aria-hidden="true"></span><div><p class="who-t">Managing Director</p><p class="who-c">Marlow Cross Freight &middot; 24 people</p></div></div>
-        <p class="tags"><span class="chip v-sign">can sign</span><span class="chip v-acc">has the problem this month</span></p>
-        <dl class="fields">
-          <div><dt>Deciding</dt><dd>Whether month-end reconciliation stays manual</dd></div>
-          <div><dt>Quoted line</dt><dd><blockquote class="quote">&ldquo;Six weeks chasing one credit note. Month-end is still a hunt for paperwork.&rdquo;<span class="src">LinkedIn post, 11 September</span></blockquote></dd></div>
-          <div class="push"><dt>First line to send</dt><dd><span class="bubble">You wrote about six weeks chasing one credit note.</span></dd></div>
-        </dl>
-      </div>
-    </figure>
-
-    <figure class="mock m-count" aria-label="Example: the count on twenty invented rows">
-      <div class="bar"><span class="path">count/</span><span>example rows, invented</span><span class="meta">20 rows</span></div>
-      <div class="body">
-        <p class="bigline"><b>9 <span>of 20</span></b><em>could sign without asking anybody.</em></p>
-        <div class="vbar" aria-hidden="true"><i class="b-sign" style="width:35%"></i><i class="b-studio" style="width:10%"></i><i class="b-alone" style="width:50%"></i><i class="b-read" style="width:5%"></i></div>
-        <p class="legend"><span class="v-sign">7 can sign</span><span class="v-studio">2 studio</span><span class="v-alone">10 cannot sign alone</span><span class="v-read">1 needs a read</span></p>
-        <table class="vt">
-          <tr><td class="n">1</td><td class="l">Founder, Northbeam Instruments</td><td class="c"><span class="chip v-sign">can sign</span></td><td class="r">R3</td></tr>
-          <tr><td class="n">3</td><td class="l">CEO, Harrow &amp; Pike (18 people)</td><td class="c"><span class="chip v-alone">cannot sign alone</span></td><td class="r">R2</td></tr>
-          <tr><td class="n">10</td><td class="l">Director, Pale Fox Studio</td><td class="c"><span class="chip v-studio">studio</span></td><td class="r">R6</td></tr>
-          <tr><td class="n">18</td><td class="l">Head of Operations, Kestrel Tooling (22 people)</td><td class="c"><span class="chip v-sign">can sign</span></td><td class="r">R6</td></tr>
-          <tr><td class="n">17</td><td class="l">Head of Product, Sable Freight (900 employees)</td><td class="c"><span class="chip v-alone">cannot sign alone</span></td><td class="r">R5</td></tr>
-          <tr><td class="n">20</td><td class="l">linkedin.com/in/someone-i-met-at-a-meetup</td><td class="c"><span class="chip v-read">needs a read</span></td><td class="r">R1</td></tr>
-        </table>
-      </div>
-    </figure>
-
-    <figure class="mock m-msg" aria-label="Example: the message check on an invented message">
-      <div class="bar"><span class="path">message check</span><span class="meta">LinkedIn message</span></div>
-      <div class="body">
-        <ul class="checks">
-          <li>Opens with the reader, not with you<span class="chip pass">pass</span></li>
-          <li>Says something about the reader<span class="chip pass">pass</span></li>
-          <li>One ask<span class="chip pass">pass</span></li>
-          <li>A small ask<span class="chip fail">fail</span></li>
-          <li>No buzzwords<span class="chip pass">pass</span></li>
-          <li>Says how to make it stop<span class="chip na">not applicable</span></li>
-        </ul>
-        <p class="first"><span class="k">What to change first</span>A small ask</p>
-      </div>
-    </figure>
-
-    <figure class="mock m-kill" aria-label="Example: kill-list.md, invented">
-      <div class="bar"><span class="path">kill-list.md</span><span class="meta">each with the reason</span></div>
-      <div class="body">
-        <ol class="kills">
-          <li><s>Operations Manager, Halberd Logistics</s><span>the title spends a budget somebody above it owns</span></li>
-          <li><s>Managing Director, Halyard Freight</s><span>a sales seat at the same company already owns the buy</span></li>
-          <li><s>Founder, Tidewater Haulage</s><span>nothing public in ninety days showing the problem now</span></li>
-          <li><s>Head of Finance, Sable Freight</s><span>over two hundred people</span></li>
-        </ol>
-      </div>
-    </figure>
-
-    <figure class="mock m-pipe" aria-label="Example: pipeline.csv, invented">
-      <div class="bar"><span class="path">pipeline/pipeline.csv</span><span class="meta">one row per person</span></div>
-      <div class="scroll">
-        <table class="pipe">
-          <thead><tr><th>person_id</th><th class="co">company</th><th>stage</th><th>date</th><th>next_step</th></tr></thead>
-          <tbody>
-            <tr><td>p001</td><td class="co">Marlow Cross Freight</td><td><span class="st st-q">qualified_conversation</span></td><td>2026-09-16</td><td>send the pilot text</td></tr>
-            <tr><td>p004</td><td class="co">Corran Bridge Logistics</td><td><span class="st st-r">replied</span></td><td>2026-09-15</td><td>ask who signs</td></tr>
-            <tr><td>p009</td><td class="co">Pennard Freight</td><td><span class="st st-p">pilot_proposed</span></td><td>2026-09-18</td><td>ask who signs</td></tr>
-            <tr><td>p007</td><td class="co">Wexmoor Haulage</td><td><span class="st st-l">lost</span></td><td>2026-09-12</td><td class="lost">not-now</td></tr>
-            <tr><td>p012</td><td class="co">Ashby Row Transport</td><td><span class="st st-i">invited</span></td><td>2026-09-17</td><td>follow up once</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </figure>
-
-    <figure class="mock m-tree" aria-label="The repository, folder by folder">
-      <div class="bar"><span class="path">a private git repository you own</span></div>
-      <ul class="tree">
-        <li><span class="f">twenty.md</span><span>the list, the evidence</span></li>
-        <li><span class="f">kill-list.md</span><span>the kill list</span></li>
-        <li><span class="d">market/</span><span>Market</span></li>
-        <li><span class="d">message/</span><span>Message</span></li>
-        <li><span class="d">sending/</span><span>Sending</span></li>
-        <li><span class="d">pipeline/</span><span>Pipeline and reporting</span></li>
-        <li><span class="d">kit/</span><span>Sales kit</span></li>
-        <li><span class="d">proof/</span><span>Proof</span></li>
-      </ul>
-    </figure>
-
-  </div>
-  <p class="examples">Examples. Nobody on them exists.</p>
+<section class="sec band" id="own"><div class="wrap center">
+  <p class="own">You own the repository: the list, the evidence, the kill list, every message, every reply, the rules.</p>
+  <p class="after">Plain text in a git repository, readable without us. <a href="engagement/">An engagement, step by step<span aria-hidden="true"> &rarr;</span></a></p>
 </div></section>
 
-<section class="sec how" id="how"><div class="wrap">
+<section class="sec" id="how"><div class="wrap">
   <div class="head">
-    <p class="eyebrow">How we work</p>
     <h2>Market, message, sending, first customers.</h2>
     <p class="intro">In that order, and the order is the whole method.</p>
   </div>
-  <ol class="steps">
-    <li class="feat f1">
-      <div class="feat-art"><div class="mini" aria-label="count/, one row, invented">
-        <p class="k">count/ &middot; one row, invented</p>
-        <div class="mini-row"><span class="l">Founder, Northbeam Instruments</span><span class="chip v-sign">can sign</span><span class="r">R3</span></div>
-        <p class="why">Founder is an owner title. It signs without asking anybody.</p>
-      </div></div>
-      <div class="feat-cap"><span class="num">01</span><h3>Market</h3><p>We choose the first market and who in it can sign. One segment, named, and the people who cannot sign are named too.</p></div>
-    </li>
-    <li class="feat f2">
-      <div class="feat-art"><div class="mini" aria-label="twenty.md, example, invented">
-        <p class="k">twenty.md &middot; example, invented</p>
-        <p class="who">1. Founder, Northbeam Instruments</p>
-        <blockquote class="quote">&ldquo;Shipped it. The part I had not planned for is finding who pays for it.&rdquo;<span class="src">LinkedIn post, 4 September</span></blockquote>
-        <p class="tags"><span class="chip v-sign">can sign</span><span class="chip v-acc">has the problem this month</span></p>
-      </div></div>
-      <div class="feat-cap"><span class="num">02</span><h3>Message</h3><p>What to say, taken from who has the problem rather than from what the product does. Every line carries the quote it rests on.</p></div>
-    </li>
-    <li class="feat f3">
-      <div class="feat-art"><div class="mini" aria-label="messages/01.md, example">
-        <p class="k">messages/01.md &middot; example</p>
-        <dl><dt>to</dt><dd>row 1 of twenty.md</dd><dt>opens</dt><dd>the quoted line, their post of 4 September</dd><dt>asks</dt><dd>one question</dd><dt>source</dt><dd>twenty.md, row 1</dd></dl>
-        <div class="send"><span class="k">send</span><span class="send-btn">you press it</span></div>
-      </div></div>
-      <div class="feat-cap"><span class="num">03</span><h3>Sending</h3><p>The first twenty conversations. One note per name, carrying its source quote. You press Send, from your own account.</p></div>
-    </li>
-    <li class="feat f4">
-      <div class="feat-art"><div class="mini" aria-label="log/, example, invented">
-        <p class="k">log/ &middot; example, invented</p>
-        <ul class="log">
-          <li><span class="id">p007</span><span class="st st-l">lost</span><span class="chip v-read">not-now</span><q>Not before January. We are mid-migration.</q></li>
-          <li><span class="id">p009</span><span class="st st-p">pilot_proposed</span><span class="t">Two weeks, manual, fixed scope.</span></li>
-        </ul>
-      </div></div>
-      <div class="feat-cap"><span class="num">04</span><h3>First customers</h3><p>The pilot offer, and the replies worked together. Every no is written down with the reason it carried.</p></div>
-    </li>
+  <ol class="rows steps">
+    <li><span class="row-k"><span class="num">01</span><h3>Market</h3></span><p>We choose the first market and who in it can sign.</p></li>
+    <li><span class="row-k"><span class="num">02</span><h3>Message</h3></span><p>What to say, taken from who has the problem rather than from what the product does.</p></li>
+    <li><span class="row-k"><span class="num">03</span><h3>Sending</h3></span><p>One note per name, carrying its source quote. You press Send, from your own account.</p></li>
+    <li><span class="row-k"><span class="num">04</span><h3>First customers</h3></span><p>The pilot offer, and the replies worked together.</p></li>
   </ol>
-  <div class="arrow-links"><a href="engagement/">An engagement, step by step<span aria-hidden="true"> &rarr;</span></a><a href="services/">Everything we do, and what we refuse<span aria-hidden="true"> &rarr;</span></a></div>
+  <p class="after center">Measured by replies, pilots proposed, and the reason for every no. No meetings are guaranteed.</p>
+  <p class="after center"><a href="services/">Everything we do, and what we refuse<span aria-hidden="true"> &rarr;</span></a></p>
 </div></section>
-
-<section class="band" id="services" aria-label="Services">
-  <div class="band-l">
-    <p class="eyebrow">Services</p>
-    <ul class="pills">
-      <li class="on"><i>01</i>Market</li>
-      <li><i>02</i>Message</li>
-      <li><i>03</i>Sending</li>
-      <li><i>04</i>Founder profile and content</li>
-      <li><i>05</i>Sales kit</li>
-      <li><i>06</i>Pipeline and reporting</li>
-      <li><i>07</i>Proof</li>
-    </ul>
-    <p class="band-k">Separate fixed-price lines</p>
-    <ul class="pills extra">
-      <li>Pitch deck</li>
-      <li>One-pager</li>
-      <li>CRM setup</li>
-    </ul>
-    <a class="band-link" href="services/">Everything we do, and what we refuse<span aria-hidden="true"> &rarr;</span></a>
-  </div>
-  <div class="band-r">
-    <p class="eyebrow">The weekly report</p>
-    <h2>Measured by replies, pilots proposed, and the reason for every no.</h2>
-    <p class="intro">No meetings are guaranteed.</p>
-    <figure class="mock report" aria-label="Example: a weekly report, invented">
-      <div class="bar"><span class="path">log/report-week-4.md</span><span class="meta">example, invented</span></div>
-      <div class="body">
-        <table class="rep">
-          <thead><tr><th><span class="sr">Count</span></th><th>This week</th><th>Since the first send</th></tr></thead>
-          <tbody>
-            <tr><th>People written to for the first time</th><td>5</td><td>20</td></tr>
-            <tr><th>Replies</th><td>1</td><td>4</td></tr>
-            <tr><th>Qualified conversations</th><td>1</td><td>2</td></tr>
-            <tr><th>Pilots proposed</th><td>1</td><td>1</td></tr>
-            <tr><th>Rows closed as lost</th><td>1</td><td>2</td></tr>
-            <tr><th>Every message sent by you, yourself</th><td>yes</td><td>yes</td></tr>
-          </tbody>
-        </table>
-        <div class="rej"><p class="k">Rejections, in their words</p><p><span class="chip v-read">not-now</span> &ldquo;Not before January. We are mid-migration.&rdquo;</p></div>
-      </div>
-    </figure>
-  </div>
-</section>
 
 <section class="sec" id="about"><div class="wrap">
   <div class="head left">
-    <p class="eyebrow">A go-to-market agency</p>
     <h2>Vurell takes technical founders who have never sold into their first market: who to sell to there, what to say to them, and the sending.</h2>
   </div>
-  <div class="facts">
-    <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-10.5a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.3"/></svg><div class="fact-cap"><p class="kind">Who and where</p><p>Myroslav Sabelnykov, registered French sole trader. Montélimar, France.</p></div></div>
-    <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="5.5" r="2"/><circle cx="6" cy="18.5" r="2"/><circle cx="18" cy="8" r="2"/><path d="M6 7.5v9M18 10c0 4.5-6 4-11 7"/></svg><div class="fact-cap"><p class="kind">How the work is done</p><p>The rules are written down. You own the repository: the list, the evidence, the kill list, every message, every reply, the rules.</p></div></div>
-    <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg><div class="fact-cap"><p class="kind">What is published</p><ul class="plain"><li><a href="https://www.linkedin.com/pulse/800-cold-emails-400-opens-zero-replies-copy-problem-sabelnykov-xbuve/">800 cold emails, 400 opens, zero replies. The copy was not the problem.</a></li><li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749593793880064/">Covera, AI agents for insurance brokers.</a></li><li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749779647721472/">Forward, private credit origination.</a></li></ul><p><a href="reads/">Public reads</a></p></div></div>
-    <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.2-3.6 4-5.2 7-5.2s5.8 1.6 7 5.2"/></svg><div class="fact-cap"><p class="kind">The founder</p><p>Two years in sales. Before that, a manufacturer that needed a new market, and I helped it enter.</p><p><a href="proof/">That market, in full<span aria-hidden="true"> &rarr;</span></a></p></div></div>
-  </div>
+  <div class="mine"><p class="kind">The founder</p><p>Two years in sales. Before that, a manufacturer that needed a new market, and I helped it enter.</p><p><a href="proof/">That market, in full<span aria-hidden="true"> &rarr;</span></a></p></div>
 </div></section>
 
 <section class="sec" id="pricing"><div class="wrap">
   <div class="head">
-    <p class="eyebrow" id="ladder">The ladder</p>
-    <h2>Four rungs.</h2>
+    <h2 id="ladder">Four rungs.</h2>
     <p class="intro">Fixed scope at every rung.</p>
   </div>
-  <div class="ladder">
-    <div class="tile">
-      <div class="tile-top"><span class="rung">Rung 0 &middot; Self-serve</span><span class="ind" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span></div>
+  <ol class="rows ladder">
+    <li>
+      <span class="rung">Rung 0 &middot; Self-serve</span>
       <p class="name"><a href="count/">Who could sign</a></p>
       <p class="price"><b>Free</b></p>
       <p class="scope">You get the number who could sign without asking anybody, and a verdict per row.</p>
-    </div>
-    <div class="tile">
-      <div class="tile-top"><span class="rung">Rung 1 &middot; Five working days</span><span class="ind" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+    </li>
+    <li>
+      <span class="rung">Rung 1 &middot; Five working days</span>
       <p class="name">Who has it now.</p>
       <p class="price"><b>$600</b> founding rate, first three clients. $1,500 list.</p>
-      <p class="scope lead">We find the people in your market who have the problem this month, with the line that shows it.</p>
-      <p class="scope more">We read forty to fifty people by their public traces. Who has the problem this month, who to exclude, who can sign. Twenty names with their evidence, and what to say, from who has it. Five working days.</p>
-    </div>
-    <div class="tile">
-      <div class="tile-top"><span class="rung">Rung 2 &middot; Four weeks</span><span class="ind" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+      <p class="scope">We find the people in your market who have the problem this month, with the line that shows it.</p>
+    </li>
+    <li>
+      <span class="rung">Rung 2 &middot; Four weeks</span>
       <p class="name">Twenty conversations.</p>
       <p class="price"><b>$1,200</b> founding rate, first three clients. $2,400 list.</p>
       <p class="scope">Twenty named people, a note each carrying its source quote. You press Send. We work the replies with you up to the pilot ask. Measured by replies, pilots proposed, and the reason for every no. No meetings are guaranteed.</p>
-    </div>
-  </div>
-  <div class="pilot"><span class="rung"><span>Rung 3 &middot; Two weeks</span><span class="ind" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="name">Pilot.</span><span>Two weeks, manual, fixed scope. The message that proposes it.</span></div>
+    </li>
+    <li>
+      <span class="rung">Rung 3 &middot; Two weeks</span>
+      <p class="name">Pilot.</p>
+      <p class="scope">Two weeks, manual, fixed scope. The message that proposes it.</p>
+    </li>
+  </ol>
   <p class="after center">You see the first draft before committing to anything.</p>
   <p class="after center">Separate fixed-price lines: pitch deck, one-pager, CRM setup. <a href="services/">Everything we do<span aria-hidden="true"> &rarr;</span></a></p>
 </div></section>
 
 <section class="sec" id="reads"><div class="wrap">
-  <div class="head">
-    <p class="eyebrow">What we have written</p>
+  <div class="head wide">
     <h2>Three public reads. One campaign, two landing pages.</h2>
   </div>
-  <div class="reads">
-    <a class="read" href="https://www.linkedin.com/pulse/800-cold-emails-400-opens-zero-replies-copy-problem-sabelnykov-xbuve/">
-      <div class="read-art" aria-hidden="true"><div class="hb"><span>emails</span><i style="width:100%"></i><b>800</b></div><div class="hb"><span>opens</span><i style="width:50%"></i><b>400</b></div><div class="hb zero"><span>replies</span><i></i><b>0</b></div></div>
-      <p class="kind">Campaign read &middot; article</p><p class="t">800 cold emails, 400 opens, zero replies. The copy was not the problem.</p><span class="go">Read on LinkedIn &rarr;</span></a>
-    <a class="read" href="https://www.linkedin.com/feed/update/urn:li:activity:7502749593793880064/">
-      <div class="read-art page" aria-hidden="true"><span class="url"></span><span class="h mark"></span><span class="p"></span><span class="p s"></span><span class="b"></span></div>
-      <p class="kind">Landing page read &middot; post</p><p class="t">Covera, AI agents for insurance brokers.</p><span class="go">Read on LinkedIn &rarr;</span></a>
-    <a class="read" href="https://www.linkedin.com/feed/update/urn:li:activity:7502749779647721472/">
-      <div class="read-art page" aria-hidden="true"><span class="url"></span><span class="h"></span><span class="p"></span><span class="p s mark-p"></span><span class="b"></span></div>
-      <p class="kind">Landing page read &middot; post</p><p class="t">Forward, private credit origination.</p><span class="go">Read on LinkedIn &rarr;</span></a>
-  </div>
-  <p class="after center"><a href="reads/">Public reads<span aria-hidden="true"> &rarr;</span></a></p>
+  <ul class="rows pub">
+    <li><a href="https://www.linkedin.com/pulse/800-cold-emails-400-opens-zero-replies-copy-problem-sabelnykov-xbuve/">800 cold emails, 400 opens, zero replies. The copy was not the problem.</a><span class="go">LinkedIn &rarr;</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749593793880064/">Covera, AI agents for insurance brokers.</a><span class="go">LinkedIn &rarr;</span></li>
+    <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749779647721472/">Forward, private credit origination.</a><span class="go">LinkedIn &rarr;</span></li>
+  </ul>
 </div></section>
 
 <section class="sec" id="faq"><div class="wrap">
   <div class="head">
-    <p class="eyebrow">Questions</p>
     <h2>Four questions.</h2>
   </div>
   <div class="faq">
@@ -709,9 +296,8 @@ blockquote{margin:0}
 </div></section>
 
 <section class="sec" id="for" style="padding-top:0"><div class="wrap"><div class="cta">
-  <p class="eyebrow">Who it is for</p>
   <h2>This is for founders who shipped something good and have never sold anything.</h2>
-  <div class="cta-row"><a class="btn black" href="count/">Count your last twenty</a></div>
+  <div class="cta-row"><a class="btn white" href="count/">Count your last twenty</a></div>
   <form class="enq" id="enquiry" name="enquiry" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="enquiry">
     <p class="hp" hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
@@ -721,7 +307,7 @@ blockquote{margin:0}
       <p class="fld"><label for="enq-name">Name</label><input id="enq-name" name="name" type="text" autocomplete="name" required></p>
       <p class="fld"><label for="enq-company">Company</label><input id="enq-company" name="company" type="text" autocomplete="organization" required></p>
       <p class="fld wide"><label for="enq-email">Email</label><input id="enq-email" name="email" type="email" autocomplete="email" required></p>
-      <p class="fld wide"><label for="enq-titles">Titles of your last twenty prospects (optional)</label><textarea id="enq-titles" name="titles" rows="5" spellcheck="false" placeholder="One per line: title, company, no names" aria-describedby="enq-titles-hint"></textarea><span class="hint" id="enq-titles-hint">Sent with your message. Pasted into the count instead, the same lines stay in your browser.</span></p>
+      <p class="fld wide"><label for="enq-titles">Titles of your last twenty prospects (optional)</label><textarea id="enq-titles" name="titles" rows="3" spellcheck="false" placeholder="One per line: title, company, no names" aria-describedby="enq-titles-hint"></textarea><span class="hint" id="enq-titles-hint">Sent with your message.</span></p>
     </div>
     <div class="enq-foot">
       <p class="enq-alt">Or write from your own mail: <a href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">miro@vurell.com</a></p>
@@ -741,7 +327,6 @@ blockquote{margin:0}
       <div><p>Documents</p><ul><li><a href="engagement/">An engagement</a></li><li><a href="one-pager/">One-pager</a></li></ul></div>
     </nav>
   </div>
-  <div class="foot-rule" aria-hidden="true"></div>
   <div class="legal">
   <p>Vurell. Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France. <a href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">miro@vurell.com</a>. Every message read by a person before it goes.</p>
   <p>If I wrote to you and you want it to stop, reply stop and I delete the record.</p>
