@@ -1,0 +1,25 @@
+# Vurell
+
+> Vurell is a go-to-market (GTM) service for software companies. It finds the companies in Europe that need a client's software right now, through public signals in company registers and job boards (Germany and France first), writes to them in the client's name, and books the sales calls. The client runs the calls. Price: $500 for a 30-day pilot, then $200 for each call that actually happens.
+
+Vurell is run by Myroslav Sabelnykov, a registered French sole trader (76 rue Pierre Julien, 26200 Montélimar, France). Contact: miro@vurell.com.
+
+Who it is for: software companies with 5 to 100 people where the founder still sells (development studios, outsourcers, SaaS, custom software), from any country, selling into Germany, France and the rest of Europe.
+
+What counts as a call: a held call with a company that fits criteria agreed in writing before the pilot (company size, country, role of the person on the call). A booked call that does not happen is not billed. Vurell does not promise that a company will buy.
+
+## Pages
+
+- [Home](https://vurell.com/): what Vurell does, how it works, pricing, questions
+- [The pilot](https://vurell.com/services/): what the 30-day pilot includes, the signals tracked, what counts as a call, the 30 days, what Vurell does not do
+- [Case: a Czech maker of exhibition stands, and Germany](https://vurell.com/proof/): the founder's 2025 market-entry work before Vurell, about 50 calls booked
+
+## Data
+
+- [German developer roles open 30 days or more](https://vurell.com/data/developer-hiring-germany/): a monthly snapshot of every software developer posting by small and mid-sized employers on the German Federal Employment Agency job board, by stack, state, city and age. CC BY 4.0. Raw figures: [report.json](https://vurell.com/data/developer-hiring-germany/report.json), [report.csv](https://vurell.com/data/developer-hiring-germany/report.csv)
+
+## Signals tracked
+
+- Software development and outsourcing: a developer role open for 30 days or more (German Federal Employment Agency job board)
+- Business software for small firms: a firm of 6 to 49 people hiring an office assistant, or a company that just moved into the next size band (French company register, job boards)
+- Other software: a signal picked with the client before the pilot starts
