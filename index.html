@@ -3,14 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vurell | A go-to-market agency for technical founders</title>
-<meta name="description" content="Vurell is a go-to-market agency for technical founders. We take you into your first market and to your first customers. Fixed scope, a public price.">
+<title>GTM agency for software companies, pay per call | Vurell</title>
+<meta name="description" content="We find the companies in Europe that need your software now, write to them in your name and book the calls. $500 for a 30-day pilot, then $200 per held call.">
 <meta name="robots" content="index,follow">
-<meta property="og:title" content="Vurell | A go-to-market agency for technical founders">
-<meta property="og:description" content="Vurell is a go-to-market agency for technical founders. We take you into your first market and to your first customers. Who to sell to, what to say to them, and the sending.">
+<link rel="canonical" href="https://vurell.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vurell">
+<meta property="og:url" content="https://vurell.com/">
+<meta property="og:title" content="GTM agency for software companies, pay per call | Vurell">
+<meta property="og:description" content="We find the companies in Europe that need your software now, write to them in your name and book the calls. $500 for a 30-day pilot, then $200 per held call.">
+<meta property="og:image" content="https://vurell.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vurell: calls with the companies in Europe that need your software now.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0C0E" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://vurell.com/#org","name":"Vurell","url":"https://vurell.com/","logo":"https://vurell.com/apple-touch-icon.png","image":"https://vurell.com/og-image.png","email":"miro@vurell.com","description":"GTM for software companies. Vurell finds the companies in Europe that need your software now, through public signals in company registers and job boards, writes to them in your name, and books the calls.","address":{"@type":"PostalAddress","streetAddress":"76 rue Pierre Julien","postalCode":"26200","addressLocality":"Montélimar","addressCountry":"FR"},"founder":{"@type":"Person","@id":"https://vurell.com/#founder","name":"Myroslav Sabelnykov","jobTitle":"Founder","sameAs":["https://www.linkedin.com/in/myroslavsabelnykov/"]},"sameAs":["https://www.linkedin.com/in/myroslavsabelnykov/"]},{"@type":"WebSite","@id":"https://vurell.com/#website","url":"https://vurell.com/","name":"Vurell","inLanguage":"en","publisher":{"@id":"https://vurell.com/#org"}},{"@type":"Service","@id":"https://vurell.com/services/#pilot","name":"30-day pay-per-call pilot for software companies","serviceType":"B2B appointment setting","url":"https://vurell.com/services/","provider":{"@id":"https://vurell.com/#org"},"areaServed":[{"@type":"Country","name":"Germany"},{"@type":"Country","name":"France"}],"audience":{"@type":"BusinessAudience","name":"Software companies with 5 to 100 people where the founder still sells"},"offers":[{"@type":"Offer","name":"30-day pilot","price":"500","priceCurrency":"USD"},{"@type":"Offer","name":"Held sales call","priceSpecification":{"@type":"UnitPriceSpecification","price":"200","priceCurrency":"USD","unitText":"held call"}}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What counts as a call?","acceptedAnswer":{"@type":"Answer","text":"A call that took place with a company that fits the criteria we agree in writing before the pilot starts: the company size, the country, and the role of the person on the call. A call that is booked and does not happen is not billed."}},{"@type":"Question","name":"How much does it cost?","acceptedAnswer":{"@type":"Answer","text":"$500 up front for a 30-day pilot, then $200 for each held call. The sample list before it is free."}},{"@type":"Question","name":"Which markets do you cover?","acceptedAnswer":{"@type":"Answer","text":"Germany and France first, through their public company registers and job boards. More of Europe next."}},{"@type":"Question","name":"Who sends the emails?","acceptedAnswer":{"@type":"Answer","text":"We do, in your name, from two secondary domains you own. They cost about €20. You hold every account and every password."}},{"@type":"Question","name":"Who runs the calls?","acceptedAnswer":{"@type":"Answer","text":"You do. We find the companies, write to them and book the calls. You sell. We never promise that a company will buy."}},{"@type":"Question","name":"What if no calls happen?","acceptedAnswer":{"@type":"Answer","text":"Then you pay the $500 and nothing more. You keep the company list, the messages and every reply."}},{"@type":"Question","name":"Who is it for?","acceptedAnswer":{"@type":"Answer","text":"Software companies with 5 to 100 people where the founder still sells: development studios, SaaS and custom software, from any country."}}]}]}</script>
 <style>
 @font-face{font-family:"Geist";src:url("fonts/geist-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 @font-face{font-family:"Geist Mono";src:url("fonts/geist-mono-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
@@ -82,19 +95,11 @@ p:last-child{margin-bottom:0}
 .hero{padding:.5rem .5rem 0}
 .hero-panel{position:relative;overflow:hidden;isolation:isolate;border-radius:28px;border:1px solid var(--rule);background:var(--panel);padding:2.75rem 1rem 2.5rem;text-align:center}
 .hero-panel::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(var(--dot) 1px,transparent 1.4px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 65% 60% at 50% 28%,#000 8%,transparent 72%);mask-image:radial-gradient(ellipse 65% 60% at 50% 28%,#000 8%,transparent 72%);opacity:.5}
+.hero .kind{margin:0 0 .9rem}
+.hero .after{margin-top:1.1rem}
 .hero h1{font-size:clamp(1.9rem,1.05rem + 2.6vw,2.8rem);line-height:1.08;letter-spacing:-.04em;max-width:20em;margin:0 auto;text-wrap:balance}
 .lede{font-size:1.0625rem;line-height:1.55;color:var(--muted);max-width:34rem;margin:1rem auto 0;text-wrap:balance}
 
-/* the count box: the one thing in the hero that does something */
-.ask{max-width:42rem;margin:2rem auto 0;border:1px solid var(--accent);border-radius:18px;background:var(--card);text-align:left}
-.ask:focus-within{outline:2px solid var(--accent);outline-offset:3px}
-.ask-in{padding:.85rem .9rem .9rem}
-.ask-top{display:flex;justify-content:space-between;gap:.5rem 1rem;flex-wrap:wrap;padding:0 .35rem .35rem;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
-.ask-top b{color:var(--ink);font-weight:500}
-.ask textarea{display:block;width:100%;min-height:5.5rem;padding:.4rem .35rem;border:0;outline:0;resize:none;background:transparent;color:var(--ink);font:inherit;font-size:1rem;line-height:1.55}
-.ask textarea::placeholder{color:var(--muted);opacity:.85}
-.ask-foot{display:flex;align-items:center;justify-content:space-between;gap:.75rem 1rem;flex-wrap:wrap;padding:.5rem .35rem 0}
-.ask-note{font-size:.8125rem;line-height:1.45;color:var(--muted);max-width:28rem;margin:0}
 
 /* ---- plain rows, used by how we work, the ladder and the reads ---- */
 .rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
@@ -181,7 +186,7 @@ p:last-child{margin-bottom:0}
   .foot-cols{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media (max-width:1179px){.links,.top-cta{display:none}.menu{display:block}.top-in{grid-template-columns:1fr auto}}
-@media (max-width:599px){.ask textarea{min-height:7.25rem}.ask-foot .btn{width:100%}.cta .cta-row .btn{flex:1 1 100%}.cta{padding-inline:.9rem}.enq-foot .btn{width:100%}}
+@media (max-width:599px){.cta .cta-row .btn{flex:1 1 100%}.cta{padding-inline:.9rem}.enq-foot .btn{width:100%}}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -189,128 +194,104 @@ p:last-child{margin-bottom:0}
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap top-in">
   <a class="brand" href="./" aria-label="Vurell"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-372.7 -852.0 2977.2 937.2" aria-hidden="true" focusable="false"><path d="M-226.9 -459.2 L0.0 -66.2" stroke="currentColor" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M0.0 -66.2 L431.7 -706.2" stroke="var(--accent, #2F5BFF)" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M728.56 12.0Q647.16 12.0 600.06 -41.5Q552.96 -95.0 552.96 -190.20V-534.00H680.96V-221.60Q680.96 -154.60 703.06 -123.30Q725.16 -92.00 771.36 -92.00Q823.16 -92.00 851.96 -126.50Q880.76 -161.00 880.76 -226.80V-534.00H1008.76V0.0H891.16L888.36 -146.60L904.96 -141.60Q892.16 -66.20 847.16 -27.10Q802.16 12.0 728.56 12.0Z M1114.96 0.0V-534.00H1234.56L1239.36 -385.59L1228.96 -388.19Q1240.96 -464.99 1274.26 -499.50Q1307.56 -534.00 1365.16 -534.00H1414.76V-424.39H1364.96Q1323.76 -424.39 1296.86 -412.29Q1269.96 -400.19 1256.46 -374.69Q1242.96 -349.19 1242.96 -307.59V0.0Z M1719.16 12.0Q1639.36 12.0 1580.66 -22.40Q1521.96 -56.80 1489.86 -119.70Q1457.76 -182.60 1457.76 -267.00Q1457.76 -351.40 1489.86 -413.80Q1521.96 -476.20 1580.06 -511.10Q1638.16 -546.00 1716.76 -546.00Q1792.96 -546.00 1850.16 -511.90Q1907.36 -477.80 1938.66 -413.79Q1969.96 -349.79 1969.96 -259.99V-231.39H1590.56Q1594.36 -160.80 1628.86 -125.60Q1663.36 -90.40 1720.76 -90.40Q1763.56 -90.40 1791.86 -109.50Q1820.16 -128.60 1831.56 -163.80L1962.36 -155.60Q1940.96 -78.19 1876.26 -33.09Q1811.56 12.0 1719.16 12.0ZM1590.56 -317.40H1837.16Q1833.16 -382.39 1800.46 -413.79Q1767.76 -445.19 1716.76 -445.19Q1665.36 -445.19 1631.86 -412.29Q1598.36 -379.39 1590.56 -317.40Z M2172.96 0.0Q2114.16 0.0 2079.56 -30.00Q2044.96 -60.00 2044.96 -126.40V-710.0H2172.96V-139.40Q2172.96 -118.60 2183.26 -108.90Q2193.56 -99.20 2212.76 -99.20H2251.96V0.0Z M2434.96 0.0Q2376.16 0.0 2341.56 -30.00Q2306.96 -60.00 2306.96 -126.40V-710.0H2434.96V-139.40Q2434.96 -118.60 2445.26 -108.90Q2455.56 -99.20 2474.76 -99.20H2513.96V0.0Z" fill="currentColor"/></svg></a>
-  <nav class="links" aria-label="Site"><a href="#about">About</a><a href="services/">Services</a><a href="#how">How we work</a><a href="count/">The count</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a></nav>
-  <div class="top-cta"><a class="btn sm ghost" href="#enquiry">Write to miro@vurell.com</a><a class="btn sm" href="count/">Count your last twenty</a></div>
-  <details class="menu"><summary>Menu</summary><nav aria-label="Site"><a href="#about">About</a><a href="services/">Services</a><a href="#how">How we work</a><a href="count/">The count</a><a href="#pricing">Pricing</a><a href="reads/">Reads</a><a class="go" href="count/">Count your last twenty</a><a class="go" href="#enquiry">Write to miro@vurell.com</a></nav></details>
+  <nav class="links" aria-label="Site"><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="services/">The pilot</a><a href="#about">About</a><a href="#faq">FAQ</a></nav>
+  <div class="top-cta"><a class="btn sm ghost" href="mailto:miro@vurell.com?subject=Free%20sample">Write to miro@vurell.com</a><a class="btn sm" href="#enquiry">Get a free sample</a></div>
+  <details class="menu"><summary>Menu</summary><nav aria-label="Site"><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="services/">The pilot</a><a href="#about">About</a><a href="#faq">FAQ</a><a class="go" href="#enquiry">Get a free sample</a><a class="go" href="mailto:miro@vurell.com?subject=Free%20sample">Write to miro@vurell.com</a></nav></details>
 </div></header>
 <main id="main">
 
 <section class="hero"><div class="hero-panel">
-  <h1>Vurell is a go-to-market agency for technical founders. We take you into your first market and to your first customers.</h1>
-  <p class="lede">Who to sell to, what to say to them, and the sending. Fixed scope, a public price, and the first draft before you commit.</p>
-  <div class="ask" id="count">
-    <div class="ask-in">
-      <div class="ask-top"><b>Who could sign</b><span>title, company, no names</span></div>
-      <label class="sr" for="ask-lines">Paste the titles of your last twenty prospects</label>
-      <textarea id="ask-lines" spellcheck="false" placeholder="Paste the titles of your last twenty prospects&#10;&#10;Founder, Northbeam Instruments"></textarea>
-      <div class="ask-foot">
-        <p class="ask-note">It runs in your browser: nothing you type leaves it, nothing is stored.</p>
-        <a class="btn" id="ask-go" href="count/">Count who could sign</a>
-      </div>
-    </div>
-  </div>
+  <p class="kind">GTM for software companies</p>
+  <h1>We find the companies in Europe that need your software now, and book the calls.</h1>
+  <p class="lede">We track public signals in company registers and job boards, Germany and France first. For your software, we find the companies showing the signal right now, write to them in your name, and put the calls in your calendar.</p>
+  <div class="cta-row"><a class="btn" href="#enquiry">Get a free sample</a><a class="btn ghost" href="services/">How the pilot works</a></div>
+  <p class="after">$500 for a 30-day pilot, then $200 for each call that actually happens.</p>
 </div></section>
 
-<section class="sec band" id="own"><div class="wrap center">
-  <p class="own">You own the repository: the list, the evidence, the kill list, every message, every reply, the rules.</p>
-  <p class="after">Plain text in a git repository, readable without us. <a href="engagement/">An engagement, step by step<span aria-hidden="true"> &rarr;</span></a></p>
+<section class="sec band" id="signals"><div class="wrap center">
+  <p class="own">Your next clients already show it in public: a developer role open for months, a job ad for an office assistant, a team that just moved into the next size band in the company register.</p>
+  <p class="after">We pick the signal that fits what you sell, then find the companies showing it this week. <a href="services/#signals">The signals we track<span aria-hidden="true"> &rarr;</span></a></p>
 </div></section>
 
 <section class="sec" id="how"><div class="wrap">
   <div class="head">
-    <h2>Market, message, sending, first customers.</h2>
-    <p class="intro">In that order, and the order is the whole method.</p>
+    <h2>How it works.</h2>
+    <p class="intro">Three steps. You see the sample before you pay anything.</p>
   </div>
   <ol class="rows steps">
-    <li><span class="row-k"><span class="num">01</span><h3>Market</h3></span><p>We choose the first market and who in it can sign.</p></li>
-    <li><span class="row-k"><span class="num">02</span><h3>Message</h3></span><p>What to say, taken from who has the problem rather than from what the product does.</p></li>
-    <li><span class="row-k"><span class="num">03</span><h3>Sending</h3></span><p>One note per name, carrying its source quote. You press Send, from your own account.</p></li>
-    <li><span class="row-k"><span class="num">04</span><h3>First customers</h3></span><p>The pilot offer, and the replies worked together.</p></li>
+    <li><span class="row-k"><span class="num">01</span><h3>Tell us what you sell</h3></span><p>What you sell, who buys it, and the countries you want clients in.</p></li>
+    <li><span class="row-k"><span class="num">02</span><h3>Free sample</h3></span><p>Companies showing the signal now, each with the evidence and a link to it.</p></li>
+    <li><span class="row-k"><span class="num">03</span><h3>Pilot</h3></span><p>We write to them in your name and put the calls in your calendar. You run the calls and you sell.</p></li>
   </ol>
-  <p class="after center">Measured by replies, pilots proposed, and the reason for every no. No meetings are guaranteed.</p>
-  <p class="after center"><a href="services/">Everything we do, and what we refuse<span aria-hidden="true"> &rarr;</span></a></p>
-</div></section>
-
-<section class="sec" id="about"><div class="wrap">
-  <div class="head left">
-    <h2>Vurell takes technical founders who have never sold into their first market: who to sell to there, what to say to them, and the sending.</h2>
-  </div>
-  <div class="mine"><p class="kind">The founder</p><p>Two years in sales. Before that, a manufacturer that needed a new market, and I helped it enter.</p><p><a href="proof/">That market, in full<span aria-hidden="true"> &rarr;</span></a></p></div>
+  <p class="after center">You pay for calls that happen. We never promise that a company will buy.</p>
+  <p class="after center"><a href="services/">What the pilot includes<span aria-hidden="true"> &rarr;</span></a></p>
 </div></section>
 
 <section class="sec" id="pricing"><div class="wrap">
   <div class="head">
-    <h2 id="ladder">Four rungs.</h2>
-    <p class="intro">Fixed scope at every rung.</p>
+    <h2 id="ladder">Pricing.</h2>
+    <p class="intro">One pilot, priced on the page.</p>
   </div>
   <ol class="rows ladder">
     <li>
-      <span class="rung">Rung 0 &middot; Self-serve</span>
-      <p class="name"><a href="count/">Who could sign</a></p>
+      <span class="rung">Before you pay</span>
+      <p class="name">Sample list</p>
       <p class="price"><b>Free</b></p>
-      <p class="scope">You get the number who could sign without asking anybody, and a verdict per row.</p>
+      <p class="scope">Companies showing the signal for what you sell, each with the evidence and a link. No call needed.</p>
     </li>
     <li>
-      <span class="rung">Rung 1 &middot; Five working days</span>
-      <p class="name">Who has it now.</p>
-      <p class="price"><b>$600</b> founding rate, first three clients. $1,500 list.</p>
-      <p class="scope">We find the people in your market who have the problem this month, with the line that shows it.</p>
+      <span class="rung">30 days</span>
+      <p class="name">Pilot</p>
+      <p class="price"><b>$500</b> up front</p>
+      <p class="scope">The signal picked for your product, the companies found, a four-step email sequence written and sent in your name, replies handled, calls booked into your calendar.</p>
     </li>
     <li>
-      <span class="rung">Rung 2 &middot; Four weeks</span>
-      <p class="name">Twenty conversations.</p>
-      <p class="price"><b>$1,200</b> founding rate, first three clients. $2,400 list.</p>
-      <p class="scope">Twenty named people, a note each carrying its source quote. You press Send. We work the replies with you up to the pilot ask. Measured by replies, pilots proposed, and the reason for every no. No meetings are guaranteed.</p>
-    </li>
-    <li>
-      <span class="rung">Rung 3 &middot; Two weeks</span>
-      <p class="name">Pilot.</p>
-      <p class="scope">Two weeks, manual, fixed scope. The message that proposes it.</p>
+      <span class="rung">Per call</span>
+      <p class="name">Held call</p>
+      <p class="price"><b>$200</b> per call</p>
+      <p class="scope">Billed only when the call happens, with a company that fits the criteria we agree in writing before the start.</p>
     </li>
   </ol>
-  <p class="after center">You see the first draft before committing to anything.</p>
-  <p class="after center">Separate fixed-price lines: pitch deck, one-pager, CRM setup. <a href="services/">Everything we do<span aria-hidden="true"> &rarr;</span></a></p>
+  <p class="after center">A call that is booked and does not happen costs nothing.</p>
 </div></section>
 
-<section class="sec" id="reads"><div class="wrap">
-  <div class="head wide">
-    <h2>Three public reads. One campaign, two landing pages.</h2>
+<section class="sec" id="about"><div class="wrap">
+  <div class="head left">
+    <h2>Vurell books sales calls for software companies with the companies in Europe that need what they build right now.</h2>
   </div>
-  <ul class="rows pub">
-    <li><a href="https://www.linkedin.com/pulse/800-cold-emails-400-opens-zero-replies-copy-problem-sabelnykov-xbuve/">800 cold emails, 400 opens, zero replies. The copy was not the problem.</a><span class="go">LinkedIn &rarr;</span></li>
-    <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749593793880064/">Covera, AI agents for insurance brokers.</a><span class="go">LinkedIn &rarr;</span></li>
-    <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7502749779647721472/">Forward, private credit origination.</a><span class="go">LinkedIn &rarr;</span></li>
-  </ul>
+  <div class="mine"><p class="kind">The founder</p><p>Two years in sales. Before that, a manufacturer that needed a new market, and I helped it enter.</p><p><a href="proof/">That market, in full<span aria-hidden="true"> &rarr;</span></a></p></div>
 </div></section>
 
 <section class="sec" id="faq"><div class="wrap">
   <div class="head">
-    <h2>Four questions.</h2>
+    <h2>Questions.</h2>
   </div>
   <div class="faq">
-    <details><summary>What does the count not know?</summary><div class="a">This is a title read, not a person read. It reads the words you pasted and nothing else. The paid rung reads the person: the profile, the company page and the last things they wrote, under written gates, with the quoted line that decided it.</div></details>
-    <details><summary>Does anything I paste leave the browser?</summary><div class="a">Not from the count. It runs in your browser: nothing you type into it leaves it, nothing is stored. The form at the foot of this page is separate, and sends only when you press Send.</div></details>
-    <details><summary>Who presses Send?</summary><div class="a">Twenty named people, a note each carrying its source quote. You press Send. We work the replies with you up to the pilot ask.</div></details>
-    <details><summary>Do you promise meetings?</summary><div class="a">No meetings are guaranteed. Measured by replies, pilots proposed, and the reason for every no.</div></details>
+    <details><summary>What counts as a call?</summary><div class="a">A call that took place with a company that fits the criteria we agree in writing before the pilot starts: the company size, the country, and the role of the person on the call. A call that is booked and does not happen is not billed.</div></details>
+    <details><summary>How much does it cost?</summary><div class="a">$500 up front for a 30-day pilot, then $200 for each held call. The sample list before it is free.</div></details>
+    <details><summary>Which markets do you cover?</summary><div class="a">Germany and France first, through their public company registers and job boards. More of Europe next.</div></details>
+    <details><summary>Who sends the emails?</summary><div class="a">We do, in your name, from two secondary domains you own. They cost about €20. You hold every account and every password.</div></details>
+    <details><summary>Who runs the calls?</summary><div class="a">You do. We find the companies, write to them and book the calls. You sell. We never promise that a company will buy.</div></details>
+    <details><summary>What if no calls happen?</summary><div class="a">Then you pay the $500 and nothing more. You keep the company list, the messages and every reply.</div></details>
+    <details><summary>Who is it for?</summary><div class="a">Software companies with 5 to 100 people where the founder still sells: development studios, SaaS and custom software, from any country.</div></details>
   </div>
 </div></section>
 
 <section class="sec" id="for" style="padding-top:0"><div class="wrap"><div class="cta">
-  <h2>This is for founders who shipped something good and have never sold anything.</h2>
-  <div class="cta-row"><a class="btn white" href="count/">Count your last twenty</a></div>
+  <h2>Tell us what you sell. We send a free sample.</h2>
   <form class="enq" id="enquiry" name="enquiry" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="enquiry">
     <p class="hp" hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-    <h3>Write to us</h3>
+    <h3>Get a free sample</h3>
     <p class="enq-note">This sends your message to us at miro@vurell.com. We answer within one working day.</p>
     <div class="enq-grid">
       <p class="fld"><label for="enq-name">Name</label><input id="enq-name" name="name" type="text" autocomplete="name" required></p>
       <p class="fld"><label for="enq-company">Company</label><input id="enq-company" name="company" type="text" autocomplete="organization" required></p>
       <p class="fld wide"><label for="enq-email">Email</label><input id="enq-email" name="email" type="email" autocomplete="email" required></p>
-      <p class="fld wide"><label for="enq-titles">Titles of your last twenty prospects (optional)</label><textarea id="enq-titles" name="titles" rows="3" spellcheck="false" placeholder="One per line: title, company, no names" aria-describedby="enq-titles-hint"></textarea><span class="hint" id="enq-titles-hint">Sent with your message.</span></p>
+      <p class="fld wide"><label for="enq-sell">What you sell, and who buys it</label><textarea id="enq-sell" name="sell" rows="3" placeholder="Custom software for logistics firms, 20 to 200 people, Germany" aria-describedby="enq-sell-hint"></textarea><span class="hint" id="enq-sell-hint">Sent with your message.</span></p>
     </div>
     <div class="enq-foot">
-      <p class="enq-alt">Or write from your own mail: <a href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">miro@vurell.com</a></p>
+      <p class="enq-alt">Or write from your own mail: <a href="mailto:miro@vurell.com?subject=Free%20sample">miro@vurell.com</a></p>
       <button class="btn" type="submit">Send</button>
     </div>
   </form>
@@ -320,39 +301,19 @@ p:last-child{margin-bottom:0}
 
 <footer class="foot"><div class="foot-card">
   <div class="foot-top">
-    <div class="foot-id"><a class="brand" href="./" aria-label="Vurell"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-372.7 -852.0 2977.2 937.2" aria-hidden="true" focusable="false"><path d="M-226.9 -459.2 L0.0 -66.2" stroke="currentColor" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M0.0 -66.2 L431.7 -706.2" stroke="var(--accent, #2F5BFF)" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M728.56 12.0Q647.16 12.0 600.06 -41.5Q552.96 -95.0 552.96 -190.20V-534.00H680.96V-221.60Q680.96 -154.60 703.06 -123.30Q725.16 -92.00 771.36 -92.00Q823.16 -92.00 851.96 -126.50Q880.76 -161.00 880.76 -226.80V-534.00H1008.76V0.0H891.16L888.36 -146.60L904.96 -141.60Q892.16 -66.20 847.16 -27.10Q802.16 12.0 728.56 12.0Z M1114.96 0.0V-534.00H1234.56L1239.36 -385.59L1228.96 -388.19Q1240.96 -464.99 1274.26 -499.50Q1307.56 -534.00 1365.16 -534.00H1414.76V-424.39H1364.96Q1323.76 -424.39 1296.86 -412.29Q1269.96 -400.19 1256.46 -374.69Q1242.96 -349.19 1242.96 -307.59V0.0Z M1719.16 12.0Q1639.36 12.0 1580.66 -22.40Q1521.96 -56.80 1489.86 -119.70Q1457.76 -182.60 1457.76 -267.00Q1457.76 -351.40 1489.86 -413.80Q1521.96 -476.20 1580.06 -511.10Q1638.16 -546.00 1716.76 -546.00Q1792.96 -546.00 1850.16 -511.90Q1907.36 -477.80 1938.66 -413.79Q1969.96 -349.79 1969.96 -259.99V-231.39H1590.56Q1594.36 -160.80 1628.86 -125.60Q1663.36 -90.40 1720.76 -90.40Q1763.56 -90.40 1791.86 -109.50Q1820.16 -128.60 1831.56 -163.80L1962.36 -155.60Q1940.96 -78.19 1876.26 -33.09Q1811.56 12.0 1719.16 12.0ZM1590.56 -317.40H1837.16Q1833.16 -382.39 1800.46 -413.79Q1767.76 -445.19 1716.76 -445.19Q1665.36 -445.19 1631.86 -412.29Q1598.36 -379.39 1590.56 -317.40Z M2172.96 0.0Q2114.16 0.0 2079.56 -30.00Q2044.96 -60.00 2044.96 -126.40V-710.0H2172.96V-139.40Q2172.96 -118.60 2183.26 -108.90Q2193.56 -99.20 2212.76 -99.20H2251.96V0.0Z M2434.96 0.0Q2376.16 0.0 2341.56 -30.00Q2306.96 -60.00 2306.96 -126.40V-710.0H2434.96V-139.40Q2434.96 -118.60 2445.26 -108.90Q2455.56 -99.20 2474.76 -99.20H2513.96V0.0Z" fill="currentColor"/></svg></a><p>Vurell is a go-to-market agency for technical founders.</p></div>
+    <div class="foot-id"><a class="brand" href="./" aria-label="Vurell"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-372.7 -852.0 2977.2 937.2" aria-hidden="true" focusable="false"><path d="M-226.9 -459.2 L0.0 -66.2" stroke="currentColor" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M0.0 -66.2 L431.7 -706.2" stroke="var(--accent, #2F5BFF)" stroke-width="149.5" stroke-linecap="round" fill="none"/><path d="M728.56 12.0Q647.16 12.0 600.06 -41.5Q552.96 -95.0 552.96 -190.20V-534.00H680.96V-221.60Q680.96 -154.60 703.06 -123.30Q725.16 -92.00 771.36 -92.00Q823.16 -92.00 851.96 -126.50Q880.76 -161.00 880.76 -226.80V-534.00H1008.76V0.0H891.16L888.36 -146.60L904.96 -141.60Q892.16 -66.20 847.16 -27.10Q802.16 12.0 728.56 12.0Z M1114.96 0.0V-534.00H1234.56L1239.36 -385.59L1228.96 -388.19Q1240.96 -464.99 1274.26 -499.50Q1307.56 -534.00 1365.16 -534.00H1414.76V-424.39H1364.96Q1323.76 -424.39 1296.86 -412.29Q1269.96 -400.19 1256.46 -374.69Q1242.96 -349.19 1242.96 -307.59V0.0Z M1719.16 12.0Q1639.36 12.0 1580.66 -22.40Q1521.96 -56.80 1489.86 -119.70Q1457.76 -182.60 1457.76 -267.00Q1457.76 -351.40 1489.86 -413.80Q1521.96 -476.20 1580.06 -511.10Q1638.16 -546.00 1716.76 -546.00Q1792.96 -546.00 1850.16 -511.90Q1907.36 -477.80 1938.66 -413.79Q1969.96 -349.79 1969.96 -259.99V-231.39H1590.56Q1594.36 -160.80 1628.86 -125.60Q1663.36 -90.40 1720.76 -90.40Q1763.56 -90.40 1791.86 -109.50Q1820.16 -128.60 1831.56 -163.80L1962.36 -155.60Q1940.96 -78.19 1876.26 -33.09Q1811.56 12.0 1719.16 12.0ZM1590.56 -317.40H1837.16Q1833.16 -382.39 1800.46 -413.79Q1767.76 -445.19 1716.76 -445.19Q1665.36 -445.19 1631.86 -412.29Q1598.36 -379.39 1590.56 -317.40Z M2172.96 0.0Q2114.16 0.0 2079.56 -30.00Q2044.96 -60.00 2044.96 -126.40V-710.0H2172.96V-139.40Q2172.96 -118.60 2183.26 -108.90Q2193.56 -99.20 2212.76 -99.20H2251.96V0.0Z M2434.96 0.0Q2376.16 0.0 2341.56 -30.00Q2306.96 -60.00 2306.96 -126.40V-710.0H2434.96V-139.40Q2434.96 -118.60 2445.26 -108.90Q2455.56 -99.20 2474.76 -99.20H2513.96V0.0Z" fill="currentColor"/></svg></a><p>GTM for software companies. Calls with the companies in Europe that need your software now.</p></div>
     <nav class="foot-cols" aria-label="Footer">
-      <div><p>Site</p><ul><li><a href="#about">About</a></li><li><a href="services/">Services</a></li><li><a href="#how">How we work</a></li><li><a href="#pricing">Pricing</a></li><li><a href="reads/">Reads</a></li><li><a href="#enquiry">Get in touch</a></li></ul></div>
-      <div><p>Free checks</p><ul><li><a href="count/">The count</a></li><li><a href="message/">Message check</a></li></ul></div>
-      <div><p>Documents</p><ul><li><a href="engagement/">An engagement</a></li><li><a href="one-pager/">One-pager</a></li></ul></div>
+      <div><p>Site</p><ul><li><a href="#how">How it works</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li><li><a href="#enquiry">Get in touch</a></li></ul></div>
+      <div><p>Pages</p><ul><li><a href="services/">The pilot</a></li><li><a href="services/#signals">Signals we track</a></li><li><a href="proof/">Case: Czech exhibition stands</a></li></ul></div>
     </nav>
   </div>
   <div class="legal">
-  <p>Vurell. Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France. <a href="mailto:miro@vurell.com?subject=Who%20has%20it%20now">miro@vurell.com</a>. Every message read by a person before it goes.</p>
+  <p>Vurell. Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France. <a href="mailto:miro@vurell.com?subject=Free%20sample">miro@vurell.com</a>. Every message read by a person before it goes.</p>
   <p>If I wrote to you and you want it to stop, reply stop and I delete the record.</p>
   <!-- cf-analytics:begin --><p>We count visits with Cloudflare Web Analytics, which sets no cookie and stores no personal data.</p><!-- cf-analytics:end -->
   </div>
 </div></footer>
 
-<script>
-/* The box hands the pasted lines to the count page in the URL fragment. A
-   fragment is never sent to a server; the count page reads it once and takes
-   it out of the address bar. An empty box is a plain link to the count page. */
-(function () {
-  var box = document.getElementById('ask-lines'), go = document.getElementById('ask-go');
-  if (!box || !go) return;
-  function hand(e) {
-    var v = box.value.replace(/\r\n?/g, '\n').trim();
-    if (!v) return;
-    if (e) e.preventDefault();
-    location.href = go.href.split('#')[0] + '#lines=' + encodeURIComponent(v);
-  }
-  go.addEventListener('click', hand);
-  box.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); if (box.value.trim()) hand(); else location.href = go.href; }
-  });
-})();
-</script>
 <!-- cf-analytics:begin --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "744f39a0b63f40a8b18557f28e134386"}'></script><!-- cf-analytics:end -->
 </body>
 </html>

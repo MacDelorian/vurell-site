@@ -1,0 +1,18 @@
+# Netlify redirects for vurell.com (rewritten 2026-10-16 with the SEO pass).
+# The apex https://vurell.com/ is the primary domain. The old rule sent the apex to www, and www has
+# no DNS record (#26), so it must never come back. Once the www CNAME exists, Netlify itself sends
+# www to the primary domain.
+#
+# The pages of the earlier offer (the count, the message check, the reads, the illustrative
+# engagement, the one-pager) were retired on 2026-10-16; old links from posts and DMs land on the
+# home page. "!" forces the rule even if an old file is still in the publish folder.
+/count     /  301!
+/count/*   /  301!
+/message   /  301!
+/message/* /  301!
+/reads     /  301!
+/reads/*   /  301!
+/engagement   /  301!
+/engagement/* /  301!
+/one-pager    /  301!
+/one-pager/*  /  301!
