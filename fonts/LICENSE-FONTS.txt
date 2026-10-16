@@ -1,1 +1,2 @@
 Geist and Geist Mono, variable weight, latin subset, SIL Open Font License 1.1 (Vercel). Downloaded from Google Fonts 2026-09-15 for self-hosting; the site makes no request to a font host.
+Source Serif 4 Regular (400), latin subset, SIL Open Font License 1.1. Copyright 2014-2021 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name 'Source'. Taken from the @fontsource/source-serif-4 5.2.9 package 2026-10-16 for self-hosting; the site makes no request to a font host.
