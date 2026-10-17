@@ -16,3 +16,10 @@
 /engagement/* /  301!
 /one-pager    /  301!
 /one-pager/*  /  301!
+
+# The domain's previous owner ran a watch shop on it, and Bing still lists its URLs (audit of
+# 2026-10-17). 410 Gone tells crawlers they will not come back; the body is our 404 page.
+/products      /404.html  410
+/products/*    /404.html  410
+/collections   /404.html  410
+/collections/* /404.html  410

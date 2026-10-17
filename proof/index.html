@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://vurell.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Vurell: calls with the companies in Europe that need your software now.">
+<meta property="og:image:alt" content="Vurell: calls with the companies in Europe that need what you build now.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FAFAF9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0B0C0E" media="(prefers-color-scheme: dark)">
@@ -29,7 +29,7 @@
 @font-face{font-family:"Geist Mono";src:url("../fonts/geist-mono-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 @font-face{font-family:"Source Serif 4";src:url("../fonts/source-serif-4-latin-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
 
-/* ---- tokens: the Aetherfield look (2026-10-16), the same on every page. Light is the design, dark
+/* ---- tokens: generated from shared/brand/tokens.json by site_css.py. Light is the design, dark
    follows the same names. Sky in the hero, sand and hatch bands, a sun-yellow footer. No motion. ---- */
 :root{color-scheme:light;--ground:#FFFFFF;--ink:#000000;--muted:#5F5F5F;--accent:#2F5BFF;--card:#FFFFFF;--rule:#DCE1EA;--panel:#F6F8FB;--hatch:#DAE9F9;--sky-a:#A8D3FF;--sky-b:#FFF4DF;--sand:#EEE9D6;--sand-hi:#FFFFFF;--blue:#2683EB;--sun:#FFF546;--olive:#66640F;--alone:#9B2C2C;--btn:#000000;--btn-fg:#FFFFFF;--sans:"Geist",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--serif:"Source Serif 4",Georgia,"Times New Roman",serif;--mono:"Geist Mono","SF Mono","Cascadia Code",Consolas,"Liberation Mono",monospace;--gut:20px;--max:1280px;--sec:clamp(3.5rem,2rem + 4.5vw,6.5rem)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){color-scheme:dark;--ground:#0A0D12;--ink:#F2F3F5;--muted:#A6ACB6;--accent:#7C9BFF;--card:#141920;--rule:#262C35;--panel:#10141A;--hatch:#1A2330;--sky-a:#0F2747;--sky-b:#1C1A12;--sand:#17160F;--sand-hi:rgba(255,246,214,.13);--blue:#3B8DF0;--alone:#E39C9C;--btn:#F2F3F5;--btn-fg:#0A0D12}}
@@ -142,7 +142,7 @@ footer p{margin:0 0 .4rem;max-width:62rem}
 .foot-nav a:hover{text-decoration:underline}
 footer .foot-tex{margin-top:1.25rem}
 
-/* ---- layout steps: 810 tablet, 1200 desktop (the template's two breakpoints) ---- */
+/* ---- layout steps: 810px tablet, 1200px desktop (the template's two breakpoints) ---- */
 @media (min-width:810px){:root{--gut:40px}}
 @media (min-width:1200px){:root{--gut:80px}}
 @media (max-width:1199px){.links,.top-cta{display:none}.menu{display:block}.top-in{grid-template-columns:1fr auto}}
