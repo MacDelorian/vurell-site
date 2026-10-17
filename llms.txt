@@ -1,6 +1,6 @@
 # Vurell
 
-> Vurell is a go-to-market (GTM) service for software companies. It finds the companies in Europe that need what a client builds right now, through public signals in company registers and job boards (Germany and France first), writes to them in the client's name, follows up by phone, and runs the first call itself (English, French or Ukrainian). The companies that are ready are handed to the client's team with notes, and the client sells. Price: $500 for a 30-day pilot, then $300 for each qualified lead handed over.
+> Vurell is a go-to-market (GTM) service for software companies. It finds the companies in Europe that need what a client builds right now, through public signals in company registers and job boards (Germany and France first), writes to them in the client's name, follows up by phone, and runs the first call itself (English, French or Ukrainian). The companies that are ready are handed to the client's team with notes, and the client sells. Price: $500 for a 30-day pilot, then $300 for each qualified lead handed over. Founding terms: the first 3 clients pay $0 up front (then $300 per qualified lead), in exchange for a written review; 3 of 3 places left as of 2026-10-17.
 
 Vurell is run by Myroslav Sabelnykov, a registered French sole trader (76 rue Pierre Julien, 26200 Montélimar, France). Contact: miro@vurell.com.
 
