@@ -17,6 +17,10 @@
 /one-pager    /  301!
 /one-pager/*  /  301!
 
+# GTM OS was closed on 2026-11-03; its page came off the site on 2026-11-16.
+/gtm-os    /  301!
+/gtm-os/*  /  301!
+
 # The domain's previous owner ran a watch shop on it, and Bing still lists its URLs (audit of
 # 2026-10-17). 410 Gone tells crawlers they will not come back; the body is our 404 page.
 /products      /404.html  410

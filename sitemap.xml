@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://vurell.com/</loc><lastmod>2026-10-16</lastmod></url>
-  <url><loc>https://vurell.com/services/</loc><lastmod>2026-10-16</lastmod></url>
+  <url><loc>https://vurell.com/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://vurell.com/services/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://vurell.com/sprint/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://vurell.com/roi/</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://vurell.com/data/developer-hiring-germany/</loc><lastmod>2026-10-16</lastmod></url>
-  <url><loc>https://vurell.com/proof/</loc><lastmod>2026-10-16</lastmod></url>
-  <url><loc>https://vurell.com/gtm-os/</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://vurell.com/proof/</loc><lastmod>2026-11-16</lastmod></url>
 </urlset>
