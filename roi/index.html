@@ -206,6 +206,9 @@ footer .foot-tex{margin-top:1.25rem}
 .enq-alt{margin:0;font-size:.875rem;color:var(--muted)}
 
 #calculator .enq{margin-top:0}
+.roi-check{margin:1.25rem 0 0;font-family:var(--mono);font-size:.8125rem;line-height:1.45;color:var(--ink)}
+.roi-check label{display:flex;gap:.6rem;align-items:flex-start;cursor:pointer}
+.roi-check input{margin:.15rem 0 0;width:1rem;height:1rem;flex:none;accent-color:var(--accent)}
 .roi-out{display:grid;gap:12px;grid-template-columns:minmax(0,1fr);margin:1.75rem 0 0}
 .roi-out div{padding:1rem 1.1rem;border:1px solid var(--rule);border-radius:10px;background:var(--ground)}
 .roi-out dt{font-family:var(--mono);font-size:.8125rem;color:var(--muted)}
@@ -246,8 +249,9 @@ footer .foot-tex{margin-top:1.25rem}
       <p class="fld"><label for="share">Leads that become a deal, %</label><input id="share" name="share" type="number" inputmode="decimal" min="0" max="100" step="any" value="10"><span class="hint">Assumption. Change it.</span></p>
       <p class="fld"><label for="leads">Qualified leads in the month</label><input id="leads" name="leads" type="number" inputmode="numeric" min="0" step="1" value="4"><span class="hint">Assumption. Change it.</span></p>
     </div>
+    <p class="roi-check"><label><input id="sprint" name="sprint" type="checkbox"> I paid for the Sprint and the pilot starts within 30 days of its handover ($350 credited)</label></p>
     <dl class="roi-out" aria-live="polite">
-      <div><dt>Cost of the month</dt><dd id="o-cost">$1,700</dd><dd class="roi-how">$500 for the pilot plus $300 for each qualified lead</dd></div>
+      <div><dt>Cost of the month</dt><dd id="o-cost">$1,700</dd><dd class="roi-how" data-how="cost">$500 for the pilot plus $300 for each qualified lead</dd></div>
       <div><dt>Expected deals</dt><dd id="o-deals">0.4</dd><dd class="roi-how">Leads times the share that become a deal</dd></div>
       <div><dt>Expected revenue</dt><dd id="o-rev">$4,000</dd><dd class="roi-how">Expected deals times the deal value</dd></div>
       <div><dt>Deals needed to cover the month</dt><dd id="o-cover">0.17</dd><dd class="roi-how">Cost of the month divided by the deal value</dd></div>
@@ -276,7 +280,9 @@ footer .foot-tex{margin-top:1.25rem}
     var deal = val("deal"), share = val("share"), leads = val("leads");
     if (share !== null && share > 100) share = 100;
     if (leads !== null) leads = Math.floor(leads);
-    var cost = leads === null ? null : 500 + 300 * leads;
+    var credit = $("sprint").checked ? 350 : 0;
+    var cost = leads === null ? null : Math.max(0, 500 - credit) + 300 * leads;
+    document.querySelector("[data-how=cost]").textContent = credit ? "$500 for the pilot minus the $350 Sprint credit, plus $300 for each qualified lead" : "$500 for the pilot plus $300 for each qualified lead";
     var deals = (leads === null || share === null) ? null : leads * share / 100;
     $("o-cost").textContent = cost === null ? "Enter the leads" : money(cost);
     $("o-deals").textContent = deals === null ? "Enter the leads and the share" : (Math.round(deals * 10) / 10).toString();
@@ -284,7 +290,7 @@ footer .foot-tex{margin-top:1.25rem}
     $("o-cover").textContent = (cost === null || deal === null) ? "Enter the deal value and the leads"
       : deal === 0 ? "No deal value, no cover" : (Math.round(cost / deal * 100) / 100).toString();
   }
-  ["deal", "share", "leads"].forEach(function (id) { $(id).addEventListener("input", upd); });
+  ["deal", "share", "leads", "sprint"].forEach(function (id) { $(id).addEventListener("input", upd); $(id).addEventListener("change", upd); });
   upd();
 })();
 </script>
@@ -292,7 +298,7 @@ footer .foot-tex{margin-top:1.25rem}
 </main>
 
 <footer><div class="wrap">
-  <nav class="foot-nav" aria-label="Footer"><a href="../#how">How it works</a><a href="../#pricing">Pricing</a><a href="../services/">The pilot</a><a href="../sprint/">The sprint</a><a href="../services/#signals">Signals we track</a><a href="../proof/">Case</a><a href="../#about">About</a><a href="../data/developer-hiring-germany/">Data: developer hiring in Germany</a><a href="../#enquiry">Get in touch</a></nav>
+  <nav class="foot-nav" aria-label="Footer"><a href="../#how">How it works</a><a href="../#pricing">Pricing</a><a href="../services/">The pilot</a><a href="../sprint/">The sprint</a><a href="./">ROI calculator</a><a href="../services/#signals">Signals we track</a><a href="../proof/">Case</a><a href="../#about">About</a><a href="../data/developer-hiring-germany/">Data: developer hiring in Germany</a><a href="../#enquiry">Get in touch</a></nav>
   <p>Vurell. Myroslav Sabelnykov, registered French sole trader. 76 rue Pierre Julien, 26200 Montélimar, France. <a href="mailto:miro@vurell.com?subject=Free%20sample">miro@vurell.com</a>. Every message read by a person before it goes.</p>
   <p>If I wrote to you and you want it to stop, reply stop and I delete the record.</p>
   <!-- cf-analytics:begin --><p>We count visits with Cloudflare Web Analytics, which sets no cookie and stores no personal data.</p><!-- cf-analytics:end -->

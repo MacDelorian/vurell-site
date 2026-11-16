@@ -1,0 +1,211 @@
+{
+  "as_of": "2026-11-16",
+  "source": "Bundesagentur fuer Arbeit, Jobsuche API (rest.arbeitsagentur.de, jobsuche-service v6)",
+  "stacks": [
+    "React",
+    "Angular",
+    "Node.js",
+    "Java",
+    "Python",
+    ".NET",
+    "PHP",
+    "Flutter"
+  ],
+  "raw_results_per_stack": {
+    "React": 219,
+    "Angular": 223,
+    "Node.js": 94,
+    "Java": 817,
+    "Python": 1475,
+    ".NET": 1902,
+    "PHP": 1388,
+    "Flutter": 23
+  },
+  "excluded_software_postings": {
+    "agency": 61,
+    "large": 202
+  },
+  "overall": {
+    "postings": 1561,
+    "open_30_plus": 1066,
+    "share_30_plus": 68.3,
+    "open_90_plus": 674,
+    "share_90_plus": 43.2,
+    "median_days_open": 68,
+    "employers": 904,
+    "employers_30_plus": 640,
+    "employers_2_plus_long": 167
+  },
+  "per_stack": {
+    "React": {
+      "postings": 166,
+      "open_30_plus": 124,
+      "share_30_plus": 74.7,
+      "open_90_plus": 81,
+      "share_90_plus": 48.8,
+      "median_days_open": 87.5,
+      "employers": 133,
+      "employers_30_plus": 101,
+      "employers_2_plus_long": 13
+    },
+    "Angular": {
+      "postings": 184,
+      "open_30_plus": 137,
+      "share_30_plus": 74.5,
+      "open_90_plus": 108,
+      "share_90_plus": 58.7,
+      "median_days_open": 111.5,
+      "employers": 124,
+      "employers_30_plus": 93,
+      "employers_2_plus_long": 27
+    },
+    "Node.js": {
+      "postings": 80,
+      "open_30_plus": 65,
+      "share_30_plus": 81.2,
+      "open_90_plus": 34,
+      "share_90_plus": 42.5,
+      "median_days_open": 63.0,
+      "employers": 70,
+      "employers_30_plus": 58,
+      "employers_2_plus_long": 6
+    },
+    "Java": {
+      "postings": 534,
+      "open_30_plus": 382,
+      "share_30_plus": 71.5,
+      "open_90_plus": 262,
+      "share_90_plus": 49.1,
+      "median_days_open": 87.5,
+      "employers": 315,
+      "employers_30_plus": 229,
+      "employers_2_plus_long": 62
+    },
+    "Python": {
+      "postings": 657,
+      "open_30_plus": 446,
+      "share_30_plus": 67.9,
+      "open_90_plus": 268,
+      "share_90_plus": 40.8,
+      "median_days_open": 63,
+      "employers": 400,
+      "employers_30_plus": 286,
+      "employers_2_plus_long": 68
+    },
+    ".NET": {
+      "postings": 323,
+      "open_30_plus": 219,
+      "share_30_plus": 67.8,
+      "open_90_plus": 139,
+      "share_90_plus": 43.0,
+      "median_days_open": 69,
+      "employers": 246,
+      "employers_30_plus": 169,
+      "employers_2_plus_long": 34
+    },
+    "PHP": {
+      "postings": 189,
+      "open_30_plus": 143,
+      "share_30_plus": 75.7,
+      "open_90_plus": 101,
+      "share_90_plus": 53.4,
+      "median_days_open": 119,
+      "employers": 149,
+      "employers_30_plus": 117,
+      "employers_2_plus_long": 18
+    },
+    "Flutter": {
+      "postings": 22,
+      "open_30_plus": 16,
+      "share_30_plus": 72.7,
+      "open_90_plus": 12,
+      "share_90_plus": 54.5,
+      "median_days_open": 100.5,
+      "employers": 13,
+      "employers_30_plus": 10,
+      "employers_2_plus_long": 4
+    }
+  },
+  "age_buckets_30_plus": {
+    "30-59": 236,
+    "60-89": 156,
+    "90-179": 257,
+    "180+": 417
+  },
+  "top_regions_30_plus": [
+    [
+      "BAYERN",
+      236
+    ],
+    [
+      "NORDRHEIN_WESTFALEN",
+      216
+    ],
+    [
+      "BADEN_WUERTTEMBERG",
+      174
+    ],
+    [
+      "NIEDERSACHSEN",
+      85
+    ],
+    [
+      "HESSEN",
+      69
+    ],
+    [
+      "SACHSEN",
+      63
+    ],
+    [
+      "BERLIN",
+      54
+    ],
+    [
+      "HAMBURG",
+      32
+    ]
+  ],
+  "top_cities_30_plus": [
+    [
+      "Berlin",
+      54
+    ],
+    [
+      "München",
+      36
+    ],
+    [
+      "Stuttgart",
+      33
+    ],
+    [
+      "Köln",
+      33
+    ],
+    [
+      "Hamburg",
+      32
+    ],
+    [
+      "Dresden",
+      31
+    ],
+    [
+      "Hannover",
+      27
+    ],
+    [
+      "Nürnberg, Mittelfranken",
+      21
+    ],
+    [
+      "Leipzig",
+      19
+    ],
+    [
+      "Karlsruhe, Baden",
+      19
+    ]
+  ]
+}

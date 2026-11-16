@@ -1,0 +1,211 @@
+{
+ "as_of": "2026-10-16",
+ "source": "Bundesagentur fuer Arbeit, Jobsuche API (rest.arbeitsagentur.de, jobsuche-service v6)",
+ "stacks": [
+  "React",
+  "Angular",
+  "Node.js",
+  "Java",
+  "Python",
+  ".NET",
+  "PHP",
+  "Flutter"
+ ],
+ "raw_results_per_stack": {
+  "React": 257,
+  "Angular": 247,
+  "Node.js": 101,
+  "Java": 927,
+  "Python": 1524,
+  ".NET": 1922,
+  "PHP": 1355,
+  "Flutter": 28
+ },
+ "excluded_software_postings": {
+  "agency": 75,
+  "large": 252
+ },
+ "overall": {
+  "postings": 1675,
+  "open_30_plus": 1163,
+  "share_30_plus": 69.4,
+  "open_90_plus": 685,
+  "share_90_plus": 40.9,
+  "median_days_open": 62,
+  "employers": 1012,
+  "employers_30_plus": 744,
+  "employers_2_plus_long": 169
+ },
+ "per_stack": {
+  "React": {
+   "postings": 196,
+   "open_30_plus": 140,
+   "share_30_plus": 71.4,
+   "open_90_plus": 79,
+   "share_90_plus": 40.3,
+   "median_days_open": 66.0,
+   "employers": 157,
+   "employers_30_plus": 116,
+   "employers_2_plus_long": 14
+  },
+  "Angular": {
+   "postings": 205,
+   "open_30_plus": 153,
+   "share_30_plus": 74.6,
+   "open_90_plus": 102,
+   "share_90_plus": 49.8,
+   "median_days_open": 87,
+   "employers": 143,
+   "employers_30_plus": 109,
+   "employers_2_plus_long": 25
+  },
+  "Node.js": {
+   "postings": 87,
+   "open_30_plus": 56,
+   "share_30_plus": 64.4,
+   "open_90_plus": 39,
+   "share_90_plus": 44.8,
+   "median_days_open": 63,
+   "employers": 77,
+   "employers_30_plus": 52,
+   "employers_2_plus_long": 4
+  },
+  "Java": {
+   "postings": 620,
+   "open_30_plus": 443,
+   "share_30_plus": 71.5,
+   "open_90_plus": 273,
+   "share_90_plus": 44.0,
+   "median_days_open": 65.5,
+   "employers": 394,
+   "employers_30_plus": 288,
+   "employers_2_plus_long": 67
+  },
+  "Python": {
+   "postings": 654,
+   "open_30_plus": 452,
+   "share_30_plus": 69.1,
+   "open_90_plus": 253,
+   "share_90_plus": 38.7,
+   "median_days_open": 63.0,
+   "employers": 402,
+   "employers_30_plus": 290,
+   "employers_2_plus_long": 66
+  },
+  ".NET": {
+   "postings": 343,
+   "open_30_plus": 231,
+   "share_30_plus": 67.3,
+   "open_90_plus": 144,
+   "share_90_plus": 42.0,
+   "median_days_open": 66,
+   "employers": 264,
+   "employers_30_plus": 192,
+   "employers_2_plus_long": 29
+  },
+  "PHP": {
+   "postings": 199,
+   "open_30_plus": 157,
+   "share_30_plus": 78.9,
+   "open_90_plus": 105,
+   "share_90_plus": 52.8,
+   "median_days_open": 106,
+   "employers": 168,
+   "employers_30_plus": 132,
+   "employers_2_plus_long": 17
+  },
+  "Flutter": {
+   "postings": 24,
+   "open_30_plus": 19,
+   "share_30_plus": 79.2,
+   "open_90_plus": 12,
+   "share_90_plus": 50.0,
+   "median_days_open": 101.0,
+   "employers": 16,
+   "employers_30_plus": 12,
+   "employers_2_plus_long": 4
+  }
+ },
+ "age_buckets_30_plus": {
+  "30-59": 318,
+  "60-89": 160,
+  "90-179": 285,
+  "180+": 400
+ },
+ "top_regions_30_plus": [
+  [
+   "BAYERN",
+   263
+  ],
+  [
+   "NORDRHEIN_WESTFALEN",
+   219
+  ],
+  [
+   "BADEN_WUERTTEMBERG",
+   183
+  ],
+  [
+   "NIEDERSACHSEN",
+   88
+  ],
+  [
+   "HESSEN",
+   77
+  ],
+  [
+   "SACHSEN",
+   72
+  ],
+  [
+   "HAMBURG",
+   56
+  ],
+  [
+   "BERLIN",
+   54
+  ]
+ ],
+ "top_cities_30_plus": [
+  [
+   "Hamburg",
+   56
+  ],
+  [
+   "Berlin",
+   54
+  ],
+  [
+   "München",
+   50
+  ],
+  [
+   "Dresden",
+   39
+  ],
+  [
+   "Stuttgart",
+   31
+  ],
+  [
+   "Hannover",
+   27
+  ],
+  [
+   "Köln",
+   26
+  ],
+  [
+   "Nürnberg, Mittelfranken",
+   24
+  ],
+  [
+   "Freiburg im Breisgau",
+   21
+  ],
+  [
+   "Karlsruhe, Baden",
+   20
+  ]
+ ]
+}
