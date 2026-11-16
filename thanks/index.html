@@ -88,8 +88,8 @@ p:last-child{margin-bottom:0}
 .head h2{margin-inline:auto;max-width:24ch}
 .head .intro{font-family:var(--serif);font-size:clamp(1.125rem,1rem + .4vw,1.25rem);line-height:1.3;letter-spacing:-.02em;color:var(--muted);margin:1rem auto 0;max-width:36rem}
 .center{text-align:center}
-/* panel band: a pale column the width of the grid, hatched gutters outside it */
-.tint{background:linear-gradient(var(--panel),var(--panel)) center/min(100%,var(--max)) 100% no-repeat,repeating-linear-gradient(-45deg,var(--hatch) 0 1px,transparent 1px 6px) var(--ground)}
+/* panel band: a pale column 4rem wider than the grid on each side (text never touches its edge), hatched gutters outside it */
+.tint{background:linear-gradient(var(--panel),var(--panel)) center/min(100%,calc(var(--max) + 8rem)) 100% no-repeat,repeating-linear-gradient(-45deg,var(--hatch) 0 1px,transparent 1px 6px) var(--ground)}
 /* sand band: soft light sweeps printed as a halftone */
 .sand{position:relative;isolation:isolate;background:var(--sand)}
 .sand::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(45% 35% at 22% 18%,var(--sand-hi),transparent 70%),radial-gradient(40% 30% at 82% 85%,var(--sand-hi),transparent 70%),linear-gradient(118deg,transparent 6%,var(--sand-hi) 18%,transparent 30%,transparent 44%,var(--sand-hi) 55%,transparent 66%,transparent 78%,var(--sand-hi) 88%,transparent 97%);-webkit-mask:radial-gradient(circle,#000 1.35px,transparent 1.85px) 0 0/4px 4px;mask:radial-gradient(circle,#000 1.35px,transparent 1.85px) 0 0/4px 4px}
