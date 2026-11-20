@@ -238,7 +238,7 @@ footer .foot-tex{margin-top:1.25rem}
 
 <section class="hero"><div class="wrap">
   <h1><span class="h1-b">What the pilot costs,</span> and how many deals cover it.</h1>
-  <p class="lede">Three numbers of yours. Each one is an assumption, so change it.</p>
+  <p class="lede">Three numbers of yours. Each one is an assumption, so change it. <a href="#retainer">Sales on retainer</a> has its own calculator below.</p>
 </div></section>
 
 <section class="sec sand" id="calculator"><div class="wrap">
@@ -258,6 +258,25 @@ footer .foot-tex{margin-top:1.25rem}
     </dl>
     <noscript><p class="enq-note">Without JavaScript, the example above uses the defaults: a $10,000 deal, 10% of leads becoming deals, 4 leads. The month costs $1,700, gives 0.4 expected deals and $4,000 of expected revenue, and 0.17 of one deal covers it.</p></noscript>
     <div class="enq-foot"><p class="enq-alt">Start with the <a href="../sprint/">Signal &amp; Positioning Sprint</a> and the $350 is credited to the pilot.</p></div>
+  </form>
+</div></section>
+
+<section class="sec tint" id="retainer"><div class="wrap">
+  <form class="enq" id="ret" action="#retainer" onsubmit="return false">
+    <h3>Sales on retainer: the first 3 months</h3>
+    <div class="enq-grid">
+      <p class="fld"><label for="r-deal">First-year contract value of a deal, $</label><input id="r-deal" name="r-deal" type="number" inputmode="decimal" min="0" step="any" value="10000"><span class="hint">Assumption. Change it.</span></p>
+      <p class="fld"><label for="r-deals">Deals signed in the 3 months</label><input id="r-deals" name="r-deals" type="number" inputmode="numeric" min="0" step="1" value="2"><span class="hint">Assumption. Change it.</span></p>
+    </div>
+    <p class="roi-check"><label><input id="r-saas" name="r-saas" type="checkbox"> Monthly SaaS: the fee is the customer's first monthly payment (here, the first-year value divided by 12)</label></p>
+    <dl class="roi-out" aria-live="polite">
+      <div><dt>Retainer, 3 months</dt><dd id="r-fix">$1,500</dd><dd class="roi-how">$500 a month, minimum 3 months</dd></div>
+      <div><dt>Success fee</dt><dd id="r-fee">$3,000</dd><dd class="roi-how" data-how="fee">15% of each deal under $20k, 10% from $20k</dd></div>
+      <div><dt>Total cost</dt><dd id="r-cost">$4,500</dd><dd class="roi-how">Retainer plus success fee</dd></div>
+      <div><dt>First-year revenue from those deals</dt><dd id="r-rev">$20,000</dd><dd class="roi-how" data-how="share">Cost is 23% of it</dd></div>
+    </dl>
+    <noscript><p class="enq-note">Without JavaScript, the example uses the defaults: two deals of $10,000 in the first 3 months. The retainer is $1,500, the fee $3,000, the total $4,500 against $20,000 of first-year revenue.</p></noscript>
+    <div class="enq-foot"><p class="enq-alt">It fits when you sell in the UK, the US or Ukraine, with deals from about $5k and a cycle up to about 60 days. <a href="../services/#retainer">What the retainer includes</a>.</p></div>
   </form>
 </div></section>
 
@@ -292,6 +311,25 @@ footer .foot-tex{margin-top:1.25rem}
   }
   ["deal", "share", "leads", "sprint"].forEach(function (id) { $(id).addEventListener("input", upd); $(id).addEventListener("change", upd); });
   upd();
+  // Sales on retainer (2026-11-20): $500 x 3 months + 15% of first-year value under $20k, 10% from $20k;
+  // monthly SaaS: the customer's first monthly payment instead (approximated as first-year value / 12).
+  function ret() {
+    var deal = val("r-deal"), n = val("r-deals"), saas = $("r-saas").checked;
+    if (n !== null) n = Math.floor(n);
+    var fix = 1500;
+    var per = deal === null ? null : (saas ? deal / 12 : deal * (deal < 20000 ? 0.15 : 0.10));
+    var fee = (per === null || n === null) ? null : per * n;
+    var rev = (deal === null || n === null) ? null : deal * n;
+    $("r-fix").textContent = money(fix);
+    document.querySelector("[data-how=fee]").textContent = saas ? "The customer's first monthly payment, for each deal" : "15% of each deal under $20k, 10% from $20k";
+    $("r-fee").textContent = fee === null ? "Enter the deal value and the deals" : money(fee);
+    $("r-cost").textContent = fee === null ? "Enter the deal value and the deals" : money(fix + fee);
+    $("r-rev").textContent = rev === null ? "Enter the deal value and the deals" : money(rev);
+    document.querySelector("[data-how=share]").textContent = (rev === null || fee === null) ? "Enter both numbers"
+      : rev === 0 ? "No deals yet: the cost is the retainer" : "Cost is " + Math.round((fix + fee) / rev * 100) + "% of it";
+  }
+  ["r-deal", "r-deals", "r-saas"].forEach(function (id) { $(id).addEventListener("input", ret); $(id).addEventListener("change", ret); });
+  ret();
 })();
 </script>
 
