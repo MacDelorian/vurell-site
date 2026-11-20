@@ -1,6 +1,6 @@
 # Vurell
 
-> Vurell is a go-to-market (GTM) service for software companies. It finds the companies in Europe that need what a client builds right now, through public signals in company registers and job boards (Germany and France first), writes to them in the client's name, follows up by phone, and runs the first call itself (English, French or Ukrainian). The companies that are ready are handed to the client's team with notes, and the client sells. Price: $500 for a 30-day pilot, then $300 for each qualified lead handed over.
+> Vurell is a go-to-market (GTM) service for software companies. It finds the companies in Europe that need what a client builds right now, through public signals in company registers and job boards (Germany and France first), writes to them in the client's name, follows up by phone, and runs the first call itself (English, French or Ukrainian). The companies that are ready are handed to the client's team with notes, and the client sells. Price: $500 for a 30-day pilot, then $300 for each qualified lead handed over. A second option, sales on retainer, takes the deal to signature: $500 a month (minimum 3 months) plus 15% of first-year contract value under $20k or 10% from $20k, for companies selling in the UK, the US or Ukraine.
 
 Vurell is run by Myroslav Sabelnykov, a registered French sole trader (76 rue Pierre Julien, 26200 Montélimar, France). Contact: miro@vurell.com.
 
@@ -11,7 +11,7 @@ What counts as a qualified lead: a company that fits criteria agreed in writing 
 ## Pages
 
 - [Home](https://vurell.com/): what Vurell does, how it works, pricing, questions
-- [The pilot](https://vurell.com/services/): what the 30-day pilot includes, the signals tracked, what counts as a call, the 30 days, what Vurell does not do
+- [The pilot](https://vurell.com/services/): what the 30-day pilot includes, the signals tracked, what counts as a call, the 30 days, inbound leads, sales on retainer, what Vurell does not do
 - [Case: a Czech maker of exhibition stands, and Germany](https://vurell.com/proof/): the founder's 2025 market-entry work before Vurell, about 50 calls booked
 
 ## Data
