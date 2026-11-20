@@ -27,3 +27,12 @@
 /products/*    /404.html  410
 /collections   /404.html  410
 /collections/* /404.html  410
+# 2026-11-20: the rest of the old Shopify paths, so every leftover shop URL answers Gone, not 404.
+/pages/*       /404.html  410
+/policies/*    /404.html  410
+/blogs/*       /404.html  410
+/cart          /404.html  410
+/cart/*        /404.html  410
+/account       /404.html  410
+/account/*     /404.html  410
+/search        /404.html  410
