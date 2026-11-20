@@ -12,6 +12,7 @@ What counts as a qualified lead: a company that fits criteria agreed in writing 
 
 - [Home](https://vurell.com/): what Vurell does, how it works, pricing, questions
 - [The pilot](https://vurell.com/services/): what the 30-day pilot includes, the signals tracked, what counts as a call, the 30 days, inbound leads, sales on retainer, what Vurell does not do
+- [FAQ](https://vurell.com/faq/): 28 answers on pricing (pilot, sprint, sales on retainer), how the pilot runs, what counts as a qualified lead, markets and languages, cold email rules by country, and who runs Vurell
 - [Case: a Czech maker of exhibition stands, and Germany](https://vurell.com/proof/): the founder's 2025 market-entry work before Vurell, about 50 calls booked
 
 ## Data
