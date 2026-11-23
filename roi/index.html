@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pilot cost and payback calculator | Vurell</title>
-<meta name="description" content="Put in your deal value, the share of qualified leads that become deals, and the leads in a month. See what the pilot costs and how many deals cover it.">
+<meta name="description" content="Put in your deal value, the share of qualified calls that become deals, and the calls in a month. See what the first month costs and how many deals cover it.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://vurell.com/roi/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Vurell">
 <meta property="og:url" content="https://vurell.com/roi/">
 <meta property="og:title" content="Pilot cost and payback calculator | Vurell">
-<meta property="og:description" content="Put in your deal value, the share of qualified leads that become deals, and the leads in a month. See what the pilot costs and how many deals cover it.">
+<meta property="og:description" content="Put in your deal value, the share of qualified calls that become deals, and the calls in a month. See what the first month costs and how many deals cover it.">
 <meta property="og:image" content="https://vurell.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -26,7 +26,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="preload" href="../fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://vurell.com/roi/#page","name":"Pilot cost and payback calculator","url":"https://vurell.com/roi/","inLanguage":"en","isPartOf":{"@id":"https://vurell.com/#website"},"description":"Put in your deal value, the share of qualified leads that become deals, and the leads in a month. See what the pilot costs and how many deals cover it."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Vurell","item":"https://vurell.com/"},{"@type":"ListItem","position":2,"name":"Calculator","item":"https://vurell.com/roi/"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://vurell.com/roi/#page","name":"Pilot cost and payback calculator","url":"https://vurell.com/roi/","inLanguage":"en","isPartOf":{"@id":"https://vurell.com/#website"},"description":"Put in your deal value, the share of qualified calls that become deals, and the calls in a month. See what the first month costs and how many deals cover it."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Vurell","item":"https://vurell.com/"},{"@type":"ListItem","position":2,"name":"Calculator","item":"https://vurell.com/roi/"}]}]}</script>
 <style>
 @font-face{font-family:"Geist";src:url("../fonts/geist-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 @font-face{font-family:"Geist Mono";src:url("../fonts/geist-mono-latin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
@@ -252,18 +252,18 @@ footer .foot-tex{margin-top:1.25rem}
     <h3>Your numbers</h3>
     <div class="enq-grid">
       <p class="fld"><label for="deal">Average first-year deal value, $</label><input id="deal" name="deal" type="number" inputmode="decimal" min="0" step="any" value="10000"><span class="hint">Assumption. Change it.</span></p>
-      <p class="fld"><label for="share">Leads that become a deal, %</label><input id="share" name="share" type="number" inputmode="decimal" min="0" max="100" step="any" value="10"><span class="hint">Assumption. Change it.</span></p>
-      <p class="fld"><label for="leads">Qualified leads in the month</label><input id="leads" name="leads" type="number" inputmode="numeric" min="0" step="1" value="4"><span class="hint">Assumption. Change it.</span></p>
+      <p class="fld"><label for="share">Qualified calls that become a deal, %</label><input id="share" name="share" type="number" inputmode="decimal" min="0" max="100" step="any" value="10"><span class="hint">Assumption. Change it.</span></p>
+      <p class="fld"><label for="leads">Qualified calls in the month</label><input id="leads" name="leads" type="number" inputmode="numeric" min="0" step="1" value="4"><span class="hint">Assumption. Change it.</span></p>
     </div>
     <p class="roi-check"><label><input id="sprint" name="sprint" type="checkbox"> I paid for the Sprint and the pilot starts within 30 days of its handover ($350 credited)</label></p>
     <dl class="roi-out" aria-live="polite">
-      <div><dt>Cost of the month</dt><dd id="o-cost">$1,700</dd><dd class="roi-how" data-how="cost">$500 for the pilot plus $300 for each qualified lead</dd></div>
-      <div><dt>Expected deals</dt><dd id="o-deals">0.4</dd><dd class="roi-how">Leads times the share that become a deal</dd></div>
+      <div><dt>Cost of the month</dt><dd id="o-cost">$1,300</dd><dd class="roi-how" data-how="cost">$100 for the first month plus $300 for each qualified call</dd></div>
+      <div><dt>Expected deals</dt><dd id="o-deals">0.4</dd><dd class="roi-how">Calls times the share that become a deal</dd></div>
       <div><dt>Expected revenue</dt><dd id="o-rev">$4,000</dd><dd class="roi-how">Expected deals times the deal value</dd></div>
-      <div><dt>Deals needed to cover the month</dt><dd id="o-cover">0.17</dd><dd class="roi-how">Cost of the month divided by the deal value</dd></div>
+      <div><dt>Deals needed to cover the month</dt><dd id="o-cover">0.13</dd><dd class="roi-how">Cost of the month divided by the deal value</dd></div>
     </dl>
-    <noscript><p class="enq-note">Without JavaScript, the example above uses the defaults: a $10,000 deal, 10% of leads becoming deals, 4 leads. The month costs $1,700, gives 0.4 expected deals and $4,000 of expected revenue, and 0.17 of one deal covers it.</p></noscript>
-    <div class="enq-foot"><p class="enq-alt">Start with the <a href="../sprint/">Signal &amp; Positioning Sprint</a> and the $350 is credited to the pilot.</p></div>
+    <noscript><p class="enq-note">Without JavaScript, the example above uses the defaults: a $10,000 deal, 10% of calls becoming deals, 4 calls. The first month costs $1,300, gives 0.4 expected deals and $4,000 of expected revenue, and 0.13 of one deal covers it.</p></noscript>
+    <div class="enq-foot"><p class="enq-alt">Start with the <a href="../sprint/">Signal &amp; Positioning Sprint</a> and the $350 is credited to the pilot's monthly fees. The second month is $100 too; from the third, $300 a month plus the calls.</p></div>
   </form>
 </div></section>
 
@@ -306,13 +306,13 @@ footer .foot-tex{margin-top:1.25rem}
     if (share !== null && share > 100) share = 100;
     if (leads !== null) leads = Math.floor(leads);
     var credit = $("sprint").checked ? 350 : 0;
-    var cost = leads === null ? null : Math.max(0, 500 - credit) + 300 * leads;
-    document.querySelector("[data-how=cost]").textContent = credit ? "$500 for the pilot minus the $350 Sprint credit, plus $300 for each qualified lead" : "$500 for the pilot plus $300 for each qualified lead";
+    var cost = leads === null ? null : Math.max(0, 100 - credit) + 300 * leads;
+    document.querySelector("[data-how=cost]").textContent = credit ? "The first month's $100 is covered by the Sprint credit; $300 for each qualified call" : "$100 for the first month plus $300 for each qualified call";
     var deals = (leads === null || share === null) ? null : leads * share / 100;
-    $("o-cost").textContent = cost === null ? "Enter the leads" : money(cost);
-    $("o-deals").textContent = deals === null ? "Enter the leads and the share" : (Math.round(deals * 10) / 10).toString();
+    $("o-cost").textContent = cost === null ? "Enter the calls" : money(cost);
+    $("o-deals").textContent = deals === null ? "Enter the calls and the share" : (Math.round(deals * 10) / 10).toString();
     $("o-rev").textContent = (deals === null || deal === null) ? "Enter all three numbers" : money(deals * deal);
-    $("o-cover").textContent = (cost === null || deal === null) ? "Enter the deal value and the leads"
+    $("o-cover").textContent = (cost === null || deal === null) ? "Enter the deal value and the calls"
       : deal === 0 ? "No deal value, no cover" : (Math.round(cost / deal * 100) / 100).toString();
   }
   ["deal", "share", "leads", "sprint"].forEach(function (id) { $(id).addEventListener("input", upd); $(id).addEventListener("change", upd); });

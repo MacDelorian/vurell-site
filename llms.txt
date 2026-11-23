@@ -1,18 +1,18 @@
 # Vurell
 
-> Vurell is a go-to-market (GTM) service for software companies. It finds the companies in Europe that need what a client builds right now, through public signals in company registers, job boards and funding news across Europe, writes to them in the client's name, follows up by phone, and runs the first call itself (English, French or Ukrainian). The companies that are ready are handed to the client's team with notes, and the client sells. Price: $500 for a 30-day pilot, then $300 for each qualified lead handed over. After the pilot the client continues month to month at $500 a month plus $300 per qualified lead, or commits to 3 months at $400 a month plus $250 per qualified lead. A sending domain of the client's own costs from €40, paid up front with the pilot, and takes about two weeks to warm up. A second option, sales on retainer, takes the deal to signature: $500 a month (minimum 3 months) plus 15% of first-year contract value under $20k or 10% from $20k, (for monthly SaaS, the customer's whole first monthly payment instead), for companies selling in the UK, the US or Ukraine.
+> Vurell is a go-to-market (GTM) service for software companies. It finds the companies in Europe that need what a client builds right now, through public signals in company registers, job boards and funding news across Europe, writes to them in the client's name, follows up by phone, and runs the first call itself (English, French or Ukrainian). The companies that are ready are handed to the client's team with notes, and the client sells. Price: a month-to-month pilot at $100 a month for the first two months and $300 a month from the third, plus $300 for each qualified call handed over. No minimum term. A sending domain of the client's own costs from €40, paid with the first month, and takes about two weeks to warm up. A second option, sales on retainer, takes the deal to signature: $500 a month (minimum 3 months) plus 15% of first-year contract value under $20k or 10% from $20k, (for monthly SaaS, the customer's whole first monthly payment instead), for companies selling in the UK, the US or Ukraine.
 
 Vurell is run by Myroslav Sabelnykov, a registered French sole trader (76 rue Pierre Julien, 26200 Montélimar, France). Contact: miro@vurell.com.
 
 Who it is for: software companies with 5 to 100 people where the founder still sells (development studios, outsourcers, SaaS, custom software), from any country, selling into any country in Europe.
 
-What counts as a qualified lead: a company that fits criteria agreed in writing before the pilot (company size, country, role of the person), where Vurell has held the first call with a decision-maker and handed it to the client with notes. A call that does not happen, or a company that does not fit, is not billed. Vurell does not promise that a company will buy.
+What counts as a qualified call: a company that fits criteria agreed in writing before the pilot (company size, country, role of the person), where Vurell has held the first call with a decision-maker and handed it to the client with notes. A call that does not happen, or a company that does not fit, is not billed. Vurell does not promise that a company will buy.
 
 ## Pages
 
 - [Home](https://vurell.com/): what Vurell does, how it works, pricing, questions
-- [The pilot](https://vurell.com/services/): what the 30-day pilot includes, the signals tracked, what counts as a call, the 30 days, inbound leads, sales on retainer, what Vurell does not do
-- [FAQ](https://vurell.com/faq/): 28 answers on pricing (pilot, sprint, sales on retainer), how the pilot runs, what counts as a qualified lead, markets and languages, cold email rules by country, and who runs Vurell
+- [The pilot](https://vurell.com/services/): what the pilot includes, the signals tracked, what counts as a call, the first month, inbound leads, sales on retainer, what Vurell does not do
+- [FAQ](https://vurell.com/faq/): 28 answers on pricing (pilot, sprint, sales on retainer), how the pilot runs, what counts as a qualified call, markets and languages, cold email rules by country, and who runs Vurell
 - [Case: a Czech maker of exhibition stands, and Germany](https://vurell.com/proof/): the founder's 2025 market-entry work before Vurell, about 50 calls booked
 
 ## Data
