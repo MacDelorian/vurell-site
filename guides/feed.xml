@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Vurell guides</title><link href="https://vurell.com/guides/"/><link rel="self" href="https://vurell.com/guides/feed.xml"/><id>https://vurell.com/guides/</id>
-  <updated>2026-11-25T09:00:00Z</updated><author><name>Myroslav Sabelnykov</name></author>
+  <updated>2026-11-27T09:00:00Z</updated><author><name>Myroslav Sabelnykov</name></author>
+  <entry><title>Pay per meeting, retainer or hybrid: how to pay for outsourced lead generation</title><link href="https://vurell.com/guides/pay-per-meeting-retainer-or-hybrid/"/><id>https://vurell.com/guides/pay-per-meeting-retainer-or-hybrid/</id>
+    <published>2026-11-27T09:00:00Z</published><updated>2026-11-27T09:00:00Z</updated><summary>Three ways to pay for outsourced lead generation, compared on the same numbers: who carries the risk, what a slow month costs, and which model fits which buyer.</summary></entry>
   <entry><title>How many developer roles in Germany stay open for months?</title><link href="https://vurell.com/guides/developer-roles-open-germany-november-2026/"/><id>https://vurell.com/guides/developer-roles-open-germany-november-2026/</id>
     <published>2026-11-25T09:00:00Z</published><updated>2026-11-25T09:00:00Z</updated><summary>On 16 Nov 2026, 43% of 1,561 German developer postings had been listed 90+ days. What that means for dev studios and outsourcers, and how to use it.</summary></entry>
   <entry><title>How to tell if an outsourced lead generation pilot will pay for itself</title><link href="https://vurell.com/guides/pilot-cost-vs-deal-size/"/><id>https://vurell.com/guides/pilot-cost-vs-deal-size/</id>
